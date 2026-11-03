@@ -1,0 +1,42 @@
+# 2026-10-21T06:53:38-04:00
+$ python /mnt/data/work/aivm-safety-mode/jetson-bench/bench/ort_sam.py --onnx /mnt/data/work/export/efficientsam3-ev-m/open_vocab/vision_decoder_noif.onnx --emb /mnt/data/work/export/efficientsam3-ev-m/text_embeddings.npz --ep cuda --clip /mnt/data/work/aivm-safety-mode/jetson-bench/footage/raw/pexels-15170997-warehouse-team.mp4 --frames 10 --tag ort-cuda-ev-m
+{
+ "onnx": "/mnt/data/work/export/efficientsam3-ev-m/open_vocab/vision_decoder_noif.onnx",
+ "ep": "cuda",
+ "providers": [
+  "CUDAExecutionProvider",
+  "CPUExecutionProvider"
+ ],
+ "threads": "default",
+ "prompt": "person",
+ "load_s": 4.9,
+ "frame": {
+  "mean_ms": 274.7,
+  "p95_ms": 275.1,
+  "min_ms": 274.4,
+  "max_ms": 275.1,
+  "fps": 3.64,
+  "n": 10
+ },
+ "session_run": {
+  "mean_ms": 259.4,
+  "p95_ms": 259.8,
+  "min_ms": 259.1,
+  "max_ms": 259.8,
+  "fps": 3.85,
+  "n": 10
+ },
+ "found_per_frame": [
+  1,
+  2,
+  2,
+  2,
+  2,
+  3,
+  3,
+  3,
+  1,
+  1
+ ],
+ "ort": "1.23.0"
+}

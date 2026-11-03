@@ -1,0 +1,32 @@
+{
+  "clip": "pexels-31751344-forklift-crosses-aisle",
+  "model": "sam-3.1",
+  "mode": "video",
+  "fps": 1,
+  "frame_size": [1280, 720],
+  "video": {"file": "test-footage/cache/video/forklift-crosses-aisle-1280.mp4", "width": 1280, "height": 720, "fps": 10.0, "frames": 120},
+  "source": "Meta Model API, video mode: one input_video request per clip and prompt (file upload, long side 1280 px, all frames), mask_encoding=one_bit, include_confidence=true; masks dropped",
+  "frame_index": "1 fps frame NNN (second s = NNN - 1) = video frame ceil((s + 0.5) * fps) - 1",
+  "box_units": "pixels of frames/<clip>/NNN.jpg, [x1, y1, x2, y2], x2/y2 exclusive",
+  "track_id": "SAM 3.1 object id, stable across the clip for one prompt (ids of different prompts are unrelated); a new id that starts within 1 s after an old one stopped, on an overlapping box (IoU >= 0.4) or within 0.3 m on the floor, takes the old id (detect/tracks.py); sam_track_id = the SAM id then",
+  "updated": "2026-10-29",
+  "prompts": ["forklift", "hard hat", "person", "safety vest"],
+  "requests": {"forklift": {"frames_in_response": 46, "elapsed_s": 12.16, "upload_s": 5.518, "file_id": "file-3618811271620825"}, "hard hat": {"frames_in_response": 0, "elapsed_s": 10.796, "upload_s": 4.77, "file_id": "file-1139376579033060"}, "person": {"frames_in_response": 35, "elapsed_s": 12.382, "upload_s": 4.883, "file_id": "file-923748447335915"}, "safety vest": {"frames_in_response": 0, "elapsed_s": 11.994, "upload_s": 5.273, "file_id": "file-1130167276045033"}},
+  "frame_map": {"001": 4, "002": 14, "003": 24, "004": 34, "005": 44, "006": 54, "007": 64, "008": 74, "009": 84, "010": 94, "011": 104, "012": 114},
+  "bridges": [],
+  "tracks": {"forklift": {"0": {"first_s": 5, "last_s": 8, "seconds": 4}}, "hard hat": {}, "person": {"0": {"first_s": 5, "last_s": 8, "seconds": 4}}, "safety vest": {}},
+  "frames": {
+    "001": {"forklift": [], "hard hat": [], "person": [], "safety vest": []},
+    "002": {"forklift": [], "hard hat": [], "person": [], "safety vest": []},
+    "003": {"forklift": [], "hard hat": [], "person": [], "safety vest": []},
+    "004": {"forklift": [], "hard hat": [], "person": [], "safety vest": []},
+    "005": {"forklift": [], "hard hat": [], "person": [], "safety vest": []},
+    "006": {"forklift": [{"box": [0.0, 0.0, 889.0, 704.0], "score": 0.871, "track_id": 0}], "hard hat": [], "person": [{"box": [0.0, 74.0, 259.0, 448.0], "score": 0.77, "track_id": 0}], "safety vest": []},
+    "007": {"forklift": [{"box": [214.0, 0.0, 1277.0, 702.0], "score": 0.871, "track_id": 0}], "hard hat": [], "person": [{"box": [372.0, 70.0, 679.0, 484.0], "score": 0.77, "track_id": 0}], "safety vest": []},
+    "008": {"forklift": [{"box": [641.0, 0.0, 1280.0, 699.0], "score": 0.871, "track_id": 0}], "hard hat": [], "person": [{"box": [754.0, 66.0, 1127.0, 471.0], "score": 0.77, "track_id": 0}], "safety vest": []},
+    "009": {"forklift": [{"box": [1032.0, 0.0, 1280.0, 666.0], "score": 0.871, "track_id": 0}], "hard hat": [], "person": [{"box": [1220.0, 63.0, 1280.0, 255.0], "score": 0.77, "track_id": 0}], "safety vest": []},
+    "010": {"forklift": [], "hard hat": [], "person": [], "safety vest": []},
+    "011": {"forklift": [], "hard hat": [], "person": [], "safety vest": []},
+    "012": {"forklift": [], "hard hat": [], "person": [], "safety vest": []}
+  }
+}

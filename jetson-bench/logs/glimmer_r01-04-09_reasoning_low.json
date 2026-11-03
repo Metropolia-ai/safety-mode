@@ -1,0 +1,59 @@
+{
+  "tag": "r01-04-09-reasoning-low",
+  "model": "muse-glimmer-30B",
+  "base_url": "http://127.0.0.1:8090/v1",
+  "structured": "auto",
+  "reasoning": "low",
+  "pass": 3,
+  "n": 3,
+  "total_s": 165.3,
+  "ram_first_mb": 30602,
+  "ram_peak_mb": 30684,
+  "rows": [
+    {
+      "rule": 1,
+      "pass": true,
+      "kind": "condition",
+      "diffs": [],
+      "s": 47.4,
+      "calls": 1,
+      "prompt_tokens": 2115,
+      "completion_tokens": 378,
+      "reasoning_tokens": 0,
+      "mode": "json_schema",
+      "finish": [
+        "stop"
+      ]
+    },
+    {
+      "rule": 4,
+      "pass": true,
+      "kind": "unsupported",
+      "diffs": [],
+      "s": 75.2,
+      "calls": 1,
+      "prompt_tokens": 2127,
+      "completion_tokens": 613,
+      "reasoning_tokens": 0,
+      "mode": "json_schema",
+      "finish": [
+        "stop"
+      ]
+    },
+    {
+      "rule": 9,
+      "pass": true,
+      "kind": "unsupported",
+      "diffs": [],
+      "s": 42.7,
+      "calls": 1,
+      "prompt_tokens": 2118,
+      "completion_tokens": 339,
+      "reasoning_tokens": 0,
+      "mode": "json_schema",
+      "finish": [
+        "stop"
+      ]
+    }
+  ]
+}

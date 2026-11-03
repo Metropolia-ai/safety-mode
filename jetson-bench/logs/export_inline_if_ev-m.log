@@ -1,0 +1,4 @@
+$ python bench/onnx_inline_squeeze_if.py open_vocab/vision_decoder.onnx open_vocab/vision_decoder_noif.onnx
+inlined 1 If node(s) -> /mnt/data/work/export/efficientsam3-ev-m/open_vocab/vision_decoder_noif.onnx
+$ python bench/onnx_inline_squeeze_if.py fixed4/efficientsam3_ev-m_fixed4_mask.onnx fixed4/efficientsam3_ev-m_fixed4_mask_noif.onnx
+inlined 4 If node(s) -> /mnt/data/work/export/efficientsam3-ev-m/fixed4/efficientsam3_ev-m_fixed4_mask_noif.onnx

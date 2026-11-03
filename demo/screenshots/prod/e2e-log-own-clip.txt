@@ -1,0 +1,36 @@
+23:54:32 page load: DOM 1.12 s, first clip playable 1.82 s, network idle 2.30 s; navigation entry {"name":"https://safety-mode.vercel.app/","entryType":"navigation","startTime":0,"duration":1100.7999999523163,"navigationId":4263,"initiatorType":"navigation","deliveryType":"","nextHopProtocol":"h2"
+23:54:32 OK   first clip selected on load
+23:54:32 OK   clip selector order: Worker crosses the floor | Site: vest check | Forklift crosses the walkway | Team at the racks | Webcam | Your clip
+23:54:32 screenshot 01-start.png
+23:54:33 OK   /api/health without a key shows the limits: {'sam_frames_per_hour_per_ip': 300, 'spark_calls_per_hour_per_ip': 30, 'scout_runs_per_hour_per_ip': 2, 'scout_steps_per_hour_per_ip': 40, 'sam_frames_per_day': 2500, 'spark_calls_per_day': 500, 'scout_runs_per_day': 30, 'scout_steps_per_day': 600}; remaining for this address {'sam_frames': 274, 'spark_calls': 23, 'scout_runs': 2, 'scout_steps': 40}; today {'sam_frames': 2474, 'spark_calls': 493, 'scout_runs': 30, 'scout_steps': 600}
+23:54:33 OK   no key field on the page: footer 'Built during the Meta Global AI Developer Hackathon, 26 Oct–4 Nov 2026\nDetection: SAM 3.1. Rules, explanations and the report: Muse Spark. Clips: Pexels.\nFrappua, Helsinki'
+23:54:34 OK   own clip: the tab says the file stays in the browser: Check a rule on your own clip  Pick a video file from your computer. It stays in this browser: nothing is uploaded. The page checks the first 30 seconds. When a rule runs, it sends one frame per secon
+23:54:34 OK   own clip: Rule Scout says it runs on the sample clips: Works on the sample clips
+23:54:34 screenshot own-clip-01-pick.png
+23:54:34 own clip: pexels-7579570-desk-glasses-off.mp4 playable in 0.28 s; setup 'Your clip. pexels-7579570-desk-glasses-off.mp4, 2.2 MB, 00:22. Choose another | No zone yet. Draw the area your rule talks about, or press “Whole frame”. | Floor calibration. None, so rules with distances in metres cannot be checked on your clip.'
+23:54:35 OK   own clip: zone drawn with clicks and named 'desk'
+23:54:35 OK   own clip: zone kept in localStorage [{'title': 'desk', 'polygon': [[0.1194, 0.2196], [0.8794, 0.2196], [0.919, 1], [0.0798, 1]]}]
+23:54:36 screenshot own-clip-02-zone.png
+23:54:45 own clip: compiled in 9.4 s: 'SAM 3.1 looks for\n“person” live“glasses” live\nWhere\ndesk\nCondition\nAlert when a person is in the desk, and the person is missing glasses.\nHolds for\n3 s before an alert\nSeverity\nMedium\nSAM 3.1 runs live for “person”, “glasses” on your clip. “Run on this clip” sends 22 frames, one per second, to SAM 3.1 through the Meta API; the video file stays in this browser.\nCompiled by Muse Spark in 8.9 s, checked against the rule schema.\nCompiled rule (JSON)'
+23:54:45 OK   own clip: the card names the user's zone and says SAM runs live
+23:54:46 screenshot own-clip-03-rule.png
+23:54:49 screenshot own-clip-04-progress.png
+23:55:09 own clip (first): Run -> strip 23.2 s, 22 /api/detect (0.8-4.3 s each); strip '.cc.......ccAAAAAAAAAA'; note 'alert 12–21 s'; caption 'Alert from 00:12 to 00:21 (true since 00:10, needs 3 s): person without glasses 10–21 s.'
+23:55:09 OK   own clip (first): strip has every second
+23:55:09 OK   own clip: alert(s) [(12, 21)]
+23:55:16 screenshot own-clip-05-alert.png
+23:55:20 own clip: feed ['Glasses required at desk | Your clip, 00:12, medium, condition held 12 s | The camera detected a person in the desk zone in the centre of the frame, near the camera without glasses. The condition lasted 12 s starting at 00:12. | Explanation: Muse Spark']
+23:55:20 OK   own clip: 1 alert(s) in the feed, labelled Your clip
+23:55:20 OK   own clip: the alert names the user's zone
+23:55:20 screenshot own-clip-06-end.png
+23:55:21 own clip (again): Run -> strip 0.6 s, 0 /api/detect; strip '.cc.......ccAAAAAAAAAA'; note 'alert 12–21 s'; caption 'Alert from 00:12 to 00:21 (true since 00:10, needs 3 s): person without glasses 10–21 s.'
+23:55:21 OK   own clip (again): strip has every second
+23:55:21 OK   own clip: second run reuses the session's SAM results (0 requests)
+23:55:40 own clip: report in 19.6 s: 'Safety report — Frappua demo warehouse, camera Your clip (times are minutes:seconds into each clip) — Mon 2026-11-02\n\nSummary. 1 event, 0 high, 1 medium, 0 low. No critical events. Camera uptime 0 h 1 min.\n\nMedium\n\n00:12–00:21 — Rule 1 Glasses required at desk. A person in the desk zone without glasses. Duration 12 s. Frame: evt-01.jpg.\n\nPatterns and suggestions\n\nNo repeat pattern can be confirmed from a single event. Consider keeping spare glasses available at the desk.\n\nRule health. No rules without events, no false positives marked, no rules disabled or edited.'
+23:55:40 OK   own clip: the report names the clip or the zone
+23:55:40 OK   own clip: no zone keys in the report
+23:55:41 screenshot own-clip-07-report.png
+23:55:42 API times: compile n=1 9.06-9.06 s; detect n=22 0.83-4.34 s; health n=1 0.26-0.26 s; report n=1 18.98-18.98 s; run n=2 0.20-9.38 s
+23:55:42 left for this address this hour: {'sam_frames': 296, 'spark_calls': 28, 'scout_runs': 2, 'scout_steps': 40}
+23:55:42 OK   console errors: none
+23:55:42 failures: none

@@ -1,0 +1,1672 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Safety Mode · AI Vision Monitor · Frappua</title>
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Crect width='16' height='16' rx='3' fill='%2322292E'/%3E%3Cpath d='M0 16L16 0v5L5 16z' fill='%23F5C400'/%3E%3C/svg%3E">
+<meta name="description" content="Write a warehouse safety rule in plain words; Muse Spark compiles it, SAM 3.1 finds people, PPE and forklifts, a deterministic engine raises the alerts.">
+<!--
+  Live demo page. One file, no build step, no CDN.
+  Backend: safety_mode/webapp.py (FastAPI). The browser keeps the session; the server is stateless.
+-->
+<style>
+  :root {
+    --concrete: #E7EAE8;
+    --panel: #FFFFFF;
+    --ink: #22292E;
+    --muted: #5E6A72;
+    --rule-line: #C9CFCC;
+    --tape: #F5C400;
+    --high: #B3261E;
+    --medium: #A15C00;
+    --zone: #2F6FDE;
+    --ok: #1F7A4D;
+    --cond: "Bahnschrift", "DIN Alternate", "Roboto Condensed", "Noto Sans Display", "Arial Narrow", sans-serif;
+    --body: "Segoe UI", "Noto Sans", "Helvetica Neue", Arial, sans-serif;
+  }
+  * { box-sizing: border-box; }
+  html, body { margin: 0; height: 100%; }
+  body {
+    background: var(--concrete); color: var(--ink);
+    font: 14px/1.45 var(--body);
+    display: grid; grid-template-rows: auto 1fr auto; min-height: 100vh;
+  }
+  button { font: inherit; color: inherit; cursor: pointer; }
+  :focus-visible { outline: 3px solid var(--zone); outline-offset: 2px; }
+
+  /* ---------- top bar ---------- */
+  .bar {
+    display: flex; align-items: center; gap: 28px; padding: 10px 24px;
+    background: var(--panel); border-bottom: 1px solid var(--rule-line);
+  }
+  .brand { display: flex; align-items: baseline; gap: 10px; margin-right: auto; }
+  .brand b { font: 600 22px/1 var(--cond); font-stretch: 87.5%; letter-spacing: .2px; }
+  .brand span { color: var(--muted); font-size: 13px; }
+  .group { display: flex; align-items: center; gap: 8px; }
+  .group > span { color: var(--muted); font-size: 13px; }
+  .seg { display: inline-flex; border: 1px solid var(--rule-line); border-radius: 6px; overflow: hidden; }
+  .seg button {
+    border: 0; background: none; padding: 6px 12px; font-size: 13px;
+    border-right: 1px solid var(--rule-line);
+  }
+  .seg button:last-child { border-right: 0; }
+  .seg button[aria-pressed="true"] { background: var(--ink); color: #fff; }
+  .report-btn {
+    border: 1px solid var(--ink); background: var(--ink); color: #fff;
+    border-radius: 6px; padding: 7px 14px; font-weight: 600;
+  }
+
+  /* ---------- work area ---------- */
+  main {
+    display: grid; grid-template-columns: minmax(0, 1.55fr) minmax(380px, 1fr);
+    gap: 20px; padding: 18px 24px; min-height: 0;
+  }
+  .monitor { display: flex; flex-direction: column; gap: 12px; min-width: 0; }
+  .screen {
+    position: relative; background: #2A3136; border-radius: 6px; overflow: hidden;
+    aspect-ratio: 16 / 9; display: grid; place-items: center;
+  }
+  .screen canvas { width: 100%; height: 100%; display: block; }
+  .screen .stamp {
+    position: absolute; left: 12px; top: 10px; color: #fff; font-size: 12px;
+    background: rgba(20, 24, 27, .62); padding: 3px 8px; border-radius: 4px;
+  }
+  .webcam {
+    position: absolute; inset: 0; display: none; place-content: center; text-align: center;
+    color: #E7EAE8; padding: 40px; gap: 6px;
+  }
+  .webcam p { margin: 0; max-width: 46ch; }
+  .webcam b { font: 600 24px/1.2 var(--cond); font-stretch: 87.5%; }
+  .screen.is-webcam canvas { visibility: hidden; }
+  .screen.is-webcam .webcam { display: grid; }
+
+  .timeline { background: var(--panel); border: 1px solid var(--rule-line); border-radius: 6px; padding: 10px 14px 12px; }
+  .timeline-head { display: flex; justify-content: space-between; font-size: 13px; color: var(--muted); margin-bottom: 8px; }
+  .ticks { display: grid; gap: 2px; height: 26px; }
+  .ticks[hidden] { display: none; }
+  .ticks i { background: #DDE2DF; border-radius: 2px; }
+  .ticks i.medium { background: var(--medium); }
+  .ticks i.high { background: var(--high); }
+  .ticks i.now { outline: 2px solid var(--ink); outline-offset: 1px; }
+  .setup { background: var(--panel); border: 1px solid var(--rule-line); border-radius: 6px; padding: 12px 14px; }
+  .setup h2 { font: 600 17px/1.2 var(--cond); font-stretch: 87.5%; margin: 0 0 8px; }
+  .setup ul { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: 1fr 1fr; gap: 6px 24px; font-size: 13px; }
+  .setup li { padding-left: 20px; position: relative; }
+  .setup li::before {
+    content: ""; position: absolute; left: 0; top: 3px; width: 12px; height: 12px; border-radius: 2px; background: var(--c);
+  }
+  .setup li.cal::before { background: none; border: 1.5px dashed var(--muted); }
+  .setup b { font-weight: 600; }
+
+  /* ---------- right column ---------- */
+  .side { display: flex; flex-direction: column; gap: 14px; min-height: 0; }
+  section h2 { font: 600 17px/1.2 var(--cond); font-stretch: 87.5%; margin: 0 0 8px; }
+
+  .rule {
+    background: var(--panel); border: 1px solid var(--rule-line); border-radius: 6px;
+    padding: 12px 16px 12px 26px; position: relative;
+  }
+  /* floor marking: the yellow-black tape is where the manager writes the rule */
+  .rule::before {
+    content: ""; position: absolute; left: 0; top: 0; bottom: 0; width: 10px; border-radius: 6px 0 0 6px;
+    background: repeating-linear-gradient(-45deg, var(--tape) 0 9px, var(--ink) 9px 18px);
+  }
+  .rule label { display: block; font: 600 17px/1.2 var(--cond); font-stretch: 87.5%; margin-bottom: 6px; }
+  .rule textarea {
+    width: 100%; resize: none; border: 0; padding: 0; background: none; color: var(--ink);
+    font: 500 22px/1.25 var(--cond); font-stretch: 87.5%; height: 2.55em;
+  }
+  .rule textarea:focus-visible { outline: none; }
+  .rule:focus-within { border-color: var(--ink); }
+  .rule-actions { display: flex; align-items: center; gap: 12px; margin-top: 4px; font-size: 13px; color: var(--muted); }
+  .rule-actions button {
+    white-space: nowrap; border: 1px solid var(--ink); background: var(--panel); border-radius: 6px; padding: 5px 12px; font-weight: 600;
+  }
+
+  .understood { background: var(--panel); border: 1px solid var(--rule-line); border-radius: 6px; padding: 12px 16px; }
+  .understood dl { display: grid; grid-template-columns: 130px 1fr; gap: 6px 12px; margin: 0; }
+  .understood dt { color: var(--muted); }
+  .understood dd { margin: 0; }
+  .chip {
+    display: inline-block; border: 1px solid var(--rule-line); border-radius: 4px; padding: 0 6px; margin: 0 4px 3px 0;
+    font-size: 13px; background: #F6F7F6;
+  }
+  .chip em { font-style: normal; color: var(--muted); }
+  .cond { font-weight: 600; }
+  .sev { font-weight: 700; }
+  .sev.high, .sev.critical { color: var(--high); }
+  .sev.medium { color: var(--medium); }
+  .sev.low { color: var(--muted); }
+  .unsupported { border-left: 3px solid var(--medium); padding-left: 10px; }
+  .understood details { margin-top: 8px; font-size: 13px; color: var(--muted); }
+  .understood pre { max-height: 160px; overflow: auto; background: #F6F7F6; padding: 8px; border-radius: 4px; font-size: 12px; color: var(--ink); }
+
+  .alerts { flex: 1; min-height: 0; display: flex; flex-direction: column; }
+  .alerts-head { display: flex; justify-content: space-between; align-items: baseline; }
+  .alerts-head small { color: var(--muted); }
+  .feed { list-style: none; margin: 0; padding: 0; overflow: auto; min-height: 0; display: flex; flex-direction: column; gap: 8px; }
+  .alert {
+    display: grid; grid-template-columns: 112px 1fr; gap: 12px; padding: 8px 12px 8px 12px;
+    background: var(--panel); border: 1px solid var(--rule-line); border-left: 5px solid var(--sevc); border-radius: 6px;
+  }
+  .alert img { width: 112px; height: 63px; object-fit: cover; border-radius: 3px; display: block; }
+  .alert h3 { margin: 0; font: 600 15px/1.25 var(--cond); font-stretch: 87.5%; }
+  .alert .meta { color: var(--muted); font-size: 12px; margin: 1px 0 4px; }
+  .alert p { margin: 0; font-size: 13px; }
+
+  footer {
+    display: flex; justify-content: space-between; padding: 8px 24px; font-size: 13px; color: var(--muted);
+    border-top: 1px solid var(--rule-line); background: var(--panel);
+  }
+  footer strong { color: var(--ink); }
+
+  /* ---------- session report ---------- */
+  .scrim { position: fixed; inset: 0; background: rgba(34, 41, 46, .35); display: none; }
+  .report {
+    position: fixed; top: 0; right: 0; bottom: 0; width: min(620px, 100%); background: var(--panel);
+    border-left: 1px solid var(--rule-line); padding: 24px 32px 32px; overflow: auto;
+    transform: translateX(100%); transition: transform .25s ease;
+  }
+  body.report-open .scrim { display: block; }
+  body.report-open .report { transform: none; }
+  .report h2 { font: 600 24px/1.2 var(--cond); font-stretch: 87.5%; margin: 0 0 4px; }
+  .report h3 { font: 600 17px/1.2 var(--cond); font-stretch: 87.5%; margin: 18px 0 6px; }
+  .report p, .report li { max-width: 68ch; }
+  .report ol, .report ul { padding-left: 20px; margin: 0; }
+  .report .close { position: absolute; top: 18px; right: 20px; border: 1px solid var(--rule-line); background: none; border-radius: 6px; padding: 4px 10px; }
+  .report .src { color: var(--muted); font-size: 13px; }
+
+  @media (max-width: 1100px) {
+    main { grid-template-columns: 1fr; }
+    .bar { flex-wrap: wrap; gap: 12px 20px; }
+    html, body { height: auto; }   /* one column: the page grows, the footer stays under it */
+  }
+  /* two columns: each column scrolls on its own when taller than the window (an open Rule Scout panel,
+     a vertical clip on a laptop screen), the footer never covers them, the alert feed keeps its room */
+  @media (min-width: 1101px) {
+    .side, .monitor { overflow-y: auto; }
+    .alerts { min-height: 300px; }
+  }
+  @media (prefers-reduced-motion: reduce) { .report { transition: none; } }
+  /* ---------- live page additions ---------- */
+  .screen video { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: contain; background: #2A3136; }
+  .screen canvas#overlay { position: absolute; inset: 0; width: 100%; height: 100%; pointer-events: none; }
+  .screen .stamp { z-index: 2; }
+  .webcam { z-index: 3; background: #2A3136; }
+  .screen.is-webcam .webcam { display: none; }
+  .screen.portrait { aspect-ratio: auto; height: min(72vh, 660px); }
+  .screen.is-webcam canvas#overlay { visibility: visible; }
+  .screen.is-webcam.cam-off .webcam { display: grid; }
+  .webcam button { justify-self: center; margin-top: 10px; border: 1px solid #E7EAE8; background: none; color: #fff;
+    border-radius: 6px; padding: 7px 16px; font-weight: 600; }
+  .ticks i { cursor: pointer; }
+  .ticks i.cand { background: repeating-linear-gradient(-45deg, #E2B9B5 0 4px, #DDE2DF 4px 8px); }
+  .ticks i.ne { background: repeating-linear-gradient(-45deg, #C9CFCC 0 4px, #EEF0EF 4px 8px); }
+  .ticks i.ok { background: #CFE3D8; }
+  /* alert still open, but nobody broke the rule this second (1 s gap allowed) */
+  .ticks i.gap { background: repeating-linear-gradient(-45deg, var(--sevc) 0 3px, #F3E3CC 3px 6px); }
+  .tl-caption { margin: 8px 0 0; font-size: 13px; line-height: 1.4; color: var(--ink); }
+  .tl-caption.none { color: var(--muted); }
+  .legend { display: flex; gap: 14px; flex-wrap: wrap; margin-top: 8px; font-size: 12px; color: var(--muted); }
+  .legend span::before { content: ""; display: inline-block; width: 10px; height: 10px; border-radius: 2px;
+    margin-right: 5px; vertical-align: -1px; background: var(--c); }
+  .rule-actions { flex-wrap: wrap; }
+  .rule-actions button.primary { background: var(--ink); color: #fff; }
+  .rule-actions button:disabled { opacity: .45; cursor: default; }
+  .busy::after { content: ""; display: inline-block; width: 10px; height: 10px; margin-left: 8px; border-radius: 50%;
+    border: 2px solid currentColor; border-right-color: transparent; animation: spin .8s linear infinite; vertical-align: -1px; }
+  @keyframes spin { to { transform: rotate(360deg); } }
+  .msg { margin-top: 6px; font-size: 13px; color: var(--muted); }
+  .msg.err { color: var(--high); }
+  .note { margin-top: 8px; font-size: 13px; border-left: 3px solid var(--zone); padding-left: 10px; }
+  .note.warn { border-color: var(--medium); }
+  .understood .empty { color: var(--muted); margin: 0; }
+  .understood .src-line { margin-top: 8px; font-size: 12px; color: var(--muted); }
+  .unsupported button { margin-top: 6px; border: 1px solid var(--ink); background: var(--panel); border-radius: 6px; padding: 3px 10px; font-size: 13px; }
+  .alert { cursor: pointer; }
+  .alert .src { font-size: 11px; color: var(--muted); margin-top: 3px; }
+  .feed .empty { color: var(--muted); font-size: 13px; padding: 6px 2px; }
+  .alerts-head button { border: 0; background: none; color: var(--muted); font-size: 12px; text-decoration: underline; padding: 0; }
+  @keyframes arrive { from { background: #FFF6CC; } to { background: var(--panel); } }
+  .alert.new { animation: arrive 1.6s ease-out; }
+  .report .body h1, .report .body h2 { font: 600 20px/1.2 var(--cond); font-stretch: 87.5%; margin: 16px 0 6px; }
+  .report .body h3 { margin-top: 14px; }
+  .report .body ul, .report .body ol { margin: 0 0 8px; }
+  .report .wait { color: var(--muted); }
+  footer a { color: var(--ink); }
+  footer .mid { flex: 1; text-align: center; }
+  /* ---------- Rule Scout ---------- */
+  .scout { background: var(--panel); border: 1px solid var(--rule-line); border-radius: 6px; padding: 10px 16px; }
+  .scout summary { cursor: pointer; display: flex; align-items: baseline; gap: 10px; list-style: none; }
+  .scout summary::-webkit-details-marker { display: none; }
+  .scout summary::before { content: "\25B8"; color: var(--muted); width: 10px; }
+  .scout details[open] summary::before { content: "\25BE"; }
+  .scout-h { font: 600 17px/1.2 var(--cond); font-stretch: 87.5%; }
+  .scout-sum { color: var(--muted); font-size: 13px; }
+  .scout .intro { font-size: 13px; color: var(--muted); margin: 8px 0 10px; }
+  .scout h3 { font: 600 15px/1.25 var(--cond); font-stretch: 87.5%; margin: 10px 0 6px; }
+  .scout-rules { list-style: none; margin: 0; padding: 0; display: grid; gap: 6px; }
+  .scout-rules li { border: 1px solid var(--rule-line); border-left: 4px solid var(--ok); border-radius: 4px; padding: 6px 10px; font-size: 13px; }
+  .scout-rules li b { font-weight: 600; }
+  .scout-rules li .why { color: var(--muted); }
+  .scout-rules li button { margin-top: 5px; border: 1px solid var(--ink); background: var(--panel); border-radius: 6px; padding: 2px 10px; font-size: 12px; font-weight: 600; }
+  .scout .none { color: var(--muted); font-size: 13px; margin: 0; }
+  .trace { list-style: none; margin: 0; padding: 2px 0 2px 14px; border-left: 2px solid var(--rule-line); max-height: 360px; overflow: auto; display: grid; gap: 7px; }
+  .trace li { position: relative; font-size: 13px; padding-left: 6px; }
+  .trace li::before { content: ""; position: absolute; left: -21px; top: 4px; width: 10px; height: 10px; border-radius: 50%;
+    background: var(--c, var(--rule-line)); border: 2px solid var(--panel); }
+  .trace .k { font-weight: 600; }
+  .trace .d { color: var(--muted); }
+  .trace .say { color: var(--muted); font-style: italic; }
+  .trace .rnd { color: var(--muted); font-size: 11px; margin-right: 4px; }
+  .trace li.seek { cursor: pointer; }
+  .trace li.seek:hover .k { text-decoration: underline; }
+  .mini { display: flex; gap: 1px; height: 8px; margin-top: 3px; max-width: 280px; }
+  .mini i { flex: 1; background: #CFE3D8; border-radius: 1px; }
+  .mini i.t { background: #E2B9B5; }
+  .mini i.a { background: var(--medium); }
+  .mini i.q { background: #C9CFCC; }
+  .scout-foot { display: flex; gap: 8px 12px; align-items: center; flex-wrap: wrap; margin-top: 10px; font-size: 12px; color: var(--muted); }
+  .scout-foot button { border: 1px solid var(--ink); background: var(--ink); color: #fff; border-radius: 6px; padding: 4px 12px; font-weight: 600; font-size: 13px; }
+  .scout-foot button:disabled { opacity: .45; cursor: default; }
+  .scout-foot .err { color: var(--high); }
+  footer { align-items: center; gap: 16px; }
+  .chip em.live { color: var(--zone); font-weight: 600; }
+  /* ---------- your clip, zone tool, desk rules ---------- */
+  .ownpick { position: absolute; inset: 0; display: none; place-content: center; text-align: center; color: #E7EAE8;
+    padding: 40px; gap: 6px; z-index: 3; background: #2A3136; }
+  .ownpick p { margin: 0; max-width: 52ch; }
+  .ownpick b { font: 600 24px/1.2 var(--cond); font-stretch: 87.5%; }
+  .ownpick label { justify-self: center; margin-top: 10px; border: 1px solid #E7EAE8; color: #fff; border-radius: 6px;
+    padding: 7px 16px; font-weight: 600; cursor: pointer; }
+  .ownpick label:focus-within { outline: 3px solid var(--zone); outline-offset: 2px; }
+  .ownpick input { position: absolute; width: 1px; height: 1px; opacity: 0; }
+  .screen.own-empty .ownpick { display: grid; }
+  .screen.drawing canvas#overlay { pointer-events: auto; cursor: crosshair; }
+  .setup li.file { grid-column: 1 / -1; }
+  .setup li input { font: inherit; font-size: 13px; padding: 0 6px; border: 1px solid var(--rule-line); border-radius: 4px;
+    background: #F6F7F6; color: var(--ink); width: min(15em, 70%); }
+  .setup li button, .zone-tools button { border: 1px solid var(--ink); background: var(--panel); border-radius: 6px;
+    padding: 1px 10px; font-size: 13px; font-weight: 600; }
+  .setup li button.del { border: 0; background: none; color: var(--muted); text-decoration: underline; padding: 0 0 0 6px; font-weight: 400; }
+  .zone-tools { display: flex; flex-wrap: wrap; align-items: center; gap: 6px 10px; margin-top: 10px; font-size: 13px; color: var(--muted); }
+  .zone-tools[hidden] { display: none; }
+  .zone-tools button.primary { background: var(--ink); color: #fff; }
+  .zone-tools button[hidden] { display: none; }
+  .desk { display: flex; flex-wrap: wrap; align-items: center; gap: 4px 6px; margin-top: 8px; font-size: 13px; color: var(--muted); }
+  .desk[hidden] { display: none; }
+  .desk button { border: 1px solid var(--rule-line); border-radius: 4px; padding: 0 8px; background: #F6F7F6; font-size: 13px; }
+  .desk button:hover { border-color: var(--ink); }
+  @media (max-width: 1100px) { footer { flex-wrap: wrap; } }
+</style>
+</head>
+<body>
+<header class="bar">
+  <div class="brand"><b>Safety Mode</b><span>AI Vision Monitor by Frappua</span></div>
+  <div class="group" role="group" aria-label="Video source">
+    <span>Video</span>
+    <div class="seg" id="clips">
+      <button data-clip="man-crosses-floor" aria-pressed="true">Worker crosses the floor</button>
+      <button data-clip="site-worker-no-vest" aria-pressed="false">Site: vest check</button>
+      <button data-clip="forklift-crosses-aisle" aria-pressed="false">Forklift crosses the walkway</button>
+      <button data-clip="warehouse-team" aria-pressed="false">Team at the racks</button>
+      <button data-clip="webcam" aria-pressed="false">Webcam</button>
+      <button data-clip="own" aria-pressed="false">Your clip</button>
+    </div>
+  </div>
+  <div class="group" role="group" aria-label="Example rules">
+    <span>Example rule</span>
+    <div class="seg" id="examples">
+      <button data-rule="r2" aria-pressed="true" title="Hard hat and vest on the floor">1</button>
+      <button data-rule="r2-vest" aria-pressed="false" title="Vest on the floor">2</button>
+      <button data-rule="r3" aria-pressed="false" title="Forklift within 2 m of a pedestrian">3</button>
+      <button data-rule="r8" aria-pressed="false" title="No forklift in the walkway crossing">4</button>
+    </div>
+  </div>
+  <button class="report-btn" id="open-report">Session report</button>
+</header>
+<main>
+  <div class="monitor">
+    <div class="screen" id="screen">
+      <video id="vid" playsinline muted preload="auto" controls></video>
+      <canvas id="overlay" aria-hidden="true"></canvas>
+      <span class="stamp" id="stamp"></span>
+      <div class="webcam">
+        <b>Check a rule on your own webcam</b>
+        <p>The page sends one frame every 2 seconds to SAM 3.1, up to <span id="cam-max">40</span> frames. Try rule 2 without a hard hat: the alert comes within about 6 seconds. Frames are not stored.</p>
+        <button id="cam-start">Allow camera</button>
+      </div>
+      <div class="ownpick">
+        <b>Check a rule on your own clip</b>
+        <p>Pick a video file from your computer. It stays in this browser: nothing is uploaded. The page checks the first 30 seconds. When a rule runs, it sends one frame per second to SAM 3.1 through the Meta API.</p>
+        <label>Choose a video<input type="file" id="own-file" accept="video/*"></label>
+      </div>
+    </div>
+    <div class="timeline">
+      <div class="timeline-head"><span id="tl-title">Run a rule to see it second by second</span><span id="tl-note"></span></div>
+      <div class="ticks" id="ticks"></div>
+      <p class="tl-caption" id="tl-caption" aria-live="polite"></p>
+      <div class="legend">
+        <span style="--c: var(--high)">Alert, high</span>
+        <span style="--c: var(--medium)">Alert, medium</span>
+        <span style="--c: repeating-linear-gradient(-45deg, var(--medium) 0 2px, #F3E3CC 2px 4px)">Alert kept open, nobody breaking the rule this second</span>
+        <span style="--c: #E2B9B5">Condition true, not long enough yet</span>
+        <span style="--c: #CFE3D8">Rule holds</span>
+        <span style="--c: #C9CFCC">Cannot be checked</span>
+        <span style="--c: #FF4D40">Red box on the video: object breaking the rule</span>
+      </div>
+    </div>
+    <section class="setup">
+      <h2>Zones and floor calibration on this camera</h2>
+      <ul id="setup"></ul>
+      <div class="zone-tools" id="zone-tools" hidden>
+        <button id="zone-draw">Draw a zone</button>
+        <button id="zone-whole">Whole frame</button>
+        <span id="zone-hint" aria-live="polite"></span>
+      </div>
+    </section>
+  </div>
+  <div class="side">
+    <section class="rule">
+      <label for="rule-text">Rule, in your own words</label>
+      <textarea id="rule-text" rows="2" spellcheck="false"></textarea>
+      <div class="rule-actions">
+        <button id="check" class="primary">Check rule</button>
+        <button id="run" disabled>Run on this clip</button>
+        <span id="check-note">Muse Spark turns the sentence into conditions the camera can check.</span>
+      </div>
+      <div class="desk" id="desk" hidden>
+        <span>Try at your desk:</span>
+        <button data-desk="glasses">Wear glasses</button>
+        <button data-desk="headphones">Wear headphones</button>
+        <button data-desk="cup">No cup in the keyboard zone</button>
+      </div>
+      <div class="msg" id="rule-msg" aria-live="polite"></div>
+    </section>
+    <section class="understood" aria-live="polite">
+      <h2>How I understood it</h2>
+      <div id="understood"><p class="empty">Press “Check rule”. You will see what the camera looks for, where, and when it raises an alert, before anything runs.</p></div>
+    </section>
+    <section class="scout" aria-live="polite">
+      <details id="scout">
+        <summary><span class="scout-h">Rule Scout</span><span class="scout-sum" id="scout-sum">An agent on Muse Spark proposes rules for this camera and tests them</span></summary>
+        <div id="scout-body"></div>
+      </details>
+    </section>
+    <section class="alerts">
+      <div class="alerts-head"><h2>Alerts</h2><small><span id="alert-count">No alerts yet</span> · <button id="clear-alerts">clear</button></small></div>
+      <ul class="feed" id="feed"></ul>
+    </section>
+  </div>
+</main>
+<footer>
+  <span>Built during the Meta Global AI Developer Hackathon, 26 Oct–4 Nov 2026</span>
+  <span class="mid">Detection: SAM 3.1. Rules, explanations and the report: Muse Spark. Clips: Pexels.</span>
+  <span>Frappua, Helsinki</span>
+</footer>
+<div class="scrim" id="scrim"></div>
+<aside class="report" id="report" aria-label="Session report" aria-hidden="true">
+  <button class="close" id="close-report">Close</button>
+  <h2>Session report</h2>
+  <p class="src" id="report-src">Muse Spark writes it from this session's alerts.</p>
+  <div class="body" id="report-body"></div>
+</aside>
+<script>
+(() => {
+  const $ = (id) => document.getElementById(id);
+  const esc = (s) => String(s ?? "").replace(/[&<>"]/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]));
+  const EXAMPLES = {
+    "r2": "Everyone on the warehouse floor must wear a hard hat and a high-visibility vest.",
+    "r2-vest": "Everyone on the floor must wear a high-visibility vest.",
+    "r3": "A forklift must not come closer than 2 m to a pedestrian.",
+    "r8": "No forklift in the walkway crossing."
+  };
+  // the example each clip opens with: the one whose violation starts and ends inside the clip
+  const DEFAULT_EXAMPLE = { "man-crosses-floor": "r2", "site-worker-no-vest": "r2-vest",
+                            "forklift-crosses-aisle": "r8", "warehouse-team": "r3", "webcam": "r2" };
+  const CLIPS = {
+    "man-crosses-floor": { title: "Worker crosses the floor", src: "media/man-crosses-floor.mp4" },
+    "site-worker-no-vest": { title: "Site: vest check", src: "media/site-worker-no-vest.mp4" },
+    "forklift-crosses-aisle": { title: "Forklift crosses the walkway", src: "media/forklift-crosses-aisle.mp4" },
+    // out of the selector, still reachable with ?clip=
+    "forklift-operator": { title: "Operator close-up", src: "media/forklift-operator.mp4" },
+    "warehouse-team": { title: "Team at the racks", src: "media/warehouse-team.mp4" },
+    "busy-warehouse": { title: "Forklift aisle", src: "media/busy-warehouse.mp4" },
+    "webcam": { title: "Webcam" },
+    "own": { title: "Your clip" }
+  };
+  const OWN_MAX_S = 30;
+  // zones the user draws (your clip, webcam): one colour each, in drawing order
+  const ZONE_PALETTE = ["#2F6FDE", "#C62828", "#1F9A57", "#9C4DCC", "#00838F", "#AD1457", "#6D4C41", "#F5C400"];
+  // "Try at your desk" (webcam): rules a visitor can act out at a laptop; compiled and checked on Pexels desk clips
+  const DESK = {
+    glasses: { text: "Everyone in view must wear glasses, alert after 2 seconds." },
+    headphones: { text: "Everyone in view must wear headphones, alert after 2 seconds." },
+    cup: { text: "No cup in the keyboard zone for more than 2 seconds.", zone: "Keyboard zone" }
+  };
+  const ZONE_COLOR = { past_gate: "#2F6FDE", fire_exit_zone: "#C62828", pedestrian_lane: "#1F9A57",
+                       yellow_zone: "#F5C400", rack_zone: "#9C4DCC" };
+  const SETUP = {
+    "man-crosses-floor": {
+      past_gate: "The floor the camera sees, from the base of the racks to the bottom of the frame. The worker's head is blurred in this video.",
+      calibration: "None, so the 2 m rule is not checked on this camera."
+    },
+    "site-worker-no-vest": {
+      past_gate: "The site floor the camera sees, from the base of the first scaffolding row to the bottom of the frame.",
+      calibration: "None, so the 2 m rule is not checked on this camera."
+    },
+    "forklift-crosses-aisle": {
+      pedestrian_lane: "Where the walkway between the two rack rows crosses the front aisle. Not painted on the floor, drawn by hand.",
+      calibration: "None, so the 2 m rule is not checked on this camera."
+    },
+    "busy-warehouse": {
+      past_gate: "The floor area the camera sees, up to the roll-up door threshold.",
+      fire_exit_zone: "Floor in front of the roll-up loading door, about 6.5 m deep. Not marked on the floor, drawn by hand.",
+      pedestrian_lane: "Strip between the yellow floor line and the racks.",
+      yellow_zone: "The walkway behind the yellow line.",
+      calibration: "4 points on the floor, a 3 × 5 m rectangle; scale from the 3 m door opening.",
+      machine: "Forklift state is set by hand: running 0–8 s."
+    },
+    "warehouse-team": {
+      past_gate: "The floor area the camera sees.",
+      rack_zone: "Rack bases on the right and 1 m of floor in front of them.",
+      yellow_zone: "Drawn by hand where the reach truck stands at 0 s. Nothing is painted on the floor; the truck leaves at 2 s.",
+      calibration: "4 points, a 3 × 4 m rectangle; scale from people's height, accurate to about 25 %."
+    },
+    "forklift-operator": {
+      past_gate: "The whole frame: a close-up, the floor is hardly visible.",
+      calibration: "None. Rule 3 needs distances on the floor, so it is not checked on this camera."
+    },
+    "webcam": {
+      // shown as "Whole frame" on this card only: the zone keeps its title "Warehouse floor", which is part of
+      // the compile cache keys of rules with zones drawn on the webcam (the cup rule in demo/cache/compile.json)
+      titles: { past_gate: "Whole frame" },
+      past_gate: "The whole webcam frame counts as the zone.",
+      calibration: "None, so distance rules are not checked on the webcam."
+    },
+    "own": {
+      calibration: "None, so rules with distances in metres cannot be checked on your clip."
+    }
+  };
+  const SEV_COLOR = { critical: "#B3261E", high: "#B3261E", medium: "#A15C00", low: "#5E6A72" };
+
+  const S = {
+    clip: "man-crosses-floor", ruleId: "r2", rule: null, ruleClip: null, status: null,
+    run: null, shown: new Set(), alerts: [], zones: {}, rulesUsed: {},
+    cam: { stream: null, on: false, frames: [], step: null, busy: false, timer: null, t0: 0, max: 40, explained: 0 },
+    live: {},
+    own: { file: null }, drawn: { own: [], webcam: [] }, zonesBase: {}, drawing: null
+  };
+  try { S.drawn.webcam = JSON.parse(localStorage.getItem("sm-zones:webcam") || "[]"); } catch (e) { S.drawn.webcam = []; }
+  try { S.live = JSON.parse(sessionStorage.getItem("sm-live-dets") || "{}"); } catch (e) { S.live = {}; }
+  const vid = $("vid"), ov = $("overlay"), octx = ov.getContext("2d");
+
+  async function api(path, body) {
+    const headers = body ? { "Content-Type": "application/json" } : {};
+    const r = await fetch(path, body ? { method: "POST", headers, body: JSON.stringify(body) } : { headers });
+    let j = null;
+    try { j = await r.json(); } catch (e) { /* not JSON */ }
+    if (!r.ok) {
+      const err = new Error((j && (j.detail || j.error)) || `HTTP ${r.status}`);
+      err.status = r.status;
+      throw err;
+    }
+    return j;
+  }
+
+  async function zonesOf(clip) {
+    if (clip === "own") return applyZones("own");
+    if (!S.zonesBase[clip]) S.zonesBase[clip] = await (await fetch(`data/zones/${clip}.json`)).json();
+    if (clip === "webcam") return applyZones("webcam");
+    return (S.zones[clip] = S.zonesBase[clip]);
+  }
+  // ---------- zones the user draws (your clip, webcam) ----------
+  // keys come from the titles ("walkway crossing" -> walkway_crossing); the compiler sees `key (title "…")`
+  function zoneKey(title) {
+    let k = title.toLowerCase().normalize("NFKD").replace(/[^a-z0-9]+/g, "_").replace(/^_+|_+$/g, "").slice(0, 32);
+    if (!/^[a-z]/.test(k)) k = ("zone_" + k).replace(/_+$/, "");
+    return k;
+  }
+  function applyZones(clip) {
+    const list = S.drawn[clip] || [];
+    const used = new Set(clip === "webcam" ? ["past_gate"] : []);
+    list.forEach((z, i) => {
+      const k = zoneKey(z.title);
+      let n = k, j = 2;
+      while (used.has(n)) n = `${k}_${j++}`;
+      used.add(n);
+      // on the webcam the first colour belongs to its whole-frame zone
+      Object.assign(z, { name: n, color: ZONE_PALETTE[(i + (clip === "webcam" ? 1 : 0)) % ZONE_PALETTE.length], drawn: true });
+    });
+    const base = clip === "webcam" && S.zonesBase.webcam ? S.zonesBase.webcam.zones : [];
+    return (S.zones[clip] = { clip, floor_calibration: null, zones: [...base, ...list] });
+  }
+  function zonesStoreKey(clip) { return clip === "own" ? (S.own.file ? `sm-zones:${S.own.id}` : null) : "sm-zones:webcam"; }
+  function saveZones(clip) {
+    const k = zonesStoreKey(clip);
+    if (!k) return;
+    try { localStorage.setItem(k, JSON.stringify(S.drawn[clip].map((z) => ({ title: z.title, polygon: z.polygon })))); } catch (e) { /* storage blocked */ }
+  }
+  function zonesChanged(clip) {
+    applyZones(clip); saveZones(clip);
+    if (clip !== S.clip) return;
+    renderSetup(); markRuleStale(); draw();
+    if (S.rule && S.ruleClip === clip && S.ruleSig !== zonesSig()) msg("The zones changed: press “Check rule” again.");
+  }
+  // what the server gets: own clip always (zones, frame size, seconds), webcam only when the user drew zones
+  function cameraBody(clip = S.clip) {
+    const list = (S.drawn[clip] || []).map((z) => ({ name: z.name, title: z.title, polygon: z.polygon }));
+    if (clip === "own") return { zones: list, frame_size: [S.own.w || 0, S.own.h || 0], seconds: S.own.seconds || 0 };
+    if (clip === "webcam" && list.length) return { zones: list };
+    return undefined;
+  }
+  const zonesSig = () => JSON.stringify([S.clip === "own" ? S.own.id : "", cameraBody() || null]);
+  const zoneTitle = (name) => {
+    const zs = S.zones[S.clip];
+    const z = zs && zs.zones.find((x) => x.name === name);
+    return z ? z.title : name.replace(/_/g, " ");
+  };
+  // visible text never shows zone keys: "past_gate (Shop floor)" -> "Shop floor", "past_gate" -> its title,
+  // a key this camera does not have ("pedestrian_lane") -> "pedestrian lane"
+  const ZONE_KEYS = ["past_gate", "pedestrian_lane", "fire_exit_zone", "yellow_zone", "rack_zone", "charging_zone", "ramp_zone", "fork_zone"];
+  function humanZones(text) {
+    let t = String(text ?? "");
+    const zs = S.zones[S.clip];
+    const keys = new Set([...ZONE_KEYS, ...((zs && zs.zones) || []).map((z) => z.name)]);
+    for (const k of keys) {
+      const title = zoneTitle(k);
+      t = t.replace(new RegExp("`?\\b" + k + "\\b`?\\s*\\([^()]*(?:\\([^()]*\\))?[^()]*\\)", "g"), title)
+           .replace(new RegExp("`?\\b" + k + "\\b`?", "g"), title);
+    }
+    return t;
+  }
+  const mmss = (s) => { s = Math.max(0, Math.round(s)); return `${String(Math.floor(s / 60)).padStart(2, "0")}:${String(s % 60).padStart(2, "0")}`; };
+
+  // ---------- drawing ----------
+  function contentRect() {
+    const W = ov.clientWidth, H = ov.clientHeight;
+    const vw = vid.videoWidth || 16, vh = vid.videoHeight || 9;
+    const k = Math.min(W / vw, H / vh);
+    const w = vw * k, h = vh * k;
+    return { x: (W - w) / 2, y: (H - h) / 2, w, h };
+  }
+  function secondNow() {
+    if (S.clip === "webcam") return S.cam.frames.length ? S.cam.frames.length - 1 : -1;
+    return Math.floor(vid.currentTime + 1e-3);
+  }
+  function draw() {
+    const dpr = window.devicePixelRatio || 1;
+    const W = ov.clientWidth, H = ov.clientHeight;
+    if (ov.width !== Math.round(W * dpr) || ov.height !== Math.round(H * dpr)) { ov.width = Math.round(W * dpr); ov.height = Math.round(H * dpr); }
+    octx.setTransform(dpr, 0, 0, dpr, 0, 0);
+    octx.clearRect(0, 0, W, H);
+    if (!vid.videoWidth) return;
+    const R = contentRect();
+    const P = (p) => [R.x + p[0] * R.w, R.y + p[1] * R.h];
+    const zs = S.zones[S.clip];
+    const used = new Set(S.rule ? S.rule.zones : []);
+    if (zs) {
+      const seen = new Set();
+      // the webcam's whole-frame zone is not drawn, only the zones the user drew on it
+      for (const z of zs.zones.filter((q) => S.clip !== "webcam" || q.drawn)) {
+        const key = JSON.stringify(z.polygon), col = z.color || ZONE_COLOR[z.name] || "#888";
+        const active = used.has(z.name);
+        octx.beginPath();
+        z.polygon.forEach((p, i) => { const [x, y] = P(p); i ? octx.lineTo(x, y) : octx.moveTo(x, y); });
+        octx.closePath();
+        if (!seen.has(key)) { octx.globalAlpha = z.name === "past_gate" ? 0.08 : (active ? 0.30 : 0.12); octx.fillStyle = col; octx.fill(); seen.add(key); }
+        octx.globalAlpha = active ? 1 : 0.5; octx.lineWidth = active ? 3 : 1.5; octx.strokeStyle = col; octx.stroke();
+        octx.globalAlpha = 1;
+      }
+      // the rule's zones carry their plain name on the picture
+      octx.font = "600 13px " + getComputedStyle(document.body).fontFamily;
+      for (const z of zs.zones) {
+        if (!used.has(z.name) && !z.drawn) continue;   // drawn zones always carry their name
+        // at the top-left corner of the polygon, where it rarely sits on people
+        const top = Math.min(...z.polygon.map((q) => q[1]));
+        const corner = z.polygon.filter((q) => q[1] - top < 0.03).sort((a, b) => a[0] - b[0])[0];
+        const [lx0, ly] = P(corner);
+        const tw = octx.measureText(z.title).width + 10;
+        const lx = Math.min(Math.max(R.x + 2, lx0 + 4), R.x + R.w - tw - 2);
+        const y = Math.max(R.y + 2, ly + 4);
+        const zc = z.color || ZONE_COLOR[z.name] || "#555";
+        octx.fillStyle = zc; octx.fillRect(lx, y, tw, 19);
+        octx.fillStyle = zc === "#F5C400" ? "#22292E" : "#FFFFFF"; octx.fillText(z.title, lx + 5, y + 14);
+      }
+    }
+    if (S.drawing) return drawSketch(P);
+    const sec = secondNow();
+    const src = S.clip === "webcam" ? S.cam.step : S.run;
+    const row = src && src.seconds && src.seconds[sec];
+    if (!row) return;
+    const hitKey = (b) => b.map((v) => v.toFixed(3)).join(",");
+    const hits = new Set((row.hits || []).map((h) => hitKey(h.box)));
+    octx.font = "600 12px " + getComputedStyle(document.body).fontFamily;
+    for (const d of row.dets || []) {
+      const [x1, y1] = P([d.box[0], d.box[1]]), [x2, y2] = P([d.box[2], d.box[3]]);
+      const hit = hits.has(hitKey(d.box));
+      const p = d.prompt.toLowerCase();
+      const col = hit ? "#FF4D40" : /forklift|truck|machine/.test(p) ? "#F5C400" : /hat|helmet|vest|glove|boot|goggle/.test(p) ? "#3DDC84" : "#FFFFFF";
+      octx.strokeStyle = col; octx.lineWidth = hit ? 3 : 2; octx.strokeRect(x1, y1, x2 - x1, y2 - y1);
+      // PPE boxes sit on the person: label them inside the box bottom so labels do not pile up
+      const label = d.id != null ? `${d.prompt} #${d.id}` : d.prompt;
+      const tw = octx.measureText(label).width + 8;
+      const ppe = /hat|helmet|vest|glove|boot|goggle/.test(p);
+      const ly = ppe ? Math.max(y1, y2 - 16) : (y1 - 16 < R.y ? y1 : y1 - 16);
+      octx.fillStyle = "rgba(34,41,46,.85)"; octx.fillRect(x1, ly, tw, 16);
+      octx.fillStyle = col; octx.fillText(label, x1 + 4, ly + 12);
+    }
+    drawProof(row, P, R);
+  }
+  // What the engine measured this second, drawn so a viewer can check it (engine/diagnose.py)
+  function drawProof(row, P, R) {
+    const diag = row.diag;
+    if (!diag) return;
+    const font = getComputedStyle(document.body).fontFamily;
+    const tag = (x, y, text, bg, fg) => {
+      octx.font = "600 12px " + font;
+      const tw = octx.measureText(text).width + 8;
+      const tx = Math.min(Math.max(R.x + 1, x), R.x + R.w - tw - 1), ty = Math.min(Math.max(R.y + 1, y), R.y + R.h - 17);
+      octx.fillStyle = bg; octx.fillRect(tx, ty, tw, 16);
+      octx.fillStyle = fg || "#fff"; octx.fillText(text, tx + 4, ty + 12);
+    };
+    // PPE: red tint = required PPE not found on this person, green = all found
+    for (const o of diag.objects) {
+      if (!o.ppe) continue;
+      const [x1, y1] = P([o.box[0], o.box[1]]), [x2, y2] = P([o.box[2], o.box[3]]);
+      if (o.zones && !o.zones.length) { tag(x1, y2 + 2, "not in the zone, not checked", "rgba(34,41,46,.85)"); continue; }
+      octx.fillStyle = o.all_worn ? "rgba(61,220,132,.24)" : "rgba(255,77,64,.28)";
+      octx.fillRect(x1, y1, x2 - x1, y2 - y1);
+      const miss = Object.entries(o.ppe).filter(([, v]) => !v.worn).map(([k]) => ppeWord(k));
+      tag(x1, y2 + 2, miss.length ? "no " + miss.join(", no ") : "PPE found", miss.length ? "#C62828" : "#1F7A45");
+    }
+    // distance rules: the line the metres are measured along (nearest points of the two bottom edges)
+    const pairs = (diag.pairs || []).filter((q) => !q.operator && q.p1);
+    const lines = row.truth === "T" ? pairs.filter((q) => q.lt) : pairs.slice(0, 1).filter((q) => q.distance_m < 2 * q.m);
+    for (const q of lines) {
+      const [ax, ay] = P(q.p1), [bx, by] = P(q.p2);
+      octx.strokeStyle = q.lt ? "#FF4D40" : "rgba(255,255,255,.85)"; octx.lineWidth = q.lt ? 4 : 2;
+      octx.setLineDash(q.lt ? [] : [6, 4]);
+      octx.beginPath(); octx.moveTo(ax, ay); octx.lineTo(bx, by); octx.stroke(); octx.setLineDash([]);
+      octx.font = "700 14px " + font;
+      const text = `${q.distance_m.toFixed(2)} m`;
+      const tw = octx.measureText(text).width + 10;
+      const mx = (ax + bx) / 2 + 8, my = (ay + by) / 2 - 22;
+      octx.fillStyle = q.lt ? "#C62828" : "rgba(34,41,46,.85)"; octx.fillRect(mx, my, tw, 20);
+      octx.fillStyle = "#fff"; octx.fillText(text, mx + 5, my + 15);
+    }
+    // foot points: the one point per object the zone and distance checks use; green = inside the rule's zone
+    for (const o of diag.objects) {
+      const [fx, fy] = P(o.foot);
+      octx.beginPath(); octx.arc(fx, fy, 5, 0, 2 * Math.PI);
+      octx.fillStyle = o.zones && o.zones.length ? "#3DDC84" : "#FFFFFF"; octx.fill();
+      octx.lineWidth = 2; octx.strokeStyle = "#22292E"; octx.stroke();
+    }
+    // engine state this second, top right
+    // same reading as the strip: final alerts, not the engine's open state at that moment
+    const st = row.state || {};
+    const src = S.clip === "webcam" ? S.cam.step : S.run;
+    const inAlert = !!(src && eventAt(src.events || [], row.t));
+    const phase = inAlert ? "alert" : row.truth === "T" ? "candidate" : "idle";
+    const text = inAlert ? (row.truth === "T" ? "ALERT" : "ALERT kept open: nobody breaking the rule this second")
+      : row.truth === "T" ? (st.held_s ? `Condition true ${st.held_s} of ${st.min_s} s` : "Condition true, too short for an alert")
+      : row.truth === "?" ? "Cannot be checked" : "Rule holds";
+    octx.font = "700 13px " + font;
+    const tw = octx.measureText(text).width + 14;
+    const sev = SEV_COLOR[S.rule && S.rule.severity] || SEV_COLOR.medium;
+    octx.fillStyle = phase === "alert" ? (row.truth === "T" ? sev : "rgba(161,92,0,.75)") : phase === "candidate" ? "rgba(90,90,140,.9)" : "rgba(20,24,27,.62)";
+    octx.fillRect(R.x + R.w - tw - 10, R.y + 10, tw, 22);
+    octx.fillStyle = "#fff"; octx.fillText(text, R.x + R.w - tw - 3, R.y + 26);
+  }
+  // the zone being drawn: points so far, a line to the pointer, the closing edge dashed
+  function drawSketch(P) {
+    const d = S.drawing, pts = d.pts.map(P);
+    if (!pts.length) return;
+    octx.lineWidth = 2; octx.strokeStyle = "#F5C400"; octx.fillStyle = "rgba(245,196,0,.18)";
+    octx.beginPath(); pts.forEach(([x, y], i) => i ? octx.lineTo(x, y) : octx.moveTo(x, y));
+    if (d.hover) octx.lineTo(...P(d.hover));
+    octx.stroke();
+    if (pts.length > 2) { octx.setLineDash([5, 4]); octx.beginPath(); octx.moveTo(...(d.hover ? P(d.hover) : pts[pts.length - 1])); octx.lineTo(...pts[0]); octx.stroke(); octx.setLineDash([]);
+      octx.beginPath(); pts.forEach(([x, y], i) => i ? octx.lineTo(x, y) : octx.moveTo(x, y)); octx.closePath(); octx.fill(); }
+    for (const [x, y] of pts) { octx.beginPath(); octx.arc(x, y, 4, 0, 2 * Math.PI); octx.fillStyle = "#F5C400"; octx.fill(); octx.strokeStyle = "#22292E"; octx.stroke(); }
+  }
+  function normPoint(e) {
+    const R = contentRect(), r = ov.getBoundingClientRect();
+    const x = (e.clientX - r.left - R.x) / R.w, y = (e.clientY - r.top - R.y) / R.h;
+    // a click near the frame edge lands on it: objects cut by the edge have their foot point there
+    const snap = (v) => v < 0.015 ? 0 : v > 0.985 ? 1 : +v.toFixed(4);
+    return [snap(x), snap(y)];
+  }
+  function zoneHint(t) { $("zone-hint").textContent = t || ""; }
+  function startDraw(title) {
+    if (S.clip === "own" && !S.own.file) { msg("Choose a video file first.", true); return; }
+    if (S.clip === "webcam" && !S.cam.stream) { msg("Allow the camera first: the zone is drawn on its picture.", true); return; }
+    if (S.cam.on) { stopCam(true); msg("Webcam check stopped while you draw a zone."); }
+    S.drawing = { pts: [], title: title || "", hover: null };
+    vid.pause();
+    if (S.clip === "own") vid.currentTime = 0;    // zones are drawn on the first frame
+    $("screen").classList.add("drawing");
+    $("zone-draw").textContent = "Cancel";
+    zoneHint(`${title ? `Draw the ${title.toLowerCase()}: c` : "C"}lick the corners of the zone on the picture. Double-click or Enter closes it, Esc cancels.`);
+    draw();
+  }
+  function endDraw() {
+    S.drawing = null;
+    $("screen").classList.remove("drawing");
+    $("zone-draw").textContent = "Draw a zone";
+    if (S.clip === "webcam" && S.cam.stream) vid.play().catch(() => {});
+    draw();
+  }
+  function closeDraw() {
+    const d = S.drawing;
+    if (!d) return;
+    if (d.pts.length < 3) { zoneHint("A zone needs at least 3 points. Keep clicking, or Esc to cancel."); return; }
+    const list = S.drawn[S.clip];
+    const z = { title: d.title || `Zone ${list.length + 1}`, polygon: d.pts };
+    list.push(z);
+    endDraw();
+    zonesChanged(S.clip);
+    zoneHint(d.title ? "" : "Name the zone the way your rule calls it.");
+    if (d.title) { if (S.pendingDesk) { S.pendingDesk = null; checkRule(); } return; }
+    const inp = $("setup").querySelector(`input[data-i="${list.length - 1}"]`);
+    if (inp) { inp.focus(); inp.select(); }
+  }
+  ov.addEventListener("click", (e) => {
+    if (!S.drawing) return;
+    const p = normPoint(e), last = S.drawing.pts[S.drawing.pts.length - 1];
+    if (last && Math.hypot(p[0] - last[0], p[1] - last[1]) < 0.01) return;   // second click of a double-click
+    S.drawing.pts.push(p); draw();
+  });
+  ov.addEventListener("dblclick", (e) => { if (S.drawing) { e.preventDefault(); closeDraw(); } });
+  ov.addEventListener("mousemove", (e) => { if (S.drawing) { S.drawing.hover = normPoint(e); draw(); } });
+  ov.addEventListener("mouseleave", () => { if (S.drawing) { S.drawing.hover = null; draw(); } });
+  document.addEventListener("keydown", (e) => {
+    if (!S.drawing || /^(TEXTAREA|INPUT)$/.test(document.activeElement && document.activeElement.tagName)) return;
+    if (e.key === "Enter") { e.preventDefault(); closeDraw(); }
+    if (e.key === "Escape") { e.preventDefault(); S.pendingDesk = null; endDraw(); zoneHint(""); }
+  });
+  $("zone-draw").addEventListener("click", () => { if (S.drawing) { S.pendingDesk = null; endDraw(); zoneHint(""); } else startDraw(); });
+  $("zone-whole").addEventListener("click", () => {
+    if (S.clip !== "own" || !S.own.file) return;
+    if (S.drawn.own.some((z) => z.title === "Whole frame")) return;
+    S.drawn.own.push({ title: "Whole frame", polygon: [[0, 0], [1, 0], [1, 1], [0, 1]] });
+    zonesChanged("own");
+  });
+  $("setup").addEventListener("input", (e) => {
+    const i = e.target.dataset.i;
+    if (i == null || e.target.tagName !== "INPUT") return;
+    S.drawn[S.clip][+i].title = e.target.value; draw();
+  });
+  $("setup").addEventListener("change", (e) => {
+    const i = e.target.dataset.i;
+    if (i == null || e.target.tagName !== "INPUT") return;
+    const z = S.drawn[S.clip][+i];
+    z.title = e.target.value.replace(/\s+/g, " ").trim().slice(0, 60) || `Zone ${+i + 1}`;
+    zonesChanged(S.clip); zoneHint("");
+  });
+  $("setup").addEventListener("click", (e) => {
+    const b = e.target.closest("button");
+    if (!b) return;
+    if (b.classList.contains("del")) { S.drawn[S.clip].splice(+b.dataset.i, 1); zonesChanged(S.clip); }
+    if (b.id === "own-change") $("own-file").click();
+  });
+  function loop() { draw(); if (!vid.paused || S.cam.on) requestAnimationFrame(loop); }
+  vid.addEventListener("play", () => requestAnimationFrame(loop));
+  vid.addEventListener("seeked", draw);
+  vid.addEventListener("loadeddata", draw);
+  vid.addEventListener("loadedmetadata", () => { $("screen").classList.toggle("portrait", vid.videoHeight > vid.videoWidth * 1.1); draw(); });
+  window.addEventListener("resize", draw);
+
+  // ---------- timeline ----------
+  function eventAt(evs, s) { return evs.find((e) => s >= e.start_s && s <= e.end_s); }
+  function renderTimeline() {
+    const src = S.clip === "webcam" ? S.cam.step : S.run;
+    const ticks = $("ticks");
+    ticks.innerHTML = "";
+    if (!src || !src.seconds || !src.seconds.length) {
+      $("tl-title").textContent = S.clip === "webcam" ? "Webcam: frames appear here, one every 2 s" : "Run a rule to see it second by second";
+      $("tl-note").textContent = "";
+      $("tl-caption").textContent = "";
+      return;
+    }
+    const n = S.clip === "webcam" ? Math.max(src.seconds.length, 10) : src.seconds.length;
+    ticks.style.gridTemplateColumns = `repeat(${n}, 1fr)`;
+    const now = secondNow();
+    for (let i = 0; i < n; i++) {
+      const el = document.createElement("i");
+      const row = src.seconds[i];
+      if (row) {
+        const t = row.t;
+        const ev = eventAt(src.events, t);
+        const sevc = ev ? (SEV_COLOR[ev.severity] || SEV_COLOR.medium) : null;
+        const st = row.state || {};
+        let what;
+        if (ev && row.truth === "T") { el.style.background = sevc; what = "alert"; }
+        else if (ev) { el.className = "gap"; el.style.setProperty("--sevc", sevc); what = "alert kept open, nobody breaking the rule this second (1 s gap allowed)"; }
+        else if (row.truth === "T") { el.className = "cand"; what = st.held_s ? `condition true ${st.held_s} of ${st.min_s} s, no alert yet` : "condition true, not long enough for an alert"; }
+        else if (row.truth === "?") { el.className = "ne"; what = "cannot be checked"; }
+        else { el.className = "ok"; what = "rule holds"; }
+        el.title = `${S.clip === "webcam" ? "frame " + (i + 1) + ", " : ""}${t} s: ${what}`;
+        if (S.clip !== "webcam") el.addEventListener("click", () => { vid.currentTime = t + 0.05; draw(); });
+      }
+      if (i === now) el.classList.add("now");
+      ticks.appendChild(el);
+    }
+    const r = S.rule;
+    $("tl-title").textContent = S.clip === "webcam" ? `Webcam, frame by frame (every ${S.cam.period || 2} s)` : `Rule “${r ? humanZones(r.title) : ""}” on this clip, by second`;
+    const evs = src.events || [];
+    $("tl-note").textContent = src.not_evaluable ? "Cannot be checked on this camera"
+      : evs.length ? evs.map((e) => e.start_s === e.end_s ? `alert at ${e.start_s} s` : `alert ${e.start_s}–${e.end_s} s`).join(", ") : "No alert";
+    const cap = timelineCaption(src, r);
+    $("tl-caption").textContent = cap.text;
+    $("tl-caption").classList.toggle("none", !cap.alert);
+  }
+
+  // ---------- why the strip looks the way it does, in one line ----------
+  const objLabel = (o) => `${o.name.replace(/_/g, " ")}${o.id != null ? " #" + o.id : ""}`;
+  const objKey = (o) => o.id != null ? `${o.name}#${o.id}` : `${o.name}@${o.box.map((v) => v.toFixed(3)).join(",")}`;
+  const ppeWord = (k) => k.replace(/^safety_/, "").replace(/_/g, " ");
+  function secRanges(list) {
+    const out = [];
+    for (const s of list) {
+      const last = out[out.length - 1];
+      if (last && s === last[1] + 1) last[1] = s; else out.push([s, s]);
+    }
+    return out.map(([a, b]) => a === b ? `${a} s` : `${a}–${b} s`).join(", ");
+  }
+  // caption parts: one per tracked object ("person #2"); boxes without a track id (live SAM 3.1, webcam) by name
+  const capKey = (o) => o.id != null ? objKey(o) : `${o.name}@`;
+  function eventCaption(ev, src, maxParts = 3) {
+    const from = ev.condition_since_s ?? ev.start_s, to = ev.end_s;
+    const parts = new Map(), gaps = [];
+    for (const row of src.seconds) {
+      const t = row.t;
+      if (t < from || t > to) continue;
+      if (row.truth !== "T") { gaps.push(t); continue; }
+      const diag = row.diag || { objects: [], pairs: [] };
+      const hitKeys = new Set((row.hits || []).map(objKey));
+      const add = (key, text, extra) => {
+        if (!parts.has(key)) parts.set(key, { text, secs: [], miss: new Set(), d: null, per: {} });
+        const p = parts.get(key);
+        if (!p.secs.includes(t)) p.secs.push(t);
+        p.per[t] = (p.per[t] || 0) + 1;
+        if (extra) extra(p);
+      };
+      const ppe = diag.objects.filter((o) => o.ppe && hitKeys.has(objKey(o)));
+      const pairs = (diag.pairs || []).filter((p) => p.lt);
+      if (ppe.length) {
+        for (const o of ppe) add(capKey(o), objLabel(o), (p) => Object.entries(o.ppe).forEach(([k, v]) => { if (!v.worn) p.miss.add(ppeWord(k)); }));
+      } else if (pairs.length) {
+        for (const q of pairs) add(`${objLabel(q.a)}|${objLabel(q.b)}`, `${objLabel(q.b)} near ${objLabel(q.a)}`,
+                                   (p) => { p.m = q.m; p.d = p.d == null ? q.distance_m : Math.min(p.d, q.distance_m); });
+      } else {
+        const inZone = diag.objects.filter((o) => o.zones && o.zones.length && hitKeys.has(objKey(o)));
+        for (const o of (inZone.length ? inZone : (row.hits || []))) add(capKey(o), objLabel(o));
+      }
+    }
+    const zones = (S.rule && S.rule.zones || []).map((z) => zoneTitle(z).toLowerCase());
+    // every subject of the episode in the order they appeared ("person #1 …; then person #5 …"),
+    // not only the one at activation; "then" when the next one starts after the previous one left
+    const list = [...parts.values()].map((p) => {
+      let what = p.text;
+      const most = Math.max(...Object.values(p.per));
+      if (most > 1) what += ` (up to ${most} at once)`;
+      if (p.miss.size) what += ` without ${[...p.miss].join(" / ")}`;
+      else if (p.d != null) what += ` (closest ${p.d.toFixed(2)} m)`;
+      else if (zones.length) what += ` in the ${zones.join(" / ")}`;
+      return { text: `${what} ${secRanges(p.secs)}`, first: Math.min(...p.secs), last: Math.max(...p.secs) };
+    }).sort((a, b) => a.first - b.first || a.last - b.last);
+    const shown = list.slice(0, maxParts);
+    const joined = shown.map((x, i) => i === 0 ? x.text : (x.first > shown[i - 1].last ? `; then ${x.text}` : `; ${x.text}`)).join("");
+    const more = list.length > maxParts ? `; ${list.length - maxParts} more` : "";
+    let txt = ev.start_s === to ? `Alert at ${mmss(to)}` : `Alert from ${mmss(ev.start_s)} to ${mmss(to)}`;
+    if (from < ev.start_s && S.rule) txt += ` (true since ${mmss(from)}, needs ${S.rule.min_duration_s} s)`;
+    txt += `: ${joined}${more}.`;
+    if (gaps.length) txt += ` Nobody at ${secRanges(gaps)}: kept open over a 1 s gap.`;
+    return txt;
+  }
+  function timelineCaption(src, rule) {
+    if (src.not_evaluable) return { text: humanZones(`Cannot be checked on this camera: ${src.not_evaluable}.`), alert: false };
+    const evs = src.events || [];
+    if (evs.length) return { text: evs.map((e) => eventCaption(e, src, evs.length > 1 ? 2 : 4)).join(" "), alert: true };
+    let run = 0, best = 0, total = 0;
+    for (const row of src.seconds) { if (row.truth === "T") { run++; total++; best = Math.max(best, run); } else run = 0; }
+    const need = rule ? rule.min_duration_s : null;
+    if (!total) return { text: "No alert: the condition is never true on this clip.", alert: false };
+    return { text: `No alert: the condition was true for ${total} s in all, at most ${best} s in a row; the rule needs ${need} s.`, alert: false };
+  }
+  let lastNow = -1;
+  vid.addEventListener("timeupdate", () => {
+    if (S.clip === "own" && S.own.file && S.own.duration > S.own.seconds + 0.5 && vid.currentTime >= S.own.seconds && !vid.paused) {
+      vid.pause(); fireDueAlerts(true);
+      msg(`Stopped at ${S.own.seconds} s: the page checks the first ${OWN_MAX_S} seconds of your clip.`);
+    }
+    const n = secondNow();
+    if (n !== lastNow) { lastNow = n; renderTimeline(); }
+    fireDueAlerts();
+  });
+  vid.addEventListener("ended", () => fireDueAlerts(true));
+
+  // ---------- clip / webcam ----------
+  async function selectClip(clip) {
+    stopCam();
+    S.clip = clip; S.run = null; S.shown = new Set();
+    document.querySelectorAll("#clips button").forEach((b) => b.setAttribute("aria-pressed", String(b.dataset.clip === clip)));
+    const screen = $("screen");
+    if (S.drawing) endDraw();
+    zoneHint("");
+    $("desk").hidden = clip !== "webcam";
+    await zonesOf(clip);
+    screen.classList.remove("own-empty");
+    if (clip === "webcam") {
+      screen.classList.add("is-webcam", "cam-off");
+      vid.removeAttribute("src"); vid.controls = false; vid.load();
+      $("stamp").textContent = "Webcam";
+      if (!S.userTyped) setExample(DEFAULT_EXAMPLE.webcam);
+    } else if (clip === "own") {
+      screen.classList.remove("is-webcam", "cam-off");
+      vid.srcObject = null; vid.controls = true;
+      if (S.own.file) { vid.src = S.own.url; vid.load(); } else { vid.removeAttribute("src"); vid.load(); screen.classList.add("own-empty"); }
+      stamp(false);
+    } else {
+      screen.classList.remove("is-webcam", "cam-off");
+      vid.srcObject = null; vid.controls = true;
+      vid.src = CLIPS[clip].src; vid.load();
+      stamp(false);
+      // each clip opens with its own example unless the user typed a rule (or came with ?rule=)
+      if (!S.userTyped) setExample(DEFAULT_EXAMPLE[clip] || "r2");
+    }
+    renderSetup();
+    loadScout(clip);
+    renderTimeline();
+    // zones differ per camera: recompile (cached for the examples); a new default example replaces the card too
+    const text = $("rule-text").value.trim();
+    // your clip: no silent recompile (it would call Muse Spark before the user has drawn the zones)
+    if (clip !== "own" && S.rule && (S.ruleText === text ? S.ruleClip !== clip : (!S.userTyped && EXAMPLES[S.ruleId] === text))) {
+      await checkRule(true);
+    } else {
+      updateRunButton();
+    }
+    draw();
+  }
+  function renderSetup() {
+    const zs = S.zones[S.clip], setup = SETUP[S.clip] || {};
+    const drawable = S.clip === "own" || S.clip === "webcam";
+    const file = S.clip === "own" && S.own.file
+      ? `<li class="cal file"><b>Your clip.</b> ${esc(S.own.name)}, ${(S.own.size / 1048576).toFixed(1)} MB, ${S.own.duration ? mmss(S.own.duration) : "…"}`
+        + `${S.own.duration > OWN_MAX_S ? `; the first ${OWN_MAX_S} s are checked` : ""}. <button id="own-change">Choose another</button></li>` : "";
+    const fixed = zs.zones.filter((z) => !z.drawn).map((z) =>
+      `<li style="--c:${ZONE_COLOR[z.name] || "#888"}"><b>${esc((setup.titles || {})[z.name] || z.title)}.</b> ${esc(setup[z.name] || "")}</li>`).join("");
+    const drawn = (drawable ? S.drawn[S.clip] : []).map((z, i) =>
+      `<li style="--c:${z.color}"><input data-i="${i}" value="${esc(z.title)}" maxlength="60" aria-label="Name of zone ${i + 1}" spellcheck="false"><button class="del" data-i="${i}">delete</button></li>`).join("");
+    const none = S.clip === "own" && S.own.file && !S.drawn.own.length
+      ? `<li class="cal"><b>No zone yet.</b> Draw the area your rule talks about, or press “Whole frame”.</li>` : "";
+    $("setup").innerHTML = file + fixed + drawn + none
+      + `<li class="cal"><b>Floor calibration.</b> ${esc(setup.calibration)}</li>`
+      + (setup.machine ? `<li class="cal"><b>Machine state.</b> ${esc(setup.machine)}</li>` : "");
+    $("zone-tools").hidden = !drawable || (S.clip === "own" && !S.own.file);
+    $("zone-whole").hidden = S.clip !== "own";
+  }
+  // ---------- your clip: the file stays in the browser ----------
+  $("own-file").addEventListener("change", (e) => {
+    const f = e.target.files && e.target.files[0];
+    e.target.value = "";
+    if (!f) return;
+    if (S.own.url) URL.revokeObjectURL(S.own.url);
+    S.own = { file: f, name: f.name, size: f.size, url: URL.createObjectURL(f), id: `own:${f.name}:${f.size}`, duration: 0, seconds: 0, w: 0, h: 0 };
+    try { S.drawn.own = JSON.parse(localStorage.getItem(`sm-zones:${S.own.id}`) || "[]"); } catch (err) { S.drawn.own = []; }
+    applyZones("own");
+    S.run = null; S.shown = new Set();
+    if (S.clip !== "own") { selectClip("own"); return; }
+    $("screen").classList.remove("own-empty");
+    vid.src = S.own.url; vid.load();
+    stamp(false); renderSetup(); renderTimeline(); markRuleStale();
+  });
+  vid.addEventListener("loadedmetadata", () => {
+    if (S.clip !== "own" || !S.own.file || vid.src !== S.own.url) return;
+    const d = vid.duration;
+    Object.assign(S.own, { duration: Number.isFinite(d) ? d : OWN_MAX_S, w: vid.videoWidth, h: vid.videoHeight });
+    S.own.seconds = Math.min(OWN_MAX_S, Math.max(1, Math.floor(S.own.duration)));
+    renderSetup(); markRuleStale();
+    msg(S.drawn.own.length ? "Zones from your last visit are back. Write a rule and press “Check rule”."
+      : "Now draw the zone your rule talks about (“Draw a zone”), or press “Whole frame”.");
+  });
+  vid.addEventListener("error", () => {
+    if (S.clip === "own" && S.own.file) msg("This browser cannot play this file. Try an MP4 (H.264) or WebM video.", true);
+  });
+
+  // ---------- rule ----------
+  function setExample(id) {
+    S.ruleId = id; S.userTyped = false;
+    $("rule-text").value = EXAMPLES[id];
+    document.querySelectorAll("#examples button").forEach((b) => b.setAttribute("aria-pressed", String(b.dataset.rule === id)));
+    markRuleStale();
+  }
+  function markRuleStale() {
+    if (S.rule && S.ruleText === $("rule-text").value.trim() && S.ruleClip === S.clip && S.ruleSig === zonesSig()) return;
+    updateRunButton();
+    $("check").classList.add("primary"); $("run").classList.remove("primary");
+  }
+  $("rule-text").addEventListener("input", () => {
+    S.userTyped = true;
+    const t = $("rule-text").value.trim();
+    const hit = Object.entries(EXAMPLES).find(([, v]) => v === t);
+    S.ruleId = hit ? hit[0] : "custom";
+    document.querySelectorAll("#examples button").forEach((b) => b.setAttribute("aria-pressed", String(b.dataset.rule === S.ruleId)));
+    markRuleStale();
+  });
+  $("rule-text").addEventListener("keydown", (e) => { if (e.key === "Enter" && !e.shiftKey) { e.preventDefault(); checkRule(); } });
+
+  const IN = (z) => { const t = zoneTitle(z).toLowerCase(); return t.startsWith("past ") ? t : `in the ${t}`; };
+  const OBJ = (r, n) => { const o = r.objects.find((x) => x.name === n); return o ? o.prompt : n.replace(/_/g, " "); };
+  function sentence(r, node) {
+    const [k, v] = Object.entries(node)[0];
+    switch (k) {
+      case "in_zone": return `a ${OBJ(r, v.object)} is ${IN(v.zone)}`;
+      case "count_in_zone": return `the number of ${OBJ(r, v.object)}s ${IN(v.zone)} is ${v.op} ${v.n}`;
+      case "distance_lt": return `a ${OBJ(r, v.a)} is closer than ${v.m} m to a ${OBJ(r, v.b)}, measured on the floor`;
+      case "wearing": return `the ${OBJ(r, v.person)} wears ${v.ppe.map((p) => OBJ(r, p)).join(" and ")}`;
+      case "pose": return `a ${OBJ(r, v.person)} is ${v.pose}`;
+      case "height_above_floor": return `a ${OBJ(r, v.object)} is more than ${v.m} m above the floor`;
+      case "machine_state": return `the ${OBJ(r, v.machine)} is ${v.state}`;
+      case "all": return v.map((c) => sentence(r, c)).join(", and ");
+      case "any": return v.map((c) => sentence(r, c)).join(", or ");
+      case "not": {
+        const [ik, iv] = Object.entries(v)[0];
+        // "a hard hat", but "glasses", "headphones", "gloves" without an article
+        if (ik === "wearing") return `the ${OBJ(r, iv.person)} is missing ${iv.ppe.map((p) => (/s$/.test(OBJ(r, p)) ? "" : "a ") + OBJ(r, p)).join(" or ")}`;
+        return `it is not true that ${sentence(r, v)}`;
+      }
+    }
+    return k;
+  }
+  function humanReason(r) {
+    if (/floor calibration/.test(r)) return S.clip === "own" ? "Your clip has no floor calibration, so distances in metres cannot be measured on it. Of the sample clips, “Team at the racks” has one."
+      : "This camera has no floor calibration, so distances in metres cannot be measured here. Try “Team at the racks”.";
+    if (/machine state/.test(r)) return `${S.clip === "own" ? "Your clip" : "The webcam"} has no machine state, so this rule cannot be checked here. Try a sample clip.`;
+    if (/not implemented/.test(r)) return `The engine cannot check this yet (${r}).`;
+    return `On this camera it cannot be checked: ${r}.`;
+  }
+  function renderUnderstood(j) {
+    if (!j) return;
+    S.lastCompile = j;
+    const r = j.rule, st = j.status || {};
+    const zones = r.zones.length ? r.zones.map((z) => `<span class="chip">${esc(zoneTitle(z))}</span>`).join("")
+      : r.condition ? "Whole frame" : "The place this rule names is not marked on this camera";
+    const live = new Set(st.live || []);
+    const objs = r.objects.map((o) => `<span class="chip">“${esc(o.prompt)}”${live.has(o.prompt) ? ` <em class="live">live</em>` : ""}</span>`).join("");
+    const cond = r.condition
+      ? `<span class="cond">Alert when ${esc(sentence(r, r.condition))}.</span>`
+      : `<div class="unsupported">This rule cannot be checked as written. ${esc(humanZones(r.unsupported))}<br><strong>Try instead:</strong> ${esc(humanZones(r.suggested_rewrite))}<br><button id="use-rewrite">Use this wording</button></div>`;
+    const notes = [];
+    if (r.condition && st.rejected) notes.push(`<div class="note warn">Not on this camera: ${esc(humanZones(st.rejected))}</div>`);
+    if (st.not_evaluable) notes.push(`<div class="note warn">${esc(humanZones(humanReason(st.not_evaluable)))}</div>`);
+    if (live.size && S.clip !== "webcam" && r.condition) {
+      const names = [...live].map((m) => "“" + esc(m) + "”").join(", ");
+      const done = S.run && S.run.liveInfo && S.run.liveInfo.rule === r && S.run.clip === S.clip && S.run.liveInfo.text;
+      notes.push(`<div class="note" id="live-note">` + (S.clip === "own"
+        ? `SAM 3.1 runs live for ${names} on your clip. “Run on this clip” sends ${st.seconds || ""} frames, one per second, to SAM 3.1 through the Meta API; the video file stays in this browser.`
+        : `SAM 3.1 runs live for ${names}: there are no cached results for ${live.size > 1 ? "them" : "it"} on this clip. `
+          + `“Run on this clip” sends the clip's ${st.seconds || ""} frames, one per second, to SAM 3.1; the other objects come from the cache.`)
+        + (done ? `<br><strong>${esc(done)}</strong>` : "") + `</div>`);
+    }
+    const mapped = Object.entries(st.prompts || {}).filter(([k, v]) => v && v.toLowerCase() !== k.toLowerCase());
+    if (mapped.length) notes.push(`<div class="note">Cached SAM 3.1 results used: ${mapped.map(([k, v]) => `“${esc(k)}” → “${esc(v)}”`).join(", ")}.</div>`);
+    if (st.machine) notes.push(`<div class="note">${esc(st.machine)}</div>`);
+    $("understood").innerHTML = `
+      <dl>
+        <dt>SAM 3.1 looks for</dt><dd>${objs}</dd>
+        <dt>Where</dt><dd>${zones}</dd>
+        <dt>Condition</dt><dd>${cond}</dd>
+        <dt>Holds for</dt><dd>${r.min_duration_s} s before an alert</dd>
+        <dt>Severity</dt><dd><span class="sev ${esc(r.severity)}">${esc(r.severity[0].toUpperCase() + r.severity.slice(1))}</span></dd>
+      </dl>
+      ${notes.join("")}
+      <div class="src-line">${j.cached ? "Muse Spark result, cached from an earlier identical request" : `Compiled by Muse Spark in ${(j.ms / 1000).toFixed(1)} s`}, checked against the rule schema.</div>
+      <details><summary>Compiled rule (JSON)</summary><pre>${esc(JSON.stringify(r, null, 2))}</pre></details>`;
+    const rw = $("use-rewrite");
+    if (rw) rw.addEventListener("click", () => { $("rule-text").value = r.suggested_rewrite; S.userTyped = true; S.ruleId = "custom"; markRuleStale(); $("rule-text").focus(); });
+  }
+  function runnable() {
+    return S.rule && S.rule.condition && S.ruleClip === S.clip && S.ruleText === $("rule-text").value.trim() && S.ruleSig === zonesSig()
+      && !(S.status && (S.status.rejected || S.status.not_evaluable));
+  }
+  function updateRunButton() {
+    const b = $("run");
+    b.textContent = S.clip === "webcam" ? (S.cam.on ? "Stop webcam check" : "Start webcam check") : "Run on this clip";
+    b.disabled = !(runnable() || S.cam.on);
+    if (!b.disabled) { b.classList.add("primary"); $("check").classList.remove("primary"); }
+  }
+  let checkSeq = 0;
+  // every custom rule text gets its own id in this session (custom-1, custom-2, …): the report counts alerts by rule id
+  S.customIds = {};
+  function customId(text) {
+    const k = text.toLowerCase().replace(/\s+/g, " ");
+    return S.customIds[k] || (S.customIds[k] = `custom-${Object.keys(S.customIds).length + 1}`);
+  }
+  async function checkRule(silent) {
+    const text = $("rule-text").value.trim();
+    if (!text) { msg("Write a rule first.", true); return; }
+    if (S.clip === "own" && !S.own.file) { msg("Choose a video file first.", true); return; }
+    if (S.clip === "own" && !S.drawn.own.length) { msg("Draw at least one zone on your clip first, or press “Whole frame”.", true); return; }
+    const seq = ++checkSeq, sig = zonesSig();
+    const btn = $("check");
+    btn.disabled = true; btn.classList.add("busy");
+    msg(silent ? "Re-checking the rule for this camera's zones…" : "Muse Spark is reading the rule…");
+    try {
+      const j = await api("api/compile", { text, clip: S.clip, rule_id: S.ruleId === "custom" ? customId(text) : S.ruleId, camera: cameraBody() });
+      if (seq !== checkSeq) return;
+      S.rule = j.rule; S.ruleText = text; S.ruleClip = S.clip; S.status = j.status; S.ruleSig = sig;
+      S.rulesUsed[j.rule.rule_id] = j.rule;
+      renderUnderstood(j);
+      msg(!j.rule.condition ? "Muse Spark says this rule cannot be checked. Edit it or use the suggested wording."
+        : runnable() ? (S.clip === "webcam" ? "Now start the webcam check." : "Now run it on the clip.")
+        : j.status.rejected ? humanZones(`Not on this camera: ${j.status.rejected}`)
+        : j.status.not_evaluable ? humanZones(humanReason(j.status.not_evaluable)) : "");
+      S.run = null; S.shown = new Set(); renderTimeline(); draw();
+    } catch (e) {
+      if (seq === checkSeq) msg(e.message, true);
+    } finally {
+      if (seq === checkSeq) { btn.disabled = false; btn.classList.remove("busy"); updateRunButton(); }
+    }
+  }
+  function msg(t, err) { const m = $("rule-msg"); m.textContent = t || ""; m.classList.toggle("err", !!err); }
+  $("check").addEventListener("click", () => checkRule());
+  $("examples").addEventListener("click", (e) => { const b = e.target.closest("button"); if (b) setExample(b.dataset.rule); });
+  $("clips").addEventListener("click", (e) => { const b = e.target.closest("button"); if (b && b.dataset.clip !== S.clip) selectClip(b.dataset.clip); });
+  $("desk").addEventListener("click", (e) => {
+    const b = e.target.closest("button[data-desk]");
+    if (!b) return;
+    const d = DESK[b.dataset.desk];
+    $("rule-text").value = d.text;
+    S.userTyped = true; S.ruleId = "custom";
+    document.querySelectorAll("#examples button").forEach((x) => x.setAttribute("aria-pressed", "false"));
+    markRuleStale();
+    const has = d.zone && S.drawn.webcam.some((z) => z.title.toLowerCase() === d.zone.toLowerCase());
+    if (!d.zone || has) { checkRule(); return; }
+    if (!S.cam.stream) { msg(`This rule needs a zone: allow the camera, then draw the ${d.zone.toLowerCase()} on its picture.`); S.pendingDesk = null; return; }
+    S.pendingDesk = b.dataset.desk;
+    startDraw(d.zone);
+    msg(`Draw the ${d.zone.toLowerCase()} on the camera picture: click its corners, double-click to close. The rule is checked right after.`);
+  });
+
+  // ---------- run on a clip ----------
+  // ---------- live SAM 3.1 on a clip: prompts with no cached detections ----------
+  // Same path as the webcam: video frame -> canvas -> JPEG -> /api/detect, one frame per request (Vercel: 60 s,
+  // 4.5 MB per request). Frames at s + 0.5 s, like the cached 1 fps frames (ffmpeg fps=1), 1280 px wide at most.
+  const LIVE_PARALLEL = 4;
+  function saveLive() { try { sessionStorage.setItem("sm-live-dets", JSON.stringify(S.live)); } catch (e) { /* quota */ } }
+  function liveOf(clip, prompt) { S.live[clip] = S.live[clip] || {}; return (S.live[clip][prompt] = S.live[clip][prompt] || {}); }
+  function stamp(live) {
+    $("stamp").textContent = CLIPS[S.clip].title + (S.clip === "own" && S.own.file ? ` · ${S.own.name}` : "") + (live ? " · SAM 3.1 live" : "");
+  }
+  function frameGrabber(src, size) {
+    const gv = document.createElement("video");
+    gv.muted = true; gv.preload = "auto"; gv.playsInline = true; gv.src = src;
+    const ready = new Promise((res, rej) => { gv.addEventListener("loadeddata", res, { once: true }); gv.addEventListener("error", () => rej(new Error("The clip could not be read for SAM 3.1.")), { once: true }); });
+    const w = Math.min(1280, size[0]), h = Math.round(w * size[1] / size[0]);
+    const c = document.createElement("canvas"); c.width = w; c.height = h;
+    const cx = c.getContext("2d");
+    let chain = ready;
+    return (sec) => (chain = chain.then(() => new Promise((res) => {
+      const t = Math.min(sec + 0.5, Math.max(0, (gv.duration || sec + 1) - 0.05));
+      const done = () => {
+        cx.drawImage(gv, 0, 0, w, h);
+        let q = 0.85, url = c.toDataURL("image/jpeg", q);
+        while (url.length * 0.75 > 560000 && q > 0.5) { q -= 0.15; url = c.toDataURL("image/jpeg", q); }
+        res(url);
+      };
+      if (Math.abs(gv.currentTime - t) < 1e-3 && gv.readyState >= 2) return done();
+      gv.addEventListener("seeked", done, { once: true });
+      gv.currentTime = t;
+    })));
+  }
+  async function detectFrame(jpeg, prompts) {
+    for (let attempt = 0; ; attempt++) {
+      try { return await api("api/detect", { jpeg, prompts }); }
+      catch (e) { if (attempt >= 1 || [400, 413, 429].includes(e.status)) throw e; }
+    }
+  }
+  // clip: the cache key (sample clip id, or own:<file name>:<size>); src: what the hidden video reads
+  async function runLiveSam(clip, src, prompts, n, size) {
+    const t0 = performance.now();
+    const jobs = [];
+    for (let s = 0; s < n; s++) {
+      const ps = prompts.filter((p) => !(String(s) in liveOf(clip, p)));
+      if (ps.length) jobs.push({ s, ps });
+    }
+    const info = { prompts, frames: n, calls: jobs.length, reused: n - jobs.length };
+    if (jobs.length) {
+      stamp(true);
+      const grab = frameGrabber(src, size);
+      jobs.forEach((j) => { j.jpeg = grab(j.s); });
+      let next = 0, done = 0, fail = null;
+      const progress = () => msg(`SAM 3.1 live: ${done}/${jobs.length} frames${info.reused ? ` (${info.reused} from earlier in this session)` : ""}…`);
+      progress();
+      const worker = async () => {
+        while (next < jobs.length && !fail) {
+          const j = jobs[next++];
+          try {
+            const d = await detectFrame(await j.jpeg, j.ps);
+            for (const p of j.ps) liveOf(clip, p)[j.s] = (d.detections[p] || []).map((x) => ({ box: x.box, score: x.score }));
+            done++; progress();
+          } catch (e) { fail = fail || e; }
+        }
+      };
+      await Promise.all(Array.from({ length: Math.min(LIVE_PARALLEL, jobs.length) }, worker));
+      saveLive();
+      if (fail) throw fail;
+    }
+    info.ms = performance.now() - t0;
+    info.text = jobs.length
+      ? `SAM 3.1 ran live on ${jobs.length} frame${jobs.length > 1 ? "s" : ""} in ${(info.ms / 1000).toFixed(1)} s.`
+      : `SAM 3.1 live results from earlier in this session reused: no new calls.`;
+    const extra = {};
+    for (let s = 0; s < n; s++) { extra[s] = {}; for (const p of prompts) extra[s][p] = liveOf(clip, p)[s] || []; }
+    return { extra, info };
+  }
+
+  async function runClip() {
+    if (!runnable()) return;
+    const btn = $("run");
+    btn.disabled = true; btn.classList.add("busy");
+    const clip = S.clip, rule = S.rule, st = S.status || {};
+    const live = (st.live || []).filter(Boolean);
+    const t0 = performance.now();
+    msg(live.length ? "SAM 3.1 live: reading the clip's frames…" : "Running the engine on cached SAM 3.1 detections; Muse Spark explains the first alerts…");
+    try {
+      const body = { clip, rule, episodes: "rule" };
+      const own = clip === "own";
+      if (own) body.camera = cameraBody("own");
+      let liveInfo = null;
+      if (live.length) {
+        const r = await runLiveSam(own ? S.own.id : clip, own ? S.own.url : CLIPS[clip].src, live, st.seconds, st.frame_size);
+        body.extra_detections = r.extra; liveInfo = r.info;
+        if (S.clip !== clip || S.rule !== rule) return;     // the user moved on while SAM ran
+        msg(`${liveInfo.text} Running the engine; Muse Spark explains the first alerts…`);
+      }
+      // one episode per rule (clean feed); the alert names the tracked objects true when it was raised
+      const j = await api("api/run", body);
+      if (S.clip !== clip || S.rule !== rule) return;
+      if (liveInfo) { liveInfo.total_ms = performance.now() - t0; liveInfo.rule = rule; j.liveInfo = liveInfo; }
+      S.run = j; S.shown = new Set();
+      stamp(!!liveInfo);
+      if (liveInfo) renderUnderstood(S.lastCompile);
+      const head = liveInfo ? liveInfo.text + " " : "";
+      msg(head + (j.events.length ? `${j.events.length} alert${j.events.length > 1 ? "s" : ""} on this clip. They appear in the feed as the video reaches them.`
+        : j.not_evaluable ? humanReason(j.not_evaluable) : "No alert on this clip: the rule holds the whole time."));
+      vid.currentTime = 0;
+      try { await vid.play(); } catch (e) { /* autoplay blocked: user presses play */ }
+      renderTimeline(); draw();
+    } catch (e) {
+      msg(e.message, true);
+      if (S.clip === clip) stamp(false);
+    } finally {
+      btn.classList.remove("busy"); updateRunButton();
+    }
+  }
+  function fireDueAlerts(all) {
+    if (S.clip === "webcam" || !S.run) return;
+    const t = vid.currentTime;
+    for (const ev of S.run.events) {
+      const key = `${S.run.clip}|${ev.rule_id}|${ev.condition_since_s}|${ev.subject || ""}`;
+      if (S.shown.has(key)) continue;
+      if (all || t + 0.05 >= ev.start_s) {
+        S.shown.add(key);
+        if (S.alerts.some((a) => a.key === key)) continue;   // same clip, rule and episode already in the feed
+        const row = S.run.seconds[Math.floor(ev.start_s)] || {};
+        // tracked episode: only the boxes of its own objects ("person #2") in the thumbnail
+        const own = (row.hits || []).filter((h) => (ev.object_ids || []).some((o) => o.name === h.name && o.track_id === h.id));
+        addAlert({ key, clip: S.run.clip, clipTitle: S.run.title, ev, rule: S.rule, thumb: grabThumb(own.length ? own : (row.hits || ev.objects)),
+                   clipLen: S.run.duration_s });
+      }
+    }
+  }
+  // 16:9 crop around the objects of the alert, so a small person in a vertical clip is still visible
+  function thumbOf(src, sw, sh, hits) {
+    const c = document.createElement("canvas"); c.width = 224; c.height = 126;
+    const x = c.getContext("2d");
+    x.fillStyle = "#2A3136"; x.fillRect(0, 0, 224, 126);
+    if (!sw || !sh) return "";
+    let [ux1, uy1, ux2, uy2] = [1, 1, 0, 0];
+    for (const o of hits || []) { const b = o.box; ux1 = Math.min(ux1, b[0]); uy1 = Math.min(uy1, b[1]); ux2 = Math.max(ux2, b[2]); uy2 = Math.max(uy2, b[3]); }
+    let cx = sw / 2, cy = sh / 2, h = sh, w = sw;
+    if (ux2 > ux1) {
+      cx = (ux1 + ux2) / 2 * sw; cy = (uy1 + uy2) / 2 * sh;
+      h = Math.max((uy2 - uy1) * sh * 1.5, (ux2 - ux1) * sw * 1.5 * 9 / 16, sh * 0.35);
+      w = h * 16 / 9;
+      if (w > sw) { w = sw; h = w * 9 / 16; }
+      if (h > sh) { h = sh; w = Math.min(sw, h * 16 / 9); }
+    } else if (sw / sh < 16 / 9) { h = sw * 9 / 16; }
+    else { w = sh * 16 / 9; }
+    const sx = Math.min(Math.max(0, cx - w / 2), sw - w), sy = Math.min(Math.max(0, cy - h / 2), sh - h);
+    const k = Math.min(224 / w, 126 / h), dw = w * k, dh = h * k, dx = (224 - dw) / 2, dy = (126 - dh) / 2;
+    x.drawImage(src, sx, sy, w, h, dx, dy, dw, dh);
+    x.strokeStyle = "#FF4D40"; x.lineWidth = 2;
+    for (const o of hits || []) {
+      const b = o.box;
+      x.strokeRect(dx + (b[0] * sw - sx) * k, dy + (b[1] * sh - sy) * k, (b[2] - b[0]) * sw * k, (b[3] - b[1]) * sh * k);
+    }
+    return c.toDataURL("image/jpeg", 0.8);
+  }
+  function grabThumb(hits) {
+    try { return thumbOf(vid, vid.videoWidth, vid.videoHeight, hits); } catch (e) { return ""; }
+  }
+  function addAlert(a) {
+    S.alerts.unshift(a);
+    renderFeed(a.key);
+  }
+  function renderFeed(newKey) {
+    $("alert-count").textContent = S.alerts.length ? `${S.alerts.length} in this session` : "No alerts yet";
+    if (!S.alerts.length) { $("feed").innerHTML = `<li class="empty">Alerts show up here with the frame and an explanation.</li>`; return; }
+    $("feed").innerHTML = S.alerts.map((a) => {
+      const ev = a.ev, dur = ev.measurements && ev.measurements.duration_s;
+      const src = ev.explanation_source === "model" ? "Explanation: Muse Spark" : ev.explanation_source === "pending" ? "Muse Spark is writing the explanation…" : "Explanation: template" + (ev.explanation_note ? ` (${ev.explanation_note})` : "");
+      return `<li class="alert${a.key === newKey ? " new" : ""}" style="--sevc: ${SEV_COLOR[ev.severity] || SEV_COLOR.medium}" data-key="${esc(a.key)}">
+        ${a.thumb ? `<img src="${a.thumb}" alt="Frame of the alert, ${esc(a.clipTitle)}" width="112" height="63">` : `<span></span>`}
+        <div>
+          <h3>${esc(humanZones(a.rule.title))}${ev.subject ? ` · ${esc(ev.subject)}` : ""}</h3>
+          <div class="meta">${esc(a.clipTitle)}, ${mmss(ev.start_s)}, ${esc(ev.severity)}${dur ? `, condition held ${dur} s` : ""}</div>
+          <p>${esc(ev.explanation)}</p>
+          <div class="src">${esc(src)}</div>
+        </div></li>`;
+    }).join("");
+  }
+  $("feed").addEventListener("click", (e) => {
+    const li = e.target.closest(".alert"); if (!li) return;
+    const a = S.alerts.find((x) => x.key === li.dataset.key);
+    if (a && a.clip === S.clip && S.clip !== "webcam") { vid.currentTime = a.ev.start_s + 0.05; vid.pause(); draw(); }
+  });
+  $("clear-alerts").addEventListener("click", () => { S.alerts = []; S.shown = new Set(); renderFeed(); });
+
+  // ---------- webcam ----------
+  async function startCamStream() {
+    try {
+      S.cam.stream = await navigator.mediaDevices.getUserMedia({ video: { width: { ideal: 1280 }, height: { ideal: 720 } }, audio: false });
+      vid.srcObject = S.cam.stream; await vid.play();
+      $("screen").classList.remove("cam-off");
+      msg(runnable() ? "Camera on. Press “Start webcam check”." : "Camera on. Check the rule, then start the webcam check. A zone is optional: without one the whole picture counts.");
+    } catch (e) {
+      msg("No camera access: " + e.message, true);
+    }
+  }
+  $("cam-start").addEventListener("click", startCamStream);
+  function stopCam(keepStream) {
+    S.cam.on = false; clearTimeout(S.cam.timer);
+    if (!keepStream && S.cam.stream) { S.cam.stream.getTracks().forEach((t) => t.stop()); S.cam.stream = null; }
+    updateRunButton();
+  }
+  async function startCamCheck() {
+    if (!S.cam.stream) await startCamStream();
+    if (!S.cam.stream) return;
+    S.cam.frames = []; S.cam.step = null; S.cam.on = true; S.cam.explained = 0; S.cam.period = 2;
+    S.cam.max = S.cfg ? S.cfg.webcam_max_frames : 40;
+    S.cam.t0 = performance.now();
+    updateRunButton(); requestAnimationFrame(loop);
+    camTick();
+  }
+  async function camTick() {
+    if (!S.cam.on) return;
+    if (S.cam.frames.length >= S.cam.max) { stopCam(true); msg(`Webcam check stopped after ${S.cam.max} frames (demo limit). Start again for a new session.`); return; }
+    const started = performance.now();
+    const c = document.createElement("canvas");
+    const vw = vid.videoWidth || 1280, vh = vid.videoHeight || 720, k = Math.min(1, 800 / Math.max(vw, vh));
+    c.width = Math.round(vw * k); c.height = Math.round(vh * k);
+    c.getContext("2d").drawImage(vid, 0, 0, c.width, c.height);
+    const jpeg = c.toDataURL("image/jpeg", 0.8);
+    const t = S.cam.frames.length * S.cam.period;
+    try {
+      const prompts = S.rule.objects.map((o) => o.prompt);
+      const d = await api("api/detect", { jpeg, prompts });
+      if (!S.cam.on) return;
+      S.cam.frames.push({ t, detections: d.detections, jpeg });
+      const st = await api("api/step", { rule: S.rule, frame_period_s: S.cam.period, camera: cameraBody("webcam"),
+        frames_so_far: S.cam.frames.map((f) => ({ t: f.t, detections: f.detections })) });
+      // overlay rows: what SAM found on each frame
+      st.seconds.forEach((row, i) => {
+        const f = S.cam.frames[i];
+        row.dets = [];
+        for (const o of S.rule.objects) for (const x of (f.detections[o.prompt] || [])) row.dets.push({ prompt: o.prompt, box: x.box, score: x.score });
+      });
+      S.cam.step = st;
+      msg(`Frame ${S.cam.frames.length} of ${S.cam.max}: SAM 3.1 answered in ${(d.ms / 1000).toFixed(1)} s.`);
+      for (const ev of st.events) {
+        const key = `webcam|${ev.rule_id}|${ev.condition_since_s}|${S.cam.t0}`;
+        if (S.alerts.some((a) => a.key === key)) continue;
+        const fi = Math.min(S.cam.frames.length - 1, Math.round(ev.start_s / S.cam.period));
+        const row = st.seconds[fi] || {};
+        ev.explanation = "Muse Spark is writing the explanation…"; ev.explanation_source = "pending";
+        const a = { key, clip: "webcam", clipTitle: "Webcam", ev, rule: S.rule, thumb: await thumbFromJpeg(S.cam.frames[fi].jpeg, row.hits || ev.objects) };
+        addAlert(a);
+        const useModel = S.cam.explained < 3; S.cam.explained++;
+        explainLater(a, useModel);
+      }
+      renderTimeline(); draw();
+    } catch (e) {
+      msg(e.message, true);
+      if (e.status === 429) { stopCam(true); return; }
+    }
+    const wait = Math.max(0, S.cam.period * 1000 - (performance.now() - started));
+    S.cam.timer = setTimeout(camTick, wait);
+  }
+  async function explainLater(a, useModel) {
+    try {
+      const x = await api("api/explain", { event: a.ev, rule: a.rule, clip: "webcam", template_only: !useModel, camera: cameraBody("webcam") });
+      a.ev.explanation = x.explanation; a.ev.explanation_source = x.source; a.ev.explanation_note = x.note;
+    } catch (e) {
+      a.ev.explanation = `${a.rule.title}: condition held ${a.ev.measurements.duration_s} s.`;
+      a.ev.explanation_source = "template"; a.ev.explanation_note = e.message;
+    }
+    renderFeed();
+  }
+  function thumbFromJpeg(src, hits) {
+    return new Promise((res) => {
+      const im = new Image();
+      im.onload = () => res(thumbOf(im, im.width, im.height, hits));
+      im.onerror = () => res("");
+      im.src = src;
+    });
+  }
+  $("run").addEventListener("click", () => {
+    if (S.clip === "webcam") { S.cam.on ? (stopCam(true), msg("Webcam check stopped.")) : startCamCheck(); }
+    else runClip();
+  });
+
+  // ---------- report ----------
+  const report = $("report");
+  const openReport = () => { document.body.classList.add("report-open"); report.setAttribute("aria-hidden", "false"); $("close-report").focus(); };
+  const closeReport = () => { document.body.classList.remove("report-open"); report.setAttribute("aria-hidden", "true"); $("open-report").focus(); };
+  function md(text) {
+    const inline = (s) => esc(s).replace(/\*\*(.+?)\*\*/g, "<strong>$1</strong>").replace(/(^|[^*])\*([^*]+)\*/g, "$1<em>$2</em>").replace(/`([^`]+)`/g, "<code>$1</code>");
+    const out = []; let list = null;
+    const close = () => { if (list) { out.push(`</${list}>`); list = null; } };
+    for (const raw of text.split("\n")) {
+      const l = raw.trimEnd();
+      let m;
+      if (!l.trim()) { close(); continue; }
+      if ((m = l.match(/^(#{1,4})\s+(.*)$/))) { close(); const n = Math.min(4, m[1].length + 1); out.push(`<h${n}>${inline(m[2])}</h${n}>`); continue; }
+      if ((m = l.match(/^\s*[-*]\s+(.*)$/))) { if (list !== "ul") { close(); out.push("<ul>"); list = "ul"; } out.push(`<li>${inline(m[1])}</li>`); continue; }
+      if ((m = l.match(/^\s*\d+[.)]\s+(.*)$/))) { if (list !== "ol") { close(); out.push("<ol>"); list = "ol"; } out.push(`<li>${inline(m[1])}</li>`); continue; }
+      close(); out.push(`<p>${inline(l)}</p>`);
+    }
+    close();
+    return out.join("\n");
+  }
+  $("open-report").addEventListener("click", async () => {
+    openReport();
+    const body = $("report-body");
+    if (!S.alerts.length) { body.innerHTML = `<p>No alerts in this session yet. Run a rule on a clip or the webcam first.</p>`; return; }
+    body.innerHTML = `<p class="wait busy">Muse Spark is writing the report from ${S.alerts.length} alert${S.alerts.length > 1 ? "s" : ""}…</p>`;
+    const events = S.alerts.slice().reverse().map((a) => ({ ...a.ev, clip: a.clip, clip_length_s: a.clipLen || (a.clip === "webcam" ? S.cam.frames.length * 2 : null) }));
+    const rules = [...new Map(S.alerts.map((a) => [a.rule.rule_id, a.rule])).values()];
+    const t0 = performance.now();
+    try {
+      const j = await api("api/report", { events, rules, clip: S.clip });
+      $("report-src").textContent = `Written by Muse Spark in ${((performance.now() - t0) / 1000).toFixed(1)} s from ${events.length} alert${events.length > 1 ? "s" : ""} of this session. Counts and times come from the engine, not the model.`;
+      body.innerHTML = md(j.markdown);
+    } catch (e) {
+      body.innerHTML = `<p class="msg err">${esc(e.message)}</p>`;
+    }
+  });
+  $("close-report").addEventListener("click", closeReport);
+  $("scrim").addEventListener("click", closeReport);
+  document.addEventListener("keydown", (e) => { if (e.key === "Escape" && document.body.classList.contains("report-open")) closeReport(); });
+
+  // ---------- Rule Scout ----------
+  // Muse Spark with tool calls: camera facts -> compile -> run on the engine -> inspect alerts -> accept/reject.
+  // Recorded runs come from web/cache/scout/<clip>.json (no cost); "Run live" steps through /api/scout/step.
+  const SC = { cache: {}, live: {}, busy: false, cont: null, err: "" };
+  const TRACE_KIND = {
+    facts: ["Read the camera facts", "var(--zone)"], propose: ["Proposed", "var(--tape)"], revise: ["Revised", "var(--medium)"],
+    run: ["Ran on the engine", "var(--ink)"], inspect: ["Inspected alert", "var(--muted)"], accept: ["Accepted", "var(--ok)"],
+    reject: ["Rejected", "var(--high)"], refused: ["Tool refused", "var(--medium)"], error: ["Tool error", "var(--high)"],
+    stop: ["Stopped", "var(--rule-line)"], note: ["", "var(--rule-line)"]
+  };
+  async function loadScout(clip) {
+    if (clip !== "webcam" && clip !== "own" && !(clip in SC.cache)) {
+      try {
+        const r = await fetch(`cache/scout/${clip}.json`);
+        SC.cache[clip] = r.ok ? await r.json() : null;
+      } catch (e) { SC.cache[clip] = null; }
+    }
+    if (clip === S.clip) renderScout();
+  }
+  function miniStrip(tl, events) {
+    if (!tl) return "";
+    const inEv = (s) => (events || []).some((e) => s >= e.start_s && s <= e.end_s);
+    return `<div class="mini" aria-hidden="true">${[...tl].map((c, s) =>
+      `<i class="${inEv(s) ? "a" : c === "T" ? "t" : c === "?" ? "q" : ""}"></i>`).join("")}</div>`;
+  }
+  function traceItem(t, clip) {
+    const [label, color] = TRACE_KIND[t.kind] || [t.kind, "var(--rule-line)"];
+    const rnd = `<span class="rnd">${t.round}</span>`;
+    let k = esc(label), d = "", extra = "", seek = null;
+    switch (t.kind) {
+      case "note": return `<li style="--c:${color}">${rnd}<span class="say">${esc(t.summary)}</span></li>`;
+      case "facts": d = t.summary.replace(/^camera facts: /, ""); break;
+      case "propose": case "revise": {
+        k = t.kind === "revise" ? `Revised ${esc(t.revises)} → ${esc(t.rule_ref)}` : `Proposed ${esc(t.rule_ref)}`;
+        k += `: “${esc(t.text)}”`;
+        const r = t.rule;
+        if (!r) d = t.summary;
+        else if (!r.condition) d = `Compiler: unsupported. ${r.unsupported || ""}`;
+        else d = `Compiled: ${r.objects.map((o) => o.prompt).join(", ")}${r.zones.length ? " in " + r.zones.map(zoneTitle).join(", ") : ""}, holds ${r.min_duration_s} s, ${r.severity}.`
+          + (t.can_run === false ? ` Cannot run here: ${t.why_not}.` : "");
+        if (t.reason) d += ` Why: ${t.reason}`;
+        break;
+      }
+      case "run":
+        k = `Ran ${esc(t.rule_ref)} on the engine`;
+        d = t.ran === false ? `Cannot run on this camera: ${t.why_not}` : `${t.alerts} alert${t.alerts === 1 ? "" : "s"}, condition true ${(t.timeline || "").split("T").length - 1} of ${(t.timeline || "").length} s`;
+        extra = t.ran === false ? "" : miniStrip(t.timeline, t.events);
+        break;
+      case "inspect": {
+        k = `Inspected alert ${esc(t.event_id)} at ${t.second} s`;
+        const m = (t.detections || []).filter((x) => x.matched_by_engine).map((x) => `${x.object}${x.id != null ? " #" + x.id : ""} ${x.score != null ? x.score.toFixed(2) : ""} ${x.where}`);
+        const ds = (t.pairs || []).filter((p) => p.floor_distance_m != null).map((p) => p.floor_distance_m);
+        d = (m.length ? "Matched: " + m.slice(0, 3).join("; ") : "No matched objects") + (ds.length ? `; closest person to forklift ${Math.min(...ds)} m` : "") + ".";
+        seek = t.second;
+        break;
+      }
+      case "accept": case "reject": k = `${label} ${esc(t.rule_ref)}`; d = t.reason; break;
+      default: d = t.summary;
+    }
+    const canSeek = seek != null && clip === S.clip && S.clip !== "webcam";
+    return `<li style="--c:${color}"${canSeek ? ` class="seek" data-s="${seek}" title="Show this second on the video"` : ""}>${rnd}<span class="k">${k}</span>`
+      + (d ? `<br><span class="d">${esc(d)}</span>` : "") + extra + "</li>";
+  }
+  function renderScout() {
+    const body = $("scout-body"), clip = S.clip;
+    if (clip === "webcam") {
+      $("scout-sum").textContent = "Works on the recorded clips";
+      body.innerHTML = `<p class="none">Rule Scout runs rules over a whole recorded clip. Pick one of the clips.</p>`;
+      return;
+    }
+    if (clip === "own") {
+      $("scout-sum").textContent = "Works on the sample clips";
+      body.innerHTML = `<p class="none">Rule Scout runs on the sample clips only: it needs SAM 3.1 results for every kind of object across the whole clip, and your clip has results only for the objects your rules asked for.</p>`;
+      return;
+    }
+    const v = SC.live[clip] || SC.cache[clip];
+    const live = !!SC.live[clip];
+    const intro = `<p class="intro">Muse Spark calls tools: it reads what this camera sees, writes rules in plain words, compiles them, runs them through the engine, inspects the alerts and keeps or drops each rule. The engine decides every alert; the agent only proposes and checks.</p>`;
+    if (!v) {
+      $("scout-sum").textContent = clip in SC.cache ? "No recorded run for this clip" : "Loading the recorded run…";
+      body.innerHTML = intro + scoutFoot(null, false);
+      return bindScout();
+    }
+    const props = v.rules.length + v.rejected.length + (v.undecided || []).length;
+    $("scout-sum").textContent = `${props} rule${props === 1 ? "" : "s"} proposed, ${v.rules.length} accepted on this camera${live && !v.done ? " (running…)" : ""}`;
+    const acc = v.rules.length
+      ? `<ul class="scout-rules">${v.rules.map((r, i) => `<li><b>“${esc(r.text)}”</b><br><span class="why">${esc(r.reason)}</span><br><button data-i="${i}">Try this rule</button></li>`).join("")}</ul>`
+      : `<p class="none">${v.done ? "No rule passed the checks on this clip." : "No rule accepted yet."}</p>`;
+    body.innerHTML = intro + `<h3>Accepted rules</h3>${acc}<h3>What the agent did</h3><ol class="trace">${v.trace.map((t) => traceItem(t, clip)).join("")}</ol>` + scoutFoot(v, live);
+    bindScout(v);
+    if (live && !v.done) { const tr = body.querySelector(".trace"); tr.scrollTop = tr.scrollHeight; }
+  }
+  function scoutFoot(v, live) {
+    let line = "";
+    if (v) {
+      const u = v.usage, cost = v.cost_usd != null ? v.cost_usd.toFixed(2) : "?";
+      line = `${live ? (v.done ? "Live run" : "Live run in progress") : `Recorded run, ${esc(v.created)}`}: ${u.agent_calls} agent call${u.agent_calls === 1 ? "" : "s"} and ${u.compile_calls} compiler call${u.compile_calls === 1 ? "" : "s"} to ${esc(v.model || "muse-spark-1.3")}, ${u.prompt_tokens.toLocaleString("en")} tokens in, ${u.completion_tokens.toLocaleString("en")} out, about $${cost}.`;
+    }
+    const btn = SC.cont ? "Continue" : "Run Rule Scout live";
+    const state = SC.busy ? `<span class="busy">${esc(SC.status || "Working")}</span>` : SC.err ? `<span class="err">${esc(SC.err)}</span>` : `<span>A live run takes about a minute.</span>`;
+    return `<div class="scout-foot"><span>${line}</span></div><div class="scout-foot"><button id="scout-live"${SC.busy || (S.cfg && !S.cfg.spark_key) ? " disabled" : ""}>${btn}</button>${state}</div>`;
+  }
+  function bindScout(v) {
+    const b = $("scout-live");
+    if (b) b.addEventListener("click", scoutLive);
+    $("scout-body").querySelectorAll(".scout-rules button").forEach((x) => x.addEventListener("click", () => useScoutRule(v.rules[+x.dataset.i].text)));
+    $("scout-body").querySelectorAll(".trace li.seek").forEach((li) => li.addEventListener("click", () => {
+      vid.pause(); vid.currentTime = +li.dataset.s + 0.05; draw();
+    }));
+  }
+  function useScoutRule(text) {
+    $("rule-text").value = text;
+    S.userTyped = true; S.ruleId = "custom";
+    document.querySelectorAll("#examples button").forEach((b) => b.setAttribute("aria-pressed", "false"));
+    markRuleStale();
+    $("rule-text").scrollIntoView({ block: "nearest" });
+    checkRule();
+  }
+  async function scoutLive() {
+    if (SC.busy || S.clip === "webcam" || S.clip === "own") return;
+    const clip = S.clip;
+    SC.busy = true; SC.err = ""; SC.status = "Starting the agent…";
+    renderScout();
+    let j = SC.cont && SC.cont.view.clip === clip ? SC.cont : null;
+    SC.cont = null;
+    try {
+      if (!j) { j = await api("api/scout/step", { clip }); SC.live[clip] = j.view; }
+      let n = 0;
+      while (!j.view.done && n++ < 40) {
+        SC.status = j.state.pending.length ? `Round ${j.state.rounds}: running ${j.state.pending.length} tool call${j.state.pending.length === 1 ? "" : "s"}…` : `Round ${j.state.rounds + 1}: Muse Spark is choosing the next step…`;
+        if (clip === S.clip) renderScout();
+        j = await api("api/scout/step", { state: j.state, sig: j.sig });
+        SC.live[clip] = j.view;
+      }
+    } catch (e) {
+      SC.err = e.message;
+      if (j && j.state && !j.view.done) SC.cont = j;   // a failed step leaves the state as it was: Continue retries it
+    } finally {
+      SC.busy = false;
+      if (clip === S.clip) renderScout();
+    }
+  }
+
+  // ---------- start ----------
+  (async () => {
+    const q = new URLSearchParams(location.search);
+    try { S.cfg = await api("api/health"); $("cam-max").textContent = S.cfg.webcam_max_frames; } catch (e) { /* page still works on clips */ }
+    const clip = CLIPS[q.get("clip")] ? q.get("clip") : "man-crosses-floor";
+    setExample(EXAMPLES[q.get("rule")] ? q.get("rule") : (DEFAULT_EXAMPLE[clip] || "r2"));
+    if (EXAMPLES[q.get("rule")]) S.userTyped = true;   // an explicit ?rule= is kept when the clip loads
+    renderFeed();
+    await selectClip(clip);
+  })();
+})();
+</script>
+</body>
+</html>

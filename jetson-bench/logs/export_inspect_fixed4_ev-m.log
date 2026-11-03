@@ -1,0 +1,8 @@
+== /mnt/data/work/export/efficientsam3-ev-m/fixed4/efficientsam3_ev-m_fixed4_mask.onnx  size=195.7 MiB  opset=[('ai.onnx', 17)]  ir=8 producer=pytorch 2.8.0
+  external data tensors: 0
+  in  pixel_values ['batch', 3, 1008, 1008] FLOAT
+  out detections ['batch', 'Castdetections_dim_1', 6] FLOAT16
+  out masks ['batch', 'Castmasks_dim_1', 'Castmasks_dim_2', 'Castmasks_dim_3'] FLOAT16
+  nodes 30597 initializers 615
+  checker: OK (full_check)
+  ops: {'Abs': 48, 'Add': 1637, 'Cast': 529, 'Clip': 80, 'Concat': 1689, 'Constant': 10908, 'ConstantOfShape': 199, 'Conv': 93, 'ConvTranspose': 3, 'Cos': 98, 'Div': 454, 'Einsum': 4, 'Equal': 80, 'Erf': 2, 'Expand': 87, 'Gather': 1117, 'Gemm': 152, 'HardSwish': 30, 'Identity': 565, 'If': 4, 'InstanceNormalization': 8, 'LayerNormalization': 259, 'Log': 72, 'MatMul': 1085, 'Mod': 61, 'Mul': 976, 'Not': 4, 'Pad': 7, 'Range': 2, 'ReduceSum': 8, 'Relu': 262, 'Reshape': 1653, 'Resize': 13, 'Shape': 1350, 'Sigmoid': 40, 'Sign': 48, 'Sin': 98, 'Slice': 1069, 'Softmax': 148, 'Split': 28, 'Sqrt': 300, 'Squeeze': 249, 'Sub': 128, 'Tile': 11, 'Transpose': 1071, 'Unsqueeze': 3740, 'Where': 128}

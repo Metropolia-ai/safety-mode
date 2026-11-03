@@ -1,0 +1,2737 @@
+{
+ "pexels-38707991-man-crosses-floor": {
+  "rule": "r2",
+  "rows": [
+   {
+    "s": 0,
+    "state": "idle",
+    "truth": ".",
+    "objects": []
+   },
+   {
+    "s": 1,
+    "state": "idle",
+    "truth": ".",
+    "objects": []
+   },
+   {
+    "s": 2,
+    "state": "idle",
+    "truth": ".",
+    "objects": []
+   },
+   {
+    "s": 3,
+    "state": "idle",
+    "truth": ".",
+    "objects": []
+   },
+   {
+    "s": 4,
+    "state": "idle",
+    "truth": ".",
+    "objects": []
+   },
+   {
+    "s": 5,
+    "state": "candidate",
+    "truth": "T",
+    "objects": [
+     {
+      "obj": "person #0",
+      "foot": [
+       0.843,
+       0.796
+      ],
+      "in_zone": true,
+      "hard hat": 0.0,
+      "safety vest": 0.0
+     }
+    ]
+   },
+   {
+    "s": 6,
+    "state": "candidate",
+    "truth": "T",
+    "objects": [
+     {
+      "obj": "person #0",
+      "foot": [
+       0.8,
+       0.801
+      ],
+      "in_zone": true,
+      "hard hat": 0.0,
+      "safety vest": 0.0
+     }
+    ]
+   },
+   {
+    "s": 7,
+    "state": "ALERT",
+    "truth": "T",
+    "objects": [
+     {
+      "obj": "person #0",
+      "foot": [
+       0.722,
+       0.801
+      ],
+      "in_zone": true,
+      "hard hat": 0.0,
+      "safety vest": 0.0
+     }
+    ]
+   },
+   {
+    "s": 8,
+    "state": "ALERT",
+    "truth": "T",
+    "objects": [
+     {
+      "obj": "person #0",
+      "foot": [
+       0.693,
+       0.801
+      ],
+      "in_zone": true,
+      "hard hat": 0.0,
+      "safety vest": 0.0
+     }
+    ]
+   },
+   {
+    "s": 9,
+    "state": "ALERT",
+    "truth": "T",
+    "objects": [
+     {
+      "obj": "person #0",
+      "foot": [
+       0.624,
+       0.796
+      ],
+      "in_zone": true,
+      "hard hat": 0.0,
+      "safety vest": 0.0
+     }
+    ]
+   },
+   {
+    "s": 10,
+    "state": "ALERT",
+    "truth": "T",
+    "objects": [
+     {
+      "obj": "person #0",
+      "foot": [
+       0.584,
+       0.797
+      ],
+      "in_zone": true,
+      "hard hat": 0.0,
+      "safety vest": 0.0
+     }
+    ]
+   },
+   {
+    "s": 11,
+    "state": "ALERT",
+    "truth": "T",
+    "objects": [
+     {
+      "obj": "person #0",
+      "foot": [
+       0.518,
+       0.797
+      ],
+      "in_zone": true,
+      "hard hat": 0.0,
+      "safety vest": 0.0
+     }
+    ]
+   },
+   {
+    "s": 12,
+    "state": "ALERT",
+    "truth": "T",
+    "objects": [
+     {
+      "obj": "person #0",
+      "foot": [
+       0.478,
+       0.797
+      ],
+      "in_zone": true,
+      "hard hat": 0.0,
+      "safety vest": 0.0
+     }
+    ]
+   },
+   {
+    "s": 13,
+    "state": "ALERT",
+    "truth": "T",
+    "objects": [
+     {
+      "obj": "person #0",
+      "foot": [
+       0.432,
+       0.792
+      ],
+      "in_zone": true,
+      "hard hat": 0.0,
+      "safety vest": 0.0
+     }
+    ]
+   },
+   {
+    "s": 14,
+    "state": "ALERT",
+    "truth": "T",
+    "objects": [
+     {
+      "obj": "person #0",
+      "foot": [
+       0.371,
+       0.793
+      ],
+      "in_zone": true,
+      "hard hat": 0.0,
+      "safety vest": 0.0
+     }
+    ]
+   },
+   {
+    "s": 15,
+    "state": "ALERT",
+    "truth": "T",
+    "objects": [
+     {
+      "obj": "person #0",
+      "foot": [
+       0.335,
+       0.796
+      ],
+      "in_zone": true,
+      "hard hat": 0.0,
+      "safety vest": 0.0
+     }
+    ]
+   },
+   {
+    "s": 16,
+    "state": "ALERT",
+    "truth": "T",
+    "objects": [
+     {
+      "obj": "person #0",
+      "foot": [
+       0.271,
+       0.796
+      ],
+      "in_zone": true,
+      "hard hat": 0.0,
+      "safety vest": 0.0
+     }
+    ]
+   },
+   {
+    "s": 17,
+    "state": "ALERT",
+    "truth": "T",
+    "objects": [
+     {
+      "obj": "person #0",
+      "foot": [
+       0.247,
+       0.787
+      ],
+      "in_zone": true,
+      "hard hat": 0.0,
+      "safety vest": 0.0
+     }
+    ]
+   },
+   {
+    "s": 18,
+    "state": "ALERT",
+    "truth": "T",
+    "objects": [
+     {
+      "obj": "person #0",
+      "foot": [
+       0.171,
+       0.786
+      ],
+      "in_zone": true,
+      "hard hat": 0.0,
+      "safety vest": 0.0
+     }
+    ]
+   },
+   {
+    "s": 19,
+    "state": "ALERT",
+    "truth": "T",
+    "objects": [
+     {
+      "obj": "person #0",
+      "foot": [
+       0.16,
+       0.79
+      ],
+      "in_zone": true,
+      "hard hat": 0.0,
+      "safety vest": 0.0
+     }
+    ]
+   },
+   {
+    "s": 20,
+    "state": "ALERT",
+    "truth": "T",
+    "objects": [
+     {
+      "obj": "person #0",
+      "foot": [
+       0.116,
+       0.789
+      ],
+      "in_zone": true,
+      "hard hat": 0.0,
+      "safety vest": 0.0
+     }
+    ]
+   },
+   {
+    "s": 21,
+    "state": "ALERT",
+    "truth": "T",
+    "objects": [
+     {
+      "obj": "person #0",
+      "foot": [
+       0.067,
+       0.787
+      ],
+      "in_zone": true,
+      "hard hat": 0.0,
+      "safety vest": 0.0
+     }
+    ]
+   },
+   {
+    "s": 22,
+    "state": "idle",
+    "truth": ".",
+    "objects": [
+     {
+      "obj": "person #0",
+      "foot": [
+       0.019,
+       0.404
+      ],
+      "in_zone": false,
+      "hard hat": 0.0,
+      "safety vest": 0.0
+     }
+    ]
+   },
+   {
+    "s": 23,
+    "state": "idle",
+    "truth": ".",
+    "objects": [
+     {
+      "obj": "person #0",
+      "foot": [
+       0.002,
+       0.312
+      ],
+      "in_zone": false,
+      "hard hat": 0.0,
+      "safety vest": 0.0
+     }
+    ]
+   }
+  ]
+ },
+ "pexels-4280746-hatless-visitor": {
+  "rule": "r2-hat",
+  "rows": [
+   {
+    "s": 0,
+    "state": "candidate",
+    "truth": "T",
+    "objects": [
+     {
+      "obj": "person #0",
+      "foot": [
+       0.257,
+       0.079
+      ],
+      "in_zone": true,
+      "hard hat": 0.0
+     }
+    ]
+   },
+   {
+    "s": 1,
+    "state": "candidate",
+    "truth": "T",
+    "objects": [
+     {
+      "obj": "person #0",
+      "foot": [
+       0.284,
+       0.147
+      ],
+      "in_zone": true,
+      "hard hat": 0.0
+     },
+     {
+      "obj": "person #1",
+      "foot": [
+       0.923,
+       0.757
+      ],
+      "in_zone": true,
+      "hard hat": 0.0
+     }
+    ]
+   },
+   {
+    "s": 2,
+    "state": "ALERT",
+    "truth": "T",
+    "objects": [
+     {
+      "obj": "person #0",
+      "foot": [
+       0.314,
+       0.286
+      ],
+      "in_zone": true,
+      "hard hat": 0.0
+     },
+     {
+      "obj": "person #1",
+      "foot": [
+       0.852,
+       0.779
+      ],
+      "in_zone": true,
+      "hard hat": 0.0
+     }
+    ]
+   },
+   {
+    "s": 3,
+    "state": "ALERT",
+    "truth": "T",
+    "objects": [
+     {
+      "obj": "person #0",
+      "foot": [
+       0.381,
+       0.382
+      ],
+      "in_zone": true,
+      "hard hat": 0.0
+     },
+     {
+      "obj": "person #1",
+      "foot": [
+       0.773,
+       0.711
+      ],
+      "in_zone": true,
+      "hard hat": 0.0
+     },
+     {
+      "obj": "person #2",
+      "foot": [
+       0.291,
+       0.4
+      ],
+      "in_zone": true,
+      "hard hat": 0.0
+     }
+    ]
+   },
+   {
+    "s": 4,
+    "state": "ALERT",
+    "truth": "T",
+    "objects": [
+     {
+      "obj": "person #0",
+      "foot": [
+       0.425,
+       0.486
+      ],
+      "in_zone": true,
+      "hard hat": 0.0
+     },
+     {
+      "obj": "person #1",
+      "foot": [
+       0.682,
+       0.585
+      ],
+      "in_zone": true,
+      "hard hat": 0.0
+     },
+     {
+      "obj": "person #2",
+      "foot": [
+       0.345,
+       0.542
+      ],
+      "in_zone": true,
+      "hard hat": 0.0
+     }
+    ]
+   },
+   {
+    "s": 5,
+    "state": "ALERT",
+    "truth": "T",
+    "objects": [
+     {
+      "obj": "person #0",
+      "foot": [
+       0.486,
+       0.549
+      ],
+      "in_zone": true,
+      "hard hat": 0.0
+     },
+     {
+      "obj": "person #1",
+      "foot": [
+       0.611,
+       0.515
+      ],
+      "in_zone": true,
+      "hard hat": 0.0
+     },
+     {
+      "obj": "person #2",
+      "foot": [
+       0.407,
+       0.625
+      ],
+      "in_zone": true,
+      "hard hat": 0.0
+     }
+    ]
+   },
+   {
+    "s": 6,
+    "state": "ALERT",
+    "truth": "T",
+    "objects": [
+     {
+      "obj": "person #0",
+      "foot": [
+       0.548,
+       0.667
+      ],
+      "in_zone": true,
+      "hard hat": 0.0
+     },
+     {
+      "obj": "person #1",
+      "foot": [
+       0.54,
+       0.376
+      ],
+      "in_zone": true,
+      "hard hat": 0.0
+     },
+     {
+      "obj": "person #2",
+      "foot": [
+       0.461,
+       0.76
+      ],
+      "in_zone": true,
+      "hard hat": 0.0
+     }
+    ]
+   },
+   {
+    "s": 7,
+    "state": "ALERT",
+    "truth": "T",
+    "objects": [
+     {
+      "obj": "person #0",
+      "foot": [
+       0.625,
+       0.824
+      ],
+      "in_zone": true,
+      "hard hat": 0.0
+     },
+     {
+      "obj": "person #1",
+      "foot": [
+       0.463,
+       0.349
+      ],
+      "in_zone": true,
+      "hard hat": 0.0
+     },
+     {
+      "obj": "person #2",
+      "foot": [
+       0.525,
+       0.849
+      ],
+      "in_zone": true,
+      "hard hat": 0.0
+     }
+    ]
+   },
+   {
+    "s": 8,
+    "state": "ALERT",
+    "truth": "T",
+    "objects": [
+     {
+      "obj": "person #0",
+      "foot": [
+       0.69,
+       0.931
+      ],
+      "in_zone": true,
+      "hard hat": 0.0
+     },
+     {
+      "obj": "person #1",
+      "foot": [
+       0.398,
+       0.287
+      ],
+      "in_zone": true,
+      "hard hat": 0.0
+     },
+     {
+      "obj": "person #2",
+      "foot": [
+       0.593,
+       1.0
+      ],
+      "in_zone": true,
+      "hard hat": 0.0
+     }
+    ]
+   },
+   {
+    "s": 9,
+    "state": "ALERT",
+    "truth": "T",
+    "objects": [
+     {
+      "obj": "person #0",
+      "foot": [
+       0.768,
+       1.0
+      ],
+      "in_zone": true,
+      "hard hat": 0.0
+     },
+     {
+      "obj": "person #1",
+      "foot": [
+       0.348,
+       0.212
+      ],
+      "in_zone": true,
+      "hard hat": 0.0
+     },
+     {
+      "obj": "person #2",
+      "foot": [
+       0.646,
+       1.0
+      ],
+      "in_zone": true,
+      "hard hat": 0.0
+     }
+    ]
+   },
+   {
+    "s": 10,
+    "state": "ALERT",
+    "truth": "T",
+    "objects": [
+     {
+      "obj": "person #0",
+      "foot": [
+       0.822,
+       1.0
+      ],
+      "in_zone": true,
+      "hard hat": 0.2
+     },
+     {
+      "obj": "person #1",
+      "foot": [
+       0.288,
+       0.199
+      ],
+      "in_zone": true,
+      "hard hat": 0.0
+     }
+    ]
+   },
+   {
+    "s": 11,
+    "state": "ALERT",
+    "truth": "T",
+    "objects": [
+     {
+      "obj": "person #1",
+      "foot": [
+       0.268,
+       0.125
+      ],
+      "in_zone": true,
+      "hard hat": 0.0
+     }
+    ]
+   }
+  ]
+ },
+ "pexels-31751344-forklift-crosses-aisle": {
+  "rule": "r8",
+  "rows": [
+   {
+    "s": 0,
+    "state": "idle",
+    "truth": ".",
+    "objects": []
+   },
+   {
+    "s": 1,
+    "state": "idle",
+    "truth": ".",
+    "objects": []
+   },
+   {
+    "s": 2,
+    "state": "idle",
+    "truth": ".",
+    "objects": []
+   },
+   {
+    "s": 3,
+    "state": "idle",
+    "truth": ".",
+    "objects": []
+   },
+   {
+    "s": 4,
+    "state": "idle",
+    "truth": ".",
+    "objects": []
+   },
+   {
+    "s": 5,
+    "state": "candidate",
+    "truth": "T",
+    "objects": [
+     {
+      "obj": "forklift #0",
+      "foot": [
+       0.347,
+       0.978
+      ],
+      "in_zone": true
+     }
+    ]
+   },
+   {
+    "s": 6,
+    "state": "ALERT",
+    "truth": "T",
+    "objects": [
+     {
+      "obj": "forklift #0",
+      "foot": [
+       0.582,
+       0.975
+      ],
+      "in_zone": true
+     }
+    ]
+   },
+   {
+    "s": 7,
+    "state": "ALERT",
+    "truth": "T",
+    "objects": [
+     {
+      "obj": "forklift #0",
+      "foot": [
+       0.75,
+       0.971
+      ],
+      "in_zone": true
+     }
+    ]
+   },
+   {
+    "s": 8,
+    "state": "idle",
+    "truth": ".",
+    "objects": [
+     {
+      "obj": "forklift #0",
+      "foot": [
+       0.903,
+       0.925
+      ],
+      "in_zone": false
+     }
+    ]
+   },
+   {
+    "s": 9,
+    "state": "idle",
+    "truth": ".",
+    "objects": []
+   },
+   {
+    "s": 10,
+    "state": "idle",
+    "truth": ".",
+    "objects": []
+   },
+   {
+    "s": 11,
+    "state": "idle",
+    "truth": ".",
+    "objects": []
+   }
+  ]
+ },
+ "pexels-32245123-site-worker-no-vest": {
+  "rule": "r2-vest",
+  "rows": [
+   {
+    "s": 0,
+    "state": "candidate",
+    "truth": "T",
+    "objects": [
+     {
+      "obj": "person #0",
+      "foot": [
+       0.951,
+       0.911
+      ],
+      "in_zone": true,
+      "safety vest": 0.53
+     },
+     {
+      "obj": "person #1",
+      "foot": [
+       0.633,
+       0.867
+      ],
+      "in_zone": true,
+      "safety vest": 0.0
+     }
+    ]
+   },
+   {
+    "s": 1,
+    "state": "candidate",
+    "truth": "T",
+    "objects": [
+     {
+      "obj": "person #0",
+      "foot": [
+       0.944,
+       0.889
+      ],
+      "in_zone": true,
+      "safety vest": 0.53
+     },
+     {
+      "obj": "person #1",
+      "foot": [
+       0.641,
+       0.754
+      ],
+      "in_zone": true,
+      "safety vest": 0.0
+     }
+    ]
+   },
+   {
+    "s": 2,
+    "state": "ALERT",
+    "truth": "T",
+    "objects": [
+     {
+      "obj": "person #0",
+      "foot": [
+       0.892,
+       0.869
+      ],
+      "in_zone": true,
+      "safety vest": 0.54
+     },
+     {
+      "obj": "person #1",
+      "foot": [
+       0.699,
+       0.838
+      ],
+      "in_zone": true,
+      "safety vest": 0.0
+     }
+    ]
+   },
+   {
+    "s": 3,
+    "state": "ALERT",
+    "truth": ".",
+    "objects": [
+     {
+      "obj": "person #0",
+      "foot": [
+       0.823,
+       0.854
+      ],
+      "in_zone": true,
+      "safety vest": 0.5
+     },
+     {
+      "obj": "person #1",
+      "foot": [
+       0.768,
+       0.85
+      ],
+      "in_zone": true,
+      "safety vest": 0.39
+     }
+    ]
+   },
+   {
+    "s": 4,
+    "state": "ALERT",
+    "truth": "T",
+    "objects": [
+     {
+      "obj": "person #0",
+      "foot": [
+       0.739,
+       0.838
+      ],
+      "in_zone": true,
+      "safety vest": 0.49
+     },
+     {
+      "obj": "person #1",
+      "foot": [
+       0.848,
+       0.863
+      ],
+      "in_zone": true,
+      "safety vest": 0.0
+     }
+    ]
+   },
+   {
+    "s": 5,
+    "state": "ALERT",
+    "truth": "T",
+    "objects": [
+     {
+      "obj": "person #0",
+      "foot": [
+       0.663,
+       0.782
+      ],
+      "in_zone": true,
+      "safety vest": 0.61
+     },
+     {
+      "obj": "person #1",
+      "foot": [
+       0.95,
+       0.883
+      ],
+      "in_zone": true,
+      "safety vest": 0.0
+     }
+    ]
+   },
+   {
+    "s": 6,
+    "state": "idle",
+    "truth": ".",
+    "objects": [
+     {
+      "obj": "person #0",
+      "foot": [
+       0.565,
+       0.81
+      ],
+      "in_zone": true,
+      "safety vest": 0.54
+     }
+    ]
+   },
+   {
+    "s": 7,
+    "state": "idle",
+    "truth": ".",
+    "objects": [
+     {
+      "obj": "person #0",
+      "foot": [
+       0.453,
+       0.79
+      ],
+      "in_zone": true,
+      "safety vest": 0.54
+     }
+    ]
+   },
+   {
+    "s": 8,
+    "state": "idle",
+    "truth": ".",
+    "objects": [
+     {
+      "obj": "person #0",
+      "foot": [
+       0.374,
+       0.768
+      ],
+      "in_zone": true,
+      "safety vest": 0.59
+     }
+    ]
+   },
+   {
+    "s": 9,
+    "state": "idle",
+    "truth": ".",
+    "objects": [
+     {
+      "obj": "person #0",
+      "foot": [
+       0.357,
+       0.767
+      ],
+      "in_zone": true,
+      "safety vest": 0.52
+     }
+    ]
+   },
+   {
+    "s": 10,
+    "state": "candidate",
+    "truth": "T",
+    "objects": [
+     {
+      "obj": "person #0",
+      "foot": [
+       0.325,
+       0.757
+      ],
+      "in_zone": true,
+      "safety vest": 0.0
+     }
+    ]
+   }
+  ]
+ },
+ "pexels-32268407-forklift-roll-worker": {
+  "rule": "r1-forks",
+  "rows": [
+   {
+    "s": 0,
+    "state": "candidate",
+    "truth": "T",
+    "objects": [
+     {
+      "obj": "person #0",
+      "foot": [
+       0.734,
+       0.592
+      ],
+      "in_zone": true
+     },
+     {
+      "obj": "person #1",
+      "foot": [
+       0.432,
+       0.567
+      ],
+      "in_zone": false
+     },
+     {
+      "obj": "person #2",
+      "foot": [
+       0.108,
+       0.196
+      ],
+      "in_zone": false
+     }
+    ]
+   },
+   {
+    "s": 1,
+    "state": "ALERT",
+    "truth": "T",
+    "objects": [
+     {
+      "obj": "person #0",
+      "foot": [
+       0.721,
+       0.529
+      ],
+      "in_zone": true
+     },
+     {
+      "obj": "person #1",
+      "foot": [
+       0.429,
+       0.565
+      ],
+      "in_zone": false
+     },
+     {
+      "obj": "person #2",
+      "foot": [
+       0.108,
+       0.194
+      ],
+      "in_zone": false
+     }
+    ]
+   },
+   {
+    "s": 2,
+    "state": "ALERT",
+    "truth": "T",
+    "objects": [
+     {
+      "obj": "person #0",
+      "foot": [
+       0.703,
+       0.49
+      ],
+      "in_zone": true
+     },
+     {
+      "obj": "person #1",
+      "foot": [
+       0.431,
+       0.569
+      ],
+      "in_zone": false
+     },
+     {
+      "obj": "person #2",
+      "foot": [
+       0.108,
+       0.193
+      ],
+      "in_zone": false
+     }
+    ]
+   },
+   {
+    "s": 3,
+    "state": "ALERT",
+    "truth": "T",
+    "objects": [
+     {
+      "obj": "person #0",
+      "foot": [
+       0.711,
+       0.531
+      ],
+      "in_zone": true
+     },
+     {
+      "obj": "person #1",
+      "foot": [
+       0.431,
+       0.568
+      ],
+      "in_zone": false
+     },
+     {
+      "obj": "person #2",
+      "foot": [
+       0.111,
+       0.19
+      ],
+      "in_zone": false
+     }
+    ]
+   },
+   {
+    "s": 4,
+    "state": "ALERT",
+    "truth": "T",
+    "objects": [
+     {
+      "obj": "person #0",
+      "foot": [
+       0.699,
+       0.531
+      ],
+      "in_zone": true
+     },
+     {
+      "obj": "person #1",
+      "foot": [
+       0.434,
+       0.569
+      ],
+      "in_zone": false
+     },
+     {
+      "obj": "person #2",
+      "foot": [
+       0.114,
+       0.188
+      ],
+      "in_zone": false
+     }
+    ]
+   },
+   {
+    "s": 5,
+    "state": "ALERT",
+    "truth": "T",
+    "objects": [
+     {
+      "obj": "person #0",
+      "foot": [
+       0.701,
+       0.489
+      ],
+      "in_zone": true
+     },
+     {
+      "obj": "person #1",
+      "foot": [
+       0.435,
+       0.571
+      ],
+      "in_zone": false
+     },
+     {
+      "obj": "person #2",
+      "foot": [
+       0.113,
+       0.186
+      ],
+      "in_zone": false
+     }
+    ]
+   },
+   {
+    "s": 6,
+    "state": "ALERT",
+    "truth": "T",
+    "objects": [
+     {
+      "obj": "person #0",
+      "foot": [
+       0.702,
+       0.485
+      ],
+      "in_zone": true
+     },
+     {
+      "obj": "person #1",
+      "foot": [
+       0.436,
+       0.569
+      ],
+      "in_zone": false
+     },
+     {
+      "obj": "person #2",
+      "foot": [
+       0.114,
+       0.183
+      ],
+      "in_zone": false
+     }
+    ]
+   },
+   {
+    "s": 7,
+    "state": "ALERT",
+    "truth": "T",
+    "objects": [
+     {
+      "obj": "person #0",
+      "foot": [
+       0.703,
+       0.479
+      ],
+      "in_zone": true
+     },
+     {
+      "obj": "person #1",
+      "foot": [
+       0.436,
+       0.569
+      ],
+      "in_zone": false
+     },
+     {
+      "obj": "person #2",
+      "foot": [
+       0.114,
+       0.182
+      ],
+      "in_zone": false
+     }
+    ]
+   },
+   {
+    "s": 8,
+    "state": "ALERT",
+    "truth": "T",
+    "objects": [
+     {
+      "obj": "person #0",
+      "foot": [
+       0.704,
+       0.464
+      ],
+      "in_zone": true
+     },
+     {
+      "obj": "person #1",
+      "foot": [
+       0.436,
+       0.568
+      ],
+      "in_zone": false
+     },
+     {
+      "obj": "person #2",
+      "foot": [
+       0.114,
+       0.181
+      ],
+      "in_zone": false
+     }
+    ]
+   },
+   {
+    "s": 9,
+    "state": "ALERT",
+    "truth": "T",
+    "objects": [
+     {
+      "obj": "person #0",
+      "foot": [
+       0.702,
+       0.489
+      ],
+      "in_zone": true
+     },
+     {
+      "obj": "person #1",
+      "foot": [
+       0.436,
+       0.568
+      ],
+      "in_zone": false
+     },
+     {
+      "obj": "person #2",
+      "foot": [
+       0.11,
+       0.181
+      ],
+      "in_zone": false
+     }
+    ]
+   },
+   {
+    "s": 10,
+    "state": "ALERT",
+    "truth": "T",
+    "objects": [
+     {
+      "obj": "person #0",
+      "foot": [
+       0.718,
+       0.481
+      ],
+      "in_zone": true
+     },
+     {
+      "obj": "person #1",
+      "foot": [
+       0.435,
+       0.568
+      ],
+      "in_zone": false
+     },
+     {
+      "obj": "person #2",
+      "foot": [
+       0.11,
+       0.181
+      ],
+      "in_zone": false
+     }
+    ]
+   },
+   {
+    "s": 11,
+    "state": "ALERT",
+    "truth": "T",
+    "objects": [
+     {
+      "obj": "person #0",
+      "foot": [
+       0.716,
+       0.476
+      ],
+      "in_zone": true
+     },
+     {
+      "obj": "person #1",
+      "foot": [
+       0.435,
+       0.569
+      ],
+      "in_zone": false
+     },
+     {
+      "obj": "person #2",
+      "foot": [
+       0.11,
+       0.181
+      ],
+      "in_zone": false
+     }
+    ]
+   },
+   {
+    "s": 12,
+    "state": "ALERT",
+    "truth": "T",
+    "objects": [
+     {
+      "obj": "person #0",
+      "foot": [
+       0.716,
+       0.467
+      ],
+      "in_zone": true
+     },
+     {
+      "obj": "person #1",
+      "foot": [
+       0.435,
+       0.569
+      ],
+      "in_zone": false
+     },
+     {
+      "obj": "person #2",
+      "foot": [
+       0.11,
+       0.179
+      ],
+      "in_zone": false
+     }
+    ]
+   },
+   {
+    "s": 13,
+    "state": "ALERT",
+    "truth": "T",
+    "objects": [
+     {
+      "obj": "person #0",
+      "foot": [
+       0.715,
+       0.461
+      ],
+      "in_zone": true
+     },
+     {
+      "obj": "person #1",
+      "foot": [
+       0.434,
+       0.569
+      ],
+      "in_zone": false
+     },
+     {
+      "obj": "person #2",
+      "foot": [
+       0.11,
+       0.179
+      ],
+      "in_zone": false
+     }
+    ]
+   },
+   {
+    "s": 14,
+    "state": "ALERT",
+    "truth": "T",
+    "objects": [
+     {
+      "obj": "person #0",
+      "foot": [
+       0.714,
+       0.457
+      ],
+      "in_zone": true
+     },
+     {
+      "obj": "person #1",
+      "foot": [
+       0.434,
+       0.569
+      ],
+      "in_zone": false
+     },
+     {
+      "obj": "person #2",
+      "foot": [
+       0.11,
+       0.179
+      ],
+      "in_zone": false
+     }
+    ]
+   },
+   {
+    "s": 15,
+    "state": "ALERT",
+    "truth": "T",
+    "objects": [
+     {
+      "obj": "person #0",
+      "foot": [
+       0.712,
+       0.458
+      ],
+      "in_zone": true
+     },
+     {
+      "obj": "person #1",
+      "foot": [
+       0.432,
+       0.569
+      ],
+      "in_zone": false
+     },
+     {
+      "obj": "person #2",
+      "foot": [
+       0.11,
+       0.181
+      ],
+      "in_zone": false
+     }
+    ]
+   },
+   {
+    "s": 16,
+    "state": "ALERT",
+    "truth": "T",
+    "objects": [
+     {
+      "obj": "person #0",
+      "foot": [
+       0.709,
+       0.458
+      ],
+      "in_zone": true
+     },
+     {
+      "obj": "person #1",
+      "foot": [
+       0.432,
+       0.569
+      ],
+      "in_zone": false
+     },
+     {
+      "obj": "person #2",
+      "foot": [
+       0.108,
+       0.181
+      ],
+      "in_zone": false
+     },
+     {
+      "obj": "person #4",
+      "foot": [
+       0.436,
+       0.11
+      ],
+      "in_zone": false
+     }
+    ]
+   },
+   {
+    "s": 17,
+    "state": "ALERT",
+    "truth": "T",
+    "objects": [
+     {
+      "obj": "person #0",
+      "foot": [
+       0.707,
+       0.467
+      ],
+      "in_zone": true
+     },
+     {
+      "obj": "person #1",
+      "foot": [
+       0.429,
+       0.568
+      ],
+      "in_zone": false
+     },
+     {
+      "obj": "person #2",
+      "foot": [
+       0.111,
+       0.181
+      ],
+      "in_zone": false
+     }
+    ]
+   },
+   {
+    "s": 18,
+    "state": "ALERT",
+    "truth": "T",
+    "objects": [
+     {
+      "obj": "person #0",
+      "foot": [
+       0.701,
+       0.474
+      ],
+      "in_zone": true
+     },
+     {
+      "obj": "person #1",
+      "foot": [
+       0.427,
+       0.567
+      ],
+      "in_zone": false
+     },
+     {
+      "obj": "person #2",
+      "foot": [
+       0.111,
+       0.182
+      ],
+      "in_zone": false
+     }
+    ]
+   },
+   {
+    "s": 19,
+    "state": "ALERT",
+    "truth": "T",
+    "objects": [
+     {
+      "obj": "person #0",
+      "foot": [
+       0.68,
+       0.476
+      ],
+      "in_zone": true
+     },
+     {
+      "obj": "person #1",
+      "foot": [
+       0.426,
+       0.565
+      ],
+      "in_zone": false
+     },
+     {
+      "obj": "person #2",
+      "foot": [
+       0.112,
+       0.182
+      ],
+      "in_zone": false
+     }
+    ]
+   },
+   {
+    "s": 20,
+    "state": "ALERT",
+    "truth": "T",
+    "objects": [
+     {
+      "obj": "person #0",
+      "foot": [
+       0.687,
+       0.478
+      ],
+      "in_zone": true
+     },
+     {
+      "obj": "person #1",
+      "foot": [
+       0.427,
+       0.565
+      ],
+      "in_zone": false
+     },
+     {
+      "obj": "person #2",
+      "foot": [
+       0.111,
+       0.183
+      ],
+      "in_zone": false
+     }
+    ]
+   },
+   {
+    "s": 21,
+    "state": "ALERT",
+    "truth": "T",
+    "objects": [
+     {
+      "obj": "person #0",
+      "foot": [
+       0.688,
+       0.479
+      ],
+      "in_zone": true
+     },
+     {
+      "obj": "person #1",
+      "foot": [
+       0.429,
+       0.565
+      ],
+      "in_zone": false
+     },
+     {
+      "obj": "person #2",
+      "foot": [
+       0.103,
+       0.185
+      ],
+      "in_zone": false
+     }
+    ]
+   },
+   {
+    "s": 22,
+    "state": "ALERT",
+    "truth": "T",
+    "objects": [
+     {
+      "obj": "person #0",
+      "foot": [
+       0.725,
+       0.539
+      ],
+      "in_zone": true
+     },
+     {
+      "obj": "person #1",
+      "foot": [
+       0.43,
+       0.568
+      ],
+      "in_zone": false
+     },
+     {
+      "obj": "person #2",
+      "foot": [
+       0.095,
+       0.165
+      ],
+      "in_zone": false
+     }
+    ]
+   },
+   {
+    "s": 23,
+    "state": "ALERT",
+    "truth": "T",
+    "objects": [
+     {
+      "obj": "person #0",
+      "foot": [
+       0.741,
+       0.588
+      ],
+      "in_zone": true
+     },
+     {
+      "obj": "person #1",
+      "foot": [
+       0.431,
+       0.568
+      ],
+      "in_zone": false
+     },
+     {
+      "obj": "person #2",
+      "foot": [
+       0.09,
+       0.167
+      ],
+      "in_zone": false
+     }
+    ]
+   },
+   {
+    "s": 24,
+    "state": "ALERT",
+    "truth": "T",
+    "objects": [
+     {
+      "obj": "person #0",
+      "foot": [
+       0.748,
+       0.589
+      ],
+      "in_zone": true
+     },
+     {
+      "obj": "person #1",
+      "foot": [
+       0.432,
+       0.569
+      ],
+      "in_zone": false
+     },
+     {
+      "obj": "person #2",
+      "foot": [
+       0.078,
+       0.16
+      ],
+      "in_zone": false
+     }
+    ]
+   },
+   {
+    "s": 25,
+    "state": "ALERT",
+    "truth": "T",
+    "objects": [
+     {
+      "obj": "person #0",
+      "foot": [
+       0.748,
+       0.589
+      ],
+      "in_zone": true
+     },
+     {
+      "obj": "person #1",
+      "foot": [
+       0.431,
+       0.568
+      ],
+      "in_zone": false
+     },
+     {
+      "obj": "person #2",
+      "foot": [
+       0.059,
+       0.167
+      ],
+      "in_zone": false
+     },
+     {
+      "obj": "person #5",
+      "foot": [
+       0.422,
+       0.113
+      ],
+      "in_zone": false
+     }
+    ]
+   },
+   {
+    "s": 26,
+    "state": "ALERT",
+    "truth": "T",
+    "objects": [
+     {
+      "obj": "person #0",
+      "foot": [
+       0.752,
+       0.558
+      ],
+      "in_zone": true
+     },
+     {
+      "obj": "person #1",
+      "foot": [
+       0.429,
+       0.568
+      ],
+      "in_zone": false
+     },
+     {
+      "obj": "person #2",
+      "foot": [
+       0.033,
+       0.179
+      ],
+      "in_zone": false
+     },
+     {
+      "obj": "person #5",
+      "foot": [
+       0.422,
+       0.114
+      ],
+      "in_zone": false
+     }
+    ]
+   },
+   {
+    "s": 27,
+    "state": "ALERT",
+    "truth": "T",
+    "objects": [
+     {
+      "obj": "person #0",
+      "foot": [
+       0.768,
+       0.562
+      ],
+      "in_zone": true
+     },
+     {
+      "obj": "person #1",
+      "foot": [
+       0.428,
+       0.565
+      ],
+      "in_zone": false
+     },
+     {
+      "obj": "person #2",
+      "foot": [
+       0.014,
+       0.199
+      ],
+      "in_zone": false
+     },
+     {
+      "obj": "person #5",
+      "foot": [
+       0.422,
+       0.113
+      ],
+      "in_zone": false
+     }
+    ]
+   },
+   {
+    "s": 28,
+    "state": "ALERT",
+    "truth": "T",
+    "objects": [
+     {
+      "obj": "person #0",
+      "foot": [
+       0.773,
+       0.586
+      ],
+      "in_zone": true
+     },
+     {
+      "obj": "person #1",
+      "foot": [
+       0.429,
+       0.568
+      ],
+      "in_zone": false
+     },
+     {
+      "obj": "person #2",
+      "foot": [
+       0.011,
+       0.197
+      ],
+      "in_zone": false
+     },
+     {
+      "obj": "person #5",
+      "foot": [
+       0.423,
+       0.115
+      ],
+      "in_zone": false
+     }
+    ]
+   },
+   {
+    "s": 29,
+    "state": "ALERT",
+    "truth": "T",
+    "objects": [
+     {
+      "obj": "person #0",
+      "foot": [
+       0.764,
+       0.596
+      ],
+      "in_zone": true
+     },
+     {
+      "obj": "person #1",
+      "foot": [
+       0.429,
+       0.568
+      ],
+      "in_zone": false
+     },
+     {
+      "obj": "person #2",
+      "foot": [
+       0.02,
+       0.196
+      ],
+      "in_zone": false
+     },
+     {
+      "obj": "person #5",
+      "foot": [
+       0.421,
+       0.114
+      ],
+      "in_zone": false
+     }
+    ]
+   },
+   {
+    "s": 30,
+    "state": "ALERT",
+    "truth": "T",
+    "objects": [
+     {
+      "obj": "person #0",
+      "foot": [
+       0.77,
+       0.603
+      ],
+      "in_zone": true
+     },
+     {
+      "obj": "person #1",
+      "foot": [
+       0.43,
+       0.568
+      ],
+      "in_zone": false
+     },
+     {
+      "obj": "person #2",
+      "foot": [
+       0.032,
+       0.165
+      ],
+      "in_zone": false
+     },
+     {
+      "obj": "person #5",
+      "foot": [
+       0.421,
+       0.114
+      ],
+      "in_zone": false
+     }
+    ]
+   },
+   {
+    "s": 31,
+    "state": "idle",
+    "truth": ".",
+    "objects": [
+     {
+      "obj": "person #0",
+      "foot": [
+       0.782,
+       0.608
+      ],
+      "in_zone": false
+     },
+     {
+      "obj": "person #1",
+      "foot": [
+       0.43,
+       0.568
+      ],
+      "in_zone": false
+     },
+     {
+      "obj": "person #2",
+      "foot": [
+       0.037,
+       0.167
+      ],
+      "in_zone": false
+     },
+     {
+      "obj": "person #5",
+      "foot": [
+       0.42,
+       0.113
+      ],
+      "in_zone": false
+     }
+    ]
+   },
+   {
+    "s": 32,
+    "state": "idle",
+    "truth": ".",
+    "objects": [
+     {
+      "obj": "person #0",
+      "foot": [
+       0.786,
+       0.617
+      ],
+      "in_zone": false
+     },
+     {
+      "obj": "person #1",
+      "foot": [
+       0.43,
+       0.568
+      ],
+      "in_zone": false
+     },
+     {
+      "obj": "person #2",
+      "foot": [
+       0.038,
+       0.165
+      ],
+      "in_zone": false
+     },
+     {
+      "obj": "person #5",
+      "foot": [
+       0.422,
+       0.114
+      ],
+      "in_zone": false
+     }
+    ]
+   },
+   {
+    "s": 33,
+    "state": "idle",
+    "truth": ".",
+    "objects": [
+     {
+      "obj": "person #0",
+      "foot": [
+       0.787,
+       0.618
+      ],
+      "in_zone": false
+     },
+     {
+      "obj": "person #1",
+      "foot": [
+       0.431,
+       0.568
+      ],
+      "in_zone": false
+     },
+     {
+      "obj": "person #2",
+      "foot": [
+       0.038,
+       0.165
+      ],
+      "in_zone": false
+     },
+     {
+      "obj": "person #5",
+      "foot": [
+       0.421,
+       0.113
+      ],
+      "in_zone": false
+     }
+    ]
+   },
+   {
+    "s": 34,
+    "state": "idle",
+    "truth": ".",
+    "objects": [
+     {
+      "obj": "person #0",
+      "foot": [
+       0.778,
+       0.619
+      ],
+      "in_zone": false
+     },
+     {
+      "obj": "person #1",
+      "foot": [
+       0.434,
+       0.569
+      ],
+      "in_zone": false
+     },
+     {
+      "obj": "person #2",
+      "foot": [
+       0.039,
+       0.165
+      ],
+      "in_zone": false
+     },
+     {
+      "obj": "person #5",
+      "foot": [
+       0.42,
+       0.113
+      ],
+      "in_zone": false
+     }
+    ]
+   },
+   {
+    "s": 35,
+    "state": "candidate",
+    "truth": "T",
+    "objects": [
+     {
+      "obj": "person #0",
+      "foot": [
+       0.738,
+       0.585
+      ],
+      "in_zone": true
+     },
+     {
+      "obj": "person #1",
+      "foot": [
+       0.437,
+       0.568
+      ],
+      "in_zone": false
+     },
+     {
+      "obj": "person #2",
+      "foot": [
+       0.039,
+       0.165
+      ],
+      "in_zone": false
+     },
+     {
+      "obj": "person #5",
+      "foot": [
+       0.419,
+       0.113
+      ],
+      "in_zone": false
+     }
+    ]
+   },
+   {
+    "s": 36,
+    "state": "ALERT",
+    "truth": "T",
+    "objects": [
+     {
+      "obj": "person #0",
+      "foot": [
+       0.741,
+       0.581
+      ],
+      "in_zone": true
+     },
+     {
+      "obj": "person #1",
+      "foot": [
+       0.438,
+       0.568
+      ],
+      "in_zone": false
+     },
+     {
+      "obj": "person #2",
+      "foot": [
+       0.039,
+       0.164
+      ],
+      "in_zone": false
+     },
+     {
+      "obj": "person #5",
+      "foot": [
+       0.419,
+       0.113
+      ],
+      "in_zone": false
+     }
+    ]
+   },
+   {
+    "s": 37,
+    "state": "ALERT",
+    "truth": "T",
+    "objects": [
+     {
+      "obj": "person #0",
+      "foot": [
+       0.75,
+       0.571
+      ],
+      "in_zone": true
+     },
+     {
+      "obj": "person #1",
+      "foot": [
+       0.44,
+       0.565
+      ],
+      "in_zone": false
+     },
+     {
+      "obj": "person #2",
+      "foot": [
+       0.041,
+       0.164
+      ],
+      "in_zone": false
+     },
+     {
+      "obj": "person #5",
+      "foot": [
+       0.419,
+       0.113
+      ],
+      "in_zone": false
+     }
+    ]
+   },
+   {
+    "s": 38,
+    "state": "ALERT",
+    "truth": "T",
+    "objects": [
+     {
+      "obj": "person #0",
+      "foot": [
+       0.77,
+       0.585
+      ],
+      "in_zone": true
+     },
+     {
+      "obj": "person #1",
+      "foot": [
+       0.441,
+       0.565
+      ],
+      "in_zone": false
+     },
+     {
+      "obj": "person #2",
+      "foot": [
+       0.052,
+       0.153
+      ],
+      "in_zone": false
+     },
+     {
+      "obj": "person #5",
+      "foot": [
+       0.42,
+       0.113
+      ],
+      "in_zone": false
+     }
+    ]
+   },
+   {
+    "s": 39,
+    "state": "ALERT",
+    "truth": "T",
+    "objects": [
+     {
+      "obj": "person #0",
+      "foot": [
+       0.788,
+       0.579
+      ],
+      "in_zone": true
+     },
+     {
+      "obj": "person #1",
+      "foot": [
+       0.441,
+       0.565
+      ],
+      "in_zone": false
+     },
+     {
+      "obj": "person #2",
+      "foot": [
+       0.053,
+       0.154
+      ],
+      "in_zone": false
+     },
+     {
+      "obj": "person #5",
+      "foot": [
+       0.42,
+       0.113
+      ],
+      "in_zone": false
+     }
+    ]
+   },
+   {
+    "s": 40,
+    "state": "ALERT",
+    "truth": "T",
+    "objects": [
+     {
+      "obj": "person #0",
+      "foot": [
+       0.798,
+       0.596
+      ],
+      "in_zone": true
+     },
+     {
+      "obj": "person #1",
+      "foot": [
+       0.443,
+       0.565
+      ],
+      "in_zone": false
+     },
+     {
+      "obj": "person #2",
+      "foot": [
+       0.053,
+       0.153
+      ],
+      "in_zone": false
+     },
+     {
+      "obj": "person #5",
+      "foot": [
+       0.42,
+       0.111
+      ],
+      "in_zone": false
+     }
+    ]
+   },
+   {
+    "s": 41,
+    "state": "ALERT",
+    "truth": "T",
+    "objects": [
+     {
+      "obj": "person #0",
+      "foot": [
+       0.808,
+       0.59
+      ],
+      "in_zone": true
+     },
+     {
+      "obj": "person #1",
+      "foot": [
+       0.443,
+       0.565
+      ],
+      "in_zone": false
+     },
+     {
+      "obj": "person #2",
+      "foot": [
+       0.057,
+       0.153
+      ],
+      "in_zone": false
+     },
+     {
+      "obj": "person #5",
+      "foot": [
+       0.414,
+       0.114
+      ],
+      "in_zone": false
+     }
+    ]
+   },
+   {
+    "s": 42,
+    "state": "idle",
+    "truth": ".",
+    "objects": [
+     {
+      "obj": "person #0",
+      "foot": [
+       0.828,
+       0.685
+      ],
+      "in_zone": false
+     },
+     {
+      "obj": "person #1",
+      "foot": [
+       0.429,
+       0.568
+      ],
+      "in_zone": false
+     },
+     {
+      "obj": "person #5",
+      "foot": [
+       0.411,
+       0.111
+      ],
+      "in_zone": false
+     }
+    ]
+   }
+  ]
+ },
+ "pexels-13422071-scrubber-worker": {
+  "rule": "r2",
+  "rows": [
+   {
+    "s": 0,
+    "state": "idle",
+    "truth": ".",
+    "objects": []
+   },
+   {
+    "s": 1,
+    "state": "idle",
+    "truth": ".",
+    "objects": [
+     {
+      "obj": "person #0",
+      "foot": [
+       0.821,
+       0.585
+      ],
+      "in_zone": false,
+      "hard hat": 0.0,
+      "safety vest": 0.4
+     }
+    ]
+   },
+   {
+    "s": 2,
+    "state": "candidate",
+    "truth": "T",
+    "objects": [
+     {
+      "obj": "person #0",
+      "foot": [
+       0.486,
+       0.782
+      ],
+      "in_zone": true,
+      "hard hat": 0.0,
+      "safety vest": 0.28
+     },
+     {
+      "obj": "person #1",
+      "foot": [
+       0.391,
+       1.0
+      ],
+      "in_zone": true,
+      "hard hat": 0.0,
+      "safety vest": 0.08
+     }
+    ]
+   },
+   {
+    "s": 3,
+    "state": "candidate",
+    "truth": "T",
+    "objects": [
+     {
+      "obj": "person #0",
+      "foot": [
+       0.224,
+       0.764
+      ],
+      "in_zone": true,
+      "hard hat": 0.0,
+      "safety vest": 0.32
+     },
+     {
+      "obj": "person #1",
+      "foot": [
+       0.766,
+       1.0
+      ],
+      "in_zone": true,
+      "hard hat": 0.0,
+      "safety vest": 0.0
+     }
+    ]
+   },
+   {
+    "s": 4,
+    "state": "idle",
+    "truth": ".",
+    "objects": []
+   },
+   {
+    "s": 5,
+    "state": "idle",
+    "truth": ".",
+    "objects": []
+   },
+   {
+    "s": 6,
+    "state": "idle",
+    "truth": ".",
+    "objects": []
+   },
+   {
+    "s": 7,
+    "state": "idle",
+    "truth": ".",
+    "objects": []
+   },
+   {
+    "s": 8,
+    "state": "idle",
+    "truth": ".",
+    "objects": []
+   },
+   {
+    "s": 9,
+    "state": "idle",
+    "truth": ".",
+    "objects": [
+     {
+      "obj": "person #2",
+      "foot": [
+       0.864,
+       0.233
+      ],
+      "in_zone": false,
+      "hard hat": 0.0,
+      "safety vest": 0.0
+     }
+    ]
+   },
+   {
+    "s": 10,
+    "state": "candidate",
+    "truth": "T",
+    "objects": [
+     {
+      "obj": "person #2",
+      "foot": [
+       0.759,
+       0.733
+      ],
+      "in_zone": true,
+      "hard hat": 0.0,
+      "safety vest": 0.27
+     }
+    ]
+   },
+   {
+    "s": 11,
+    "state": "candidate",
+    "truth": "T",
+    "objects": [
+     {
+      "obj": "person #2",
+      "foot": [
+       0.592,
+       0.735
+      ],
+      "in_zone": true,
+      "hard hat": 0.0,
+      "safety vest": 0.29
+     }
+    ]
+   },
+   {
+    "s": 12,
+    "state": "ALERT",
+    "truth": "T",
+    "objects": [
+     {
+      "obj": "person #2",
+      "foot": [
+       0.374,
+       0.733
+      ],
+      "in_zone": true,
+      "hard hat": 0.0,
+      "safety vest": 0.25
+     }
+    ]
+   },
+   {
+    "s": 13,
+    "state": "ALERT",
+    "truth": "T",
+    "objects": [
+     {
+      "obj": "person #2",
+      "foot": [
+       0.224,
+       0.728
+      ],
+      "in_zone": true,
+      "hard hat": 0.0,
+      "safety vest": 0.13
+     }
+    ]
+   }
+  ]
+ }
+}

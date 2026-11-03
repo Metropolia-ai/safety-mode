@@ -1,0 +1,18 @@
+== /mnt/data/work/export/efficientsam3-ev-m/open_vocab/text_encoder.onnx  size=161.3 MiB  opset=[('ai.onnx', 17)]  ir=8 producer=pytorch 2.8.0
+  external data tensors: 0
+  in  tokenized_ids ['batch', 16] INT64
+  out language_mask ['batch', 16] BOOL
+  out language_features [16, 'batch', 256] FLOAT
+  out language_embeds [16, 'batch', 512] FLOAT
+  nodes 326 initializers 86
+  checker: OK (full_check)
+  ops: {'Add': 40, 'BatchNormalization': 4, 'Cast': 29, 'Concat': 9, 'Constant': 77, 'Conv': 8, 'Div': 6, 'Equal': 2, 'Erf': 6, 'Gather': 22, 'Identity': 4, 'LayerNormalization': 9, 'MatMul': 25, 'Mul': 20, 'Not': 2, 'Reshape': 9, 'Shape': 9, 'Softmax': 4, 'Squeeze': 2, 'Sub': 2, 'Transpose': 18, 'Unsqueeze': 19}
+== /mnt/data/work/export/efficientsam3-ev-m/open_vocab/vision_decoder.onnx  size=162.8 MiB  opset=[('ai.onnx', 17)]  ir=8 producer=pytorch 2.8.0
+  external data tensors: 0
+  in  pixel_values ['batch', 3, 1008, 1008] FLOAT
+  in  language_features [16, 'batch', 256] FLOAT
+  in  language_mask ['batch', 16] BOOL
+  out detections ['batch', 'Concatdetections_dim_1', 5] FLOAT
+  nodes 8666 initializers 577
+  checker: OK (full_check)
+  ops: {'Abs': 12, 'Add': 430, 'Cast': 155, 'Clip': 20, 'Concat': 505, 'Constant': 3174, 'ConstantOfShape': 63, 'Conv': 77, 'Cos': 28, 'Div': 129, 'Equal': 17, 'Erf': 1, 'Expand': 21, 'Flatten': 2, 'Gather': 341, 'Gemm': 37, 'HardSwish': 30, 'Identity': 60, 'If': 1, 'LayerNormalization': 66, 'Log': 18, 'MatMul': 285, 'Mod': 15, 'Mul': 257, 'Not': 1, 'Pad': 7, 'Range': 3, 'ReduceSum': 2, 'Relu': 72, 'Reshape': 439, 'Resize': 1, 'Shape': 402, 'Sigmoid': 9, 'Sign': 12, 'Sin': 28, 'Slice': 306, 'Softmax': 36, 'Split': 8, 'Sqrt': 72, 'Squeeze': 66, 'Sub': 32, 'Tile': 5, 'Transpose': 282, 'Unsqueeze': 1108, 'Where': 31}

@@ -1,0 +1,2522 @@
+{
+ "06ed687c194595a7fb08": {
+  "clip": "forklift-crosses-aisle",
+  "rule": {
+   "condition": {
+    "all": [
+     {
+      "in_zone": {
+       "object": "person",
+       "zone": "pedestrian_lane"
+      }
+     },
+     {
+      "in_zone": {
+       "object": "forklift",
+       "zone": "pedestrian_lane"
+      }
+     }
+    ]
+   },
+   "explanation_template": "Forklift and pedestrian in Walkway crossing together for {duration_s} at {time}.",
+   "min_duration_s": 1,
+   "objects": [
+    {
+     "name": "forklift",
+     "prompt": "forklift"
+    },
+    {
+     "name": "person",
+     "prompt": "person"
+    }
+   ],
+   "rule_id": "p2",
+   "severity": "high",
+   "suggested_rewrite": null,
+   "title": "Forklift and pedestrian together in Walkway crossing",
+   "unsupported": null,
+   "zones": [
+    "pedestrian_lane"
+   ]
+  },
+  "text": "A forklift and a pedestrian must not be in the Walkway crossing at the same time."
+ },
+ "12589a513f496de0d615": {
+  "clip": "warehouse-team",
+  "rule": {
+   "condition": {
+    "distance_lt": {
+     "a": "forklift",
+     "b": "person",
+     "m": 2
+    }
+   },
+   "explanation_template": "Forklift within {distance_m} m of pedestrian at {time}",
+   "min_duration_s": 1,
+   "objects": [
+    {
+     "name": "forklift",
+     "prompt": "forklift"
+    },
+    {
+     "name": "person",
+     "prompt": "person"
+    }
+   ],
+   "rule_id": "p1",
+   "severity": "high",
+   "suggested_rewrite": null,
+   "title": "Forklifts keep 2 m from pedestrians",
+   "unsupported": null,
+   "zones": []
+  },
+  "text": "Forklifts must not come closer than 2 m to a pedestrian."
+ },
+ "1976d096c700267117ad": {
+  "clip": "warehouse-team",
+  "rule": {
+   "condition": null,
+   "explanation_template": "Forklift standing in door apron for {duration_s} at {time}.",
+   "min_duration_s": 2,
+   "objects": [
+    {
+     "name": "forklift",
+     "prompt": "forklift"
+    }
+   ],
+   "rule_id": "r11",
+   "severity": "medium",
+   "suggested_rewrite": "Draw a zone called door apron on this camera first, then: forklifts must not stand in the door apron in front of the roll-up door for more than 2 seconds.",
+   "title": "No forklifts standing in door apron",
+   "unsupported": "The rule needs the door apron in front of the roll-up door, which is not marked on this camera (marked: past_gate, rack_zone, yellow_zone). A gate is not a door apron and another zone cannot stand in for it.",
+   "zones": []
+  },
+  "text": "Forklifts must not stand in the door apron in front of the roll-up door for more than 2 seconds."
+ },
+ "1b32a39317a7fe04baff": {
+  "clip": "forklift-operator",
+  "rule": {
+   "condition": {
+    "count_in_zone": {
+     "n": 1,
+     "object": "person",
+     "op": ">",
+     "zone": "past_gate"
+    }
+   },
+   "explanation_template": "More than one person is past the gate for {duration_s} s ({person_count} persons).",
+   "min_duration_s": 5,
+   "objects": [
+    {
+     "name": "person",
+     "prompt": "person"
+    }
+   ],
+   "rule_id": "p3",
+   "severity": "low",
+   "suggested_rewrite": null,
+   "title": "At most one person past the gate",
+   "unsupported": null,
+   "zones": [
+    "past_gate"
+   ]
+  },
+  "text": "No more than one person may be past the gate at a time."
+ },
+ "1c92e69161b5272808e4": {
+  "clip": "forklift-operator",
+  "rule": {
+   "condition": {
+    "all": [
+     {
+      "machine_state": {
+       "machine": "forklift",
+       "state": "running"
+      }
+     },
+     {
+      "in_zone": {
+       "object": "person",
+       "zone": "past_gate"
+      }
+     },
+     {
+      "not": {
+       "wearing": {
+        "person": "person",
+        "ppe": [
+         "hard_hat"
+        ]
+       }
+      }
+     }
+    ]
+   },
+   "explanation_template": "Forklift running while a person on the Warehouse floor is missing {missing_ppe} for {duration_s} s at {time}.",
+   "min_duration_s": 3,
+   "objects": [
+    {
+     "name": "person",
+     "prompt": "person"
+    },
+    {
+     "name": "forklift",
+     "prompt": "forklift"
+    },
+    {
+     "name": "hard_hat",
+     "prompt": "hard hat"
+    }
+   ],
+   "rule_id": "p3",
+   "severity": "medium",
+   "suggested_rewrite": null,
+   "title": "Forklift running while person without hard hat on Warehouse floor",
+   "unsupported": null,
+   "zones": [
+    "past_gate"
+   ]
+  },
+  "text": "The forklift must not be running while a person on the Warehouse floor is not wearing a hard hat."
+ },
+ "22eef770f447eb06d591": {
+  "clip": "warehouse-team",
+  "rule": {
+   "condition": {
+    "distance_lt": {
+     "a": "forklift",
+     "b": "person",
+     "m": 2
+    }
+   },
+   "explanation_template": "Forklift within {distance_m} m of pedestrian for {duration_s} s at {time}.",
+   "min_duration_s": 1,
+   "objects": [
+    {
+     "name": "forklift",
+     "prompt": "forklift"
+    },
+    {
+     "name": "person",
+     "prompt": "person"
+    }
+   ],
+   "rule_id": "r3",
+   "severity": "high",
+   "suggested_rewrite": null,
+   "title": "Forklift too close to pedestrian",
+   "unsupported": null,
+   "zones": []
+  },
+  "text": "A forklift must not come closer than 2 m to a pedestrian."
+ },
+ "25da6d1e8667df6d4858": {
+  "clip": "forklift-crosses-aisle",
+  "rule": {
+   "condition": {
+    "all": [
+     {
+      "in_zone": {
+       "object": "person",
+       "zone": "pedestrian_lane"
+      }
+     },
+     {
+      "machine_state": {
+       "machine": "forklift",
+       "state": "running"
+      }
+     }
+    ]
+   },
+   "explanation_template": "Person in Walkway crossing while forklift is running at {time} for {duration_s}.",
+   "min_duration_s": 1.0,
+   "objects": [
+    {
+     "name": "person",
+     "prompt": "person"
+    },
+    {
+     "name": "forklift",
+     "prompt": "forklift"
+    }
+   ],
+   "rule_id": "p3",
+   "severity": "high",
+   "suggested_rewrite": null,
+   "title": "No person in Walkway crossing while forklift runs",
+   "unsupported": null,
+   "zones": [
+    "pedestrian_lane"
+   ]
+  },
+  "text": "No person may be in the Walkway crossing while the forklift is running."
+ },
+ "29915c3e56bd0b2d6d72": {
+  "clip": "busy-warehouse",
+  "rule": {
+   "condition": {
+    "in_zone": {
+     "object": "person",
+     "zone": "fire_exit_zone"
+    }
+   },
+   "explanation_template": "Pedestrian detected in the area in front of the loading door at {time}.",
+   "min_duration_s": 2,
+   "objects": [
+    {
+     "name": "person",
+     "prompt": "person"
+    }
+   ],
+   "rule_id": "p3",
+   "severity": "medium",
+   "suggested_rewrite": null,
+   "title": "Pedestrians must not enter area in front of loading door",
+   "unsupported": null,
+   "zones": [
+    "fire_exit_zone"
+   ]
+  },
+  "text": "Pedestrians must not enter the area in front of the loading door."
+ },
+ "2c4a5eb3a31d033d1479": {
+  "clip": "busy-warehouse",
+  "rule": {
+   "condition": {
+    "in_zone": {
+     "object": "person",
+     "zone": "fire_exit_zone"
+    }
+   },
+   "explanation_template": "Person standing in door apron for {duration_s} at {time}.",
+   "min_duration_s": 5,
+   "objects": [
+    {
+     "name": "person",
+     "prompt": "person"
+    }
+   ],
+   "rule_id": "p4",
+   "severity": "medium",
+   "suggested_rewrite": null,
+   "title": "No standing in door apron",
+   "unsupported": null,
+   "zones": [
+    "fire_exit_zone"
+   ]
+  },
+  "text": "No person may stand in the Door apron."
+ },
+ "2d945c30b0491bdfaaa9": {
+  "clip": "warehouse-team",
+  "rule": {
+   "condition": {
+    "all": [
+     {
+      "in_zone": {
+       "object": "person",
+       "zone": "yellow_zone"
+      }
+     },
+     {
+      "machine_state": {
+       "machine": "forklift",
+       "state": "running"
+      }
+     }
+    ]
+   },
+   "explanation_template": "Person in yellow zone while forklift running for {duration_s} at {time}",
+   "min_duration_s": 1,
+   "objects": [
+    {
+     "name": "person",
+     "prompt": "person"
+    },
+    {
+     "name": "forklift",
+     "prompt": "forklift"
+    }
+   ],
+   "rule_id": "r1",
+   "severity": "high",
+   "suggested_rewrite": null,
+   "title": "No person in yellow zone while forklift running",
+   "unsupported": null,
+   "zones": [
+    "yellow_zone"
+   ]
+  },
+  "text": "Nobody inside the yellow zone while the forklift is running."
+ },
+ "355f87199151f8ceddfa": {
+  "clip": "busy-warehouse",
+  "rule": {
+   "condition": {
+    "in_zone": {
+     "object": "forklift",
+     "zone": "fire_exit_zone"
+    }
+   },
+   "explanation_template": "Forklift standing in front of loading door for {duration_s} at {time}.",
+   "min_duration_s": 2,
+   "objects": [
+    {
+     "name": "forklift",
+     "prompt": "forklift"
+    }
+   ],
+   "rule_id": "p2",
+   "severity": "medium",
+   "suggested_rewrite": null,
+   "title": "No forklift standing in front of loading door",
+   "unsupported": null,
+   "zones": [
+    "fire_exit_zone"
+   ]
+  },
+  "text": "A forklift must not stand in the area in front of the loading door for more than 2 seconds."
+ },
+ "366ebd56e65f7281c0b1": {
+  "clip": "forklift-crosses-aisle",
+  "rule": {
+   "condition": {
+    "in_zone": {
+     "object": "forklift",
+     "zone": "pedestrian_lane"
+    }
+   },
+   "explanation_template": "Forklift {object} in walkway crossing for {duration_s} s.",
+   "min_duration_s": 2,
+   "objects": [
+    {
+     "name": "forklift",
+     "prompt": "forklift"
+    }
+   ],
+   "rule_id": "p1",
+   "severity": "medium",
+   "suggested_rewrite": null,
+   "title": "No forklifts in walkway crossing",
+   "unsupported": null,
+   "zones": [
+    "pedestrian_lane"
+   ]
+  },
+  "text": "Forklifts must not enter the Walkway crossing."
+ },
+ "3ebf7f4406864e723432": {
+  "clip": "busy-warehouse",
+  "rule": {
+   "condition": {
+    "all": [
+     {
+      "in_zone": {
+       "object": "person",
+       "zone": "past_gate"
+      }
+     },
+     {
+      "not": {
+       "wearing": {
+        "person": "person",
+        "ppe": [
+         "hard_hat",
+         "safety_vest"
+        ]
+       }
+      }
+     }
+    ]
+   },
+   "explanation_template": "Person past the gate for {duration_s} s missing {missing_ppe} at {time}.",
+   "min_duration_s": 3,
+   "objects": [
+    {
+     "name": "person",
+     "prompt": "person"
+    },
+    {
+     "name": "hard_hat",
+     "prompt": "hard hat"
+    },
+    {
+     "name": "safety_vest",
+     "prompt": "safety vest"
+    }
+   ],
+   "rule_id": "r2",
+   "severity": "medium",
+   "suggested_rewrite": null,
+   "title": "Hard hat and vest required past gate",
+   "unsupported": null,
+   "zones": [
+    "past_gate"
+   ]
+  },
+  "text": "Hard hat and high-visibility vest are required past the warehouse gate."
+ },
+ "4426af9098bb488d030e": {
+  "clip": "forklift-operator",
+  "rule": {
+   "condition": null,
+   "explanation_template": "Forklift stopped in front of loading door for {duration_s} at {time}",
+   "min_duration_s": 2,
+   "objects": [
+    {
+     "name": "forklift",
+     "prompt": "forklift"
+    }
+   ],
+   "rule_id": "r11",
+   "severity": "medium",
+   "suggested_rewrite": "Draw a zone called area in front of the loading door on this camera first, then: forklifts must not stop in the area in front of the loading door for more than 2 seconds.",
+   "title": "Forklift stopped in front of loading door",
+   "unsupported": "The rule needs the area in front of the loading door, which is not marked on this camera (marked: past_gate (Warehouse floor)). Another zone cannot stand in for it.",
+   "zones": []
+  },
+  "text": "Forklifts must not stop in the area in front of the loading door for more than 2 seconds."
+ },
+ "462fead2fee825e6e5f0": {
+  "clip": "busy-warehouse",
+  "rule": {
+   "condition": {
+    "all": [
+     {
+      "in_zone": {
+       "object": "person",
+       "zone": "past_gate"
+      }
+     },
+     {
+      "not": {
+       "wearing": {
+        "person": "person",
+        "ppe": [
+         "hard_hat",
+         "safety_vest"
+        ]
+       }
+      }
+     }
+    ]
+   },
+   "explanation_template": "Person on warehouse floor missing {missing_ppe} for {duration_s} at {time}.",
+   "min_duration_s": 3,
+   "objects": [
+    {
+     "name": "person",
+     "prompt": "person"
+    },
+    {
+     "name": "hard_hat",
+     "prompt": "hard hat"
+    },
+    {
+     "name": "safety_vest",
+     "prompt": "safety vest"
+    }
+   ],
+   "rule_id": "r2",
+   "severity": "medium",
+   "suggested_rewrite": null,
+   "title": "Hard hat and high-visibility vest required on warehouse floor",
+   "unsupported": null,
+   "zones": [
+    "past_gate"
+   ]
+  },
+  "text": "Everyone on the warehouse floor must wear a hard hat and a high-visibility vest."
+ },
+ "48b813509b3674c1ec66": {
+  "clip": "forklift-operator",
+  "rule": {
+   "condition": {
+    "all": [
+     {
+      "in_zone": {
+       "object": "person",
+       "zone": "past_gate"
+      }
+     },
+     {
+      "not": {
+       "wearing": {
+        "person": "person",
+        "ppe": [
+         "hard_hat"
+        ]
+       }
+      }
+     }
+    ]
+   },
+   "explanation_template": "Person past the gate missing {missing_ppe} for {duration_s} at {time}.",
+   "min_duration_s": 3,
+   "objects": [
+    {
+     "name": "person",
+     "prompt": "person"
+    },
+    {
+     "name": "hard_hat",
+     "prompt": "hard hat"
+    }
+   ],
+   "rule_id": "p1",
+   "severity": "medium",
+   "suggested_rewrite": null,
+   "title": "Hard hat required past the gate",
+   "unsupported": null,
+   "zones": [
+    "past_gate"
+   ]
+  },
+  "text": "Everyone past the gate must wear a hard hat."
+ },
+ "513445b334d7cee504b7": {
+  "clip": "warehouse-team",
+  "rule": {
+   "condition": {
+    "all": [
+     {
+      "in_zone": {
+       "object": "person",
+       "zone": "past_gate"
+      }
+     },
+     {
+      "not": {
+       "wearing": {
+        "person": "person",
+        "ppe": [
+         "safety_vest"
+        ]
+       }
+      }
+     }
+    ]
+   },
+   "explanation_template": "Person past the gate missing {missing_ppe} for {duration_s}.",
+   "min_duration_s": 3,
+   "objects": [
+    {
+     "name": "person",
+     "prompt": "person"
+    },
+    {
+     "name": "safety_vest",
+     "prompt": "safety vest"
+    }
+   ],
+   "rule_id": "p3",
+   "severity": "medium",
+   "suggested_rewrite": null,
+   "title": "Safety vest required past the gate",
+   "unsupported": null,
+   "zones": [
+    "past_gate"
+   ]
+  },
+  "text": "Everyone past the gate must wear a safety vest."
+ },
+ "5228f10cf5c07acc98d4": {
+  "clip": "warehouse-team",
+  "rule": {
+   "condition": {
+    "all": [
+     {
+      "in_zone": {
+       "object": "person",
+       "zone": "past_gate"
+      }
+     },
+     {
+      "not": {
+       "wearing": {
+        "person": "person",
+        "ppe": [
+         "safety_vest"
+        ]
+       }
+      }
+     }
+    ]
+   },
+   "explanation_template": "Person past the gate missing {missing_ppe} for {duration_s} at {time}",
+   "min_duration_s": 3,
+   "objects": [
+    {
+     "name": "person",
+     "prompt": "person"
+    },
+    {
+     "name": "safety_vest",
+     "prompt": "safety vest"
+    }
+   ],
+   "rule_id": "p3",
+   "severity": "medium",
+   "suggested_rewrite": null,
+   "title": "Safety vest required past the gate",
+   "unsupported": null,
+   "zones": [
+    "past_gate"
+   ]
+  },
+  "text": "Everyone past the gate must wear a safety vest for more than 3 seconds."
+ },
+ "5775d03abc3eaa441313": {
+  "clip": "busy-warehouse",
+  "rule": {
+   "condition": {
+    "all": [
+     {
+      "in_zone": {
+       "object": "person",
+       "zone": "yellow_zone"
+      }
+     },
+     {
+      "machine_state": {
+       "machine": "forklift",
+       "state": "running"
+      }
+     }
+    ]
+   },
+   "explanation_template": "Person inside yellow zone while forklift is running at {time} for {duration_s}.",
+   "min_duration_s": 1,
+   "objects": [
+    {
+     "name": "person",
+     "prompt": "person"
+    },
+    {
+     "name": "forklift",
+     "prompt": "forklift"
+    }
+   ],
+   "rule_id": "r1",
+   "severity": "high",
+   "suggested_rewrite": null,
+   "title": "No person in yellow zone while forklift running",
+   "unsupported": null,
+   "zones": [
+    "yellow_zone"
+   ]
+  },
+  "text": "Nobody inside the yellow zone while the forklift is running."
+ },
+ "5ae2a7e2c18dec612995": {
+  "clip": "man-crosses-floor",
+  "rule": {
+   "condition": {
+    "all": [
+     {
+      "in_zone": {
+       "object": "person",
+       "zone": "past_gate"
+      }
+     },
+     {
+      "not": {
+       "wearing": {
+        "person": "person",
+        "ppe": [
+         "hard_hat"
+        ]
+       }
+      }
+     }
+    ]
+   },
+   "explanation_template": "Worker on Shop floor missing {missing_ppe} for {duration_s} at {time}.",
+   "min_duration_s": 3,
+   "objects": [
+    {
+     "name": "person",
+     "prompt": "person"
+    },
+    {
+     "name": "hard_hat",
+     "prompt": "hard hat"
+    }
+   ],
+   "rule_id": "p1",
+   "severity": "medium",
+   "suggested_rewrite": null,
+   "title": "Hard hat required on Shop floor",
+   "unsupported": null,
+   "zones": [
+    "past_gate"
+   ]
+  },
+  "text": "Workers on the Shop floor must wear a hard hat, alert if missing for more than 3 seconds."
+ },
+ "5bc8d92e42584ded9f03": {
+  "clip": "forklift-operator",
+  "rule": {
+   "condition": null,
+   "explanation_template": "Running forklift past the gate without an operator on board at {time}.",
+   "min_duration_s": 1,
+   "objects": [
+    {
+     "name": "forklift",
+     "prompt": "forklift"
+    },
+    {
+     "name": "person",
+     "prompt": "person"
+    }
+   ],
+   "rule_id": "p3",
+   "severity": "medium",
+   "suggested_rewrite": "A forklift past the gate must not be running when no person is within 1.5 m of it. Note this changes the meaning: proximity is only an approximation and a person standing next to the forklift would count as an operator.",
+   "title": "No driverless running forklift past the gate",
+   "unsupported": "The rule needs 'operator on board' (a person on the forklift), which the primitives cannot measure. distance_lt only measures distance along the floor between ground contact points and cannot distinguish a person sitting on the forklift from a person standing next to it, and height_above_floor only sees the lowest point of the object. There is no 'on board' relation.",
+   "zones": [
+    "past_gate"
+   ]
+  },
+  "text": "A forklift past the gate must not run without an operator on board."
+ },
+ "61baad7096f255510f1c": {
+  "clip": "forklift-operator",
+  "rule": {
+   "condition": {
+    "all": [
+     {
+      "in_zone": {
+       "object": "person",
+       "zone": "past_gate"
+      }
+     },
+     {
+      "machine_state": {
+       "machine": "forklift",
+       "state": "running"
+      }
+     }
+    ]
+   },
+   "explanation_template": "Pedestrian past the gate while forklift is running at {time}.",
+   "min_duration_s": 1,
+   "objects": [
+    {
+     "name": "person",
+     "prompt": "person"
+    },
+    {
+     "name": "forklift",
+     "prompt": "forklift"
+    }
+   ],
+   "rule_id": "p2",
+   "severity": "high",
+   "suggested_rewrite": null,
+   "title": "No pedestrian past gate while forklift running",
+   "unsupported": null,
+   "zones": [
+    "past_gate"
+   ]
+  },
+  "text": "No pedestrian may be past the gate while the forklift is running."
+ },
+ "6344f5437e26386936e4": {
+  "clip": "forklift-crosses-aisle",
+  "rule": {
+   "condition": {
+    "in_zone": {
+     "object": "forklift",
+     "zone": "pedestrian_lane"
+    }
+   },
+   "explanation_template": "Forklift in Walkway crossing for {duration_s} at {time}.",
+   "min_duration_s": 2,
+   "objects": [
+    {
+     "name": "forklift",
+     "prompt": "forklift"
+    }
+   ],
+   "rule_id": "p1",
+   "severity": "medium",
+   "suggested_rewrite": null,
+   "title": "Forklift standing in Walkway crossing",
+   "unsupported": null,
+   "zones": [
+    "pedestrian_lane"
+   ]
+  },
+  "text": "A forklift must not stand in the Walkway crossing for more than 2 seconds."
+ },
+ "662f8565fd862b90d46d": {
+  "clip": "forklift-crosses-aisle",
+  "rule": {
+   "condition": {
+    "not": {
+     "wearing": {
+      "person": "person",
+      "ppe": [
+       "safety_vest"
+      ]
+     }
+    }
+   },
+   "explanation_template": "Person missing {missing_ppe} detected at {time}.",
+   "min_duration_s": 3,
+   "objects": [
+    {
+     "name": "person",
+     "prompt": "person"
+    },
+    {
+     "name": "safety_vest",
+     "prompt": "safety vest"
+    }
+   ],
+   "rule_id": "p2",
+   "severity": "medium",
+   "suggested_rewrite": null,
+   "title": "Persons must wear a safety vest",
+   "unsupported": null,
+   "zones": []
+  },
+  "text": "Persons must wear a safety vest."
+ },
+ "66cef12a67264bbea838": {
+  "clip": "warehouse-team",
+  "rule": {
+   "condition": {
+    "all": [
+     {
+      "in_zone": {
+       "object": "person",
+       "zone": "yellow_zone"
+      }
+     },
+     {
+      "machine_state": {
+       "machine": "forklift",
+       "state": "running"
+      }
+     }
+    ]
+   },
+   "explanation_template": "Person in yellow zone while forklift was running at {time} for {duration_s} s.",
+   "min_duration_s": 1,
+   "objects": [
+    {
+     "name": "person",
+     "prompt": "person"
+    },
+    {
+     "name": "forklift",
+     "prompt": "forklift"
+    }
+   ],
+   "rule_id": "r1",
+   "severity": "high",
+   "suggested_rewrite": null,
+   "title": "No standing in yellow zone while forklift runs",
+   "unsupported": null,
+   "zones": [
+    "yellow_zone"
+   ]
+  },
+  "text": "Nobody may stand in the yellow zone while the forklift is running."
+ },
+ "678fb30295f6aafa1b24": {
+  "clip": "forklift-crosses-aisle",
+  "rule": {
+   "condition": {
+    "distance_lt": {
+     "a": "forklift",
+     "b": "person",
+     "m": 2
+    }
+   },
+   "explanation_template": "Forklift within {distance_m} m of a pedestrian at {time}.",
+   "min_duration_s": 1,
+   "objects": [
+    {
+     "name": "forklift",
+     "prompt": "forklift"
+    },
+    {
+     "name": "person",
+     "prompt": "person"
+    }
+   ],
+   "rule_id": "r3",
+   "severity": "high",
+   "suggested_rewrite": null,
+   "title": "Forklift minimum distance to pedestrian",
+   "unsupported": null,
+   "zones": []
+  },
+  "text": "A forklift must not come closer than 2 m to a pedestrian."
+ },
+ "67c9ed3516d60079c9c5": {
+  "clip": "forklift-crosses-aisle",
+  "rule": {
+   "condition": {
+    "not": {
+     "wearing": {
+      "person": "person",
+      "ppe": [
+       "safety_vest"
+      ]
+     }
+    }
+   },
+   "explanation_template": "Person without {missing_ppe} detected for {duration_s} at {time}.",
+   "min_duration_s": 3,
+   "objects": [
+    {
+     "name": "person",
+     "prompt": "person"
+    },
+    {
+     "name": "safety_vest",
+     "prompt": "safety vest"
+    }
+   ],
+   "rule_id": "r2-vest",
+   "severity": "medium",
+   "suggested_rewrite": null,
+   "title": "High-visibility vest required on the floor",
+   "unsupported": null,
+   "zones": []
+  },
+  "text": "Everyone on the floor must wear a high-visibility vest."
+ },
+ "6aa7e6fefba0ff98dffb": {
+  "clip": "forklift-crosses-aisle",
+  "rule": {
+   "condition": {
+    "all": [
+     {
+      "in_zone": {
+       "object": "person",
+       "zone": "pedestrian_lane"
+      }
+     },
+     {
+      "machine_state": {
+       "machine": "forklift",
+       "state": "running"
+      }
+     }
+    ]
+   },
+   "explanation_template": "Person in Walkway crossing while forklift is running at {time} for {duration_s} s",
+   "min_duration_s": 1,
+   "objects": [
+    {
+     "name": "forklift",
+     "prompt": "forklift"
+    },
+    {
+     "name": "person",
+     "prompt": "person"
+    }
+   ],
+   "rule_id": "p3",
+   "severity": "high",
+   "suggested_rewrite": null,
+   "title": "No person in Walkway crossing while forklift is running",
+   "unsupported": null,
+   "zones": [
+    "pedestrian_lane"
+   ]
+  },
+  "text": "Persons must not be in the Walkway crossing while a forklift is running."
+ },
+ "6b8e0ba36dcb08e28aa0": {
+  "clip": "busy-warehouse",
+  "rule": {
+   "condition": {
+    "in_zone": {
+     "object": "forklift",
+     "zone": "fire_exit_zone"
+    }
+   },
+   "explanation_template": "Forklift in area in front of loading door for {duration_s} s at {time}.",
+   "min_duration_s": 2,
+   "objects": [
+    {
+     "name": "forklift",
+     "prompt": "forklift"
+    }
+   ],
+   "rule_id": "r11",
+   "severity": "medium",
+   "suggested_rewrite": null,
+   "title": "No forklift stopping in front of loading door",
+   "unsupported": null,
+   "zones": [
+    "fire_exit_zone"
+   ]
+  },
+  "text": "Forklifts must not stop in the area in front of the loading door for more than 2 seconds."
+ },
+ "72d2bcf28e25044532c4": {
+  "clip": "busy-warehouse",
+  "rule": {
+   "condition": {
+    "all": [
+     {
+      "in_zone": {
+       "object": "person",
+       "zone": "yellow_zone"
+      }
+     },
+     {
+      "machine_state": {
+       "machine": "forklift",
+       "state": "running"
+      }
+     }
+    ]
+   },
+   "explanation_template": "Person in yellow zone while forklift is running at {time} for {duration_s}.",
+   "min_duration_s": 1,
+   "objects": [
+    {
+     "name": "person",
+     "prompt": "person"
+    },
+    {
+     "name": "forklift",
+     "prompt": "forklift"
+    }
+   ],
+   "rule_id": "r1",
+   "severity": "high",
+   "suggested_rewrite": null,
+   "title": "No person in yellow zone while forklift running",
+   "unsupported": null,
+   "zones": [
+    "yellow_zone"
+   ]
+  },
+  "text": "Nobody may stand in the yellow zone while the forklift is running."
+ },
+ "74340bc94784954c841f": {
+  "clip": "site-worker-no-vest",
+  "rule": {
+   "condition": {
+    "all": [
+     {
+      "in_zone": {
+       "object": "person",
+       "zone": "past_gate"
+      }
+     },
+     {
+      "not": {
+       "wearing": {
+        "person": "person",
+        "ppe": [
+         "hard_hat"
+        ]
+       }
+      }
+     }
+    ]
+   },
+   "explanation_template": "Person on Site floor missing {missing_ppe} for {duration_s} at {time}.",
+   "min_duration_s": 3,
+   "objects": [
+    {
+     "name": "person",
+     "prompt": "person"
+    },
+    {
+     "name": "hard_hat",
+     "prompt": "hard hat"
+    }
+   ],
+   "rule_id": "p2",
+   "severity": "medium",
+   "suggested_rewrite": null,
+   "title": "Hard hat required on Site floor",
+   "unsupported": null,
+   "zones": [
+    "past_gate"
+   ]
+  },
+  "text": "Every person on the Site floor must wear a hard hat, alert if missing for more than 3 seconds."
+ },
+ "7ee1109638c93500b298": {
+  "clip": "forklift-operator",
+  "rule": {
+   "condition": null,
+   "explanation_template": "Forklift standing in door apron for {duration_s} at {time}.",
+   "min_duration_s": 2,
+   "objects": [
+    {
+     "name": "forklift",
+     "prompt": "forklift"
+    }
+   ],
+   "rule_id": "r11",
+   "severity": "medium",
+   "suggested_rewrite": "Draw a zone called door apron on this camera first, then: forklifts must not stand in the door apron in front of the roll-up door for more than 2 seconds.",
+   "title": "No forklifts standing in door apron",
+   "unsupported": "The rule needs the door apron in front of the roll-up door, which is not marked on this camera (marked: Past the gate). Another zone cannot stand in for it.",
+   "zones": []
+  },
+  "text": "Forklifts must not stand in the door apron in front of the roll-up door for more than 2 seconds."
+ },
+ "896e13cf5c7bdf122c40": {
+  "clip": "warehouse-team",
+  "rule": {
+   "condition": null,
+   "explanation_template": "Forklift stopped in front of loading door for {duration_s} at {time}",
+   "min_duration_s": 2,
+   "objects": [
+    {
+     "name": "forklift",
+     "prompt": "forklift"
+    }
+   ],
+   "rule_id": "r11",
+   "severity": "medium",
+   "suggested_rewrite": "Draw a zone called area in front of the loading door on this camera first, then: forklifts must not stop in the area in front of the loading door for more than 2 seconds.",
+   "title": "No forklift stopping in front of loading door",
+   "unsupported": "The rule needs the area in front of the loading door, which is not marked on this camera (marked: past_gate (Warehouse floor), rack_zone (Rack zone), yellow_zone (Yellow zone (reach-truck parking spot))). Another zone cannot stand in for it. In addition, 'stop' needs speed, which the primitives cannot measure (in_zone only checks presence, machine_state only checks running or stopped for machines).",
+   "zones": []
+  },
+  "text": "Forklifts must not stop in the area in front of the loading door for more than 2 seconds."
+ },
+ "8c457c74a67f3b8f4592": {
+  "clip": "warehouse-team",
+  "rule": {
+   "condition": {
+    "all": [
+     {
+      "in_zone": {
+       "object": "person",
+       "zone": "past_gate"
+      }
+     },
+     {
+      "not": {
+       "wearing": {
+        "person": "person",
+        "ppe": [
+         "hard_hat"
+        ]
+       }
+      }
+     }
+    ]
+   },
+   "explanation_template": "Person on Warehouse floor without hard hat at {time} for {duration_s} s, missing {missing_ppe}.",
+   "min_duration_s": 3,
+   "objects": [
+    {
+     "name": "person",
+     "prompt": "person"
+    },
+    {
+     "name": "hard_hat",
+     "prompt": "hard hat"
+    }
+   ],
+   "rule_id": "p2",
+   "severity": "medium",
+   "suggested_rewrite": null,
+   "title": "Hard hat required on Warehouse floor",
+   "unsupported": null,
+   "zones": [
+    "past_gate"
+   ]
+  },
+  "text": "Everyone on the Warehouse floor must wear a hard hat."
+ },
+ "8ff7b064b9ff32228be8": {
+  "clip": "warehouse-team",
+  "rule": {
+   "condition": {
+    "all": [
+     {
+      "in_zone": {
+       "object": "person",
+       "zone": "past_gate"
+      }
+     },
+     {
+      "not": {
+       "wearing": {
+        "person": "person",
+        "ppe": [
+         "safety_vest"
+        ]
+       }
+      }
+     }
+    ]
+   },
+   "explanation_template": "Person in Warehouse floor without {missing_ppe} for {duration_s} s at {time}.",
+   "min_duration_s": 3,
+   "objects": [
+    {
+     "name": "person",
+     "prompt": "person"
+    },
+    {
+     "name": "safety_vest",
+     "prompt": "safety vest"
+    }
+   ],
+   "rule_id": "r2-vest",
+   "severity": "medium",
+   "suggested_rewrite": null,
+   "title": "High-visibility vest required on warehouse floor",
+   "unsupported": null,
+   "zones": [
+    "past_gate"
+   ]
+  },
+  "text": "Everyone on the floor must wear a high-visibility vest."
+ },
+ "91e1b7e5b9378a4f7024": {
+  "clip": "forklift-crosses-aisle",
+  "rule": {
+   "condition": {
+    "all": [
+     {
+      "in_zone": {
+       "object": "person",
+       "zone": "pedestrian_lane"
+      }
+     },
+     {
+      "in_zone": {
+       "object": "forklift",
+       "zone": "pedestrian_lane"
+      }
+     }
+    ]
+   },
+   "explanation_template": "Person and forklift together in Walkway crossing for {duration_s} at {time}.",
+   "min_duration_s": 1,
+   "objects": [
+    {
+     "name": "person",
+     "prompt": "person"
+    },
+    {
+     "name": "forklift",
+     "prompt": "forklift"
+    }
+   ],
+   "rule_id": "p3",
+   "severity": "high",
+   "suggested_rewrite": null,
+   "title": "No persons and forklifts together in Walkway crossing",
+   "unsupported": null,
+   "zones": [
+    "pedestrian_lane"
+   ]
+  },
+  "text": "Persons and forklifts must not be in the Walkway crossing at the same time."
+ },
+ "9555d155e05fca58944f": {
+  "clip": "warehouse-team",
+  "rule": {
+   "condition": {
+    "all": [
+     {
+      "in_zone": {
+       "object": "person",
+       "zone": "past_gate"
+      }
+     },
+     {
+      "not": {
+       "wearing": {
+        "person": "person",
+        "ppe": [
+         "safety_vest"
+        ]
+       }
+      }
+     }
+    ]
+   },
+   "explanation_template": "Person without {missing_ppe} on Warehouse floor for {duration_s} at {time}.",
+   "min_duration_s": 3,
+   "objects": [
+    {
+     "name": "person",
+     "prompt": "person"
+    },
+    {
+     "name": "safety_vest",
+     "prompt": "safety vest"
+    }
+   ],
+   "rule_id": "p3",
+   "severity": "medium",
+   "suggested_rewrite": null,
+   "title": "Safety vest required on Warehouse floor",
+   "unsupported": null,
+   "zones": [
+    "past_gate"
+   ]
+  },
+  "text": "Everyone on the Warehouse floor must wear a safety vest."
+ },
+ "959b2ac3c40d35c47c8e": {
+  "clip": "busy-warehouse",
+  "rule": {
+   "condition": {
+    "all": [
+     {
+      "in_zone": {
+       "object": "person",
+       "zone": "yellow_zone"
+      }
+     },
+     {
+      "machine_state": {
+       "machine": "forklift",
+       "state": "running"
+      }
+     }
+    ]
+   },
+   "explanation_template": "Person in Yellow zone while forklift was running at {time} for {duration_s}.",
+   "min_duration_s": 1,
+   "objects": [
+    {
+     "name": "person",
+     "prompt": "person"
+    },
+    {
+     "name": "forklift",
+     "prompt": "forklift"
+    }
+   ],
+   "rule_id": "p3",
+   "severity": "high",
+   "suggested_rewrite": null,
+   "title": "No person in Yellow zone while forklift running",
+   "unsupported": null,
+   "zones": [
+    "yellow_zone"
+   ]
+  },
+  "text": "No person may be in the Yellow zone while the forklift is running."
+ },
+ "9af30e9785cb1cf9f566": {
+  "clip": "forklift-operator",
+  "rule": {
+   "condition": {
+    "all": [
+     {
+      "in_zone": {
+       "object": "person",
+       "zone": "past_gate"
+      }
+     },
+     {
+      "not": {
+       "wearing": {
+        "person": "person",
+        "ppe": [
+         "hard_hat",
+         "safety_vest"
+        ]
+       }
+      }
+     }
+    ]
+   },
+   "explanation_template": "Person on warehouse floor missing {missing_ppe} for {duration_s} at {time}.",
+   "min_duration_s": 3,
+   "objects": [
+    {
+     "name": "person",
+     "prompt": "person"
+    },
+    {
+     "name": "hard_hat",
+     "prompt": "hard hat"
+    },
+    {
+     "name": "safety_vest",
+     "prompt": "safety vest"
+    }
+   ],
+   "rule_id": "r2",
+   "severity": "medium",
+   "suggested_rewrite": null,
+   "title": "Hard hat and high-visibility vest required on warehouse floor",
+   "unsupported": null,
+   "zones": [
+    "past_gate"
+   ]
+  },
+  "text": "Everyone on the warehouse floor must wear a hard hat and a high-visibility vest."
+ },
+ "9b9a46a43c6a6fd26711": {
+  "clip": "forklift-operator",
+  "rule": {
+   "condition": {
+    "all": [
+     {
+      "in_zone": {
+       "object": "person",
+       "zone": "past_gate"
+      }
+     },
+     {
+      "not": {
+       "wearing": {
+        "person": "person",
+        "ppe": [
+         "safety_vest"
+        ]
+       }
+      }
+     }
+    ]
+   },
+   "explanation_template": "Person without {missing_ppe} on Warehouse floor for {duration_s} at {time}",
+   "min_duration_s": 3,
+   "objects": [
+    {
+     "name": "person",
+     "prompt": "person"
+    },
+    {
+     "name": "safety_vest",
+     "prompt": "safety vest"
+    }
+   ],
+   "rule_id": "p2",
+   "severity": "medium",
+   "suggested_rewrite": null,
+   "title": "Safety vest required on Warehouse floor",
+   "unsupported": null,
+   "zones": [
+    "past_gate"
+   ]
+  },
+  "text": "Everyone on the Warehouse floor must wear a safety vest."
+ },
+ "9f024e43c00cc7a2c46f": {
+  "clip": "forklift-crosses-aisle",
+  "rule": {
+   "condition": null,
+   "explanation_template": "Person on warehouse floor missing {missing_ppe} for {duration_s} at {time}.",
+   "min_duration_s": 3,
+   "objects": [
+    {
+     "name": "person",
+     "prompt": "person"
+    },
+    {
+     "name": "hard_hat",
+     "prompt": "hard hat"
+    },
+    {
+     "name": "safety_vest",
+     "prompt": "safety vest"
+    }
+   ],
+   "rule_id": "r2",
+   "severity": "medium",
+   "suggested_rewrite": "Draw a zone called warehouse floor on this camera first, then: everyone on the warehouse floor must wear a hard hat and a high-visibility vest.",
+   "title": "Hard hat and high-visibility vest required on warehouse floor",
+   "unsupported": "The rule needs the warehouse floor, which is not marked on this camera (marked: Walkway crossing). Another zone cannot stand in for it.",
+   "zones": []
+  },
+  "text": "Everyone on the warehouse floor must wear a hard hat and a high-visibility vest."
+ },
+ "9fe25b32aeb1711d4e7f": {
+  "clip": "busy-warehouse",
+  "rule": {
+   "condition": {
+    "in_zone": {
+     "object": "person",
+     "zone": "fire_exit_zone"
+    }
+   },
+   "explanation_template": "Person in the door apron at {time}",
+   "min_duration_s": 2,
+   "objects": [
+    {
+     "name": "person",
+     "prompt": "person"
+    }
+   ],
+   "rule_id": "p3",
+   "severity": "medium",
+   "suggested_rewrite": null,
+   "title": "No pedestrians in door apron",
+   "unsupported": null,
+   "zones": [
+    "fire_exit_zone"
+   ]
+  },
+  "text": "Pedestrians must not enter the Door apron."
+ },
+ "a02c63c1fe7146f50cb6": {
+  "clip": "forklift-operator",
+  "rule": {
+   "condition": {
+    "all": [
+     {
+      "in_zone": {
+       "object": "person",
+       "zone": "past_gate"
+      }
+     },
+     {
+      "not": {
+       "wearing": {
+        "person": "person",
+        "ppe": [
+         "hard_hat",
+         "safety_vest"
+        ]
+       }
+      }
+     }
+    ]
+   },
+   "explanation_template": "Person past the gate missing {missing_ppe} at {time}.",
+   "min_duration_s": 3,
+   "objects": [
+    {
+     "name": "person",
+     "prompt": "person"
+    },
+    {
+     "name": "hard_hat",
+     "prompt": "hard hat"
+    },
+    {
+     "name": "safety_vest",
+     "prompt": "safety vest"
+    }
+   ],
+   "rule_id": "r2",
+   "severity": "medium",
+   "suggested_rewrite": null,
+   "title": "Hard hat and safety vest required past gate",
+   "unsupported": null,
+   "zones": [
+    "past_gate"
+   ]
+  },
+  "text": "Hard hat and high-visibility vest are required past the warehouse gate."
+ },
+ "a28a3fb2fdeeed03f5bb": {
+  "clip": "busy-warehouse",
+  "rule": {
+   "condition": {
+    "in_zone": {
+     "object": "forklift",
+     "zone": "fire_exit_zone"
+    }
+   },
+   "explanation_template": "Forklift standing in door apron for {duration_s} at {time}.",
+   "min_duration_s": 2,
+   "objects": [
+    {
+     "name": "forklift",
+     "prompt": "forklift"
+    }
+   ],
+   "rule_id": "p2",
+   "severity": "medium",
+   "suggested_rewrite": null,
+   "title": "No forklifts standing in door apron",
+   "unsupported": null,
+   "zones": [
+    "fire_exit_zone"
+   ]
+  },
+  "text": "Forklifts must not stand in the Door apron for more than 2 seconds."
+ },
+ "ae516f27f5a51e3a896c": {
+  "clip": "warehouse-team",
+  "rule": {
+   "condition": {
+    "all": [
+     {
+      "in_zone": {
+       "object": "person",
+       "zone": "past_gate"
+      }
+     },
+     {
+      "not": {
+       "wearing": {
+        "person": "person",
+        "ppe": [
+         "hard_hat",
+         "safety_vest"
+        ]
+       }
+      }
+     }
+    ]
+   },
+   "explanation_template": "Person past the gate missing {missing_ppe} for {duration_s} at {time}.",
+   "min_duration_s": 3,
+   "objects": [
+    {
+     "name": "person",
+     "prompt": "person"
+    },
+    {
+     "name": "hard_hat",
+     "prompt": "hard hat"
+    },
+    {
+     "name": "safety_vest",
+     "prompt": "safety vest"
+    }
+   ],
+   "rule_id": "r2",
+   "severity": "medium",
+   "suggested_rewrite": null,
+   "title": "Hard hat and vest required past gate",
+   "unsupported": null,
+   "zones": [
+    "past_gate"
+   ]
+  },
+  "text": "Hard hat and high-visibility vest are required past the warehouse gate."
+ },
+ "b3a71495776f311294a2": {
+  "clip": "man-crosses-floor",
+  "rule": {
+   "condition": {
+    "all": [
+     {
+      "in_zone": {
+       "object": "person",
+       "zone": "past_gate"
+      }
+     },
+     {
+      "not": {
+       "wearing": {
+        "person": "person",
+        "ppe": [
+         "safety_vest"
+        ]
+       }
+      }
+     }
+    ]
+   },
+   "explanation_template": "Person in Shop floor missing {missing_ppe} for {duration_s} at {time}",
+   "min_duration_s": 3,
+   "objects": [
+    {
+     "name": "person",
+     "prompt": "person"
+    },
+    {
+     "name": "safety_vest",
+     "prompt": "safety vest"
+    }
+   ],
+   "rule_id": "p2",
+   "severity": "medium",
+   "suggested_rewrite": null,
+   "title": "Safety vest required on Shop floor",
+   "unsupported": null,
+   "zones": [
+    "past_gate"
+   ]
+  },
+  "text": "Workers on the Shop floor must wear a safety vest, alert if missing for more than 3 seconds."
+ },
+ "b58a36a0e40c9e52a791": {
+  "clip": "webcam",
+  "rule": {
+   "condition": {
+    "not": {
+     "wearing": {
+      "person": "person",
+      "ppe": [
+       "glasses"
+      ]
+     }
+    }
+   },
+   "explanation_template": "Person without {missing_ppe} detected at {time} for {duration_s}.",
+   "min_duration_s": 2,
+   "objects": [
+    {
+     "name": "person",
+     "prompt": "person"
+    },
+    {
+     "name": "glasses",
+     "prompt": "glasses"
+    }
+   ],
+   "rule_id": "custom",
+   "severity": "medium",
+   "suggested_rewrite": null,
+   "title": "Glasses required for everyone in view",
+   "unsupported": null,
+   "zones": []
+  },
+  "text": "Everyone in view must wear glasses, alert after 2 seconds."
+ },
+ "b7295b30dee43a1db5e7": {
+  "clip": "forklift-operator",
+  "rule": {
+   "condition": {
+    "distance_lt": {
+     "a": "forklift",
+     "b": "person",
+     "m": 2
+    }
+   },
+   "explanation_template": "Forklift within {distance_m} m of pedestrian for {duration_s} s at {time}",
+   "min_duration_s": 1,
+   "objects": [
+    {
+     "name": "person",
+     "prompt": "person"
+    },
+    {
+     "name": "forklift",
+     "prompt": "forklift"
+    }
+   ],
+   "rule_id": "r3",
+   "severity": "high",
+   "suggested_rewrite": null,
+   "title": "Forklift too close to pedestrian",
+   "unsupported": null,
+   "zones": []
+  },
+  "text": "A forklift must not come closer than 2 m to a pedestrian."
+ },
+ "bb82228e2434720aa146": {
+  "clip": "forklift-crosses-aisle",
+  "rule": {
+   "condition": {
+    "not": {
+     "wearing": {
+      "person": "person",
+      "ppe": [
+       "safety_vest"
+      ]
+     }
+    }
+   },
+   "explanation_template": "Person without {missing_ppe} detected at {time} for {duration_s}.",
+   "min_duration_s": 3,
+   "objects": [
+    {
+     "name": "person",
+     "prompt": "person"
+    },
+    {
+     "name": "safety_vest",
+     "prompt": "safety vest"
+    }
+   ],
+   "rule_id": "r2-vest",
+   "severity": "medium",
+   "suggested_rewrite": null,
+   "title": "High-visibility vest required for pedestrians",
+   "unsupported": null,
+   "zones": []
+  },
+  "text": "Pedestrians on the floor must wear a high-visibility vest."
+ },
+ "c31206c90f7f57bda426": {
+  "clip": "forklift-operator",
+  "rule": {
+   "condition": null,
+   "explanation_template": "Person inside yellow zone while forklift running at {time} for {duration_s} s.",
+   "min_duration_s": 1,
+   "objects": [
+    {
+     "name": "person",
+     "prompt": "person"
+    },
+    {
+     "name": "forklift",
+     "prompt": "forklift"
+    }
+   ],
+   "rule_id": "r1",
+   "severity": "high",
+   "suggested_rewrite": "Mark the yellow zone on this camera as a fixed polygon, then enforce: Nobody inside the yellow zone while the forklift is running.",
+   "title": "No person in yellow zone while forklift running",
+   "unsupported": "Rule requires zone 'yellow zone' for in_zone, but camera zones list contains only 'past_gate'; no yellow zone is marked, so in_zone cannot be evaluated.",
+   "zones": []
+  },
+  "text": "Nobody inside the yellow zone while the forklift is running."
+ },
+ "caf9fcade59ece19883f": {
+  "clip": "busy-warehouse",
+  "rule": {
+   "condition": {
+    "in_zone": {
+     "object": "forklift",
+     "zone": "fire_exit_zone"
+    }
+   },
+   "explanation_template": "{object} standing in door apron for {duration_s} at {time}",
+   "min_duration_s": 2.0,
+   "objects": [
+    {
+     "name": "forklift",
+     "prompt": "forklift"
+    }
+   ],
+   "rule_id": "r11",
+   "severity": "medium",
+   "suggested_rewrite": null,
+   "title": "No forklifts standing in door apron",
+   "unsupported": null,
+   "zones": [
+    "fire_exit_zone"
+   ]
+  },
+  "text": "Forklifts must not stand in the door apron in front of the roll-up door for more than 2 seconds."
+ },
+ "ce9a419934b4a54dd799": {
+  "clip": "webcam",
+  "rule": {
+   "condition": {
+    "in_zone": {
+     "object": "cup",
+     "zone": "keyboard_zone"
+    }
+   },
+   "explanation_template": "Cup detected in Keyboard zone for {duration_s}.",
+   "min_duration_s": 2,
+   "objects": [
+    {
+     "name": "cup",
+     "prompt": "cup"
+    }
+   ],
+   "rule_id": "custom",
+   "severity": "low",
+   "suggested_rewrite": null,
+   "title": "No cups in Keyboard zone",
+   "unsupported": null,
+   "zones": [
+    "keyboard_zone"
+   ]
+  },
+  "text": "No cup in the keyboard zone for more than 2 seconds."
+ },
+ "d096c2755d51d5529bbe": {
+  "clip": "forklift-operator",
+  "rule": {
+   "condition": {
+    "all": [
+     {
+      "in_zone": {
+       "object": "person",
+       "zone": "past_gate"
+      }
+     },
+     {
+      "not": {
+       "wearing": {
+        "person": "person",
+        "ppe": [
+         "hard_hat"
+        ]
+       }
+      }
+     }
+    ]
+   },
+   "explanation_template": "Person on Warehouse floor missing {missing_ppe} for {duration_s} at {time}.",
+   "min_duration_s": 3,
+   "objects": [
+    {
+     "name": "person",
+     "prompt": "person"
+    },
+    {
+     "name": "hard_hat",
+     "prompt": "hard hat"
+    }
+   ],
+   "rule_id": "p1",
+   "severity": "medium",
+   "suggested_rewrite": null,
+   "title": "Hard hat required on Warehouse floor",
+   "unsupported": null,
+   "zones": [
+    "past_gate"
+   ]
+  },
+  "text": "Everyone on the Warehouse floor must wear a hard hat."
+ },
+ "d1c8ca63408920a2a0f1": {
+  "clip": "busy-warehouse",
+  "rule": {
+   "condition": {
+    "distance_lt": {
+     "a": "forklift",
+     "b": "person",
+     "m": 2
+    }
+   },
+   "explanation_template": "Forklift within {distance_m} m of a pedestrian for {duration_s} s at {time}.",
+   "min_duration_s": 1,
+   "objects": [
+    {
+     "name": "forklift",
+     "prompt": "forklift"
+    },
+    {
+     "name": "person",
+     "prompt": "person"
+    }
+   ],
+   "rule_id": "p1",
+   "severity": "high",
+   "suggested_rewrite": null,
+   "title": "Forklifts keep 2 m from pedestrians",
+   "unsupported": null,
+   "zones": []
+  },
+  "text": "Forklifts must not come closer than 2 m to a pedestrian."
+ },
+ "d7541e576b6c553131d0": {
+  "clip": "warehouse-team",
+  "rule": {
+   "condition": {
+    "in_zone": {
+     "object": "person",
+     "zone": "yellow_zone"
+    }
+   },
+   "explanation_template": "Person detected in Yellow zone at {time} for {duration_s} s.",
+   "min_duration_s": 2,
+   "objects": [
+    {
+     "name": "person",
+     "prompt": "person"
+    }
+   ],
+   "rule_id": "p2",
+   "severity": "high",
+   "suggested_rewrite": null,
+   "title": "No person in Yellow zone",
+   "unsupported": null,
+   "zones": [
+    "yellow_zone"
+   ]
+  },
+  "text": "No person may enter the Yellow zone."
+ },
+ "d784066b91e936f27784": {
+  "clip": "warehouse-team",
+  "rule": {
+   "condition": null,
+   "explanation_template": "{object} detected in the walkway crossing at {time}.",
+   "min_duration_s": 2,
+   "objects": [
+    {
+     "name": "forklift",
+     "prompt": "forklift"
+    }
+   ],
+   "rule_id": "r8",
+   "severity": "medium",
+   "suggested_rewrite": "Draw a zone called walkway crossing on this camera first, then: no forklift in the walkway crossing.",
+   "title": "No forklift in walkway crossing",
+   "unsupported": "The rule needs the walkway crossing, which is not marked on this camera (marked: Warehouse floor, Rack zone, Yellow zone (reach-truck parking spot)). Another zone cannot stand in for it.",
+   "zones": []
+  },
+  "text": "No forklift in the walkway crossing."
+ },
+ "db5afbf59a44e99f7009": {
+  "clip": "site-worker-no-vest",
+  "rule": {
+   "condition": {
+    "all": [
+     {
+      "in_zone": {
+       "object": "person",
+       "zone": "past_gate"
+      }
+     },
+     {
+      "not": {
+       "wearing": {
+        "person": "person",
+        "ppe": [
+         "safety_vest"
+        ]
+       }
+      }
+     }
+    ]
+   },
+   "explanation_template": "Person on Site floor missing {missing_ppe} for {duration_s} at {time}.",
+   "min_duration_s": 3,
+   "objects": [
+    {
+     "name": "person",
+     "prompt": "person"
+    },
+    {
+     "name": "safety_vest",
+     "prompt": "safety vest"
+    }
+   ],
+   "rule_id": "p1",
+   "severity": "medium",
+   "suggested_rewrite": null,
+   "title": "Safety vest required on Site floor",
+   "unsupported": null,
+   "zones": [
+    "past_gate"
+   ]
+  },
+  "text": "Every person on the Site floor must wear a safety vest, alert if missing for more than 3 seconds."
+ },
+ "ddca0e2e87d072a41c47": {
+  "clip": "forklift-operator",
+  "rule": {
+   "condition": {
+    "all": [
+     {
+      "in_zone": {
+       "object": "person",
+       "zone": "past_gate"
+      }
+     },
+     {
+      "machine_state": {
+       "machine": "forklift",
+       "state": "running"
+      }
+     }
+    ]
+   },
+   "explanation_template": "Person detected past the gate while forklift is running at {time} for {duration_s}.",
+   "min_duration_s": 1,
+   "objects": [
+    {
+     "name": "person",
+     "prompt": "person"
+    },
+    {
+     "name": "forklift",
+     "prompt": "forklift"
+    }
+   ],
+   "rule_id": "p2",
+   "severity": "high",
+   "suggested_rewrite": null,
+   "title": "No person past the gate while forklift is running",
+   "unsupported": null,
+   "zones": [
+    "past_gate"
+   ]
+  },
+  "text": "No person may be past the gate while the forklift is running."
+ },
+ "dfd6fd4b175f596d8646": {
+  "clip": "warehouse-team",
+  "rule": {
+   "condition": {
+    "all": [
+     {
+      "in_zone": {
+       "object": "person",
+       "zone": "past_gate"
+      }
+     },
+     {
+      "not": {
+       "wearing": {
+        "person": "person",
+        "ppe": [
+         "hard_hat",
+         "safety_vest"
+        ]
+       }
+      }
+     }
+    ]
+   },
+   "explanation_template": "Person on the warehouse floor missing {missing_ppe} at {time} for {duration_s}.",
+   "min_duration_s": 3,
+   "objects": [
+    {
+     "name": "person",
+     "prompt": "person"
+    },
+    {
+     "name": "hard_hat",
+     "prompt": "hard hat"
+    },
+    {
+     "name": "safety_vest",
+     "prompt": "safety vest"
+    }
+   ],
+   "rule_id": "r2",
+   "severity": "medium",
+   "suggested_rewrite": null,
+   "title": "Hard hat and high-visibility vest required on warehouse floor",
+   "unsupported": null,
+   "zones": [
+    "past_gate"
+   ]
+  },
+  "text": "Everyone on the warehouse floor must wear a hard hat and a high-visibility vest."
+ },
+ "e1b255add9139b140c5c": {
+  "clip": "forklift-crosses-aisle",
+  "rule": {
+   "condition": {
+    "in_zone": {
+     "object": "forklift",
+     "zone": "pedestrian_lane"
+    }
+   },
+   "explanation_template": "Forklift in walkway crossing for {duration_s} s",
+   "min_duration_s": 2,
+   "objects": [
+    {
+     "name": "forklift",
+     "prompt": "forklift"
+    }
+   ],
+   "rule_id": "r8",
+   "severity": "medium",
+   "suggested_rewrite": null,
+   "title": "No forklift in walkway crossing",
+   "unsupported": null,
+   "zones": [
+    "pedestrian_lane"
+   ]
+  },
+  "text": "No forklift in the walkway crossing."
+ },
+ "e829cf34493073d0b010": {
+  "clip": "man-crosses-floor",
+  "rule": {
+   "condition": {
+    "all": [
+     {
+      "in_zone": {
+       "object": "person",
+       "zone": "past_gate"
+      }
+     },
+     {
+      "not": {
+       "wearing": {
+        "person": "person",
+        "ppe": [
+         "safety_vest"
+        ]
+       }
+      }
+     }
+    ]
+   },
+   "explanation_template": "Person on the shop floor without {missing_ppe} for {duration_s} s at {time}",
+   "min_duration_s": 3,
+   "objects": [
+    {
+     "name": "person",
+     "prompt": "person"
+    },
+    {
+     "name": "safety_vest",
+     "prompt": "safety vest"
+    }
+   ],
+   "rule_id": "r2-vest",
+   "severity": "medium",
+   "suggested_rewrite": null,
+   "title": "High-visibility vest required on shop floor",
+   "unsupported": null,
+   "zones": [
+    "past_gate"
+   ]
+  },
+  "text": "Everyone on the floor must wear a high-visibility vest."
+ },
+ "eda490b683bbc45b40a1": {
+  "clip": "man-crosses-floor",
+  "rule": {
+   "condition": null,
+   "explanation_template": "Forklift detected in walkway crossing for {duration_s} at {time}.",
+   "min_duration_s": 2,
+   "objects": [
+    {
+     "name": "forklift",
+     "prompt": "forklift"
+    }
+   ],
+   "rule_id": "r8",
+   "severity": "medium",
+   "suggested_rewrite": "Draw a zone called walkway crossing on this camera first, then: no forklift in the walkway crossing.",
+   "title": "No forklift in walkway crossing",
+   "unsupported": "The rule needs the walkway crossing, which is not marked on this camera (marked: Shop floor). Another zone cannot stand in for it.",
+   "zones": []
+  },
+  "text": "No forklift in the walkway crossing."
+ },
+ "ef0b89f2f882c40751e5": {
+  "clip": "man-crosses-floor",
+  "rule": {
+   "condition": {
+    "all": [
+     {
+      "in_zone": {
+       "object": "person",
+       "zone": "past_gate"
+      }
+     },
+     {
+      "machine_state": {
+       "machine": "forklift",
+       "state": "running"
+      }
+     }
+    ]
+   },
+   "explanation_template": "Person on Shop floor while forklift running for {duration_s} at {time}.",
+   "min_duration_s": 2,
+   "objects": [
+    {
+     "name": "person",
+     "prompt": "person"
+    },
+    {
+     "name": "forklift",
+     "prompt": "forklift"
+    }
+   ],
+   "rule_id": "p3",
+   "severity": "high",
+   "suggested_rewrite": null,
+   "title": "No person on Shop floor while forklift running",
+   "unsupported": null,
+   "zones": [
+    "past_gate"
+   ]
+  },
+  "text": "No person may be on the Shop floor while the forklift is running, alert if present for more than 2 seconds."
+ },
+ "f054f020531bf984cd15": {
+  "clip": "forklift-crosses-aisle",
+  "rule": {
+   "condition": {
+    "in_zone": {
+     "object": "forklift",
+     "zone": "pedestrian_lane"
+    }
+   },
+   "explanation_template": "Forklift in Walkway crossing for {duration_s} at {time}",
+   "min_duration_s": 2,
+   "objects": [
+    {
+     "name": "forklift",
+     "prompt": "forklift"
+    }
+   ],
+   "rule_id": "p2",
+   "severity": "medium",
+   "suggested_rewrite": null,
+   "title": "No forklifts in Walkway crossing",
+   "unsupported": null,
+   "zones": [
+    "pedestrian_lane"
+   ]
+  },
+  "text": "Forklifts must not remain in the Walkway crossing for more than 2 seconds."
+ },
+ "f2700726c91c486ed8ba": {
+  "clip": "busy-warehouse",
+  "rule": {
+   "condition": {
+    "distance_lt": {
+     "a": "forklift",
+     "b": "person",
+     "m": 2
+    }
+   },
+   "explanation_template": "Forklift within {distance_m} m of a pedestrian at {time}",
+   "min_duration_s": 1,
+   "objects": [
+    {
+     "name": "forklift",
+     "prompt": "forklift"
+    },
+    {
+     "name": "person",
+     "prompt": "person"
+    }
+   ],
+   "rule_id": "r3",
+   "severity": "high",
+   "suggested_rewrite": null,
+   "title": "Forklift too close to pedestrian",
+   "unsupported": null,
+   "zones": []
+  },
+  "text": "A forklift must not come closer than 2 m to a pedestrian."
+ },
+ "f2fcb1dd183961c94b8d": {
+  "clip": "warehouse-team",
+  "rule": {
+   "condition": {
+    "all": [
+     {
+      "in_zone": {
+       "object": "person",
+       "zone": "past_gate"
+      }
+     },
+     {
+      "not": {
+       "wearing": {
+        "person": "person",
+        "ppe": [
+         "hard_hat"
+        ]
+       }
+      }
+     }
+    ]
+   },
+   "explanation_template": "Person past the gate without {missing_ppe} for {duration_s}.",
+   "min_duration_s": 3,
+   "objects": [
+    {
+     "name": "person",
+     "prompt": "person"
+    },
+    {
+     "name": "hard_hat",
+     "prompt": "hard hat"
+    }
+   ],
+   "rule_id": "p2",
+   "severity": "medium",
+   "suggested_rewrite": null,
+   "title": "Hard hat required past the gate",
+   "unsupported": null,
+   "zones": [
+    "past_gate"
+   ]
+  },
+  "text": "Everyone past the gate must wear a hard hat for more than 3 seconds."
+ },
+ "fa9a39916d78f6f4a6a8": {
+  "clip": "webcam",
+  "rule": {
+   "condition": {
+    "not": {
+     "wearing": {
+      "person": "person",
+      "ppe": [
+       "headphones"
+      ]
+     }
+    }
+   },
+   "explanation_template": "Person without {missing_ppe} seen for {duration_s} at {time}.",
+   "min_duration_s": 2,
+   "objects": [
+    {
+     "name": "person",
+     "prompt": "person"
+    },
+    {
+     "name": "headphones",
+     "prompt": "headphones"
+    }
+   ],
+   "rule_id": "custom",
+   "severity": "medium",
+   "suggested_rewrite": null,
+   "title": "Headphones required for everyone in view",
+   "unsupported": null,
+   "zones": []
+  },
+  "text": "Everyone in view must wear headphones, alert after 2 seconds."
+ },
+ "fad33dcda69acf4a731d": {
+  "clip": "forklift-operator",
+  "rule": {
+   "condition": null,
+   "explanation_template": "Person in yellow zone while forklift is running for {duration_s} s at {time}.",
+   "min_duration_s": 1,
+   "objects": [
+    {
+     "name": "person",
+     "prompt": "person"
+    },
+    {
+     "name": "forklift",
+     "prompt": "forklift"
+    }
+   ],
+   "rule_id": "r1",
+   "severity": "high",
+   "suggested_rewrite": "Draw a zone called yellow zone on this camera first, then: nobody may stand in the yellow zone while the forklift is running.",
+   "title": "No standing in yellow zone while forklift runs",
+   "unsupported": "The rule needs the yellow zone, which is not marked on this camera (marked: Warehouse floor). Another zone cannot stand in for it.",
+   "zones": []
+  },
+  "text": "Nobody may stand in the yellow zone while the forklift is running."
+ },
+ "fe2e65601afa4c87befb": {
+  "clip": "busy-warehouse",
+  "rule": {
+   "condition": {
+    "in_zone": {
+     "object": "forklift",
+     "zone": "fire_exit_zone"
+    }
+   },
+   "explanation_template": "Forklift stopped in door apron for {duration_s} at {time}.",
+   "min_duration_s": 2,
+   "objects": [
+    {
+     "name": "forklift",
+     "prompt": "forklift"
+    }
+   ],
+   "rule_id": "p2",
+   "severity": "medium",
+   "suggested_rewrite": null,
+   "title": "No forklift stopping in door apron",
+   "unsupported": null,
+   "zones": [
+    "fire_exit_zone"
+   ]
+  },
+  "text": "Forklifts must not stop in the Door apron for more than 2 seconds."
+ }
+}

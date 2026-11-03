@@ -1,0 +1,11 @@
+$ python bench/trt_check.py --frame <006|012> --backbone repvit --variant m1.1 --ckpt efficientsam3_repvit.pt --emb rv-m/text_embeddings.npz --open rv-m/trt/rv-m_vision_decoder_final_fp16.plan
+frame /tmp/bench_frames/pexels-15170997-warehouse-team_ls1280/006.jpg; PyTorch FP32 kept (score>0.5): person=3 top=0.711, forklift=1 top=0.540, high-visibility vest=1 top=0.512, hard hat=0 top=0.156
+rv-m_vision_decoder_final_fp16.plan [person] NaN=0 kept=3 top=0.711 max|score-torch|=0.596
+rv-m_vision_decoder_final_fp16.plan [forklift] NaN=0 kept=1 top=0.532 max|score-torch|=0.048
+rv-m_vision_decoder_final_fp16.plan [high-visibility vest] NaN=0 kept=1 top=0.511 max|score-torch|=0.013
+rv-m_vision_decoder_final_fp16.plan [hard hat] NaN=0 kept=0 top=0.153 max|score-torch|=0.004
+frame /tmp/bench_frames/pexels-15170997-warehouse-team_ls1280/012.jpg; PyTorch FP32 kept (score>0.5): person=1 top=0.654, forklift=0 top=0.242, high-visibility vest=0 top=0.241, hard hat=0 top=0.026
+rv-m_vision_decoder_final_fp16.plan [person] NaN=0 kept=1 top=0.654 max|score-torch|=0.032
+rv-m_vision_decoder_final_fp16.plan [forklift] NaN=0 kept=0 top=0.241 max|score-torch|=0.011
+rv-m_vision_decoder_final_fp16.plan [high-visibility vest] NaN=0 kept=0 top=0.236 max|score-torch|=0.042
+rv-m_vision_decoder_final_fp16.plan [hard hat] NaN=0 kept=0 top=0.026 max|score-torch|=0.001

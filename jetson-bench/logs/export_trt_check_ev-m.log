@@ -1,0 +1,104 @@
+$ python bench/trt_check.py --ckpt efficientsam3_efficientvit.pt --emb text_embeddings.npz --open trt/vision_decoder_fp16.plan trt/vision_decoder_fp16mixed.plan --fixed trt/fixed4_mask_fp16mixed.plan
+  print(f"{Path(path).name} [{p}] NaN={int(np.isnan(d[ci*200:(ci+1)*200]).sum())} kept={int((s > 0.5).sum())} top={np.nanmax(s):.3f} "
+  f"max|score-torch|={np.nanmax(np.abs(s - r)):.3f} maskIoU(kept by torch)={np.round(iou, 3).tolist()}")
+Resizing positional embeddings from 77 to 16
+frame /tmp/bench_frames/pexels-15170997-warehouse-team_ls1280/006.jpg; PyTorch FP32 kept (score>0.5): person=1 top=0.805, forklift=0 top=0.168, high-visibility vest=0 top=0.370, hard hat=0 top=0.171
+vision_decoder_fp16.plan [person] NaN=1000 kept=0 top=nan max|score-torch|=nan
+vision_decoder_fp16.plan [forklift] NaN=1000 kept=0 top=nan max|score-torch|=nan
+vision_decoder_fp16.plan [high-visibility vest] NaN=1000 kept=0 top=nan max|score-torch|=nan
+vision_decoder_fp16.plan [hard hat] NaN=1000 kept=0 top=nan max|score-torch|=nan
+vision_decoder_fp16mixed.plan [person] NaN=1000 kept=0 top=nan max|score-torch|=nan
+vision_decoder_fp16mixed.plan [forklift] NaN=1000 kept=0 top=nan max|score-torch|=nan
+vision_decoder_fp16mixed.plan [high-visibility vest] NaN=1000 kept=0 top=nan max|score-torch|=nan
+vision_decoder_fp16mixed.plan [hard hat] NaN=1000 kept=0 top=nan max|score-torch|=nan
+fixed4_mask_fp16mixed.plan [person] NaN=1000 kept=0 top=nan max|score-torch|=nan maskIoU(kept by torch)=[0.0]
+fixed4_mask_fp16mixed.plan [forklift] NaN=1000 kept=0 top=nan max|score-torch|=nan maskIoU(kept by torch)=[]
+fixed4_mask_fp16mixed.plan [high-visibility vest] NaN=1000 kept=0 top=nan max|score-torch|=nan maskIoU(kept by torch)=[]
+fixed4_mask_fp16mixed.plan [hard hat] NaN=1000 kept=0 top=nan max|score-torch|=nan maskIoU(kept by torch)=[]
+
+$ python bench/trt_check.py --ckpt efficientsam3_efficientvit.pt --emb text_embeddings.npz --open trt/vision_decoder_fp32.plan trt/vision_decoder_fp16safe_fp16.plan --fixed trt/fixed4_mask_fp16safe_fp16.plan
+frame /tmp/bench_frames/pexels-15170997-warehouse-team_ls1280/006.jpg; PyTorch FP32 kept (score>0.5): person=1 top=0.805, forklift=0 top=0.168, high-visibility vest=0 top=0.370, hard hat=0 top=0.171
+vision_decoder_fp32.plan [person] NaN=0 kept=0 top=0.339 max|score-torch|=0.466
+vision_decoder_fp32.plan [forklift] NaN=0 kept=0 top=0.337 max|score-torch|=0.169
+vision_decoder_fp32.plan [high-visibility vest] NaN=0 kept=0 top=0.419 max|score-torch|=0.049
+vision_decoder_fp32.plan [hard hat] NaN=0 kept=0 top=0.358 max|score-torch|=0.188
+vision_decoder_fp16safe_fp16.plan [person] NaN=0 kept=0 top=0.339 max|score-torch|=0.467
+vision_decoder_fp16safe_fp16.plan [forklift] NaN=0 kept=0 top=0.337 max|score-torch|=0.169
+vision_decoder_fp16safe_fp16.plan [high-visibility vest] NaN=0 kept=0 top=0.418 max|score-torch|=0.048
+vision_decoder_fp16safe_fp16.plan [hard hat] NaN=0 kept=0 top=0.358 max|score-torch|=0.187
+fixed4_mask_fp16safe_fp16.plan [person] NaN=0 kept=0 top=0.338 max|score-torch|=0.468 maskIoU(kept by torch)=[0.999]
+fixed4_mask_fp16safe_fp16.plan [forklift] NaN=0 kept=0 top=0.336 max|score-torch|=0.168 maskIoU(kept by torch)=[]
+fixed4_mask_fp16safe_fp16.plan [high-visibility vest] NaN=0 kept=0 top=0.418 max|score-torch|=0.048 maskIoU(kept by torch)=[]
+fixed4_mask_fp16safe_fp16.plan [hard hat] NaN=0 kept=0 top=0.358 max|score-torch|=0.187 maskIoU(kept by torch)=[]
+frame /tmp/bench_frames/pexels-15170997-warehouse-team_ls1280/012.jpg; PyTorch FP32 kept (score>0.5): person=1 top=0.709, forklift=0 top=0.085, high-visibility vest=0 top=0.237, hard hat=0 top=0.025
+vision_decoder_fp32.plan [person] NaN=0 kept=0 top=0.333 max|score-torch|=0.375
+vision_decoder_fp32.plan [forklift] NaN=0 kept=0 top=0.386 max|score-torch|=0.301
+vision_decoder_fp32.plan [high-visibility vest] NaN=0 kept=0 top=0.433 max|score-torch|=0.196
+vision_decoder_fp32.plan [hard hat] NaN=0 kept=0 top=0.239 max|score-torch|=0.214
+vision_decoder_fp16safe_fp16.plan [person] NaN=0 kept=0 top=0.333 max|score-torch|=0.376
+vision_decoder_fp16safe_fp16.plan [forklift] NaN=0 kept=0 top=0.389 max|score-torch|=0.304
+vision_decoder_fp16safe_fp16.plan [high-visibility vest] NaN=0 kept=0 top=0.432 max|score-torch|=0.195
+vision_decoder_fp16safe_fp16.plan [hard hat] NaN=0 kept=0 top=0.238 max|score-torch|=0.214
+fixed4_mask_fp16safe_fp16.plan [person] NaN=0 kept=0 top=0.333 max|score-torch|=0.376 maskIoU(kept by torch)=[0.998]
+fixed4_mask_fp16safe_fp16.plan [forklift] NaN=0 kept=0 top=0.389 max|score-torch|=0.304 maskIoU(kept by torch)=[]
+fixed4_mask_fp16safe_fp16.plan [high-visibility vest] NaN=0 kept=0 top=0.433 max|score-torch|=0.196 maskIoU(kept by torch)=[]
+fixed4_mask_fp16safe_fp16.plan [hard hat] NaN=0 kept=0 top=0.239 max|score-torch|=0.215 maskIoU(kept by torch)=[]
+
+$ python bench/trt_check.py --frame <006|012> --ckpt efficientsam3_efficientvit.pt --emb text_embeddings.npz --open trt/vision_decoder_final_fp32.plan trt/vision_decoder_final_fp16.plan --fixed trt/fixed4_mask_final_fp16.plan
+frame /tmp/bench_frames/pexels-15170997-warehouse-team_ls1280/006.jpg; PyTorch FP32 kept (score>0.5): person=1 top=0.805, forklift=0 top=0.168, high-visibility vest=0 top=0.370, hard hat=0 top=0.171
+vision_decoder_final_fp32.plan [person] NaN=0 kept=1 top=0.805 max|score-torch|=0.008
+vision_decoder_final_fp32.plan [forklift] NaN=0 kept=0 top=0.168 max|score-torch|=0.004
+vision_decoder_final_fp32.plan [high-visibility vest] NaN=0 kept=0 top=0.370 max|score-torch|=0.010
+vision_decoder_final_fp32.plan [hard hat] NaN=0 kept=0 top=0.169 max|score-torch|=0.003
+vision_decoder_final_fp16.plan [person] NaN=0 kept=1 top=0.805 max|score-torch|=0.322
+vision_decoder_final_fp16.plan [forklift] NaN=0 kept=0 top=0.170 max|score-torch|=0.018
+vision_decoder_final_fp16.plan [high-visibility vest] NaN=0 kept=0 top=0.367 max|score-torch|=0.020
+vision_decoder_final_fp16.plan [hard hat] NaN=0 kept=0 top=0.165 max|score-torch|=0.013
+fixed4_mask_final_fp16.plan [person] NaN=0 kept=0 top=0.338 max|score-torch|=0.468 maskIoU(kept by torch)=[0.999]
+fixed4_mask_final_fp16.plan [forklift] NaN=0 kept=0 top=0.336 max|score-torch|=0.168 maskIoU(kept by torch)=[]
+fixed4_mask_final_fp16.plan [high-visibility vest] NaN=0 kept=0 top=0.418 max|score-torch|=0.048 maskIoU(kept by torch)=[]
+fixed4_mask_final_fp16.plan [hard hat] NaN=0 kept=0 top=0.358 max|score-torch|=0.187 maskIoU(kept by torch)=[]
+frame /tmp/bench_frames/pexels-15170997-warehouse-team_ls1280/012.jpg; PyTorch FP32 kept (score>0.5): person=1 top=0.709, forklift=0 top=0.085, high-visibility vest=0 top=0.237, hard hat=0 top=0.025
+vision_decoder_final_fp32.plan [person] NaN=0 kept=1 top=0.709 max|score-torch|=0.019
+vision_decoder_final_fp32.plan [forklift] NaN=0 kept=0 top=0.085 max|score-torch|=0.003
+vision_decoder_final_fp32.plan [high-visibility vest] NaN=0 kept=0 top=0.235 max|score-torch|=0.002
+vision_decoder_final_fp32.plan [hard hat] NaN=0 kept=0 top=0.025 max|score-torch|=0.000
+vision_decoder_final_fp16.plan [person] NaN=0 kept=1 top=0.709 max|score-torch|=0.028
+vision_decoder_final_fp16.plan [forklift] NaN=0 kept=0 top=0.083 max|score-torch|=0.037
+vision_decoder_final_fp16.plan [high-visibility vest] NaN=0 kept=0 top=0.234 max|score-torch|=0.008
+vision_decoder_final_fp16.plan [hard hat] NaN=0 kept=0 top=0.025 max|score-torch|=0.002
+fixed4_mask_final_fp16.plan [person] NaN=0 kept=0 top=0.333 max|score-torch|=0.376 maskIoU(kept by torch)=[0.998]
+fixed4_mask_final_fp16.plan [forklift] NaN=0 kept=0 top=0.389 max|score-torch|=0.304 maskIoU(kept by torch)=[]
+fixed4_mask_final_fp16.plan [high-visibility vest] NaN=0 kept=0 top=0.433 max|score-torch|=0.196 maskIoU(kept by torch)=[]
+fixed4_mask_final_fp16.plan [hard hat] NaN=0 kept=0 top=0.239 max|score-torch|=0.215 maskIoU(kept by torch)=[]
+
+$ python bench/trt_check.py --frame <006|012> --ckpt efficientsam3_efficientvit.pt --emb text_embeddings.npz --open trt/vision_decoder_final_fp32.plan trt/vision_decoder_final_fp16.plan --fixed trt/fixed4_mask_final_fp16.plan
+frame /tmp/bench_frames/pexels-15170997-warehouse-team_ls1280/006.jpg; PyTorch FP32 kept (score>0.5): person=1 top=0.805, forklift=0 top=0.168, high-visibility vest=0 top=0.370, hard hat=0 top=0.171
+vision_decoder_final_fp32.plan [person] NaN=0 kept=1 top=0.805 max|score-torch|=0.008
+vision_decoder_final_fp32.plan [forklift] NaN=0 kept=0 top=0.168 max|score-torch|=0.004
+vision_decoder_final_fp32.plan [high-visibility vest] NaN=0 kept=0 top=0.370 max|score-torch|=0.010
+vision_decoder_final_fp32.plan [hard hat] NaN=0 kept=0 top=0.169 max|score-torch|=0.003
+vision_decoder_final_fp16.plan [person] NaN=0 kept=1 top=0.805 max|score-torch|=0.322
+vision_decoder_final_fp16.plan [forklift] NaN=0 kept=0 top=0.170 max|score-torch|=0.018
+vision_decoder_final_fp16.plan [high-visibility vest] NaN=0 kept=0 top=0.367 max|score-torch|=0.020
+vision_decoder_final_fp16.plan [hard hat] NaN=0 kept=0 top=0.165 max|score-torch|=0.013
+fixed4_mask_final_fp16.plan [person] NaN=0 kept=1 top=0.805 max|score-torch|=0.320 maskIoU(kept by torch)=[0.999]
+fixed4_mask_final_fp16.plan [forklift] NaN=0 kept=0 top=0.169 max|score-torch|=0.010 maskIoU(kept by torch)=[]
+fixed4_mask_final_fp16.plan [high-visibility vest] NaN=0 kept=0 top=0.367 max|score-torch|=0.018 maskIoU(kept by torch)=[]
+fixed4_mask_final_fp16.plan [hard hat] NaN=0 kept=0 top=0.165 max|score-torch|=0.014 maskIoU(kept by torch)=[]
+frame /tmp/bench_frames/pexels-15170997-warehouse-team_ls1280/012.jpg; PyTorch FP32 kept (score>0.5): person=1 top=0.709, forklift=0 top=0.085, high-visibility vest=0 top=0.237, hard hat=0 top=0.025
+vision_decoder_final_fp32.plan [person] NaN=0 kept=1 top=0.709 max|score-torch|=0.019
+vision_decoder_final_fp32.plan [forklift] NaN=0 kept=0 top=0.085 max|score-torch|=0.003
+vision_decoder_final_fp32.plan [high-visibility vest] NaN=0 kept=0 top=0.235 max|score-torch|=0.002
+vision_decoder_final_fp32.plan [hard hat] NaN=0 kept=0 top=0.025 max|score-torch|=0.000
+vision_decoder_final_fp16.plan [person] NaN=0 kept=1 top=0.709 max|score-torch|=0.028
+vision_decoder_final_fp16.plan [forklift] NaN=0 kept=0 top=0.083 max|score-torch|=0.037
+vision_decoder_final_fp16.plan [high-visibility vest] NaN=0 kept=0 top=0.234 max|score-torch|=0.008
+vision_decoder_final_fp16.plan [hard hat] NaN=0 kept=0 top=0.025 max|score-torch|=0.002
+fixed4_mask_final_fp16.plan [person] NaN=0 kept=1 top=0.709 max|score-torch|=0.028 maskIoU(kept by torch)=[0.998]
+fixed4_mask_final_fp16.plan [forklift] NaN=0 kept=0 top=0.084 max|score-torch|=0.040 maskIoU(kept by torch)=[]
+fixed4_mask_final_fp16.plan [high-visibility vest] NaN=0 kept=0 top=0.235 max|score-torch|=0.007 maskIoU(kept by torch)=[]
+fixed4_mask_final_fp16.plan [hard hat] NaN=0 kept=0 top=0.025 max|score-torch|=0.002 maskIoU(kept by torch)=[]
+
+# text_encoder_fp16.plan vs ORT FP32 (text_embeddings.npz), 30 prompts; inputs: {'tokenized_ids': 'torch.int64'}
+language_features max|diff|/max|ref| over prompts: max 3.43e-03 mean 2.46e-03; language_mask mismatches: 0

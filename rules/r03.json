@@ -1,0 +1,27 @@
+{
+  "rule_id": "r3",
+  "title": "Forklift within 2 m of a pedestrian",
+  "objects": [
+    {
+      "name": "forklift",
+      "prompt": "forklift"
+    },
+    {
+      "name": "person",
+      "prompt": "person"
+    }
+  ],
+  "zones": [],
+  "condition": {
+    "distance_lt": {
+      "a": "forklift",
+      "b": "person",
+      "m": 2
+    }
+  },
+  "min_duration_s": 1,
+  "severity": "high",
+  "explanation_template": "Forklift came within {distance_m} m of a pedestrian for {duration_s} s, at {time}.",
+  "unsupported": null,
+  "suggested_rewrite": null
+}

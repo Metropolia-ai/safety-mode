@@ -1,0 +1,322 @@
+# 2026-10-21T06:44:31-04:00
+$ /usr/src/tensorrt/bin/trtexec --onnx=/mnt/data/work/export/efficientsam3-ev-m/fixed4/efficientsam3_ev-m_fixed4_mask_noif_fp16safe_pfb.onnx --shapes=pixel_values:1x3x1008x1008 --saveEngine=/mnt/data/work/export/efficientsam3-ev-m/trt/fixed4_mask_final_fp16.plan --timingCacheFile=/mnt/data/work/export/efficientsam3-ev-m/trt/timing.cache --exportLayerInfo=/mnt/data/work/export/efficientsam3-ev-m/trt/fixed4_mask_final_fp16.layers.json --profilingVerbosity=detailed --separateProfileRun --fp16 
+
+&&&& RUNNING TensorRT.trtexec [TensorRT v100300] # /usr/src/tensorrt/bin/trtexec --onnx=/mnt/data/work/export/efficientsam3-ev-m/fixed4/efficientsam3_ev-m_fixed4_mask_noif_fp16safe_pfb.onnx --shapes=pixel_values:1x3x1008x1008 --saveEngine=/mnt/data/work/export/efficientsam3-ev-m/trt/fixed4_mask_final_fp16.plan --timingCacheFile=/mnt/data/work/export/efficientsam3-ev-m/trt/timing.cache --exportLayerInfo=/mnt/data/work/export/efficientsam3-ev-m/trt/fixed4_mask_final_fp16.layers.json --profilingVerbosity=detailed --separateProfileRun --fp16
+[10/21/2026-06:44:31] [I] === Model Options ===
+[10/21/2026-06:44:31] [I] Format: ONNX
+[10/21/2026-06:44:31] [I] Model: /mnt/data/work/export/efficientsam3-ev-m/fixed4/efficientsam3_ev-m_fixed4_mask_noif_fp16safe_pfb.onnx
+[10/21/2026-06:44:31] [I] Output:
+[10/21/2026-06:44:31] [I] === Build Options ===
+[10/21/2026-06:44:31] [I] Memory Pools: workspace: default, dlaSRAM: default, dlaLocalDRAM: default, dlaGlobalDRAM: default, tacticSharedMem: default
+[10/21/2026-06:44:31] [I] avgTiming: 8
+[10/21/2026-06:44:31] [I] Precision: FP32+FP16
+[10/21/2026-06:44:31] [I] LayerPrecisions: 
+[10/21/2026-06:44:31] [I] Layer Device Types: 
+[10/21/2026-06:44:31] [I] Calibration: 
+[10/21/2026-06:44:31] [I] Refit: Disabled
+[10/21/2026-06:44:31] [I] Strip weights: Disabled
+[10/21/2026-06:44:31] [I] Version Compatible: Disabled
+[10/21/2026-06:44:31] [I] ONNX Plugin InstanceNorm: Disabled
+[10/21/2026-06:44:31] [I] TensorRT runtime: full
+[10/21/2026-06:44:31] [I] Lean DLL Path: 
+[10/21/2026-06:44:31] [I] Tempfile Controls: { in_memory: allow, temporary: allow }
+[10/21/2026-06:44:31] [I] Exclude Lean Runtime: Disabled
+[10/21/2026-06:44:31] [I] Sparsity: Disabled
+[10/21/2026-06:44:31] [I] Safe mode: Disabled
+[10/21/2026-06:44:31] [I] Build DLA standalone loadable: Disabled
+[10/21/2026-06:44:31] [I] Allow GPU fallback for DLA: Disabled
+[10/21/2026-06:44:31] [I] DirectIO mode: Disabled
+[10/21/2026-06:44:31] [I] Restricted mode: Disabled
+[10/21/2026-06:44:31] [I] Skip inference: Disabled
+[10/21/2026-06:44:31] [I] Save engine: /mnt/data/work/export/efficientsam3-ev-m/trt/fixed4_mask_final_fp16.plan
+[10/21/2026-06:44:31] [I] Load engine: 
+[10/21/2026-06:44:31] [I] Profiling verbosity: 2
+[10/21/2026-06:44:31] [I] Tactic sources: Using default tactic sources
+[10/21/2026-06:44:31] [I] timingCacheMode: global
+[10/21/2026-06:44:31] [I] timingCacheFile: /mnt/data/work/export/efficientsam3-ev-m/trt/timing.cache
+[10/21/2026-06:44:31] [I] Enable Compilation Cache: Enabled
+[10/21/2026-06:44:31] [I] errorOnTimingCacheMiss: Disabled
+[10/21/2026-06:44:31] [I] Preview Features: Use default preview flags.
+[10/21/2026-06:44:31] [I] MaxAuxStreams: -1
+[10/21/2026-06:44:31] [I] BuilderOptimizationLevel: -1
+[10/21/2026-06:44:31] [I] Calibration Profile Index: 0
+[10/21/2026-06:44:31] [I] Weight Streaming: Disabled
+[10/21/2026-06:44:31] [I] Runtime Platform: Same As Build
+[10/21/2026-06:44:31] [I] Debug Tensors: 
+[10/21/2026-06:44:31] [I] Input(s)s format: fp32:CHW
+[10/21/2026-06:44:31] [I] Output(s)s format: fp32:CHW
+[10/21/2026-06:44:31] [I] Input build shape (profile 0): pixel_values=1x3x1008x1008+1x3x1008x1008+1x3x1008x1008
+[10/21/2026-06:44:31] [I] Input calibration shapes: model
+[10/21/2026-06:44:31] [I] === System Options ===
+[10/21/2026-06:44:31] [I] Device: 0
+[10/21/2026-06:44:31] [I] DLACore: 
+[10/21/2026-06:44:31] [I] Plugins:
+[10/21/2026-06:44:31] [I] setPluginsToSerialize:
+[10/21/2026-06:44:31] [I] dynamicPlugins:
+[10/21/2026-06:44:31] [I] ignoreParsedPluginLibs: 0
+[10/21/2026-06:44:31] [I] 
+[10/21/2026-06:44:31] [I] === Inference Options ===
+[10/21/2026-06:44:31] [I] Batch: Explicit
+[10/21/2026-06:44:31] [I] Input inference shape : pixel_values=1x3x1008x1008
+[10/21/2026-06:44:31] [I] Iterations: 10
+[10/21/2026-06:44:31] [I] Duration: 3s (+ 200ms warm up)
+[10/21/2026-06:44:31] [I] Sleep time: 0ms
+[10/21/2026-06:44:31] [I] Idle time: 0ms
+[10/21/2026-06:44:31] [I] Inference Streams: 1
+[10/21/2026-06:44:31] [I] ExposeDMA: Disabled
+[10/21/2026-06:44:31] [I] Data transfers: Enabled
+[10/21/2026-06:44:31] [I] Spin-wait: Disabled
+[10/21/2026-06:44:31] [I] Multithreading: Disabled
+[10/21/2026-06:44:31] [I] CUDA Graph: Disabled
+[10/21/2026-06:44:31] [I] Separate profiling: Enabled
+[10/21/2026-06:44:31] [I] Time Deserialize: Disabled
+[10/21/2026-06:44:31] [I] Time Refit: Disabled
+[10/21/2026-06:44:31] [I] NVTX verbosity: 2
+[10/21/2026-06:44:31] [I] Persistent Cache Ratio: 0
+[10/21/2026-06:44:31] [I] Optimization Profile Index: 0
+[10/21/2026-06:44:31] [I] Weight Streaming Budget: 100.000000%
+[10/21/2026-06:44:31] [I] Inputs:
+[10/21/2026-06:44:31] [I] Debug Tensor Save Destinations:
+[10/21/2026-06:44:31] [I] === Reporting Options ===
+[10/21/2026-06:44:31] [I] Verbose: Disabled
+[10/21/2026-06:44:31] [I] Averages: 10 inferences
+[10/21/2026-06:44:31] [I] Percentiles: 90,95,99
+[10/21/2026-06:44:31] [I] Dump refittable layers:Disabled
+[10/21/2026-06:44:31] [I] Dump output: Disabled
+[10/21/2026-06:44:31] [I] Profile: Disabled
+[10/21/2026-06:44:31] [I] Export timing to JSON file: 
+[10/21/2026-06:44:31] [I] Export output to JSON file: 
+[10/21/2026-06:44:31] [I] Export profile to JSON file: 
+[10/21/2026-06:44:31] [I] 
+[10/21/2026-06:44:31] [I] === Device Information ===
+[10/21/2026-06:44:31] [I] Available Devices: 
+[10/21/2026-06:44:31] [I]   Device 0: "Orin" UUID: GPU-0badbdc3-0493-5594-940d-c37016327c07
+[10/21/2026-06:44:31] [I] Selected Device: Orin
+[10/21/2026-06:44:31] [I] Selected Device ID: 0
+[10/21/2026-06:44:31] [I] Selected Device UUID: GPU-0badbdc3-0493-5594-940d-c37016327c07
+[10/21/2026-06:44:31] [I] Compute Capability: 8.7
+[10/21/2026-06:44:31] [I] SMs: 16
+[10/21/2026-06:44:31] [I] Device Global Memory: 62840 MiB
+[10/21/2026-06:44:31] [I] Shared Memory per SM: 164 KiB
+[10/21/2026-06:44:31] [I] Memory Bus Width: 256 bits (ECC disabled)
+[10/21/2026-06:44:31] [I] Application Compute Clock Rate: 1.3 GHz
+[10/21/2026-06:44:31] [I] Application Memory Clock Rate: 1.3 GHz
+[10/21/2026-06:44:31] [I] 
+[10/21/2026-06:44:31] [I] Note: The application clock rates do not reflect the actual clock rates that the GPU is currently running at.
+[10/21/2026-06:44:31] [I] 
+[10/21/2026-06:44:31] [I] TensorRT version: 10.3.0
+[10/21/2026-06:44:31] [I] Loading standard plugins
+[10/21/2026-06:44:31] [I] [TRT] [MemUsageChange] Init CUDA: CPU +2, GPU +0, now: CPU 31, GPU 11854 (MiB)
+[10/21/2026-06:44:32] [I] [TRT] [MemUsageChange] Init builder kernel library: CPU +928, GPU +1096, now: CPU 1002, GPU 12996 (MiB)
+[10/21/2026-06:44:32] [I] Start parsing network model.
+[10/21/2026-06:44:33] [I] [TRT] ----------------------------------------------------------------
+[10/21/2026-06:44:33] [I] [TRT] Input filename:   /mnt/data/work/export/efficientsam3-ev-m/fixed4/efficientsam3_ev-m_fixed4_mask_noif_fp16safe_pfb.onnx
+[10/21/2026-06:44:33] [I] [TRT] ONNX IR version:  0.0.8
+[10/21/2026-06:44:33] [I] [TRT] Opset version:    17
+[10/21/2026-06:44:33] [I] [TRT] Producer name:    pytorch
+[10/21/2026-06:44:33] [I] [TRT] Producer version: 2.8.0
+[10/21/2026-06:44:33] [I] [TRT] Domain:           
+[10/21/2026-06:44:33] [I] [TRT] Model version:    0
+[10/21/2026-06:44:33] [I] [TRT] Doc string:       
+[10/21/2026-06:44:33] [I] [TRT] ----------------------------------------------------------------
+[10/21/2026-06:44:35] [I] Finished parsing network model. Parse time: 2.26072
+[10/21/2026-06:44:35] [I] Set shape of input tensor pixel_values for optimization profile 0 to: MIN=1x3x1008x1008 OPT=1x3x1008x1008 MAX=1x3x1008x1008
+[10/21/2026-06:44:35] [I] [TRT] Loaded 5443190 bytes of timing cache from /mnt/data/work/export/efficientsam3-ev-m/trt/timing.cache
+[10/21/2026-06:44:39] [I] [TRT] Global timing cache in use. Profiling results in this builder pass will be stored.
+[10/21/2026-06:46:13] [I] [TRT] Detected 1 inputs and 146 output network tensors.
+[10/21/2026-06:46:44] [I] [TRT] Total Host Persistent Memory: 538800
+[10/21/2026-06:46:44] [I] [TRT] Total Device Persistent Memory: 510464
+[10/21/2026-06:46:44] [I] [TRT] Total Scratch Memory: 434871808
+[10/21/2026-06:46:44] [I] [TRT] [BlockAssignment] Started assigning block shifts. This will take 242 steps to complete.
+[10/21/2026-06:46:44] [I] [TRT] [BlockAssignment] Algorithm ShiftNTopDown took 50.1932ms to assign 24 blocks to 242 nodes requiring 1401406976 bytes.
+[10/21/2026-06:46:44] [I] [TRT] Total Activation Memory: 1401406976
+[10/21/2026-06:46:44] [I] [TRT] Total Weights Memory: 100959744
+[10/21/2026-06:46:44] [I] [TRT] Engine generation completed in 125.073 seconds.
+[10/21/2026-06:46:45] [I] [TRT] [MemUsageStats] Peak memory usage of TRT CPU/GPU memory allocators: CPU 39 MiB, GPU 1042 MiB
+[10/21/2026-06:46:45] [I] [TRT] [MemUsageStats] Peak memory usage during Engine building and serialization: CPU: 5120 MiB
+[10/21/2026-06:46:45] [I] Engine built in 130.358 sec.
+[10/21/2026-06:46:45] [I] Created engine with size: 107.351 MiB
+[10/21/2026-06:46:45] [I] [TRT] Loaded 5443190 bytes of timing cache from /mnt/data/work/export/efficientsam3-ev-m/trt/timing.cache
+[10/21/2026-06:46:45] [I] [TRT] Serialized 20765 bytes of code generator cache.
+[10/21/2026-06:46:46] [I] [TRT] Serialized 5069485 bytes of compilation cache.
+[10/21/2026-06:46:46] [I] [TRT] Serialized 3392 timing cache entries
+[10/21/2026-06:46:46] [I] [TRT] Saved 5443190 bytes of timing cache to /mnt/data/work/export/efficientsam3-ev-m/trt/timing.cache
+[10/21/2026-06:46:49] [I] [TRT] Loaded engine size: 107 MiB
+[10/21/2026-06:46:49] [I] Engine deserialized in 0.109128 sec.
+[10/21/2026-06:46:49] [I] [TRT] [MS] Running engine with multi stream info
+[10/21/2026-06:46:49] [I] [TRT] [MS] Number of aux streams is 7
+[10/21/2026-06:46:49] [I] [TRT] [MS] Number of total worker streams is 8
+[10/21/2026-06:46:49] [I] [TRT] [MS] The main stream provided by execute/enqueue calls is the first worker stream
+[10/21/2026-06:46:50] [I] [TRT] [MemUsageChange] TensorRT-managed allocation in IExecutionContext creation: CPU +0, GPU +1337, now: CPU 0, GPU 1433 (MiB)
+[10/21/2026-06:46:50] [I] Setting persistentCacheLimit to 0 bytes.
+[10/21/2026-06:46:50] [I] Created execution context with device memory size: 1336.49 MiB
+[10/21/2026-06:46:50] [I] Using random values for input pixel_values
+[10/21/2026-06:46:50] [I] Input binding for pixel_values with dimensions 1x3x1008x1008 is created.
+[10/21/2026-06:46:50] [I] Output binding for detections with dimensions 1x800x6 is created.
+[10/21/2026-06:46:51] [I] Output binding for masks with dimensions 1x800x1008x1008 is created.
+[10/21/2026-06:46:51] [I] Output binding for /decoder/presence_token_out_norm/LayerNormalization_output_0 with dimensions 1x1x256 is created.
+[10/21/2026-06:46:51] [I] Output binding for /decoder/presence_token_head/layers.0/Add_output_0 with dimensions 1x1x256 is created.
+[10/21/2026-06:46:51] [I] Output binding for /decoder/presence_token_head/Relu_output_0 with dimensions 1x1x256 is created.
+[10/21/2026-06:46:51] [I] Output binding for /decoder/presence_token_head/layers.1/Add_output_0 with dimensions 1x1x256 is created.
+[10/21/2026-06:46:51] [I] Output binding for /decoder/presence_token_head/Relu_1_output_0 with dimensions 1x1x256 is created.
+[10/21/2026-06:46:51] [I] Output binding for /decoder/presence_token_head/layers.2/Add_output_0 with dimensions 1x1x1 is created.
+[10/21/2026-06:46:51] [I] Output binding for /decoder/presence_token_out_norm_1/LayerNormalization_output_0 with dimensions 1x1x256 is created.
+[10/21/2026-06:46:51] [I] Output binding for /decoder/presence_token_head/layers.0_1/Add_output_0 with dimensions 1x1x256 is created.
+[10/21/2026-06:46:51] [I] Output binding for /decoder/presence_token_head_1/Relu_output_0 with dimensions 1x1x256 is created.
+[10/21/2026-06:46:51] [I] Output binding for /decoder/presence_token_head/layers.1_1/Add_output_0 with dimensions 1x1x256 is created.
+[10/21/2026-06:46:51] [I] Output binding for /decoder/presence_token_head_1/Relu_1_output_0 with dimensions 1x1x256 is created.
+[10/21/2026-06:46:51] [I] Output binding for /decoder/presence_token_head/layers.2_1/Add_output_0 with dimensions 1x1x1 is created.
+[10/21/2026-06:46:51] [I] Output binding for /decoder/presence_token_out_norm_2/LayerNormalization_output_0 with dimensions 1x1x256 is created.
+[10/21/2026-06:46:51] [I] Output binding for /decoder/presence_token_head/layers.0_2/Add_output_0 with dimensions 1x1x256 is created.
+[10/21/2026-06:46:51] [I] Output binding for /decoder/presence_token_head_2/Relu_output_0 with dimensions 1x1x256 is created.
+[10/21/2026-06:46:51] [I] Output binding for /decoder/presence_token_head/layers.1_2/Add_output_0 with dimensions 1x1x256 is created.
+[10/21/2026-06:46:51] [I] Output binding for /decoder/presence_token_head_2/Relu_1_output_0 with dimensions 1x1x256 is created.
+[10/21/2026-06:46:51] [I] Output binding for /decoder/presence_token_head/layers.2_2/Add_output_0 with dimensions 1x1x1 is created.
+[10/21/2026-06:46:51] [I] Output binding for /decoder/presence_token_out_norm_3/LayerNormalization_output_0 with dimensions 1x1x256 is created.
+[10/21/2026-06:46:51] [I] Output binding for /decoder/presence_token_head/layers.0_3/Add_output_0 with dimensions 1x1x256 is created.
+[10/21/2026-06:46:51] [I] Output binding for /decoder/presence_token_head_3/Relu_output_0 with dimensions 1x1x256 is created.
+[10/21/2026-06:46:51] [I] Output binding for /decoder/presence_token_head/layers.1_3/Add_output_0 with dimensions 1x1x256 is created.
+[10/21/2026-06:46:51] [I] Output binding for /decoder/presence_token_head_3/Relu_1_output_0 with dimensions 1x1x256 is created.
+[10/21/2026-06:46:51] [I] Output binding for /decoder/presence_token_head/layers.2_3/Add_output_0 with dimensions 1x1x1 is created.
+[10/21/2026-06:46:51] [I] Output binding for /decoder/presence_token_out_norm_4/LayerNormalization_output_0 with dimensions 1x1x256 is created.
+[10/21/2026-06:46:51] [I] Output binding for /decoder/presence_token_head/layers.0_4/Add_output_0 with dimensions 1x1x256 is created.
+[10/21/2026-06:46:51] [I] Output binding for /decoder/presence_token_head_4/Relu_output_0 with dimensions 1x1x256 is created.
+[10/21/2026-06:46:51] [I] Output binding for /decoder/presence_token_head/layers.1_4/Add_output_0 with dimensions 1x1x256 is created.
+[10/21/2026-06:46:51] [I] Output binding for /decoder/presence_token_head_4/Relu_1_output_0 with dimensions 1x1x256 is created.
+[10/21/2026-06:46:51] [I] Output binding for /decoder/presence_token_head/layers.2_4/Add_output_0 with dimensions 1x1x1 is created.
+[10/21/2026-06:46:51] [I] Output binding for /decoder/presence_token_out_norm_5/LayerNormalization_output_0 with dimensions 1x1x256 is created.
+[10/21/2026-06:46:51] [I] Output binding for /decoder/presence_token_head/layers.0_5/Add_output_0 with dimensions 1x1x256 is created.
+[10/21/2026-06:46:51] [I] Output binding for /decoder/presence_token_head_5/Relu_output_0 with dimensions 1x1x256 is created.
+[10/21/2026-06:46:51] [I] Output binding for /decoder/presence_token_head/layers.1_5/Add_output_0 with dimensions 1x1x256 is created.
+[10/21/2026-06:46:51] [I] Output binding for /decoder/presence_token_head_5/Relu_1_output_0 with dimensions 1x1x256 is created.
+[10/21/2026-06:46:51] [I] Output binding for /decoder/presence_token_head/layers.2_5/Add_output_0 with dimensions 1x1x1 is created.
+[10/21/2026-06:46:51] [I] Output binding for /decoder/presence_token_out_norm_6/LayerNormalization_output_0 with dimensions 1x1x256 is created.
+[10/21/2026-06:46:51] [I] Output binding for /decoder/presence_token_head/layers.0_6/Add_output_0 with dimensions 1x1x256 is created.
+[10/21/2026-06:46:51] [I] Output binding for /decoder/presence_token_head_6/Relu_output_0 with dimensions 1x1x256 is created.
+[10/21/2026-06:46:51] [I] Output binding for /decoder/presence_token_head/layers.1_6/Add_output_0 with dimensions 1x1x256 is created.
+[10/21/2026-06:46:51] [I] Output binding for /decoder/presence_token_head_6/Relu_1_output_0 with dimensions 1x1x256 is created.
+[10/21/2026-06:46:51] [I] Output binding for /decoder/presence_token_head/layers.2_6/Add_output_0 with dimensions 1x1x1 is created.
+[10/21/2026-06:46:51] [I] Output binding for /decoder/presence_token_out_norm_7/LayerNormalization_output_0 with dimensions 1x1x256 is created.
+[10/21/2026-06:46:51] [I] Output binding for /decoder/presence_token_head/layers.0_7/Add_output_0 with dimensions 1x1x256 is created.
+[10/21/2026-06:46:51] [I] Output binding for /decoder/presence_token_head_7/Relu_output_0 with dimensions 1x1x256 is created.
+[10/21/2026-06:46:51] [I] Output binding for /decoder/presence_token_head/layers.1_7/Add_output_0 with dimensions 1x1x256 is created.
+[10/21/2026-06:46:51] [I] Output binding for /decoder/presence_token_head_7/Relu_1_output_0 with dimensions 1x1x256 is created.
+[10/21/2026-06:46:51] [I] Output binding for /decoder/presence_token_head/layers.2_7/Add_output_0 with dimensions 1x1x1 is created.
+[10/21/2026-06:46:51] [I] Output binding for /decoder/presence_token_out_norm_8/LayerNormalization_output_0 with dimensions 1x1x256 is created.
+[10/21/2026-06:46:51] [I] Output binding for /decoder/presence_token_head/layers.0_8/Add_output_0 with dimensions 1x1x256 is created.
+[10/21/2026-06:46:51] [I] Output binding for /decoder/presence_token_head_8/Relu_output_0 with dimensions 1x1x256 is created.
+[10/21/2026-06:46:51] [I] Output binding for /decoder/presence_token_head/layers.1_8/Add_output_0 with dimensions 1x1x256 is created.
+[10/21/2026-06:46:51] [I] Output binding for /decoder/presence_token_head_8/Relu_1_output_0 with dimensions 1x1x256 is created.
+[10/21/2026-06:46:51] [I] Output binding for /decoder/presence_token_head/layers.2_8/Add_output_0 with dimensions 1x1x1 is created.
+[10/21/2026-06:46:51] [I] Output binding for /decoder/presence_token_out_norm_9/LayerNormalization_output_0 with dimensions 1x1x256 is created.
+[10/21/2026-06:46:51] [I] Output binding for /decoder/presence_token_head/layers.0_9/Add_output_0 with dimensions 1x1x256 is created.
+[10/21/2026-06:46:51] [I] Output binding for /decoder/presence_token_head_9/Relu_output_0 with dimensions 1x1x256 is created.
+[10/21/2026-06:46:51] [I] Output binding for /decoder/presence_token_head/layers.1_9/Add_output_0 with dimensions 1x1x256 is created.
+[10/21/2026-06:46:51] [I] Output binding for /decoder/presence_token_head_9/Relu_1_output_0 with dimensions 1x1x256 is created.
+[10/21/2026-06:46:51] [I] Output binding for /decoder/presence_token_head/layers.2_9/Add_output_0 with dimensions 1x1x1 is created.
+[10/21/2026-06:46:51] [I] Output binding for /decoder/presence_token_out_norm_10/LayerNormalization_output_0 with dimensions 1x1x256 is created.
+[10/21/2026-06:46:51] [I] Output binding for /decoder/presence_token_head/layers.0_10/Add_output_0 with dimensions 1x1x256 is created.
+[10/21/2026-06:46:51] [I] Output binding for /decoder/presence_token_head_10/Relu_output_0 with dimensions 1x1x256 is created.
+[10/21/2026-06:46:51] [I] Output binding for /decoder/presence_token_head/layers.1_10/Add_output_0 with dimensions 1x1x256 is created.
+[10/21/2026-06:46:51] [I] Output binding for /decoder/presence_token_head_10/Relu_1_output_0 with dimensions 1x1x256 is created.
+[10/21/2026-06:46:51] [I] Output binding for /decoder/presence_token_head/layers.2_10/Add_output_0 with dimensions 1x1x1 is created.
+[10/21/2026-06:46:51] [I] Output binding for /decoder/presence_token_out_norm_11/LayerNormalization_output_0 with dimensions 1x1x256 is created.
+[10/21/2026-06:46:51] [I] Output binding for /decoder/presence_token_head/layers.0_11/Add_output_0 with dimensions 1x1x256 is created.
+[10/21/2026-06:46:51] [I] Output binding for /decoder/presence_token_head_11/Relu_output_0 with dimensions 1x1x256 is created.
+[10/21/2026-06:46:51] [I] Output binding for /decoder/presence_token_head/layers.1_11/Add_output_0 with dimensions 1x1x256 is created.
+[10/21/2026-06:46:51] [I] Output binding for /decoder/presence_token_head_11/Relu_1_output_0 with dimensions 1x1x256 is created.
+[10/21/2026-06:46:51] [I] Output binding for /decoder/presence_token_head/layers.2_11/Add_output_0 with dimensions 1x1x1 is created.
+[10/21/2026-06:46:51] [I] Output binding for /decoder/presence_token_out_norm_12/LayerNormalization_output_0 with dimensions 1x1x256 is created.
+[10/21/2026-06:46:51] [I] Output binding for /decoder/presence_token_head/layers.0_12/Add_output_0 with dimensions 1x1x256 is created.
+[10/21/2026-06:46:51] [I] Output binding for /decoder/presence_token_head_12/Relu_output_0 with dimensions 1x1x256 is created.
+[10/21/2026-06:46:51] [I] Output binding for /decoder/presence_token_head/layers.1_12/Add_output_0 with dimensions 1x1x256 is created.
+[10/21/2026-06:46:51] [I] Output binding for /decoder/presence_token_head_12/Relu_1_output_0 with dimensions 1x1x256 is created.
+[10/21/2026-06:46:51] [I] Output binding for /decoder/presence_token_head/layers.2_12/Add_output_0 with dimensions 1x1x1 is created.
+[10/21/2026-06:46:51] [I] Output binding for /decoder/presence_token_out_norm_13/LayerNormalization_output_0 with dimensions 1x1x256 is created.
+[10/21/2026-06:46:51] [I] Output binding for /decoder/presence_token_head/layers.0_13/Add_output_0 with dimensions 1x1x256 is created.
+[10/21/2026-06:46:51] [I] Output binding for /decoder/presence_token_head_13/Relu_output_0 with dimensions 1x1x256 is created.
+[10/21/2026-06:46:51] [I] Output binding for /decoder/presence_token_head/layers.1_13/Add_output_0 with dimensions 1x1x256 is created.
+[10/21/2026-06:46:51] [I] Output binding for /decoder/presence_token_head_13/Relu_1_output_0 with dimensions 1x1x256 is created.
+[10/21/2026-06:46:51] [I] Output binding for /decoder/presence_token_head/layers.2_13/Add_output_0 with dimensions 1x1x1 is created.
+[10/21/2026-06:46:51] [I] Output binding for /decoder/presence_token_out_norm_14/LayerNormalization_output_0 with dimensions 1x1x256 is created.
+[10/21/2026-06:46:51] [I] Output binding for /decoder/presence_token_head/layers.0_14/Add_output_0 with dimensions 1x1x256 is created.
+[10/21/2026-06:46:51] [I] Output binding for /decoder/presence_token_head_14/Relu_output_0 with dimensions 1x1x256 is created.
+[10/21/2026-06:46:51] [I] Output binding for /decoder/presence_token_head/layers.1_14/Add_output_0 with dimensions 1x1x256 is created.
+[10/21/2026-06:46:51] [I] Output binding for /decoder/presence_token_head_14/Relu_1_output_0 with dimensions 1x1x256 is created.
+[10/21/2026-06:46:51] [I] Output binding for /decoder/presence_token_head/layers.2_14/Add_output_0 with dimensions 1x1x1 is created.
+[10/21/2026-06:46:51] [I] Output binding for /decoder/presence_token_out_norm_15/LayerNormalization_output_0 with dimensions 1x1x256 is created.
+[10/21/2026-06:46:51] [I] Output binding for /decoder/presence_token_head/layers.0_15/Add_output_0 with dimensions 1x1x256 is created.
+[10/21/2026-06:46:51] [I] Output binding for /decoder/presence_token_head_15/Relu_output_0 with dimensions 1x1x256 is created.
+[10/21/2026-06:46:51] [I] Output binding for /decoder/presence_token_head/layers.1_15/Add_output_0 with dimensions 1x1x256 is created.
+[10/21/2026-06:46:51] [I] Output binding for /decoder/presence_token_head_15/Relu_1_output_0 with dimensions 1x1x256 is created.
+[10/21/2026-06:46:51] [I] Output binding for /decoder/presence_token_head/layers.2_15/Add_output_0 with dimensions 1x1x1 is created.
+[10/21/2026-06:46:51] [I] Output binding for /decoder/presence_token_out_norm_16/LayerNormalization_output_0 with dimensions 1x1x256 is created.
+[10/21/2026-06:46:51] [I] Output binding for /decoder/presence_token_head/layers.0_16/Add_output_0 with dimensions 1x1x256 is created.
+[10/21/2026-06:46:51] [I] Output binding for /decoder/presence_token_head_16/Relu_output_0 with dimensions 1x1x256 is created.
+[10/21/2026-06:46:51] [I] Output binding for /decoder/presence_token_head/layers.1_16/Add_output_0 with dimensions 1x1x256 is created.
+[10/21/2026-06:46:51] [I] Output binding for /decoder/presence_token_head_16/Relu_1_output_0 with dimensions 1x1x256 is created.
+[10/21/2026-06:46:51] [I] Output binding for /decoder/presence_token_head/layers.2_16/Add_output_0 with dimensions 1x1x1 is created.
+[10/21/2026-06:46:51] [I] Output binding for /decoder/presence_token_out_norm_17/LayerNormalization_output_0 with dimensions 1x1x256 is created.
+[10/21/2026-06:46:51] [I] Output binding for /decoder/presence_token_head/layers.0_17/Add_output_0 with dimensions 1x1x256 is created.
+[10/21/2026-06:46:51] [I] Output binding for /decoder/presence_token_head_17/Relu_output_0 with dimensions 1x1x256 is created.
+[10/21/2026-06:46:51] [I] Output binding for /decoder/presence_token_head/layers.1_17/Add_output_0 with dimensions 1x1x256 is created.
+[10/21/2026-06:46:51] [I] Output binding for /decoder/presence_token_head_17/Relu_1_output_0 with dimensions 1x1x256 is created.
+[10/21/2026-06:46:51] [I] Output binding for /decoder/presence_token_head/layers.2_17/Add_output_0 with dimensions 1x1x1 is created.
+[10/21/2026-06:46:51] [I] Output binding for /decoder/presence_token_out_norm_18/LayerNormalization_output_0 with dimensions 1x1x256 is created.
+[10/21/2026-06:46:51] [I] Output binding for /decoder/presence_token_head/layers.0_18/Add_output_0 with dimensions 1x1x256 is created.
+[10/21/2026-06:46:51] [I] Output binding for /decoder/presence_token_head_18/Relu_output_0 with dimensions 1x1x256 is created.
+[10/21/2026-06:46:51] [I] Output binding for /decoder/presence_token_head/layers.1_18/Add_output_0 with dimensions 1x1x256 is created.
+[10/21/2026-06:46:51] [I] Output binding for /decoder/presence_token_head_18/Relu_1_output_0 with dimensions 1x1x256 is created.
+[10/21/2026-06:46:51] [I] Output binding for /decoder/presence_token_head/layers.2_18/Add_output_0 with dimensions 1x1x1 is created.
+[10/21/2026-06:46:51] [I] Output binding for /decoder/presence_token_out_norm_19/LayerNormalization_output_0 with dimensions 1x1x256 is created.
+[10/21/2026-06:46:51] [I] Output binding for /decoder/presence_token_head/layers.0_19/Add_output_0 with dimensions 1x1x256 is created.
+[10/21/2026-06:46:51] [I] Output binding for /decoder/presence_token_head_19/Relu_output_0 with dimensions 1x1x256 is created.
+[10/21/2026-06:46:51] [I] Output binding for /decoder/presence_token_head/layers.1_19/Add_output_0 with dimensions 1x1x256 is created.
+[10/21/2026-06:46:51] [I] Output binding for /decoder/presence_token_head_19/Relu_1_output_0 with dimensions 1x1x256 is created.
+[10/21/2026-06:46:51] [I] Output binding for /decoder/presence_token_head/layers.2_19/Add_output_0 with dimensions 1x1x1 is created.
+[10/21/2026-06:46:51] [I] Output binding for /decoder/presence_token_out_norm_20/LayerNormalization_output_0 with dimensions 1x1x256 is created.
+[10/21/2026-06:46:51] [I] Output binding for /decoder/presence_token_head/layers.0_20/Add_output_0 with dimensions 1x1x256 is created.
+[10/21/2026-06:46:51] [I] Output binding for /decoder/presence_token_head_20/Relu_output_0 with dimensions 1x1x256 is created.
+[10/21/2026-06:46:51] [I] Output binding for /decoder/presence_token_head/layers.1_20/Add_output_0 with dimensions 1x1x256 is created.
+[10/21/2026-06:46:51] [I] Output binding for /decoder/presence_token_head_20/Relu_1_output_0 with dimensions 1x1x256 is created.
+[10/21/2026-06:46:51] [I] Output binding for /decoder/presence_token_head/layers.2_20/Add_output_0 with dimensions 1x1x1 is created.
+[10/21/2026-06:46:51] [I] Output binding for /decoder/presence_token_out_norm_21/LayerNormalization_output_0 with dimensions 1x1x256 is created.
+[10/21/2026-06:46:51] [I] Output binding for /decoder/presence_token_head/layers.0_21/Add_output_0 with dimensions 1x1x256 is created.
+[10/21/2026-06:46:51] [I] Output binding for /decoder/presence_token_head_21/Relu_output_0 with dimensions 1x1x256 is created.
+[10/21/2026-06:46:51] [I] Output binding for /decoder/presence_token_head/layers.1_21/Add_output_0 with dimensions 1x1x256 is created.
+[10/21/2026-06:46:51] [I] Output binding for /decoder/presence_token_head_21/Relu_1_output_0 with dimensions 1x1x256 is created.
+[10/21/2026-06:46:51] [I] Output binding for /decoder/presence_token_head/layers.2_21/Add_output_0 with dimensions 1x1x1 is created.
+[10/21/2026-06:46:51] [I] Output binding for /decoder/presence_token_out_norm_22/LayerNormalization_output_0 with dimensions 1x1x256 is created.
+[10/21/2026-06:46:51] [I] Output binding for /decoder/presence_token_head/layers.0_22/Add_output_0 with dimensions 1x1x256 is created.
+[10/21/2026-06:46:51] [I] Output binding for /decoder/presence_token_head_22/Relu_output_0 with dimensions 1x1x256 is created.
+[10/21/2026-06:46:51] [I] Output binding for /decoder/presence_token_head/layers.1_22/Add_output_0 with dimensions 1x1x256 is created.
+[10/21/2026-06:46:51] [I] Output binding for /decoder/presence_token_head_22/Relu_1_output_0 with dimensions 1x1x256 is created.
+[10/21/2026-06:46:51] [I] Output binding for /decoder/presence_token_head/layers.2_22/Add_output_0 with dimensions 1x1x1 is created.
+[10/21/2026-06:46:51] [I] Output binding for /decoder/presence_token_out_norm_23/LayerNormalization_output_0 with dimensions 1x1x256 is created.
+[10/21/2026-06:46:51] [I] Output binding for /decoder/presence_token_head/layers.0_23/Add_output_0 with dimensions 1x1x256 is created.
+[10/21/2026-06:46:51] [I] Output binding for /decoder/presence_token_head_23/Relu_output_0 with dimensions 1x1x256 is created.
+[10/21/2026-06:46:51] [I] Output binding for /decoder/presence_token_head/layers.1_23/Add_output_0 with dimensions 1x1x256 is created.
+[10/21/2026-06:46:51] [I] Output binding for /decoder/presence_token_head_23/Relu_1_output_0 with dimensions 1x1x256 is created.
+[10/21/2026-06:46:51] [I] Output binding for /decoder/presence_token_head/layers.2_23/Add_output_0 with dimensions 1x1x1 is created.
+[10/21/2026-06:46:51] [I] Starting inference
+[10/21/2026-06:46:55] [I] Warmup completed 1 queries over 200 ms
+[10/21/2026-06:46:55] [I] Timing trace has 16 queries over 3.57908 s
+[10/21/2026-06:46:55] [I] 
+[10/21/2026-06:46:55] [I] === Trace details ===
+[10/21/2026-06:46:55] [I] Trace averages of 10 runs:
+[10/21/2026-06:46:55] [I] Average on 10 runs - GPU latency: 214.912 ms - Host latency: 305.333 ms (enqueue 143.412 ms)
+[10/21/2026-06:46:55] [I] 
+[10/21/2026-06:46:55] [I] === Performance summary ===
+[10/21/2026-06:46:55] [I] Throughput: 4.47042 qps
+[10/21/2026-06:46:55] [I] Latency: min = 255.162 ms, max = 306.121 ms, mean = 302.317 ms, median = 305.688 ms, percentile(90%) = 306.053 ms, percentile(95%) = 306.121 ms, percentile(99%) = 306.121 ms
+[10/21/2026-06:46:55] [I] Enqueue Time: min = 134.587 ms, max = 198.224 ms, mean = 141.07 ms, median = 137.431 ms, percentile(90%) = 138.765 ms, percentile(95%) = 198.224 ms, percentile(99%) = 198.224 ms
+[10/21/2026-06:46:55] [I] H2D Latency: min = 0.64682 ms, max = 1.0105 ms, mean = 0.902134 ms, median = 0.916504 ms, percentile(90%) = 1.00928 ms, percentile(95%) = 1.0105 ms, percentile(99%) = 1.0105 ms
+[10/21/2026-06:46:55] [I] GPU Compute Time: min = 209.823 ms, max = 215.863 ms, mean = 214.689 ms, median = 215.105 ms, percentile(90%) = 215.682 ms, percentile(95%) = 215.863 ms, percentile(99%) = 215.863 ms
+[10/21/2026-06:46:55] [I] D2H Latency: min = 44.4556 ms, max = 90.249 ms, mean = 86.7254 ms, median = 89.537 ms, percentile(90%) = 90.0387 ms, percentile(95%) = 90.249 ms, percentile(99%) = 90.249 ms
+[10/21/2026-06:46:55] [I] Total Host Walltime: 3.57908 s
+[10/21/2026-06:46:55] [I] Total GPU Compute Time: 3.43503 s
+[10/21/2026-06:46:55] [I] Explanations of the performance metrics are printed in the verbose logs.
+[10/21/2026-06:46:55] [I] 
+&&&& PASSED TensorRT.trtexec [TensorRT v100300] # /usr/src/tensorrt/bin/trtexec --onnx=/mnt/data/work/export/efficientsam3-ev-m/fixed4/efficientsam3_ev-m_fixed4_mask_noif_fp16safe_pfb.onnx --shapes=pixel_values:1x3x1008x1008 --saveEngine=/mnt/data/work/export/efficientsam3-ev-m/trt/fixed4_mask_final_fp16.plan --timingCacheFile=/mnt/data/work/export/efficientsam3-ev-m/trt/timing.cache --exportLayerInfo=/mnt/data/work/export/efficientsam3-ev-m/trt/fixed4_mask_final_fp16.layers.json --profilingVerbosity=detailed --separateProfileRun --fp16
+exit=0 wall_s=144.889920338
+-rw-r--r-- 1 root root 112565420 Oct 21 06:46 /mnt/data/work/export/efficientsam3-ev-m/trt/fixed4_mask_final_fp16.plan

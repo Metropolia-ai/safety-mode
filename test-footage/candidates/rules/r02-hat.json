@@ -1,0 +1,42 @@
+{
+  "rule_id": "r2-hat",
+  "title": "Hard hat on the warehouse floor",
+  "objects": [
+    {
+      "name": "person",
+      "prompt": "person"
+    },
+    {
+      "name": "hard_hat",
+      "prompt": "hard hat"
+    }
+  ],
+  "zones": [
+    "past_gate"
+  ],
+  "condition": {
+    "all": [
+      {
+        "in_zone": {
+          "object": "person",
+          "zone": "past_gate"
+        }
+      },
+      {
+        "not": {
+          "wearing": {
+            "person": "person",
+            "ppe": [
+              "hard_hat"
+            ]
+          }
+        }
+      }
+    ]
+  },
+  "min_duration_s": 3,
+  "severity": "medium",
+  "explanation_template": "{person_count} person(s) on the warehouse floor without a hard hat for {duration_s} s, at {time}.",
+  "unsupported": null,
+  "suggested_rewrite": null
+}

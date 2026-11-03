@@ -1,0 +1,39 @@
+{
+  "onnx": "/mnt/data/work/export/efficientsam3-ev-m/open_vocab/vision_decoder_noif.onnx",
+  "ep": "cpu",
+  "providers": [
+    "CPUExecutionProvider"
+  ],
+  "threads": "default",
+  "prompt": "person",
+  "load_s": 3.5,
+  "frame": {
+    "mean_ms": 1970.7,
+    "p95_ms": 2013.6,
+    "min_ms": 1949.3,
+    "max_ms": 2013.6,
+    "fps": 0.51,
+    "n": 10
+  },
+  "session_run": {
+    "mean_ms": 1952.8,
+    "p95_ms": 1995.6,
+    "min_ms": 1930.9,
+    "max_ms": 1995.6,
+    "fps": 0.51,
+    "n": 10
+  },
+  "found_per_frame": [
+    1,
+    2,
+    2,
+    2,
+    2,
+    3,
+    3,
+    3,
+    1,
+    1
+  ],
+  "ort": "1.23.0"
+}

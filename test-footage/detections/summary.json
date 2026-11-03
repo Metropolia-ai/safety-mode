@@ -1,0 +1,1191 @@
+[
+ {
+  "clip": "pexels-6079421-forklift-busy-warehouse",
+  "frame": "001",
+  "prompt": "person",
+  "n": 3,
+  "n_conf": 3,
+  "conf": [
+   0.61,
+   0.66,
+   0.62
+  ],
+  "boxes": [
+   [
+    262,
+    330,
+    276,
+    376
+   ],
+   [
+    728,
+    293,
+    768,
+    337
+   ],
+   [
+    789,
+    299,
+    809,
+    324
+   ]
+  ],
+  "elapsed_s": 2.497,
+  "cached": false,
+  "overlay_kb": 98
+ },
+ {
+  "clip": "pexels-6079421-forklift-busy-warehouse",
+  "frame": "001",
+  "prompt": "forklift",
+  "n": 1,
+  "n_conf": 1,
+  "conf": [
+   0.84
+  ],
+  "boxes": [
+   [
+    666,
+    269,
+    831,
+    485
+   ]
+  ],
+  "elapsed_s": 2.13,
+  "cached": false,
+  "overlay_kb": 99
+ },
+ {
+  "clip": "pexels-6079421-forklift-busy-warehouse",
+  "frame": "001",
+  "prompt": "hard hat",
+  "n": 0,
+  "n_conf": 0,
+  "conf": [],
+  "boxes": [],
+  "elapsed_s": 3.109,
+  "cached": false,
+  "overlay_kb": 94
+ },
+ {
+  "clip": "pexels-6079421-forklift-busy-warehouse",
+  "frame": "001",
+  "prompt": "high-visibility vest",
+  "n": 0,
+  "n_conf": 0,
+  "conf": [],
+  "boxes": [],
+  "elapsed_s": 1.652,
+  "cached": false,
+  "overlay_kb": 95
+ },
+ {
+  "clip": "pexels-6079421-forklift-busy-warehouse",
+  "frame": "005",
+  "prompt": "person",
+  "n": 4,
+  "n_conf": 4,
+  "conf": [
+   0.81,
+   0.65,
+   0.87,
+   0.53
+  ],
+  "boxes": [
+   [
+    752,
+    286,
+    856,
+    410
+   ],
+   [
+    95,
+    340,
+    115,
+    356
+   ],
+   [
+    640,
+    311,
+    666,
+    375
+   ],
+   [
+    870,
+    302,
+    888,
+    327
+   ]
+  ],
+  "elapsed_s": 2.255,
+  "cached": true,
+  "overlay_kb": 144
+ },
+ {
+  "clip": "pexels-6079421-forklift-busy-warehouse",
+  "frame": "005",
+  "prompt": "forklift",
+  "n": 1,
+  "n_conf": 1,
+  "conf": [
+   0.91
+  ],
+  "boxes": [
+   [
+    703,
+    258,
+    924,
+    533
+   ]
+  ],
+  "elapsed_s": 1.988,
+  "cached": false,
+  "overlay_kb": 142
+ },
+ {
+  "clip": "pexels-6079421-forklift-busy-warehouse",
+  "frame": "005",
+  "prompt": "hard hat",
+  "n": 0,
+  "n_conf": 0,
+  "conf": [],
+  "boxes": [],
+  "elapsed_s": 2.94,
+  "cached": false,
+  "overlay_kb": 139
+ },
+ {
+  "clip": "pexels-6079421-forklift-busy-warehouse",
+  "frame": "005",
+  "prompt": "high-visibility vest",
+  "n": 0,
+  "n_conf": 0,
+  "conf": [],
+  "boxes": [],
+  "elapsed_s": 1.86,
+  "cached": false,
+  "overlay_kb": 140
+ },
+ {
+  "clip": "pexels-6079421-forklift-busy-warehouse",
+  "frame": "009",
+  "prompt": "person",
+  "n": 2,
+  "n_conf": 2,
+  "conf": [
+   0.82,
+   0.8
+  ],
+  "boxes": [
+   [
+    784,
+    287,
+    899,
+    434
+   ],
+   [
+    629,
+    302,
+    657,
+    370
+   ]
+  ],
+  "elapsed_s": 1.562,
+  "cached": false,
+  "overlay_kb": 72
+ },
+ {
+  "clip": "pexels-6079421-forklift-busy-warehouse",
+  "frame": "009",
+  "prompt": "forklift",
+  "n": 1,
+  "n_conf": 1,
+  "conf": [
+   0.94
+  ],
+  "boxes": [
+   [
+    735,
+    227,
+    1030,
+    576
+   ]
+  ],
+  "elapsed_s": 4.162,
+  "cached": false,
+  "overlay_kb": 77
+ },
+ {
+  "clip": "pexels-6079421-forklift-busy-warehouse",
+  "frame": "009",
+  "prompt": "hard hat",
+  "n": 0,
+  "n_conf": 0,
+  "conf": [],
+  "boxes": [],
+  "elapsed_s": 0.99,
+  "cached": false,
+  "overlay_kb": 66
+ },
+ {
+  "clip": "pexels-6079421-forklift-busy-warehouse",
+  "frame": "009",
+  "prompt": "high-visibility vest",
+  "n": 0,
+  "n_conf": 0,
+  "conf": [],
+  "boxes": [],
+  "elapsed_s": 1.042,
+  "cached": false,
+  "overlay_kb": 67
+ },
+ {
+  "clip": "pexels-6079421-forklift-busy-warehouse",
+  "frame": "013",
+  "prompt": "person",
+  "n": 2,
+  "n_conf": 2,
+  "conf": [
+   0.91,
+   0.61
+  ],
+  "boxes": [
+   [
+    845,
+    253,
+    976,
+    434
+   ],
+   [
+    686,
+    297,
+    705,
+    369
+   ]
+  ],
+  "elapsed_s": 1.511,
+  "cached": false,
+  "overlay_kb": 54
+ },
+ {
+  "clip": "pexels-6079421-forklift-busy-warehouse",
+  "frame": "013",
+  "prompt": "forklift",
+  "n": 1,
+  "n_conf": 1,
+  "conf": [
+   0.93
+  ],
+  "boxes": [
+   [
+    785,
+    210,
+    1119,
+    584
+   ]
+  ],
+  "elapsed_s": 0.591,
+  "cached": false,
+  "overlay_kb": 58
+ },
+ {
+  "clip": "pexels-6079421-forklift-busy-warehouse",
+  "frame": "013",
+  "prompt": "hard hat",
+  "n": 0,
+  "n_conf": 0,
+  "conf": [],
+  "boxes": [],
+  "elapsed_s": 0.52,
+  "cached": false,
+  "overlay_kb": 47
+ },
+ {
+  "clip": "pexels-6079421-forklift-busy-warehouse",
+  "frame": "013",
+  "prompt": "high-visibility vest",
+  "n": 0,
+  "n_conf": 0,
+  "conf": [],
+  "boxes": [],
+  "elapsed_s": 0.822,
+  "cached": false,
+  "overlay_kb": 49
+ },
+ {
+  "clip": "pexels-6079421-forklift-busy-warehouse",
+  "frame": "017",
+  "prompt": "person",
+  "n": 2,
+  "n_conf": 2,
+  "conf": [
+   0.85,
+   0.85
+  ],
+  "boxes": [
+   [
+    839,
+    284,
+    981,
+    430
+   ],
+   [
+    694,
+    299,
+    723,
+    376
+   ]
+  ],
+  "elapsed_s": 1.036,
+  "cached": false,
+  "overlay_kb": 54
+ },
+ {
+  "clip": "pexels-6079421-forklift-busy-warehouse",
+  "frame": "017",
+  "prompt": "forklift",
+  "n": 1,
+  "n_conf": 1,
+  "conf": [
+   0.94
+  ],
+  "boxes": [
+   [
+    782,
+    210,
+    1115,
+    584
+   ]
+  ],
+  "elapsed_s": 1.098,
+  "cached": false,
+  "overlay_kb": 59
+ },
+ {
+  "clip": "pexels-6079421-forklift-busy-warehouse",
+  "frame": "017",
+  "prompt": "hard hat",
+  "n": 0,
+  "n_conf": 0,
+  "conf": [],
+  "boxes": [],
+  "elapsed_s": 1.105,
+  "cached": false,
+  "overlay_kb": 47
+ },
+ {
+  "clip": "pexels-6079421-forklift-busy-warehouse",
+  "frame": "017",
+  "prompt": "high-visibility vest",
+  "n": 0,
+  "n_conf": 0,
+  "conf": [],
+  "boxes": [],
+  "elapsed_s": 2.475,
+  "cached": false,
+  "overlay_kb": 48
+ },
+ {
+  "clip": "pexels-6079421-forklift-busy-warehouse",
+  "frame": "021",
+  "prompt": "person",
+  "n": 1,
+  "n_conf": 1,
+  "conf": [
+   0.75
+  ],
+  "boxes": [
+   [
+    827,
+    266,
+    951,
+    427
+   ]
+  ],
+  "elapsed_s": 0.621,
+  "cached": false,
+  "overlay_kb": 50
+ },
+ {
+  "clip": "pexels-6079421-forklift-busy-warehouse",
+  "frame": "021",
+  "prompt": "forklift",
+  "n": 1,
+  "n_conf": 1,
+  "conf": [
+   0.94
+  ],
+  "boxes": [
+   [
+    771,
+    210,
+    1096,
+    578
+   ]
+  ],
+  "elapsed_s": 0.545,
+  "cached": false,
+  "overlay_kb": 58
+ },
+ {
+  "clip": "pexels-6079421-forklift-busy-warehouse",
+  "frame": "021",
+  "prompt": "hard hat",
+  "n": 0,
+  "n_conf": 0,
+  "conf": [],
+  "boxes": [],
+  "elapsed_s": 1.057,
+  "cached": false,
+  "overlay_kb": 46
+ },
+ {
+  "clip": "pexels-6079421-forklift-busy-warehouse",
+  "frame": "021",
+  "prompt": "high-visibility vest",
+  "n": 0,
+  "n_conf": 0,
+  "conf": [],
+  "boxes": [],
+  "elapsed_s": 0.879,
+  "cached": false,
+  "overlay_kb": 47
+ },
+ {
+  "clip": "pexels-15170997-warehouse-team",
+  "frame": "001",
+  "prompt": "person",
+  "n": 1,
+  "n_conf": 1,
+  "conf": [
+   0.62
+  ],
+  "boxes": [
+   [
+    839,
+    973,
+    912,
+    1069
+   ]
+  ],
+  "elapsed_s": 1.259,
+  "cached": false,
+  "overlay_kb": 191
+ },
+ {
+  "clip": "pexels-15170997-warehouse-team",
+  "frame": "001",
+  "prompt": "forklift",
+  "n": 1,
+  "n_conf": 1,
+  "conf": [
+   0.51
+  ],
+  "boxes": [
+   [
+    814,
+    0,
+    1074,
+    1262
+   ]
+  ],
+  "elapsed_s": 0.853,
+  "cached": false,
+  "overlay_kb": 192
+ },
+ {
+  "clip": "pexels-15170997-warehouse-team",
+  "frame": "001",
+  "prompt": "hard hat",
+  "n": 0,
+  "n_conf": 0,
+  "conf": [],
+  "boxes": [],
+  "elapsed_s": 1.707,
+  "cached": false,
+  "overlay_kb": 190
+ },
+ {
+  "clip": "pexels-15170997-warehouse-team",
+  "frame": "001",
+  "prompt": "high-visibility vest",
+  "n": 0,
+  "n_conf": 0,
+  "conf": [],
+  "boxes": [],
+  "elapsed_s": 1.142,
+  "cached": false,
+  "overlay_kb": 191
+ },
+ {
+  "clip": "pexels-15170997-warehouse-team",
+  "frame": "005",
+  "prompt": "person",
+  "n": 3,
+  "n_conf": 3,
+  "conf": [
+   0.96,
+   0.96,
+   0.87
+  ],
+  "boxes": [
+   [
+    718,
+    982,
+    857,
+    1298
+   ],
+   [
+    384,
+    974,
+    519,
+    1280
+   ],
+   [
+    530,
+    948,
+    599,
+    1049
+   ]
+  ],
+  "elapsed_s": 2.046,
+  "cached": false,
+  "overlay_kb": 152
+ },
+ {
+  "clip": "pexels-15170997-warehouse-team",
+  "frame": "005",
+  "prompt": "forklift",
+  "n": 0,
+  "n_conf": 0,
+  "conf": [],
+  "boxes": [],
+  "elapsed_s": 1.35,
+  "cached": false,
+  "overlay_kb": 152
+ },
+ {
+  "clip": "pexels-15170997-warehouse-team",
+  "frame": "005",
+  "prompt": "hard hat",
+  "n": 0,
+  "n_conf": 0,
+  "conf": [],
+  "boxes": [],
+  "elapsed_s": 1.655,
+  "cached": false,
+  "overlay_kb": 152
+ },
+ {
+  "clip": "pexels-15170997-warehouse-team",
+  "frame": "005",
+  "prompt": "high-visibility vest",
+  "n": 0,
+  "n_conf": 0,
+  "conf": [],
+  "boxes": [],
+  "elapsed_s": 1.526,
+  "cached": false,
+  "overlay_kb": 152
+ },
+ {
+  "clip": "pexels-15170997-warehouse-team",
+  "frame": "009",
+  "prompt": "person",
+  "n": 4,
+  "n_conf": 4,
+  "conf": [
+   0.96,
+   0.96,
+   0.84,
+   0.96
+  ],
+  "boxes": [
+   [
+    901,
+    969,
+    1106,
+    1406
+   ],
+   [
+    0,
+    875,
+    107,
+    1476
+   ],
+   [
+    286,
+    934,
+    331,
+    1037
+   ],
+   [
+    642,
+    948,
+    795,
+    1431
+   ]
+  ],
+  "elapsed_s": 1.571,
+  "cached": false,
+  "overlay_kb": 153
+ },
+ {
+  "clip": "pexels-15170997-warehouse-team",
+  "frame": "009",
+  "prompt": "forklift",
+  "n": 1,
+  "n_conf": 1,
+  "conf": [
+   0.54
+  ],
+  "boxes": [
+   [
+    260,
+    0,
+    523,
+    1252
+   ]
+  ],
+  "elapsed_s": 1.241,
+  "cached": false,
+  "overlay_kb": 150
+ },
+ {
+  "clip": "pexels-15170997-warehouse-team",
+  "frame": "009",
+  "prompt": "hard hat",
+  "n": 0,
+  "n_conf": 0,
+  "conf": [],
+  "boxes": [],
+  "elapsed_s": 1.911,
+  "cached": false,
+  "overlay_kb": 151
+ },
+ {
+  "clip": "pexels-15170997-warehouse-team",
+  "frame": "009",
+  "prompt": "high-visibility vest",
+  "n": 2,
+  "n_conf": 2,
+  "conf": [
+   0.69,
+   0.92
+  ],
+  "boxes": [
+   [
+    0,
+    950,
+    103,
+    1159
+   ],
+   [
+    679,
+    1015,
+    795,
+    1195
+   ]
+  ],
+  "elapsed_s": 0.98,
+  "cached": false,
+  "overlay_kb": 155
+ },
+ {
+  "clip": "pexels-15170997-warehouse-team",
+  "frame": "013",
+  "prompt": "person",
+  "n": 4,
+  "n_conf": 4,
+  "conf": [
+   0.59,
+   0.93,
+   0.95,
+   0.94
+  ],
+  "boxes": [
+   [
+    155,
+    953,
+    190,
+    1047
+   ],
+   [
+    100,
+    967,
+    185,
+    1213
+   ],
+   [
+    12,
+    958,
+    80,
+    1222
+   ],
+   [
+    571,
+    994,
+    656,
+    1232
+   ]
+  ],
+  "elapsed_s": 1.434,
+  "cached": false,
+  "overlay_kb": 192
+ },
+ {
+  "clip": "pexels-15170997-warehouse-team",
+  "frame": "013",
+  "prompt": "forklift",
+  "n": 1,
+  "n_conf": 1,
+  "conf": [
+   0.73
+  ],
+  "boxes": [
+   [
+    151,
+    695,
+    315,
+    1174
+   ]
+  ],
+  "elapsed_s": 1.48,
+  "cached": false,
+  "overlay_kb": 191
+ },
+ {
+  "clip": "pexels-15170997-warehouse-team",
+  "frame": "013",
+  "prompt": "hard hat",
+  "n": 0,
+  "n_conf": 0,
+  "conf": [],
+  "boxes": [],
+  "elapsed_s": 1.034,
+  "cached": false,
+  "overlay_kb": 190
+ },
+ {
+  "clip": "pexels-15170997-warehouse-team",
+  "frame": "013",
+  "prompt": "high-visibility vest",
+  "n": 2,
+  "n_conf": 2,
+  "conf": [
+   0.64,
+   0.78
+  ],
+  "boxes": [
+   [
+    100,
+    1005,
+    178,
+    1090
+   ],
+   [
+    12,
+    989,
+    78,
+    1104
+   ]
+  ],
+  "elapsed_s": 1.162,
+  "cached": false,
+  "overlay_kb": 194
+ },
+ {
+  "clip": "pexels-15170997-warehouse-team",
+  "frame": "017",
+  "prompt": "person",
+  "n": 2,
+  "n_conf": 2,
+  "conf": [
+   0.97,
+   0.93
+  ],
+  "boxes": [
+   [
+    876,
+    1033,
+    1090,
+    1460
+   ],
+   [
+    0,
+    1005,
+    52,
+    1193
+   ]
+  ],
+  "elapsed_s": 1.539,
+  "cached": false,
+  "overlay_kb": 189
+ },
+ {
+  "clip": "pexels-15170997-warehouse-team",
+  "frame": "017",
+  "prompt": "forklift",
+  "n": 1,
+  "n_conf": 1,
+  "conf": [
+   0.77
+  ],
+  "boxes": [
+   [
+    508,
+    539,
+    864,
+    1248
+   ]
+  ],
+  "elapsed_s": 0.875,
+  "cached": false,
+  "overlay_kb": 188
+ },
+ {
+  "clip": "pexels-15170997-warehouse-team",
+  "frame": "017",
+  "prompt": "hard hat",
+  "n": 1,
+  "n_conf": 1,
+  "conf": [
+   0.52
+  ],
+  "boxes": [
+   [
+    903,
+    1031,
+    976,
+    1110
+   ]
+  ],
+  "elapsed_s": 2.037,
+  "cached": false,
+  "overlay_kb": 189
+ },
+ {
+  "clip": "pexels-15170997-warehouse-team",
+  "frame": "017",
+  "prompt": "high-visibility vest",
+  "n": 2,
+  "n_conf": 2,
+  "conf": [
+   0.89,
+   0.61
+  ],
+  "boxes": [
+   [
+    926,
+    1074,
+    1090,
+    1255
+   ],
+   [
+    0,
+    1026,
+    50,
+    1120
+   ]
+  ],
+  "elapsed_s": 0.778,
+  "cached": false,
+  "overlay_kb": 194
+ },
+ {
+  "clip": "pexels-15170997-warehouse-team",
+  "frame": "021",
+  "prompt": "person",
+  "n": 2,
+  "n_conf": 2,
+  "conf": [
+   0.95,
+   0.98
+  ],
+  "boxes": [
+   [
+    1026,
+    1005,
+    1191,
+    1346
+   ],
+   [
+    43,
+    976,
+    290,
+    1296
+   ]
+  ],
+  "elapsed_s": 1.951,
+  "cached": false,
+  "overlay_kb": 193
+ },
+ {
+  "clip": "pexels-15170997-warehouse-team",
+  "frame": "021",
+  "prompt": "forklift",
+  "n": 1,
+  "n_conf": 1,
+  "conf": [
+   0.89
+  ],
+  "boxes": [
+   [
+    363,
+    514,
+    759,
+    1303
+   ]
+  ],
+  "elapsed_s": 1.063,
+  "cached": false,
+  "overlay_kb": 192
+ },
+ {
+  "clip": "pexels-15170997-warehouse-team",
+  "frame": "021",
+  "prompt": "hard hat",
+  "n": 0,
+  "n_conf": 0,
+  "conf": [],
+  "boxes": [],
+  "elapsed_s": 1.585,
+  "cached": false,
+  "overlay_kb": 192
+ },
+ {
+  "clip": "pexels-15170997-warehouse-team",
+  "frame": "021",
+  "prompt": "high-visibility vest",
+  "n": 1,
+  "n_conf": 1,
+  "conf": [
+   0.66
+  ],
+  "boxes": [
+   [
+    1065,
+    1054,
+    1156,
+    1177
+   ]
+  ],
+  "elapsed_s": 1.117,
+  "cached": false,
+  "overlay_kb": 194
+ },
+ {
+  "clip": "pexels-32243653-forklift-operator",
+  "frame": "001",
+  "prompt": "person",
+  "n": 2,
+  "n_conf": 2,
+  "conf": [
+   0.9,
+   0.96
+  ],
+  "boxes": [
+   [
+    0,
+    512,
+    69,
+    720
+   ],
+   [
+    231,
+    179,
+    872,
+    720
+   ]
+  ],
+  "elapsed_s": 0.795,
+  "cached": false,
+  "overlay_kb": 87
+ },
+ {
+  "clip": "pexels-32243653-forklift-operator",
+  "frame": "001",
+  "prompt": "forklift",
+  "n": 0,
+  "n_conf": 0,
+  "conf": [],
+  "boxes": [],
+  "elapsed_s": 1.361,
+  "cached": false,
+  "overlay_kb": 76
+ },
+ {
+  "clip": "pexels-32243653-forklift-operator",
+  "frame": "001",
+  "prompt": "hard hat",
+  "n": 1,
+  "n_conf": 1,
+  "conf": [
+   0.75
+  ],
+  "boxes": [
+   [
+    562,
+    179,
+    783,
+    307
+   ]
+  ],
+  "elapsed_s": 1.07,
+  "cached": false,
+  "overlay_kb": 80
+ },
+ {
+  "clip": "pexels-32243653-forklift-operator",
+  "frame": "001",
+  "prompt": "high-visibility vest",
+  "n": 0,
+  "n_conf": 0,
+  "conf": [],
+  "boxes": [],
+  "elapsed_s": 1.348,
+  "cached": false,
+  "overlay_kb": 77
+ },
+ {
+  "clip": "pexels-32243653-forklift-operator",
+  "frame": "005",
+  "prompt": "person",
+  "n": 1,
+  "n_conf": 1,
+  "conf": [
+   0.8
+  ],
+  "boxes": [
+   [
+    668,
+    248,
+    859,
+    506
+   ]
+  ],
+  "elapsed_s": 1.636,
+  "cached": false,
+  "overlay_kb": 121
+ },
+ {
+  "clip": "pexels-32243653-forklift-operator",
+  "frame": "005",
+  "prompt": "forklift",
+  "n": 1,
+  "n_conf": 1,
+  "conf": [
+   0.71
+  ],
+  "boxes": [
+   [
+    433,
+    0,
+    1052,
+    720
+   ]
+  ],
+  "elapsed_s": 1.123,
+  "cached": false,
+  "overlay_kb": 125
+ },
+ {
+  "clip": "pexels-32243653-forklift-operator",
+  "frame": "005",
+  "prompt": "hard hat",
+  "n": 1,
+  "n_conf": 1,
+  "conf": [
+   0.85
+  ],
+  "boxes": [
+   [
+    775,
+    248,
+    847,
+    296
+   ]
+  ],
+  "elapsed_s": 0.952,
+  "cached": false,
+  "overlay_kb": 120
+ },
+ {
+  "clip": "pexels-32243653-forklift-operator",
+  "frame": "005",
+  "prompt": "high-visibility vest",
+  "n": 0,
+  "n_conf": 0,
+  "conf": [],
+  "boxes": [],
+  "elapsed_s": 1.799,
+  "cached": false,
+  "overlay_kb": 120
+ },
+ {
+  "clip": "pexels-32243653-forklift-operator",
+  "frame": "009",
+  "prompt": "person",
+  "n": 1,
+  "n_conf": 1,
+  "conf": [
+   0.77
+  ],
+  "boxes": [
+   [
+    733,
+    210,
+    840,
+    341
+   ]
+  ],
+  "elapsed_s": 0.68,
+  "cached": false,
+  "overlay_kb": 59
+ },
+ {
+  "clip": "pexels-32243653-forklift-operator",
+  "frame": "009",
+  "prompt": "forklift",
+  "n": 0,
+  "n_conf": 0,
+  "conf": [],
+  "boxes": [],
+  "elapsed_s": 0.645,
+  "cached": false,
+  "overlay_kb": 55
+ },
+ {
+  "clip": "pexels-32243653-forklift-operator",
+  "frame": "009",
+  "prompt": "hard hat",
+  "n": 1,
+  "n_conf": 1,
+  "conf": [
+   0.62
+  ],
+  "boxes": [
+   [
+    772,
+    209,
+    785,
+    236
+   ]
+  ],
+  "elapsed_s": 1.402,
+  "cached": false,
+  "overlay_kb": 58
+ },
+ {
+  "clip": "pexels-32243653-forklift-operator",
+  "frame": "009",
+  "prompt": "high-visibility vest",
+  "n": 0,
+  "n_conf": 0,
+  "conf": [],
+  "boxes": [],
+  "elapsed_s": 1.094,
+  "cached": false,
+  "overlay_kb": 57
+ }
+]

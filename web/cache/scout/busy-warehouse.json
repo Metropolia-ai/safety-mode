@@ -1,0 +1,438 @@
+{
+ "clip": "busy-warehouse",
+ "goal": "Find 2 to 4 safety rules worth enforcing on this camera, check each against the footage, and keep only the ones whose alerts are real violations.",
+ "trace": [
+  {
+   "i": 1,
+   "round": 1,
+   "kind": "note",
+   "summary": "Starting on your forklift aisle — pulling what this camera can see to draft enforceable rules."
+  },
+  {
+   "i": 2,
+   "round": 1,
+   "kind": "facts",
+   "summary": "camera facts: 25 s, zones Warehouse floor, Area in front of the loading door, Pedestrian lane, Yellow zone (walkway behind the yellow line); calibration yes; prompts box 25/25 s, cart 0/25 s, forklift 25/25 s, hard hat 0/25 s, pallet 25/25 s, person 25/25 s, safety vest 0/25 s",
+   "tool": "get_camera_facts",
+   "args": {},
+   "ms": 6
+  },
+  {
+   "i": 3,
+   "round": 2,
+   "kind": "note",
+   "summary": "This aisle has constant forklift traffic, pedestrian presence, and a loading door — drafting three candidate rules to test."
+  },
+  {
+   "i": 4,
+   "round": 2,
+   "kind": "propose",
+   "summary": "p1 compiled: Forklifts keep 2 m from pedestrians",
+   "tool": "compile_rule",
+   "args": {
+    "reason": "Forklift-pedestrian proximity is the main hazard in this aisle with both present and distances measurable.",
+    "text": "Forklifts must not come closer than 2 m to a pedestrian."
+   },
+   "rule_ref": "p1",
+   "text": "Forklifts must not come closer than 2 m to a pedestrian.",
+   "reason": "Forklift-pedestrian proximity is the main hazard in this aisle with both present and distances measurable.",
+   "revises": null,
+   "cached": true,
+   "rule": {
+    "title": "Forklifts keep 2 m from pedestrians",
+    "objects": [
+     {
+      "name": "forklift",
+      "prompt": "forklift"
+     },
+     {
+      "name": "person",
+      "prompt": "person"
+     }
+    ],
+    "zones": [],
+    "condition": {
+     "distance_lt": {
+      "a": "forklift",
+      "b": "person",
+      "m": 2
+     }
+    },
+    "min_duration_s": 1,
+    "severity": "high",
+    "unsupported": null,
+    "suggested_rewrite": null
+   },
+   "can_run": true,
+   "why_not": null,
+   "ms": 3
+  },
+  {
+   "i": 5,
+   "round": 2,
+   "kind": "propose",
+   "summary": "p2 compiled: No forklift standing in front of loading door",
+   "tool": "compile_rule",
+   "args": {
+    "reason": "Forklift stood in the loading door area s0-s3, so blocking the door can be confirmed or refuted.",
+    "text": "A forklift must not stand in the area in front of the loading door for more than 2 seconds."
+   },
+   "rule_ref": "p2",
+   "text": "A forklift must not stand in the area in front of the loading door for more than 2 seconds.",
+   "reason": "Forklift stood in the loading door area s0-s3, so blocking the door can be confirmed or refuted.",
+   "revises": null,
+   "cached": false,
+   "rule": {
+    "title": "No forklift standing in front of loading door",
+    "objects": [
+     {
+      "name": "forklift",
+      "prompt": "forklift"
+     }
+    ],
+    "zones": [
+     "fire_exit_zone"
+    ],
+    "condition": {
+     "in_zone": {
+      "object": "forklift",
+      "zone": "fire_exit_zone"
+     }
+    },
+    "min_duration_s": 2,
+    "severity": "medium",
+    "unsupported": null,
+    "suggested_rewrite": null
+   },
+   "can_run": true,
+   "why_not": null,
+   "ms": 2
+  },
+  {
+   "i": 6,
+   "round": 2,
+   "kind": "propose",
+   "summary": "p3 compiled: Pedestrians must not enter area in front of loading door",
+   "tool": "compile_rule",
+   "args": {
+    "reason": "A person appears in the door area at s24, so pedestrian presence in the vehicle door zone can be tested.",
+    "text": "Pedestrians must not enter the area in front of the loading door."
+   },
+   "rule_ref": "p3",
+   "text": "Pedestrians must not enter the area in front of the loading door.",
+   "reason": "A person appears in the door area at s24, so pedestrian presence in the vehicle door zone can be tested.",
+   "revises": null,
+   "cached": false,
+   "rule": {
+    "title": "Pedestrians must not enter area in front of loading door",
+    "objects": [
+     {
+      "name": "person",
+      "prompt": "person"
+     }
+    ],
+    "zones": [
+     "fire_exit_zone"
+    ],
+    "condition": {
+     "in_zone": {
+      "object": "person",
+      "zone": "fire_exit_zone"
+     }
+    },
+    "min_duration_s": 2,
+    "severity": "medium",
+    "unsupported": null,
+    "suggested_rewrite": null
+   },
+   "can_run": true,
+   "why_not": null,
+   "ms": 3
+  },
+  {
+   "i": 7,
+   "round": 3,
+   "kind": "note",
+   "summary": "All three rules compiled — running them against the footage to see what triggers."
+  },
+  {
+   "i": 8,
+   "round": 3,
+   "kind": "run",
+   "summary": "p1 ran: 0 alerts, condition true 0 of 25 s",
+   "tool": "run_rule",
+   "args": {
+    "rule_ref": "p1"
+   },
+   "rule_ref": "p1",
+   "ran": true,
+   "alerts": 0,
+   "timeline": ".........................",
+   "why_not": null,
+   "events": [],
+   "ms": 35
+  },
+  {
+   "i": 9,
+   "round": 3,
+   "kind": "run",
+   "summary": "p2 ran: 1 alert, condition true 4 of 25 s",
+   "tool": "run_rule",
+   "args": {
+    "rule_ref": "p2"
+   },
+   "rule_ref": "p2",
+   "ran": true,
+   "alerts": 1,
+   "timeline": "TTTT.....................",
+   "why_not": null,
+   "events": [
+    {
+     "event_id": "p2.e1",
+     "start_s": 1.0,
+     "end_s": 3.0,
+     "subject": "forklift #0"
+    }
+   ],
+   "ms": 6
+  },
+  {
+   "i": 10,
+   "round": 3,
+   "kind": "run",
+   "summary": "p3 ran: 0 alerts, condition true 1 of 25 s",
+   "tool": "run_rule",
+   "args": {
+    "rule_ref": "p3"
+   },
+   "rule_ref": "p3",
+   "ran": true,
+   "alerts": 0,
+   "timeline": "........................T",
+   "why_not": null,
+   "events": [],
+   "ms": 9
+  },
+  {
+   "i": 11,
+   "round": 4,
+   "kind": "note",
+   "summary": "The door-blocking rule is the only one that fired — inspecting that alert to confirm it's a real violation."
+  },
+  {
+   "i": 12,
+   "round": 4,
+   "kind": "inspect",
+   "summary": "inspected p2.e1 at s1: forklift 0.922 in the centre of the frame, mid-distance from the camera",
+   "tool": "inspect_alert",
+   "args": {
+    "event_id": "p2.e1",
+    "second": 1
+   },
+   "event_id": "p2.e1",
+   "second": 1,
+   "detections": [
+    {
+     "object": "forklift",
+     "id": 0,
+     "score": 0.922,
+     "where": "in the centre of the frame, mid-distance from the camera",
+     "standing_in_zones": [
+      "Warehouse floor",
+      "Area in front of the loading door"
+     ],
+     "matched_by_engine": true
+    }
+   ],
+   "pairs": null,
+   "ppe": null,
+   "ms": 5
+  },
+  {
+   "i": 13,
+   "round": 5,
+   "kind": "reject",
+   "summary": "rejected p1: Ran full 25 s with zero seconds true, so no under-2 m forklift-pedestrian approach occurred in this clip.",
+   "tool": "reject_rule",
+   "args": {
+    "reason": "Ran full 25 s with zero seconds true, so no under-2 m forklift-pedestrian approach occurred in this clip.",
+    "rule_ref": "p1"
+   },
+   "rule_ref": "p1",
+   "reason": "Ran full 25 s with zero seconds true, so no under-2 m forklift-pedestrian approach occurred in this clip.",
+   "ms": 0
+  },
+  {
+   "i": 14,
+   "round": 5,
+   "kind": "accept",
+   "summary": "accepted p2: Fired once s0-s3 for 4 s on forklift #0 score 0.92 stably inside the door area, a brief but real door-apron obstruction.",
+   "tool": "accept_rule",
+   "args": {
+    "reason": "Fired once s0-s3 for 4 s on forklift #0 score 0.92 stably inside the door area, a brief but real door-apron obstruction.",
+    "rule_ref": "p2"
+   },
+   "rule_ref": "p2",
+   "reason": "Fired once s0-s3 for 4 s on forklift #0 score 0.92 stably inside the door area, a brief but real door-apron obstruction.",
+   "ms": 0
+  },
+  {
+   "i": 15,
+   "round": 5,
+   "kind": "reject",
+   "summary": "rejected p3: Ran full clip with zero alerts with only one true second at s24, so no sustained pedestrian entry was proven here.",
+   "tool": "reject_rule",
+   "args": {
+    "reason": "Ran full clip with zero alerts with only one true second at s24, so no sustained pedestrian entry was proven here.",
+    "rule_ref": "p3"
+   },
+   "rule_ref": "p3",
+   "reason": "Ran full clip with zero alerts with only one true second at s24, so no sustained pedestrian entry was proven here.",
+   "ms": 0
+  },
+  {
+   "i": 16,
+   "round": 5,
+   "kind": "stop",
+   "summary": "every rule has a decision"
+  }
+ ],
+ "rules": [
+  {
+   "rule_ref": "p2",
+   "text": "A forklift must not stand in the area in front of the loading door for more than 2 seconds.",
+   "proposal_reason": "Forklift stood in the loading door area s0-s3, so blocking the door can be confirmed or refuted.",
+   "revises": null,
+   "rule": {
+    "condition": {
+     "in_zone": {
+      "object": "forklift",
+      "zone": "fire_exit_zone"
+     }
+    },
+    "explanation_template": "Forklift standing in front of loading door for {duration_s} at {time}.",
+    "min_duration_s": 2,
+    "objects": [
+     {
+      "name": "forklift",
+      "prompt": "forklift"
+     }
+    ],
+    "rule_id": "p2",
+    "severity": "medium",
+    "suggested_rewrite": null,
+    "title": "No forklift standing in front of loading door",
+    "unsupported": null,
+    "zones": [
+     "fire_exit_zone"
+    ]
+   },
+   "compile_error": null,
+   "alerts": 1,
+   "events": [
+    {
+     "event_id": "p2.e1",
+     "start_s": 1.0,
+     "end_s": 3.0,
+     "since_s": 0.0,
+     "subject": "forklift #0"
+    }
+   ],
+   "timeline": "TTTT.....................",
+   "decision": "accept",
+   "reason": "Fired once s0-s3 for 4 s on forklift #0 score 0.92 stably inside the door area, a brief but real door-apron obstruction."
+  }
+ ],
+ "rejected": [
+  {
+   "rule_ref": "p1",
+   "text": "Forklifts must not come closer than 2 m to a pedestrian.",
+   "proposal_reason": "Forklift-pedestrian proximity is the main hazard in this aisle with both present and distances measurable.",
+   "revises": null,
+   "rule": {
+    "condition": {
+     "distance_lt": {
+      "a": "forklift",
+      "b": "person",
+      "m": 2
+     }
+    },
+    "explanation_template": "Forklift within {distance_m} m of a pedestrian for {duration_s} s at {time}.",
+    "min_duration_s": 1,
+    "objects": [
+     {
+      "name": "forklift",
+      "prompt": "forklift"
+     },
+     {
+      "name": "person",
+      "prompt": "person"
+     }
+    ],
+    "rule_id": "p1",
+    "severity": "high",
+    "suggested_rewrite": null,
+    "title": "Forklifts keep 2 m from pedestrians",
+    "unsupported": null,
+    "zones": []
+   },
+   "compile_error": null,
+   "alerts": 0,
+   "events": [],
+   "timeline": ".........................",
+   "decision": "reject",
+   "reason": "Ran full 25 s with zero seconds true, so no under-2 m forklift-pedestrian approach occurred in this clip."
+  },
+  {
+   "rule_ref": "p3",
+   "text": "Pedestrians must not enter the area in front of the loading door.",
+   "proposal_reason": "A person appears in the door area at s24, so pedestrian presence in the vehicle door zone can be tested.",
+   "revises": null,
+   "rule": {
+    "condition": {
+     "in_zone": {
+      "object": "person",
+      "zone": "fire_exit_zone"
+     }
+    },
+    "explanation_template": "Pedestrian detected in the area in front of the loading door at {time}.",
+    "min_duration_s": 2,
+    "objects": [
+     {
+      "name": "person",
+      "prompt": "person"
+     }
+    ],
+    "rule_id": "p3",
+    "severity": "medium",
+    "suggested_rewrite": null,
+    "title": "Pedestrians must not enter area in front of loading door",
+    "unsupported": null,
+    "zones": [
+     "fire_exit_zone"
+    ]
+   },
+   "compile_error": null,
+   "alerts": 0,
+   "events": [],
+   "timeline": "........................T",
+   "decision": "reject",
+   "reason": "Ran full clip with zero alerts with only one true second at s24, so no sustained pedestrian entry was proven here."
+  }
+ ],
+ "undecided": [],
+ "usage": {
+  "agent_calls": 5,
+  "compile_calls": 2,
+  "compile_cached": 1,
+  "prompt_tokens": 43205,
+  "completion_tokens": 5430,
+  "reasoning_tokens": 4281
+ },
+ "cost_usd": 0.0771,
+ "stop_reason": "every rule has a decision",
+ "rounds": 5,
+ "model": "muse-spark-1.3",
+ "duration_s": 21.9,
+ "created": "2026-10-29 17:40"
+}

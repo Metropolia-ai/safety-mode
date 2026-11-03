@@ -1,0 +1,8 @@
+[transformers] `memory_attention_rope_theta` is deprecated and will be removed in v5.0. Use `rope_parameters['rope_theta']` instead.
+[embedl-sam3-int8-conf025] pexels-15170997-warehouse-team frames=12 size=(720, 1280) load=13.6s
+person {'mean_ms': 306.4, 'p95_ms': 320.7, 'min_ms': 289.0, 'max_ms': 320.7, 'fps': 3.26, 'n': 10, 'found_mean': 4.3, 'found_min': 2, 'found_max': 6, 'frames_with_found': 10, 'forward': {'mean_ms': 251.7, 'p95_ms': 252.7, 'min_ms': 251.1, 'max_ms': 252.7, 'fps': 3.97, 'n': 10}}
+forklift {'mean_ms': 285.4, 'p95_ms': 292.5, 'min_ms': 272.9, 'max_ms': 292.5, 'fps': 3.5, 'n': 10, 'found_mean': 1.6, 'found_min': 0, 'found_max': 3, 'frames_with_found': 9, 'forward': {'mean_ms': 251.8, 'p95_ms': 252.4, 'min_ms': 250.7, 'max_ms': 252.4, 'fps': 3.97, 'n': 10}}
+high-visibility vest {'mean_ms': 286.2, 'p95_ms': 296.4, 'min_ms': 272.1, 'max_ms': 296.4, 'fps': 3.49, 'n': 10, 'found_mean': 1.7, 'found_min': 0, 'found_max': 3, 'frames_with_found': 9, 'forward': {'mean_ms': 251.5, 'p95_ms': 252.3, 'min_ms': 251.0, 'max_ms': 252.3, 'fps': 3.98, 'n': 10}}
+hard hat {'mean_ms': 281.7, 'p95_ms': 296.4, 'min_ms': 272.1, 'max_ms': 296.4, 'fps': 3.55, 'n': 10, 'found_mean': 1.1, 'found_min': 0, 'found_max': 3, 'frames_with_found': 6, 'forward': {'mean_ms': 251.7, 'p95_ms': 252.7, 'min_ms': 250.6, 'max_ms': 252.7, 'fps': 3.97, 'n': 10}}
+memory {'ram_first_mb': 2917, 'ram_peak_mb': 5227, 'ram_peak_delta_mb': 2310, 'cuda_max_allocated_mb': None, 'cuda_max_reserved_mb': None, 'weights_mb': 926.7}
+saved /mnt/data/work/aivm-safety-mode/jetson-bench/logs/embedl-sam3-int8-conf025_pexels-15170997-warehouse-team.json

@@ -1,0 +1,577 @@
+{
+ "clip": "warehouse-team",
+ "rule": "r02-vest",
+ "events": [
+  {
+   "start_s": 3.0,
+   "end_s": 12.0,
+   "condition_since_s": 1.0,
+   "subject": "person #1"
+  }
+ ],
+ "timeline": ".TTTTTTTTTTTT..T...TT.T",
+ "seconds": [
+  {
+   "s": 0,
+   "truth": ".",
+   "state": {
+    "phase": "idle",
+    "min_s": 3.0
+   },
+   "measured": [
+    "person #0: outside Warehouse floor; vest 0.00 NO"
+   ],
+   "hits": []
+  },
+  {
+   "s": 1,
+   "truth": "T",
+   "state": {
+    "phase": "candidate",
+    "since_s": 1.0,
+    "held_s": 1.0,
+    "min_s": 3.0
+   },
+   "measured": [
+    "person #0: outside Warehouse floor; vest 0.00 NO",
+    "person #1: in Warehouse floor; vest 0.00 NO",
+    "person #2: in Warehouse floor; vest 0.38 ok",
+    "person #3: in Warehouse floor; vest 0.49 ok"
+   ],
+   "hits": [
+    {
+     "name": "person",
+     "box": [
+      0.85,
+      0.4477,
+      0.9195,
+      0.5578
+     ],
+     "id": 1
+    }
+   ]
+  },
+  {
+   "s": 2,
+   "truth": "T",
+   "state": {
+    "phase": "candidate",
+    "since_s": 1.0,
+    "held_s": 2.0,
+    "min_s": 3.0
+   },
+   "measured": [
+    "person #0: outside Warehouse floor; vest 0.00 NO",
+    "person #1: in Warehouse floor; vest 0.06 NO",
+    "person #2: in Warehouse floor; vest 0.43 ok"
+   ],
+   "hits": [
+    {
+     "name": "person",
+     "box": [
+      0.6472,
+      0.4422,
+      0.6903,
+      0.5414
+     ],
+     "id": 1
+    }
+   ]
+  },
+  {
+   "s": 3,
+   "truth": "T",
+   "state": {
+    "phase": "alert",
+    "since_s": 1.0,
+    "start_s": 3.0,
+    "min_s": 3.0
+   },
+   "measured": [
+    "person #0: outside Warehouse floor; vest 0.00 NO",
+    "person #1: in Warehouse floor; vest 0.00 NO",
+    "person #2: in Warehouse floor; vest 0.49 ok"
+   ],
+   "hits": [
+    {
+     "name": "person",
+     "box": [
+      0.4986,
+      0.4391,
+      0.568,
+      0.5375
+     ],
+     "id": 1
+    }
+   ]
+  },
+  {
+   "s": 4,
+   "truth": "T",
+   "state": {
+    "phase": "alert",
+    "since_s": 1.0,
+    "start_s": 3.0,
+    "min_s": 3.0
+   },
+   "measured": [
+    "person #0: outside Warehouse floor; vest 0.00 NO",
+    "person #1: in Warehouse floor; vest 0.00 NO",
+    "person #2: in Warehouse floor; vest 0.44 ok"
+   ],
+   "hits": [
+    {
+     "name": "person",
+     "box": [
+      0.5611,
+      0.432,
+      0.668,
+      0.5711
+     ],
+     "id": 1
+    }
+   ]
+  },
+  {
+   "s": 5,
+   "truth": "T",
+   "state": {
+    "phase": "alert",
+    "since_s": 1.0,
+    "start_s": 3.0,
+    "min_s": 3.0
+   },
+   "measured": [
+    "person #0: outside Warehouse floor; vest 0.00 NO",
+    "person #1: in Warehouse floor; vest 0.00 NO",
+    "person #2: in Warehouse floor; vest 0.38 ok",
+    "person #5: in Warehouse floor; vest 0.28 NO"
+   ],
+   "hits": [
+    {
+     "name": "person",
+     "box": [
+      0.7764,
+      0.4297,
+      0.9028,
+      0.6273
+     ],
+     "id": 1
+    },
+    {
+     "name": "person",
+     "box": [
+      0.0,
+      0.4054,
+      0.0778,
+      0.5758
+     ],
+     "id": 5
+    }
+   ]
+  },
+  {
+   "s": 6,
+   "truth": "T",
+   "state": {
+    "phase": "alert",
+    "since_s": 1.0,
+    "start_s": 3.0,
+    "min_s": 3.0
+   },
+   "measured": [
+    "person #0: outside Warehouse floor; vest 0.00 NO",
+    "person #1: in Warehouse floor; vest 0.00 NO",
+    "person #2: in Warehouse floor; vest 0.50 ok"
+   ],
+   "hits": [
+    {
+     "name": "person",
+     "box": [
+      0.75,
+      0.4227,
+      0.882,
+      0.6203
+     ],
+     "id": 1
+    }
+   ]
+  },
+  {
+   "s": 7,
+   "truth": "T",
+   "state": {
+    "phase": "alert",
+    "since_s": 1.0,
+    "start_s": 3.0,
+    "min_s": 3.0
+   },
+   "measured": [
+    "person #0: outside Warehouse floor; vest 0.00 NO",
+    "person #1: in Warehouse floor; vest 0.00 NO",
+    "person #2: in Warehouse floor; vest 0.49 ok",
+    "person #5: in Warehouse floor; vest 0.48 ok"
+   ],
+   "hits": [
+    {
+     "name": "person",
+     "box": [
+      0.7222,
+      0.4266,
+      0.8597,
+      0.6196
+     ],
+     "id": 1
+    }
+   ]
+  },
+  {
+   "s": 8,
+   "truth": "T",
+   "state": {
+    "phase": "alert",
+    "since_s": 1.0,
+    "start_s": 3.0,
+    "min_s": 3.0
+   },
+   "measured": [
+    "person #0: outside Warehouse floor; vest 0.00 NO",
+    "person #1: in Warehouse floor; vest 0.00 NO",
+    "person #2: in Warehouse floor; vest 0.49 ok",
+    "person #5: in Warehouse floor; vest 0.41 ok",
+    "person #7: outside Warehouse floor; vest 0.00 NO"
+   ],
+   "hits": [
+    {
+     "name": "person",
+     "box": [
+      0.7014,
+      0.4266,
+      0.8639,
+      0.6188
+     ],
+     "id": 1
+    }
+   ]
+  },
+  {
+   "s": 9,
+   "truth": "T",
+   "state": {
+    "phase": "alert",
+    "since_s": 1.0,
+    "start_s": 3.0,
+    "min_s": 3.0
+   },
+   "measured": [
+    "person #0: outside Warehouse floor; vest 0.00 NO",
+    "person #1: in Warehouse floor; vest 0.00 NO",
+    "person #2: in Warehouse floor; vest 0.49 ok",
+    "person #5: in Warehouse floor; vest 0.50 ok",
+    "person #7: outside Warehouse floor; vest 0.00 NO"
+   ],
+   "hits": [
+    {
+     "name": "person",
+     "box": [
+      0.6653,
+      0.4281,
+      0.818,
+      0.6031
+     ],
+     "id": 1
+    }
+   ]
+  },
+  {
+   "s": 10,
+   "truth": "T",
+   "state": {
+    "phase": "alert",
+    "since_s": 1.0,
+    "start_s": 3.0,
+    "min_s": 3.0
+   },
+   "measured": [
+    "person #0: outside Warehouse floor; vest 0.00 NO",
+    "person #1: in Warehouse floor; vest 0.00 NO",
+    "person #2: in Warehouse floor; vest 0.46 ok",
+    "person #5: in Warehouse floor; vest 0.48 ok",
+    "person #7: outside Warehouse floor; vest 0.00 NO"
+   ],
+   "hits": [
+    {
+     "name": "person",
+     "box": [
+      0.382,
+      0.4312,
+      0.468,
+      0.543
+     ],
+     "id": 1
+    }
+   ]
+  },
+  {
+   "s": 11,
+   "truth": "T",
+   "state": {
+    "phase": "alert",
+    "since_s": 1.0,
+    "start_s": 3.0,
+    "min_s": 3.0
+   },
+   "measured": [
+    "person #0: outside Warehouse floor; vest 0.00 NO",
+    "person #1: in Warehouse floor; vest 0.00 NO",
+    "person #2: in Warehouse floor; vest 0.46 ok",
+    "person #5: in Warehouse floor; vest 0.49 ok",
+    "person #7: outside Warehouse floor; vest 0.00 NO"
+   ],
+   "hits": [
+    {
+     "name": "person",
+     "box": [
+      0.2278,
+      0.4656,
+      0.3041,
+      0.5141
+     ],
+     "id": 1
+    }
+   ]
+  },
+  {
+   "s": 12,
+   "truth": "T",
+   "state": {
+    "phase": "alert",
+    "since_s": 1.0,
+    "start_s": 3.0,
+    "min_s": 3.0
+   },
+   "measured": [
+    "person #0: outside Warehouse floor; vest 0.01 NO",
+    "person #1: in Warehouse floor; vest 0.00 NO",
+    "person #2: in Warehouse floor; vest 0.47 ok",
+    "person #5: in Warehouse floor; vest 0.51 ok",
+    "person #7: outside Warehouse floor; vest 0.00 NO"
+   ],
+   "hits": [
+    {
+     "name": "person",
+     "box": [
+      0.4459,
+      0.4406,
+      0.5195,
+      0.5422
+     ],
+     "id": 1
+    }
+   ]
+  },
+  {
+   "s": 13,
+   "truth": ".",
+   "state": {
+    "phase": "alert",
+    "since_s": 1.0,
+    "start_s": 3.0,
+    "min_s": 3.0
+   },
+   "measured": [
+    "person #0: outside Warehouse floor; vest 0.04 NO",
+    "person #2: in Warehouse floor; vest 0.38 ok",
+    "person #7: outside Warehouse floor; vest 0.00 NO"
+   ],
+   "hits": []
+  },
+  {
+   "s": 14,
+   "truth": ".",
+   "state": {
+    "phase": "idle",
+    "min_s": 3.0
+   },
+   "measured": [
+    "person #0: outside Warehouse floor; vest 0.00 NO",
+    "person #2: in Warehouse floor; vest 0.47 ok",
+    "person #5: in Warehouse floor; vest 0.55 ok",
+    "person #7: outside Warehouse floor; vest 0.00 NO"
+   ],
+   "hits": []
+  },
+  {
+   "s": 15,
+   "truth": "T",
+   "state": {
+    "phase": "candidate",
+    "since_s": 15.0,
+    "held_s": 1.0,
+    "min_s": 3.0
+   },
+   "measured": [
+    "person #0: outside Warehouse floor; vest 0.00 NO",
+    "person #2: in Warehouse floor; vest 0.18 NO",
+    "person #5: in Warehouse floor; vest 0.52 ok",
+    "person #7: in Warehouse floor; vest 0.02 NO"
+   ],
+   "hits": [
+    {
+     "name": "person",
+     "box": [
+      0.2709,
+      0.4727,
+      0.3959,
+      0.5672
+     ],
+     "id": 2
+    },
+    {
+     "name": "person",
+     "box": [
+      0.3514,
+      0.4828,
+      0.4834,
+      0.5547
+     ],
+     "id": 7
+    }
+   ]
+  },
+  {
+   "s": 16,
+   "truth": ".",
+   "state": {
+    "phase": "idle",
+    "min_s": 3.0
+   },
+   "measured": [
+    "person #2: in Warehouse floor; vest 0.45 ok",
+    "person #5: in Warehouse floor; vest 0.58 ok",
+    "person #7: outside Warehouse floor; vest 0.00 NO"
+   ],
+   "hits": []
+  },
+  {
+   "s": 17,
+   "truth": ".",
+   "state": {
+    "phase": "idle",
+    "min_s": 3.0
+   },
+   "measured": [
+    "person #2: in Warehouse floor; vest 0.39 ok",
+    "person #7: outside Warehouse floor; vest 0.00 NO"
+   ],
+   "hits": []
+  },
+  {
+   "s": 18,
+   "truth": ".",
+   "state": {
+    "phase": "idle",
+    "min_s": 3.0
+   },
+   "measured": [
+    "person #2: in Warehouse floor; vest 0.51 ok",
+    "person #7: outside Warehouse floor; vest 0.00 NO",
+    "person #11: in Warehouse floor; vest 0.54 ok"
+   ],
+   "hits": []
+  },
+  {
+   "s": 19,
+   "truth": "T",
+   "state": {
+    "phase": "candidate",
+    "since_s": 19.0,
+    "held_s": 1.0,
+    "min_s": 3.0
+   },
+   "measured": [
+    "person #2: in Warehouse floor; vest 0.49 ok",
+    "person #7: in Warehouse floor; vest 0.00 NO",
+    "person #11: in Warehouse floor; vest 0.44 ok"
+   ],
+   "hits": [
+    {
+     "name": "person",
+     "box": [
+      0.3334,
+      0.3969,
+      0.4653,
+      0.6399
+     ],
+     "id": 7
+    }
+   ]
+  },
+  {
+   "s": 20,
+   "truth": "T",
+   "state": {
+    "phase": "candidate",
+    "since_s": 19.0,
+    "held_s": 2.0,
+    "min_s": 3.0
+   },
+   "measured": [
+    "person #2: in Warehouse floor; vest 0.47 ok",
+    "person #7: in Warehouse floor; vest 0.00 NO",
+    "person #11: outside Warehouse floor; vest 0.24 NO"
+   ],
+   "hits": [
+    {
+     "name": "person",
+     "box": [
+      0.0334,
+      0.4289,
+      0.2264,
+      0.5703
+     ],
+     "id": 7
+    }
+   ]
+  },
+  {
+   "s": 21,
+   "truth": ".",
+   "state": {
+    "phase": "idle",
+    "min_s": 3.0
+   },
+   "measured": [
+    "person #12: in Warehouse floor; vest 0.44 ok"
+   ],
+   "hits": []
+  },
+  {
+   "s": 22,
+   "truth": "T",
+   "state": {
+    "phase": "candidate",
+    "since_s": 22.0,
+    "held_s": 1.0,
+    "min_s": 3.0
+   },
+   "measured": [
+    "person #7: in Warehouse floor; vest 0.00 NO",
+    "person #12: in Warehouse floor; vest 0.45 ok",
+    "person #13: in Warehouse floor; vest 0.54 ok"
+   ],
+   "hits": [
+    {
+     "name": "person",
+     "box": [
+      0.75,
+      0.4977,
+      0.7903,
+      0.5484
+     ],
+     "id": 7
+    }
+   ]
+  }
+ ]
+}

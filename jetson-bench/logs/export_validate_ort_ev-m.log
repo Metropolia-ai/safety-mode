@@ -1,0 +1,11 @@
+Resizing positional embeddings from 77 to 16
+providers ['CUDAExecutionProvider', 'CPUExecutionProvider'] ['CUDAExecutionProvider', 'CPUExecutionProvider'] ['CUDAExecutionProvider', 'CPUExecutionProvider']
+[person] text: mask eq=True feat maxabs=1.24e-03 embeds maxabs=0.00e+00
+   torch keep=1 top=[0.805 0.498 0.422] | ORT open-vocab keep=1 score maxabs=8.79e-03 box maxabs=7.03e+01 (score>0.3: 0.22) | ORT fixed keep=1 score maxabs=9.54e-03 box maxabs=8.15e+01 (score>0.3: 0.41)
+   fixed masks IoU vs torch (kept): [0.9998]
+[forklift] text: mask eq=True feat maxabs=1.52e-03 embeds maxabs=0.00e+00
+   torch keep=0 top=[0.168 0.164 0.149] | ORT open-vocab keep=0 score maxabs=5.80e-03 box maxabs=9.92e+01 (score>0.3: 0.00) | ORT fixed keep=0 score maxabs=5.11e-03 box maxabs=1.00e+02 (score>0.3: 0.00)
+[high-visibility vest] text: mask eq=True feat maxabs=1.32e-03 embeds maxabs=0.00e+00
+   torch keep=0 top=[0.369 0.311 0.292] | ORT open-vocab keep=0 score maxabs=1.10e-02 box maxabs=1.05e+02 (score>0.3: 0.04) | ORT fixed keep=0 score maxabs=1.03e-02 box maxabs=6.14e+01 (score>0.3: 0.19)
+[hard hat] text: mask eq=True feat maxabs=1.72e-03 embeds maxabs=0.00e+00
+   torch keep=0 top=[0.17  0.111 0.1  ] | ORT open-vocab keep=0 score maxabs=2.06e-03 box maxabs=2.89e+02 (score>0.3: 0.00) | ORT fixed keep=0 score maxabs=2.39e-03 box maxabs=2.63e+02 (score>0.3: 0.00)

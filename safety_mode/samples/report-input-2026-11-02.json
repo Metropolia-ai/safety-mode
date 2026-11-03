@@ -1,0 +1,298 @@
+{
+ "site": "Warehouse A",
+ "camera": "cam-3",
+ "date": "2026-11-02",
+ "uptime_min": 1428,
+ "events": [
+  {
+   "id": "evt-0401",
+   "time": "06:55:12",
+   "rule_id": "r2",
+   "severity": "medium",
+   "duration_s": 4,
+   "objects": [
+    {
+     "name": "person",
+     "box": [
+      180,
+      300,
+      260,
+      610
+     ]
+    }
+   ],
+   "measurements": {
+    "distance_m": null,
+    "count": null,
+    "height_m": null
+   },
+   "frame": "evt-0401.jpg",
+   "explanation": "1 person(s) past the gate without vest for 4 s, at 06:55:12."
+  },
+  {
+   "id": "evt-0402",
+   "time": "06:58:40",
+   "rule_id": "r2",
+   "severity": "medium",
+   "duration_s": 3,
+   "objects": [
+    {
+     "name": "person",
+     "box": [
+      240,
+      320,
+      315,
+      630
+     ]
+    },
+    {
+     "name": "hard_hat",
+     "box": [
+      262,
+      322,
+      296,
+      350
+     ]
+    }
+   ],
+   "measurements": {
+    "distance_m": null,
+    "count": null,
+    "height_m": null
+   },
+   "frame": "evt-0402.jpg",
+   "explanation": "1 person(s) past the gate without vest for 3 s, at 06:58:40."
+  },
+  {
+   "id": "evt-0403",
+   "time": "07:04:05",
+   "rule_id": "r2",
+   "severity": "medium",
+   "duration_s": 5,
+   "objects": [
+    {
+     "name": "person",
+     "box": [
+      120,
+      280,
+      205,
+      600
+     ]
+    },
+    {
+     "name": "hard_hat",
+     "box": [
+      146,
+      282,
+      180,
+      312
+     ]
+    }
+   ],
+   "measurements": {
+    "distance_m": null,
+    "count": null,
+    "height_m": null
+   },
+   "frame": "evt-0403.jpg",
+   "explanation": "1 person(s) past the gate without vest for 5 s, at 07:04:05."
+  },
+  {
+   "id": "evt-0404",
+   "time": "07:10:22",
+   "rule_id": "r2",
+   "severity": "medium",
+   "duration_s": 3,
+   "objects": [
+    {
+     "name": "person",
+     "box": [
+      300,
+      310,
+      372,
+      620
+     ]
+    },
+    {
+     "name": "hard_hat",
+     "box": [
+      320,
+      312,
+      352,
+      340
+     ]
+    }
+   ],
+   "measurements": {
+    "distance_m": null,
+    "count": null,
+    "height_m": null
+   },
+   "frame": "evt-0404.jpg",
+   "explanation": "1 person(s) past the gate without vest for 3 s, at 07:10:22."
+  },
+  {
+   "id": "evt-0412",
+   "time": "10:42:17",
+   "rule_id": "r3",
+   "severity": "high",
+   "duration_s": 2,
+   "objects": [
+    {
+     "name": "forklift",
+     "box": [
+      412,
+      180,
+      760,
+      520
+     ]
+    },
+    {
+     "name": "person",
+     "box": [
+      790,
+      210,
+      860,
+      500
+     ]
+    }
+   ],
+   "measurements": {
+    "distance_m": 1.3,
+    "count": null,
+    "height_m": null
+   },
+   "frame": "evt-0412.jpg",
+   "explanation": "Forklift came within 1.3 m of a pedestrian for 2 s, at 10:42:17."
+  },
+  {
+   "id": "evt-0418",
+   "time": "14:05:03",
+   "rule_id": "r1",
+   "severity": "high",
+   "duration_s": 6,
+   "objects": [
+    {
+     "name": "person",
+     "box": [
+      1010,
+      330,
+      1090,
+      600
+     ]
+    },
+    {
+     "name": "press",
+     "box": [
+      1100,
+      150,
+      1270,
+      560
+     ]
+    }
+   ],
+   "measurements": {
+    "distance_m": null,
+    "count": null,
+    "height_m": null
+   },
+   "frame": "evt-0418.jpg",
+   "explanation": "1 person(s) inside the yellow zone for 6 s while the press was running, at 14:05:03."
+  },
+  {
+   "id": "evt-0423",
+   "time": "16:20:40",
+   "rule_id": "r5",
+   "severity": "medium",
+   "duration_s": 840,
+   "objects": [
+    {
+     "name": "pallet",
+     "box": [
+      600,
+      420,
+      760,
+      470
+     ]
+    }
+   ],
+   "measurements": {
+    "distance_m": null,
+    "count": null,
+    "height_m": null
+   },
+   "frame": "evt-0423.jpg",
+   "explanation": "Pallet left in the fire-exit zone for 840 s, since 16:20:40."
+  }
+ ],
+ "rules": [
+  {
+   "id": "r1",
+   "title": "Nobody in the yellow zone while the press runs",
+   "events": 1,
+   "false_positives_marked": 0,
+   "enabled": true
+  },
+  {
+   "id": "r2",
+   "title": "PPE past the gate",
+   "events": 4,
+   "false_positives_marked": 0,
+   "enabled": true
+  },
+  {
+   "id": "r3",
+   "title": "Forklift within 2 m of a pedestrian",
+   "events": 1,
+   "false_positives_marked": 0,
+   "enabled": true
+  },
+  {
+   "id": "r5",
+   "title": "Fire exit kept clear",
+   "events": 1,
+   "false_positives_marked": 0,
+   "enabled": true
+  },
+  {
+   "id": "r6",
+   "title": "No climbing on racks",
+   "events": 0,
+   "false_positives_marked": 0,
+   "enabled": true
+  },
+  {
+   "id": "r9",
+   "title": "Pallet stacks at the ramp no higher than three",
+   "events": 3,
+   "false_positives_marked": 3,
+   "enabled": false
+  }
+ ],
+ "manager_actions": [
+  {
+   "time": "09:12",
+   "action": "marked_false_positive",
+   "rule_id": "r9",
+   "reason": "stack partly outside the frame"
+  },
+  {
+   "time": "10:05",
+   "action": "marked_false_positive",
+   "rule_id": "r9",
+   "reason": "stack partly outside the frame"
+  },
+  {
+   "time": "10:48",
+   "action": "marked_false_positive",
+   "rule_id": "r9",
+   "reason": "stack partly outside the frame"
+  },
+  {
+   "time": "11:00",
+   "action": "disabled",
+   "rule_id": "r9",
+   "reason": "3 false positives from a stack partly outside the frame"
+  }
+ ]
+}

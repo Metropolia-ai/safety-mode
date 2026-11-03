@@ -1,0 +1,19 @@
+{
+  "rule_id": "r9",
+  "title": "Pallet stack limit at ramp",
+  "objects": [
+    {
+      "name": "pallet",
+      "prompt": "pallet"
+    }
+  ],
+  "zones": [
+    "ramp_zone"
+  ],
+  "condition": null,
+  "min_duration_s": 30,
+  "severity": "low",
+  "explanation_template": "At {time} pallets at the ramp exceed the allowed stack limit.",
+  "unsupported": "Counting items stacked on top of each other cannot be expressed. count_in_zone counts separate objects standing on the floor and cannot count items in a stack, so 'pallets not higher than three pieces in a stack' is not measurable with the available primitives.",
+  "suggested_rewrite": "Draw a zone called ramp_zone on this camera first, then: no more than three pallets may be present in ramp_zone. This approximates the stack limit by counting pallets in the zone."
+}

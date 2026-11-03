@@ -1,0 +1,16 @@
+== /mnt/data/work/export/efficientsam3-rv-m/open_vocab/text_encoder.onnx  size=161.3 MiB  opset=[('ai.onnx', 17)]  ir=8 producer=pytorch 2.8.0
+  external data tensors: 0
+  in  tokenized_ids ['batch', 16] INT64
+  out language_mask ['batch', 16] BOOL
+  out language_features [16, 'batch', 256] FLOAT
+  out language_embeds [16, 'batch', 512] FLOAT
+  nodes 326 initializers 86
+  checker: OK (full_check)
+== /mnt/data/work/export/efficientsam3-rv-m/open_vocab/vision_decoder.onnx  size=175.6 MiB  opset=[('ai.onnx', 17)]  ir=8 producer=pytorch 2.8.0
+  external data tensors: 0
+  in  pixel_values ['batch', 3, 1008, 1008] FLOAT
+  in  language_features [16, 'batch', 256] FLOAT
+  in  language_mask ['batch', 16] BOOL
+  out detections ['batch', 'Concatdetections_dim_1', 5] FLOAT
+  nodes 8431 initializers 768
+  checker: OK (full_check)

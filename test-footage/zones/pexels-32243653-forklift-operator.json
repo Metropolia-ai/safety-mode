@@ -1,0 +1,35 @@
+{
+  "clip": "pexels-32243653-forklift-operator",
+  "reference_frame": "frames/pexels-32243653-forklift-operator/001.jpg",
+  "frame_size": [
+    1280,
+    720
+  ],
+  "zones": [
+    {
+      "name": "past_gate",
+      "title": "Warehouse floor",
+      "polygon": [
+        [
+          0,
+          0
+        ],
+        [
+          1,
+          0
+        ],
+        [
+          1,
+          1
+        ],
+        [
+          0,
+          1
+        ]
+      ],
+      "note": "The floor area the camera sees. Close-up with cuts, the floor is hardly visible, so the whole frame counts.",
+      "dev_note": "Whole frame: close-up, the floor is not visible (at 0–2 s), the clip has shot changes."
+    }
+  ],
+  "floor_calibration": null
+}

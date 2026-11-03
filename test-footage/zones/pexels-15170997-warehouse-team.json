@@ -1,0 +1,129 @@
+{
+  "clip": "pexels-15170997-warehouse-team",
+  "reference_frame": "frames/pexels-15170997-warehouse-team/001.jpg",
+  "frame_size": [
+    1280,
+    2276
+  ],
+  "zones": [
+    {
+      "name": "past_gate",
+      "title": "Warehouse floor",
+      "polygon": [
+        [
+          0.0,
+          0.5053
+        ],
+        [
+          0.5,
+          0.5031
+        ],
+        [
+          0.6094,
+          0.5053
+        ],
+        [
+          1.0,
+          0.525
+        ],
+        [
+          1.0,
+          1.0
+        ],
+        [
+          0.0,
+          1.0
+        ]
+      ],
+      "note": "The floor area the camera sees: from the base of the far wall to the bottom of the frame.",
+      "dev_note": "All visible floor from the base of the far wall to the bottom edge of the frame."
+    },
+    {
+      "name": "rack_zone",
+      "title": "Rack zone",
+      "polygon": [
+        [
+          0.6094,
+          0.5053
+        ],
+        [
+          1.0,
+          0.525
+        ],
+        [
+          1.0,
+          0.5909
+        ],
+        [
+          0.5156,
+          0.5228
+        ]
+      ],
+      "note": "The base of the racks on the right and a strip of floor about 1 m in front of them.",
+      "dev_note": "The base of the racks on the right and a floor strip ~1 m in front of them on the aisle side (upright bases: (770,1178) and (1100,1265) px). The reach truck in frame 001 stands in this strip."
+    },
+    {
+      "name": "yellow_zone",
+      "title": "Yellow zone (reach-truck parking spot)",
+      "polygon": [
+        [
+          0.5391,
+          0.5097
+        ],
+        [
+          0.8203,
+          0.5119
+        ],
+        [
+          0.8398,
+          0.5712
+        ],
+        [
+          0.5469,
+          0.5712
+        ]
+      ],
+      "note": "Drawn by hand around the spot where the reach truck stands at 0 s, with about 0.7 m margin. Not marked on the floor; the truck leaves it at 2 s.",
+      "dev_note": "Floor around the reach truck where it stands in frame 001, with a ~0.7 m margin. The zone is static: the reach truck leaves it by second 2, after that the zone = its parking spot. machine_state is set by hand."
+    }
+  ],
+  "floor_calibration": {
+    "points_px": [
+      [
+        0.2995,
+        0.5631
+      ],
+      [
+        0.7005,
+        0.5631
+      ],
+      [
+        0.8609,
+        0.6743
+      ],
+      [
+        0.1391,
+        0.6743
+      ]
+    ],
+    "points_m": [
+      [
+        0,
+        0
+      ],
+      [
+        3.0,
+        0
+      ],
+      [
+        3.0,
+        4.0
+      ],
+      [
+        0,
+        4.0
+      ]
+    ],
+    "assumption": "Static camera. Floor model from a person height of 1.75 m on two frames (s5: feet y=1420, height 430 px; s19: feet y=1330, height 345 px): horizon y=965 px, camera height 1.85 m; focal length 1540 px assumed for a 26 mm-equivalent phone camera (frame 1280×2276); vanishing point at the frame centre (x=640). Check: the reach truck width in frame 001 is 1.1 m by the model (reach truck spec 1.1–1.3 m), the column is 0.5 m. The 2 m reach truck length and the 2.7 m rack bay in frame 001 cannot be measured: the reach truck stands at an angle, the bays are hidden. Rectangle 3×4 m: far edge 9 m from the camera, near edge 5 m. Accuracy ±20–30 %, enough for the 2 m threshold only with a margin."
+  }
+}

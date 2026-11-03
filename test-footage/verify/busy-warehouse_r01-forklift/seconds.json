@@ -1,0 +1,385 @@
+{
+ "clip": "busy-warehouse",
+ "rule": "r01-forklift",
+ "events": [],
+ "timeline": ".........................",
+ "seconds": [
+  {
+   "s": 0,
+   "truth": ".",
+   "state": {
+    "phase": "idle",
+    "min_s": 1.0
+   },
+   "measured": [
+    "person #0: outside Yellow zone (walkway behind the yellow line)",
+    "person #1: outside Yellow zone (walkway behind the yellow line)",
+    "person #2: outside Yellow zone (walkway behind the yellow line)"
+   ],
+   "hits": []
+  },
+  {
+   "s": 1,
+   "truth": ".",
+   "state": {
+    "phase": "idle",
+    "min_s": 1.0
+   },
+   "measured": [
+    "person #0: outside Yellow zone (walkway behind the yellow line)",
+    "person #1: outside Yellow zone (walkway behind the yellow line)",
+    "person #2: outside Yellow zone (walkway behind the yellow line)"
+   ],
+   "hits": []
+  },
+  {
+   "s": 2,
+   "truth": ".",
+   "state": {
+    "phase": "idle",
+    "min_s": 1.0
+   },
+   "measured": [
+    "person #0: outside Yellow zone (walkway behind the yellow line)",
+    "person #1: outside Yellow zone (walkway behind the yellow line)",
+    "person #2: outside Yellow zone (walkway behind the yellow line)"
+   ],
+   "hits": []
+  },
+  {
+   "s": 3,
+   "truth": ".",
+   "state": {
+    "phase": "idle",
+    "min_s": 1.0
+   },
+   "measured": [
+    "person #0: outside Yellow zone (walkway behind the yellow line)",
+    "person #1: outside Yellow zone (walkway behind the yellow line)",
+    "person #2: outside Yellow zone (walkway behind the yellow line)",
+    "person #3: outside Yellow zone (walkway behind the yellow line)"
+   ],
+   "hits": []
+  },
+  {
+   "s": 4,
+   "truth": ".",
+   "state": {
+    "phase": "idle",
+    "min_s": 1.0
+   },
+   "measured": [
+    "person #0: outside Yellow zone (walkway behind the yellow line)",
+    "person #1: outside Yellow zone (walkway behind the yellow line)",
+    "person #2: outside Yellow zone (walkway behind the yellow line)",
+    "person #3: outside Yellow zone (walkway behind the yellow line)",
+    "person #4: outside Yellow zone (walkway behind the yellow line)"
+   ],
+   "hits": []
+  },
+  {
+   "s": 5,
+   "truth": ".",
+   "state": {
+    "phase": "idle",
+    "min_s": 1.0
+   },
+   "measured": [
+    "person #0: outside Yellow zone (walkway behind the yellow line)",
+    "person #1: outside Yellow zone (walkway behind the yellow line)",
+    "person #2: outside Yellow zone (walkway behind the yellow line)",
+    "person #3: outside Yellow zone (walkway behind the yellow line)",
+    "person #4: outside Yellow zone (walkway behind the yellow line)",
+    "person #5: outside Yellow zone (walkway behind the yellow line)"
+   ],
+   "hits": []
+  },
+  {
+   "s": 6,
+   "truth": ".",
+   "state": {
+    "phase": "idle",
+    "min_s": 1.0
+   },
+   "measured": [
+    "person #0: outside Yellow zone (walkway behind the yellow line)",
+    "person #1: outside Yellow zone (walkway behind the yellow line)",
+    "person #2: outside Yellow zone (walkway behind the yellow line)",
+    "person #3: outside Yellow zone (walkway behind the yellow line)",
+    "person #4: outside Yellow zone (walkway behind the yellow line)",
+    "person #5: outside Yellow zone (walkway behind the yellow line)"
+   ],
+   "hits": []
+  },
+  {
+   "s": 7,
+   "truth": ".",
+   "state": {
+    "phase": "idle",
+    "min_s": 1.0
+   },
+   "measured": [
+    "person #0: outside Yellow zone (walkway behind the yellow line)",
+    "person #2: outside Yellow zone (walkway behind the yellow line)",
+    "person #3: outside Yellow zone (walkway behind the yellow line)",
+    "person #5: outside Yellow zone (walkway behind the yellow line)"
+   ],
+   "hits": []
+  },
+  {
+   "s": 8,
+   "truth": ".",
+   "state": {
+    "phase": "idle",
+    "min_s": 1.0
+   },
+   "measured": [
+    "person #0: outside Yellow zone (walkway behind the yellow line)",
+    "person #2: outside Yellow zone (walkway behind the yellow line)",
+    "person #3: outside Yellow zone (walkway behind the yellow line)",
+    "person #5: outside Yellow zone (walkway behind the yellow line)"
+   ],
+   "hits": []
+  },
+  {
+   "s": 9,
+   "truth": ".",
+   "state": {
+    "phase": "idle",
+    "min_s": 1.0
+   },
+   "measured": [
+    "person #0: outside Yellow zone (walkway behind the yellow line)",
+    "person #2: outside Yellow zone (walkway behind the yellow line)",
+    "person #3: outside Yellow zone (walkway behind the yellow line)",
+    "person #5: outside Yellow zone (walkway behind the yellow line)"
+   ],
+   "hits": []
+  },
+  {
+   "s": 10,
+   "truth": ".",
+   "state": {
+    "phase": "idle",
+    "min_s": 1.0
+   },
+   "measured": [
+    "person #0: outside Yellow zone (walkway behind the yellow line)",
+    "person #2: outside Yellow zone (walkway behind the yellow line)",
+    "person #3: outside Yellow zone (walkway behind the yellow line)",
+    "person #5: outside Yellow zone (walkway behind the yellow line)"
+   ],
+   "hits": []
+  },
+  {
+   "s": 11,
+   "truth": ".",
+   "state": {
+    "phase": "idle",
+    "min_s": 1.0
+   },
+   "measured": [
+    "person #0: outside Yellow zone (walkway behind the yellow line)",
+    "person #2: outside Yellow zone (walkway behind the yellow line)",
+    "person #3: outside Yellow zone (walkway behind the yellow line)",
+    "person #5: outside Yellow zone (walkway behind the yellow line)"
+   ],
+   "hits": []
+  },
+  {
+   "s": 12,
+   "truth": ".",
+   "state": {
+    "phase": "idle",
+    "min_s": 1.0
+   },
+   "measured": [
+    "person #0: outside Yellow zone (walkway behind the yellow line)",
+    "person #2: outside Yellow zone (walkway behind the yellow line)",
+    "person #3: outside Yellow zone (walkway behind the yellow line)",
+    "person #5: outside Yellow zone (walkway behind the yellow line)"
+   ],
+   "hits": []
+  },
+  {
+   "s": 13,
+   "truth": ".",
+   "state": {
+    "phase": "idle",
+    "min_s": 1.0
+   },
+   "measured": [
+    "person #0: outside Yellow zone (walkway behind the yellow line)",
+    "person #2: outside Yellow zone (walkway behind the yellow line)",
+    "person #3: outside Yellow zone (walkway behind the yellow line)",
+    "person #5: outside Yellow zone (walkway behind the yellow line)"
+   ],
+   "hits": []
+  },
+  {
+   "s": 14,
+   "truth": ".",
+   "state": {
+    "phase": "idle",
+    "min_s": 1.0
+   },
+   "measured": [
+    "person #0: outside Yellow zone (walkway behind the yellow line)",
+    "person #2: outside Yellow zone (walkway behind the yellow line)",
+    "person #3: outside Yellow zone (walkway behind the yellow line)",
+    "person #5: outside Yellow zone (walkway behind the yellow line)"
+   ],
+   "hits": []
+  },
+  {
+   "s": 15,
+   "truth": ".",
+   "state": {
+    "phase": "idle",
+    "min_s": 1.0
+   },
+   "measured": [
+    "person #0: outside Yellow zone (walkway behind the yellow line)",
+    "person #2: outside Yellow zone (walkway behind the yellow line)",
+    "person #3: outside Yellow zone (walkway behind the yellow line)",
+    "person #5: outside Yellow zone (walkway behind the yellow line)"
+   ],
+   "hits": []
+  },
+  {
+   "s": 16,
+   "truth": ".",
+   "state": {
+    "phase": "idle",
+    "min_s": 1.0
+   },
+   "measured": [
+    "person #0: outside Yellow zone (walkway behind the yellow line)",
+    "person #2: outside Yellow zone (walkway behind the yellow line)",
+    "person #3: outside Yellow zone (walkway behind the yellow line)",
+    "person #5: outside Yellow zone (walkway behind the yellow line)"
+   ],
+   "hits": []
+  },
+  {
+   "s": 17,
+   "truth": ".",
+   "state": {
+    "phase": "idle",
+    "min_s": 1.0
+   },
+   "measured": [
+    "person #0: outside Yellow zone (walkway behind the yellow line)",
+    "person #2: outside Yellow zone (walkway behind the yellow line)",
+    "person #3: outside Yellow zone (walkway behind the yellow line)",
+    "person #5: outside Yellow zone (walkway behind the yellow line)"
+   ],
+   "hits": []
+  },
+  {
+   "s": 18,
+   "truth": ".",
+   "state": {
+    "phase": "idle",
+    "min_s": 1.0
+   },
+   "measured": [
+    "person #0: outside Yellow zone (walkway behind the yellow line)",
+    "person #2: outside Yellow zone (walkway behind the yellow line)",
+    "person #3: outside Yellow zone (walkway behind the yellow line)",
+    "person #5: outside Yellow zone (walkway behind the yellow line)"
+   ],
+   "hits": []
+  },
+  {
+   "s": 19,
+   "truth": ".",
+   "state": {
+    "phase": "idle",
+    "min_s": 1.0
+   },
+   "measured": [
+    "person #0: outside Yellow zone (walkway behind the yellow line)",
+    "person #2: outside Yellow zone (walkway behind the yellow line)",
+    "person #3: outside Yellow zone (walkway behind the yellow line)",
+    "person #5: outside Yellow zone (walkway behind the yellow line)"
+   ],
+   "hits": []
+  },
+  {
+   "s": 20,
+   "truth": ".",
+   "state": {
+    "phase": "idle",
+    "min_s": 1.0
+   },
+   "measured": [
+    "person #0: outside Yellow zone (walkway behind the yellow line)",
+    "person #2: outside Yellow zone (walkway behind the yellow line)",
+    "person #3: outside Yellow zone (walkway behind the yellow line)",
+    "person #5: outside Yellow zone (walkway behind the yellow line)"
+   ],
+   "hits": []
+  },
+  {
+   "s": 21,
+   "truth": ".",
+   "state": {
+    "phase": "idle",
+    "min_s": 1.0
+   },
+   "measured": [
+    "person #0: outside Yellow zone (walkway behind the yellow line)",
+    "person #2: outside Yellow zone (walkway behind the yellow line)",
+    "person #3: outside Yellow zone (walkway behind the yellow line)",
+    "person #5: outside Yellow zone (walkway behind the yellow line)"
+   ],
+   "hits": []
+  },
+  {
+   "s": 22,
+   "truth": ".",
+   "state": {
+    "phase": "idle",
+    "min_s": 1.0
+   },
+   "measured": [
+    "person #0: outside Yellow zone (walkway behind the yellow line)",
+    "person #2: outside Yellow zone (walkway behind the yellow line)",
+    "person #3: outside Yellow zone (walkway behind the yellow line)",
+    "person #5: outside Yellow zone (walkway behind the yellow line)"
+   ],
+   "hits": []
+  },
+  {
+   "s": 23,
+   "truth": ".",
+   "state": {
+    "phase": "idle",
+    "min_s": 1.0
+   },
+   "measured": [
+    "person #0: outside Yellow zone (walkway behind the yellow line)",
+    "person #2: outside Yellow zone (walkway behind the yellow line)",
+    "person #3: outside Yellow zone (walkway behind the yellow line)",
+    "person #5: outside Yellow zone (walkway behind the yellow line)"
+   ],
+   "hits": []
+  },
+  {
+   "s": 24,
+   "truth": ".",
+   "state": {
+    "phase": "idle",
+    "min_s": 1.0
+   },
+   "measured": [
+    "person #0: outside Yellow zone (walkway behind the yellow line)",
+    "person #2: outside Yellow zone (walkway behind the yellow line)",
+    "person #3: outside Yellow zone (walkway behind the yellow line)",
+    "person #5: outside Yellow zone (walkway behind the yellow line)"
+   ],
+   "hits": []
+  }
+ ]
+}

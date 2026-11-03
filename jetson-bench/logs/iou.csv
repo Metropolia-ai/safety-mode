@@ -1,0 +1,31 @@
+clip,prompt,model,ref,frames,ref_found_frames,misses,extra,iou_union_mean,iou_union_hit,ref_instances,iou_instance_mean
+pexels-15170997-warehouse-team,person,efficientsam3-rv-m,sam3.1-fp32,10,10,0,0,0.789,0.789,33,0.614
+pexels-15170997-warehouse-team,person,efficientsam3-tv-m,sam3.1-fp32,10,10,0,0,0.719,0.719,33,0.56
+pexels-15170997-warehouse-team,person,efficientsam3-ev-m,sam3.1-fp32,10,10,1,0,0.594,0.66,33,0.484
+pexels-15170997-warehouse-team,person,embedl-sam3-int8,sam3.1-fp32,10,10,0,0,0.953,0.953,33,0.941
+pexels-15170997-warehouse-team,person,sam3.1-bf16,sam3.1-fp32,10,10,0,0,0.999,0.999,33,0.999
+pexels-15170997-warehouse-team,high-visibility vest,efficientsam3-rv-m,sam3.1-fp32,10,10,6,0,0.219,0.548,17,0.142
+pexels-15170997-warehouse-team,high-visibility vest,efficientsam3-tv-m,sam3.1-fp32,10,10,10,0,0.0,,17,0.0
+pexels-15170997-warehouse-team,high-visibility vest,efficientsam3-ev-m,sam3.1-fp32,10,10,9,0,0.05,0.5,17,0.04
+pexels-15170997-warehouse-team,high-visibility vest,embedl-sam3-int8,sam3.1-fp32,10,10,1,0,0.794,0.882,17,0.857
+pexels-15170997-warehouse-team,high-visibility vest,sam3.1-bf16,sam3.1-fp32,10,10,0,0,0.998,0.998,17,0.997
+pexels-6079421-forklift-busy-warehouse,person,efficientsam3-rv-m,sam3.1-fp32,10,10,5,0,0.266,0.532,24,0.126
+pexels-6079421-forklift-busy-warehouse,person,efficientsam3-tv-m,sam3.1-fp32,10,10,4,0,0.319,0.531,24,0.154
+pexels-6079421-forklift-busy-warehouse,person,efficientsam3-ev-m,sam3.1-fp32,10,10,10,0,0.0,,24,0.0
+pexels-6079421-forklift-busy-warehouse,person,embedl-sam3-int8,sam3.1-fp32,10,10,0,0,0.84,0.84,24,0.837
+pexels-6079421-forklift-busy-warehouse,person,sam3.1-bf16,sam3.1-fp32,10,10,0,0,0.997,0.997,24,0.996
+pexels-6079421-forklift-busy-warehouse,high-visibility vest,efficientsam3-rv-m,sam3.1-fp32,10,0,0,0,,,0,
+pexels-6079421-forklift-busy-warehouse,high-visibility vest,efficientsam3-tv-m,sam3.1-fp32,10,0,0,0,,,0,
+pexels-6079421-forklift-busy-warehouse,high-visibility vest,efficientsam3-ev-m,sam3.1-fp32,10,0,0,0,,,0,
+pexels-6079421-forklift-busy-warehouse,high-visibility vest,embedl-sam3-int8,sam3.1-fp32,10,0,0,0,,,0,
+pexels-6079421-forklift-busy-warehouse,high-visibility vest,sam3.1-bf16,sam3.1-fp32,10,0,0,0,,,0,
+pexels-32243653-forklift-operator,person,efficientsam3-rv-m,sam3.1-fp32,10,9,4,0,0.359,0.647,10,0.338
+pexels-32243653-forklift-operator,person,efficientsam3-tv-m,sam3.1-fp32,10,9,2,0,0.441,0.568,10,0.402
+pexels-32243653-forklift-operator,person,efficientsam3-ev-m,sam3.1-fp32,10,9,5,0,0.29,0.652,10,0.266
+pexels-32243653-forklift-operator,person,embedl-sam3-int8,sam3.1-fp32,10,9,0,1,0.896,0.896,10,0.899
+pexels-32243653-forklift-operator,person,sam3.1-bf16,sam3.1-fp32,10,9,0,0,0.995,0.995,10,0.996
+pexels-32243653-forklift-operator,high-visibility vest,efficientsam3-rv-m,sam3.1-fp32,10,0,0,0,,,0,
+pexels-32243653-forklift-operator,high-visibility vest,efficientsam3-tv-m,sam3.1-fp32,10,0,0,0,,,0,
+pexels-32243653-forklift-operator,high-visibility vest,efficientsam3-ev-m,sam3.1-fp32,10,0,0,0,,,0,
+pexels-32243653-forklift-operator,high-visibility vest,embedl-sam3-int8,sam3.1-fp32,10,0,0,0,,,0,
+pexels-32243653-forklift-operator,high-visibility vest,sam3.1-bf16,sam3.1-fp32,10,0,0,0,,,0,

@@ -1,0 +1,23 @@
+{
+  "clip": "pexels-32243653-forklift-operator",
+  "model": "sam-3.1",
+  "fps": 1,
+  "frame_size": [1280, 720],
+  "source": "Meta Model API, image mode, one request per frame and prompt, long side <= 1280 px, mask_encoding=one_bit, include_confidence=true; masks dropped",
+  "box_units": "pixels of frames/<clip>/NNN.jpg, [x1, y1, x2, y2], x2/y2 exclusive",
+  "updated": "2026-10-27",
+  "prompts": ["forklift", "hard hat", "high-visibility vest", "person", "safety vest"],
+  "ids": "none: image mode numbers objects inside one frame only, so there are no track ids (see <clip>.video.json)",
+  "frames": {
+    "001": {"forklift": [], "hard hat": [{"box": [562.0, 179.0, 783.0, 307.0], "score": 0.754}], "high-visibility vest": [], "person": [{"box": [0.0, 512.0, 69.0, 720.0], "score": 0.902}, {"box": [231.0, 179.0, 872.0, 720.0], "score": 0.961}], "safety vest": []},
+    "002": {"forklift": [{"box": [0.0, 0.0, 1044.0, 720.0], "score": 0.762}], "hard hat": [{"box": [575.0, 558.0, 629.0, 682.0], "score": 0.519}, {"box": [627.0, 234.0, 719.0, 333.0], "score": 0.844}], "high-visibility vest": [], "person": [{"box": [355.0, 235.0, 781.0, 720.0], "score": 0.965}], "safety vest": []},
+    "003": {"forklift": [{"box": [0.0, 0.0, 971.0, 720.0], "score": 0.875}], "hard hat": [{"box": [592.0, 265.0, 692.0, 345.0], "score": 0.895}], "high-visibility vest": [], "person": [{"box": [528.0, 265.0, 777.0, 680.0], "score": 0.906}], "safety vest": []},
+    "004": {"forklift": [{"box": [0.0, 0.0, 1080.0, 720.0], "score": 0.64}], "hard hat": [{"box": [729.0, 239.0, 821.0, 302.0], "score": 0.844}], "high-visibility vest": [], "person": [{"box": [583.0, 239.0, 879.0, 545.0], "score": 0.801}], "safety vest": []},
+    "005": {"forklift": [{"box": [433.0, 0.0, 1052.0, 720.0], "score": 0.71}], "hard hat": [{"box": [775.0, 248.0, 847.0, 296.0], "score": 0.852}], "high-visibility vest": [], "person": [{"box": [668.0, 248.0, 859.0, 506.0], "score": 0.797}], "safety vest": []},
+    "006": {"forklift": [{"box": [490.0, 0.0, 1007.0, 720.0], "score": 0.746}], "hard hat": [{"box": [781.0, 229.0, 810.0, 282.0], "score": 0.719}], "high-visibility vest": [], "person": [{"box": [778.0, 229.0, 851.0, 450.0], "score": 0.902}], "safety vest": []},
+    "007": {"forklift": [{"box": [596.0, 0.0, 1026.0, 720.0], "score": 0.793}], "hard hat": [{"box": [846.0, 231.0, 868.0, 265.0], "score": 0.691}], "high-visibility vest": [], "person": [{"box": [843.0, 232.0, 903.0, 417.0], "score": 0.808}], "safety vest": []},
+    "008": {"forklift": [{"box": [643.0, 0.0, 977.0, 592.0], "score": 0.691}], "hard hat": [], "high-visibility vest": [], "person": [{"box": [775.0, 252.0, 893.0, 344.0], "score": 0.504}], "safety vest": []},
+    "009": {"forklift": [], "hard hat": [{"box": [772.0, 209.0, 785.0, 236.0], "score": 0.621}], "high-visibility vest": [], "person": [{"box": [733.0, 210.0, 840.0, 341.0], "score": 0.773}], "safety vest": []},
+    "010": {"forklift": [], "hard hat": [{"box": [751.0, 221.0, 777.0, 248.0], "score": 0.762}], "high-visibility vest": [], "person": [{"box": [716.0, 221.0, 777.0, 327.0], "score": 0.668}], "safety vest": []}
+  }
+}

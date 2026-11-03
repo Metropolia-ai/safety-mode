@@ -1,0 +1,369 @@
+{
+ "clip": "busy-warehouse",
+ "rule": "r11",
+ "events": [
+  {
+   "start_s": 1.0,
+   "end_s": 3.0,
+   "condition_since_s": 0.0,
+   "subject": "forklift #0"
+  }
+ ],
+ "timeline": "TTTT.....................",
+ "seconds": [
+  {
+   "s": 0,
+   "truth": "T",
+   "state": {
+    "phase": "candidate",
+    "since_s": 0.0,
+    "held_s": 1.0,
+    "min_s": 2.0
+   },
+   "measured": [
+    "forklift #0: in Area in front of the loading door"
+   ],
+   "hits": [
+    {
+     "name": "forklift",
+     "box": [
+      0.5219,
+      0.3736,
+      0.6492,
+      0.6736
+     ],
+     "id": 0
+    }
+   ]
+  },
+  {
+   "s": 1,
+   "truth": "T",
+   "state": {
+    "phase": "alert",
+    "since_s": 0.0,
+    "start_s": 1.0,
+    "min_s": 2.0
+   },
+   "measured": [
+    "forklift #0: in Area in front of the loading door"
+   ],
+   "hits": [
+    {
+     "name": "forklift",
+     "box": [
+      0.5305,
+      0.3681,
+      0.668,
+      0.6847
+     ],
+     "id": 0
+    }
+   ]
+  },
+  {
+   "s": 2,
+   "truth": "T",
+   "state": {
+    "phase": "alert",
+    "since_s": 0.0,
+    "start_s": 1.0,
+    "min_s": 2.0
+   },
+   "measured": [
+    "forklift #0: in Area in front of the loading door"
+   ],
+   "hits": [
+    {
+     "name": "forklift",
+     "box": [
+      0.5383,
+      0.3681,
+      0.6852,
+      0.7028
+     ],
+     "id": 0
+    }
+   ]
+  },
+  {
+   "s": 3,
+   "truth": "T",
+   "state": {
+    "phase": "alert",
+    "since_s": 0.0,
+    "start_s": 1.0,
+    "min_s": 2.0
+   },
+   "measured": [
+    "forklift #0: in Area in front of the loading door"
+   ],
+   "hits": [
+    {
+     "name": "forklift",
+     "box": [
+      0.5422,
+      0.3667,
+      0.7008,
+      0.7222
+     ],
+     "id": 0
+    }
+   ]
+  },
+  {
+   "s": 4,
+   "truth": ".",
+   "state": {
+    "phase": "alert",
+    "since_s": 0.0,
+    "start_s": 1.0,
+    "min_s": 2.0
+   },
+   "measured": [
+    "forklift #0: outside Area in front of the loading door"
+   ],
+   "hits": []
+  },
+  {
+   "s": 5,
+   "truth": ".",
+   "state": {
+    "phase": "idle",
+    "min_s": 2.0
+   },
+   "measured": [
+    "forklift #0: outside Area in front of the loading door"
+   ],
+   "hits": []
+  },
+  {
+   "s": 6,
+   "truth": ".",
+   "state": {
+    "phase": "idle",
+    "min_s": 2.0
+   },
+   "measured": [
+    "forklift #0: outside Area in front of the loading door"
+   ],
+   "hits": []
+  },
+  {
+   "s": 7,
+   "truth": ".",
+   "state": {
+    "phase": "idle",
+    "min_s": 2.0
+   },
+   "measured": [
+    "forklift #0: outside Area in front of the loading door"
+   ],
+   "hits": []
+  },
+  {
+   "s": 8,
+   "truth": ".",
+   "state": {
+    "phase": "idle",
+    "min_s": 2.0
+   },
+   "measured": [
+    "forklift #0: outside Area in front of the loading door"
+   ],
+   "hits": []
+  },
+  {
+   "s": 9,
+   "truth": ".",
+   "state": {
+    "phase": "idle",
+    "min_s": 2.0
+   },
+   "measured": [
+    "forklift #0: outside Area in front of the loading door"
+   ],
+   "hits": []
+  },
+  {
+   "s": 10,
+   "truth": ".",
+   "state": {
+    "phase": "idle",
+    "min_s": 2.0
+   },
+   "measured": [
+    "forklift #0: outside Area in front of the loading door"
+   ],
+   "hits": []
+  },
+  {
+   "s": 11,
+   "truth": ".",
+   "state": {
+    "phase": "idle",
+    "min_s": 2.0
+   },
+   "measured": [
+    "forklift #0: outside Area in front of the loading door"
+   ],
+   "hits": []
+  },
+  {
+   "s": 12,
+   "truth": ".",
+   "state": {
+    "phase": "idle",
+    "min_s": 2.0
+   },
+   "measured": [
+    "forklift #0: outside Area in front of the loading door"
+   ],
+   "hits": []
+  },
+  {
+   "s": 13,
+   "truth": ".",
+   "state": {
+    "phase": "idle",
+    "min_s": 2.0
+   },
+   "measured": [
+    "forklift #0: outside Area in front of the loading door"
+   ],
+   "hits": []
+  },
+  {
+   "s": 14,
+   "truth": ".",
+   "state": {
+    "phase": "idle",
+    "min_s": 2.0
+   },
+   "measured": [
+    "forklift #0: outside Area in front of the loading door"
+   ],
+   "hits": []
+  },
+  {
+   "s": 15,
+   "truth": ".",
+   "state": {
+    "phase": "idle",
+    "min_s": 2.0
+   },
+   "measured": [
+    "forklift #0: outside Area in front of the loading door"
+   ],
+   "hits": []
+  },
+  {
+   "s": 16,
+   "truth": ".",
+   "state": {
+    "phase": "idle",
+    "min_s": 2.0
+   },
+   "measured": [
+    "forklift #0: outside Area in front of the loading door"
+   ],
+   "hits": []
+  },
+  {
+   "s": 17,
+   "truth": ".",
+   "state": {
+    "phase": "idle",
+    "min_s": 2.0
+   },
+   "measured": [
+    "forklift #0: outside Area in front of the loading door"
+   ],
+   "hits": []
+  },
+  {
+   "s": 18,
+   "truth": ".",
+   "state": {
+    "phase": "idle",
+    "min_s": 2.0
+   },
+   "measured": [
+    "forklift #0: outside Area in front of the loading door"
+   ],
+   "hits": []
+  },
+  {
+   "s": 19,
+   "truth": ".",
+   "state": {
+    "phase": "idle",
+    "min_s": 2.0
+   },
+   "measured": [
+    "forklift #0: outside Area in front of the loading door"
+   ],
+   "hits": []
+  },
+  {
+   "s": 20,
+   "truth": ".",
+   "state": {
+    "phase": "idle",
+    "min_s": 2.0
+   },
+   "measured": [
+    "forklift #0: outside Area in front of the loading door"
+   ],
+   "hits": []
+  },
+  {
+   "s": 21,
+   "truth": ".",
+   "state": {
+    "phase": "idle",
+    "min_s": 2.0
+   },
+   "measured": [
+    "forklift #0: outside Area in front of the loading door"
+   ],
+   "hits": []
+  },
+  {
+   "s": 22,
+   "truth": ".",
+   "state": {
+    "phase": "idle",
+    "min_s": 2.0
+   },
+   "measured": [
+    "forklift #0: outside Area in front of the loading door"
+   ],
+   "hits": []
+  },
+  {
+   "s": 23,
+   "truth": ".",
+   "state": {
+    "phase": "idle",
+    "min_s": 2.0
+   },
+   "measured": [
+    "forklift #0: outside Area in front of the loading door"
+   ],
+   "hits": []
+  },
+  {
+   "s": 24,
+   "truth": ".",
+   "state": {
+    "phase": "idle",
+    "min_s": 2.0
+   },
+   "measured": [
+    "forklift #0: outside Area in front of the loading door"
+   ],
+   "hits": []
+  }
+ ]
+}

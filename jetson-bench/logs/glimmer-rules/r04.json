@@ -1,0 +1,21 @@
+{
+  "rule_id": "r4",
+  "title": "No standing under lifted load",
+  "objects": [
+    {
+      "name": "person",
+      "prompt": "person"
+    },
+    {
+      "name": "load",
+      "prompt": "load"
+    }
+  ],
+  "zones": [],
+  "condition": null,
+  "min_duration_s": 1,
+  "severity": "high",
+  "explanation_template": "Person standing under lifted load detected at {time} for {duration_s}s",
+  "unsupported": "The rule requires detecting a person vertically under a raised/suspended load. The primitives can only measure floor distance with distance_lt and the lowest point height with height_above_floor; they cannot express a true vertical 'under' relation or the height of the top of a load. Therefore the exact condition cannot be expressed.",
+  "suggested_rewrite": "Draw a zone if needed and monitor approximate risk: person within 2 m on the floor of a load whose lowest point is more than 1.5 m above the floor. This approximates 'under a lifted load' but changes the meaning."
+}

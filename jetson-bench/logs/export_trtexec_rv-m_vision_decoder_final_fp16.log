@@ -1,0 +1,227 @@
+# 2026-10-21T06:56:16-04:00
+$ /usr/src/tensorrt/bin/trtexec --onnx=/mnt/data/work/export/efficientsam3-rv-m/open_vocab/vision_decoder_noif_pfb.onnx --shapes=pixel_values:1x3x1008x1008\,language_features:16x1x256\,language_mask:1x16 --saveEngine=/mnt/data/work/export/efficientsam3-rv-m/trt/rv-m_vision_decoder_final_fp16.plan --timingCacheFile=/mnt/data/work/export/efficientsam3-rv-m/trt/timing.cache --exportLayerInfo=/mnt/data/work/export/efficientsam3-rv-m/trt/rv-m_vision_decoder_final_fp16.layers.json --profilingVerbosity=detailed --separateProfileRun --fp16 
+
+&&&& RUNNING TensorRT.trtexec [TensorRT v100300] # /usr/src/tensorrt/bin/trtexec --onnx=/mnt/data/work/export/efficientsam3-rv-m/open_vocab/vision_decoder_noif_pfb.onnx --shapes=pixel_values:1x3x1008x1008,language_features:16x1x256,language_mask:1x16 --saveEngine=/mnt/data/work/export/efficientsam3-rv-m/trt/rv-m_vision_decoder_final_fp16.plan --timingCacheFile=/mnt/data/work/export/efficientsam3-rv-m/trt/timing.cache --exportLayerInfo=/mnt/data/work/export/efficientsam3-rv-m/trt/rv-m_vision_decoder_final_fp16.layers.json --profilingVerbosity=detailed --separateProfileRun --fp16
+[10/21/2026-06:56:16] [I] === Model Options ===
+[10/21/2026-06:56:16] [I] Format: ONNX
+[10/21/2026-06:56:16] [I] Model: /mnt/data/work/export/efficientsam3-rv-m/open_vocab/vision_decoder_noif_pfb.onnx
+[10/21/2026-06:56:16] [I] Output:
+[10/21/2026-06:56:16] [I] === Build Options ===
+[10/21/2026-06:56:16] [I] Memory Pools: workspace: default, dlaSRAM: default, dlaLocalDRAM: default, dlaGlobalDRAM: default, tacticSharedMem: default
+[10/21/2026-06:56:16] [I] avgTiming: 8
+[10/21/2026-06:56:16] [I] Precision: FP32+FP16
+[10/21/2026-06:56:16] [I] LayerPrecisions: 
+[10/21/2026-06:56:16] [I] Layer Device Types: 
+[10/21/2026-06:56:16] [I] Calibration: 
+[10/21/2026-06:56:16] [I] Refit: Disabled
+[10/21/2026-06:56:16] [I] Strip weights: Disabled
+[10/21/2026-06:56:16] [I] Version Compatible: Disabled
+[10/21/2026-06:56:16] [I] ONNX Plugin InstanceNorm: Disabled
+[10/21/2026-06:56:16] [I] TensorRT runtime: full
+[10/21/2026-06:56:16] [I] Lean DLL Path: 
+[10/21/2026-06:56:16] [I] Tempfile Controls: { in_memory: allow, temporary: allow }
+[10/21/2026-06:56:16] [I] Exclude Lean Runtime: Disabled
+[10/21/2026-06:56:16] [I] Sparsity: Disabled
+[10/21/2026-06:56:16] [I] Safe mode: Disabled
+[10/21/2026-06:56:16] [I] Build DLA standalone loadable: Disabled
+[10/21/2026-06:56:16] [I] Allow GPU fallback for DLA: Disabled
+[10/21/2026-06:56:16] [I] DirectIO mode: Disabled
+[10/21/2026-06:56:16] [I] Restricted mode: Disabled
+[10/21/2026-06:56:16] [I] Skip inference: Disabled
+[10/21/2026-06:56:16] [I] Save engine: /mnt/data/work/export/efficientsam3-rv-m/trt/rv-m_vision_decoder_final_fp16.plan
+[10/21/2026-06:56:16] [I] Load engine: 
+[10/21/2026-06:56:16] [I] Profiling verbosity: 2
+[10/21/2026-06:56:16] [I] Tactic sources: Using default tactic sources
+[10/21/2026-06:56:16] [I] timingCacheMode: global
+[10/21/2026-06:56:16] [I] timingCacheFile: /mnt/data/work/export/efficientsam3-rv-m/trt/timing.cache
+[10/21/2026-06:56:16] [I] Enable Compilation Cache: Enabled
+[10/21/2026-06:56:16] [I] errorOnTimingCacheMiss: Disabled
+[10/21/2026-06:56:16] [I] Preview Features: Use default preview flags.
+[10/21/2026-06:56:16] [I] MaxAuxStreams: -1
+[10/21/2026-06:56:16] [I] BuilderOptimizationLevel: -1
+[10/21/2026-06:56:16] [I] Calibration Profile Index: 0
+[10/21/2026-06:56:16] [I] Weight Streaming: Disabled
+[10/21/2026-06:56:16] [I] Runtime Platform: Same As Build
+[10/21/2026-06:56:16] [I] Debug Tensors: 
+[10/21/2026-06:56:16] [I] Input(s)s format: fp32:CHW
+[10/21/2026-06:56:16] [I] Output(s)s format: fp32:CHW
+[10/21/2026-06:56:16] [I] Input build shape (profile 0): pixel_values=1x3x1008x1008+1x3x1008x1008+1x3x1008x1008
+[10/21/2026-06:56:16] [I] Input build shape (profile 0): language_features=16x1x256+16x1x256+16x1x256
+[10/21/2026-06:56:16] [I] Input build shape (profile 0): language_mask=1x16+1x16+1x16
+[10/21/2026-06:56:16] [I] Input calibration shapes: model
+[10/21/2026-06:56:16] [I] === System Options ===
+[10/21/2026-06:56:16] [I] Device: 0
+[10/21/2026-06:56:16] [I] DLACore: 
+[10/21/2026-06:56:16] [I] Plugins:
+[10/21/2026-06:56:16] [I] setPluginsToSerialize:
+[10/21/2026-06:56:16] [I] dynamicPlugins:
+[10/21/2026-06:56:16] [I] ignoreParsedPluginLibs: 0
+[10/21/2026-06:56:16] [I] 
+[10/21/2026-06:56:16] [I] === Inference Options ===
+[10/21/2026-06:56:16] [I] Batch: Explicit
+[10/21/2026-06:56:16] [I] Input inference shape : language_mask=1x16
+[10/21/2026-06:56:16] [I] Input inference shape : language_features=16x1x256
+[10/21/2026-06:56:16] [I] Input inference shape : pixel_values=1x3x1008x1008
+[10/21/2026-06:56:16] [I] Iterations: 10
+[10/21/2026-06:56:16] [I] Duration: 3s (+ 200ms warm up)
+[10/21/2026-06:56:16] [I] Sleep time: 0ms
+[10/21/2026-06:56:16] [I] Idle time: 0ms
+[10/21/2026-06:56:16] [I] Inference Streams: 1
+[10/21/2026-06:56:16] [I] ExposeDMA: Disabled
+[10/21/2026-06:56:16] [I] Data transfers: Enabled
+[10/21/2026-06:56:16] [I] Spin-wait: Disabled
+[10/21/2026-06:56:16] [I] Multithreading: Disabled
+[10/21/2026-06:56:16] [I] CUDA Graph: Disabled
+[10/21/2026-06:56:16] [I] Separate profiling: Enabled
+[10/21/2026-06:56:16] [I] Time Deserialize: Disabled
+[10/21/2026-06:56:16] [I] Time Refit: Disabled
+[10/21/2026-06:56:16] [I] NVTX verbosity: 2
+[10/21/2026-06:56:16] [I] Persistent Cache Ratio: 0
+[10/21/2026-06:56:16] [I] Optimization Profile Index: 0
+[10/21/2026-06:56:16] [I] Weight Streaming Budget: 100.000000%
+[10/21/2026-06:56:16] [I] Inputs:
+[10/21/2026-06:56:16] [I] Debug Tensor Save Destinations:
+[10/21/2026-06:56:16] [I] === Reporting Options ===
+[10/21/2026-06:56:16] [I] Verbose: Disabled
+[10/21/2026-06:56:16] [I] Averages: 10 inferences
+[10/21/2026-06:56:16] [I] Percentiles: 90,95,99
+[10/21/2026-06:56:16] [I] Dump refittable layers:Disabled
+[10/21/2026-06:56:16] [I] Dump output: Disabled
+[10/21/2026-06:56:16] [I] Profile: Disabled
+[10/21/2026-06:56:16] [I] Export timing to JSON file: 
+[10/21/2026-06:56:16] [I] Export output to JSON file: 
+[10/21/2026-06:56:16] [I] Export profile to JSON file: 
+[10/21/2026-06:56:16] [I] 
+[10/21/2026-06:56:16] [I] === Device Information ===
+[10/21/2026-06:56:16] [I] Available Devices: 
+[10/21/2026-06:56:16] [I]   Device 0: "Orin" UUID: GPU-0badbdc3-0493-5594-940d-c37016327c07
+[10/21/2026-06:56:16] [I] Selected Device: Orin
+[10/21/2026-06:56:16] [I] Selected Device ID: 0
+[10/21/2026-06:56:16] [I] Selected Device UUID: GPU-0badbdc3-0493-5594-940d-c37016327c07
+[10/21/2026-06:56:16] [I] Compute Capability: 8.7
+[10/21/2026-06:56:16] [I] SMs: 16
+[10/21/2026-06:56:16] [I] Device Global Memory: 62840 MiB
+[10/21/2026-06:56:16] [I] Shared Memory per SM: 164 KiB
+[10/21/2026-06:56:16] [I] Memory Bus Width: 256 bits (ECC disabled)
+[10/21/2026-06:56:16] [I] Application Compute Clock Rate: 1.3 GHz
+[10/21/2026-06:56:16] [I] Application Memory Clock Rate: 1.3 GHz
+[10/21/2026-06:56:16] [I] 
+[10/21/2026-06:56:16] [I] Note: The application clock rates do not reflect the actual clock rates that the GPU is currently running at.
+[10/21/2026-06:56:16] [I] 
+[10/21/2026-06:56:16] [I] TensorRT version: 10.3.0
+[10/21/2026-06:56:16] [I] Loading standard plugins
+[10/21/2026-06:56:17] [I] [TRT] [MemUsageChange] Init CUDA: CPU +2, GPU +0, now: CPU 31, GPU 8567 (MiB)
+[10/21/2026-06:56:18] [I] [TRT] [MemUsageChange] Init builder kernel library: CPU +928, GPU +751, now: CPU 1002, GPU 9363 (MiB)
+[10/21/2026-06:56:18] [I] Start parsing network model.
+[10/21/2026-06:56:18] [I] [TRT] ----------------------------------------------------------------
+[10/21/2026-06:56:18] [I] [TRT] Input filename:   /mnt/data/work/export/efficientsam3-rv-m/open_vocab/vision_decoder_noif_pfb.onnx
+[10/21/2026-06:56:18] [I] [TRT] ONNX IR version:  0.0.8
+[10/21/2026-06:56:18] [I] [TRT] Opset version:    17
+[10/21/2026-06:56:18] [I] [TRT] Producer name:    pytorch
+[10/21/2026-06:56:18] [I] [TRT] Producer version: 2.8.0
+[10/21/2026-06:56:18] [I] [TRT] Domain:           
+[10/21/2026-06:56:18] [I] [TRT] Model version:    0
+[10/21/2026-06:56:18] [I] [TRT] Doc string:       
+[10/21/2026-06:56:18] [I] [TRT] ----------------------------------------------------------------
+[10/21/2026-06:56:19] [I] Finished parsing network model. Parse time: 0.726047
+[10/21/2026-06:56:19] [I] Set shape of input tensor pixel_values for optimization profile 0 to: MIN=1x3x1008x1008 OPT=1x3x1008x1008 MAX=1x3x1008x1008
+[10/21/2026-06:56:19] [I] Set shape of input tensor language_features for optimization profile 0 to: MIN=16x1x256 OPT=16x1x256 MAX=16x1x256
+[10/21/2026-06:56:19] [I] Set shape of input tensor language_mask for optimization profile 0 to: MIN=1x16 OPT=1x16 MAX=1x16
+[10/21/2026-06:56:19] [I] [TRT] Loaded 5443190 bytes of timing cache from /mnt/data/work/export/efficientsam3-rv-m/trt/timing.cache
+[10/21/2026-06:56:20] [I] [TRT] Global timing cache in use. Profiling results in this builder pass will be stored.
+[10/21/2026-06:59:10] [I] [TRT] Detected 3 inputs and 37 output network tensors.
+[10/21/2026-06:59:19] [I] [TRT] Total Host Persistent Memory: 745744
+[10/21/2026-06:59:19] [I] [TRT] Total Device Persistent Memory: 9216
+[10/21/2026-06:59:19] [I] [TRT] Total Scratch Memory: 82563072
+[10/21/2026-06:59:19] [I] [TRT] [BlockAssignment] Started assigning block shifts. This will take 255 steps to complete.
+[10/21/2026-06:59:19] [I] [TRT] [BlockAssignment] Algorithm ShiftNTopDown took 8.43409ms to assign 5 blocks to 255 nodes requiring 106949632 bytes.
+[10/21/2026-06:59:19] [I] [TRT] Total Activation Memory: 106949120
+[10/21/2026-06:59:19] [I] [TRT] Total Weights Memory: 91621504
+[10/21/2026-06:59:19] [I] [TRT] Engine generation completed in 179.236 seconds.
+[10/21/2026-06:59:19] [I] [TRT] [MemUsageStats] Peak memory usage of TRT CPU/GPU memory allocators: CPU 51 MiB, GPU 248 MiB
+[10/21/2026-06:59:19] [I] [TRT] [MemUsageStats] Peak memory usage during Engine building and serialization: CPU: 2758 MiB
+[10/21/2026-06:59:19] [I] Engine built in 180.454 sec.
+[10/21/2026-06:59:19] [I] Created engine with size: 92.0821 MiB
+[10/21/2026-06:59:19] [I] [TRT] Loaded 5443190 bytes of timing cache from /mnt/data/work/export/efficientsam3-rv-m/trt/timing.cache
+[10/21/2026-06:59:20] [I] [TRT] Serialized 20765 bytes of code generator cache.
+[10/21/2026-06:59:20] [I] [TRT] Serialized 5069485 bytes of compilation cache.
+[10/21/2026-06:59:20] [I] [TRT] Serialized 5075 timing cache entries
+[10/21/2026-06:59:20] [I] [TRT] Saved 5618222 bytes of timing cache to /mnt/data/work/export/efficientsam3-rv-m/trt/timing.cache
+[10/21/2026-06:59:21] [I] [TRT] Loaded engine size: 92 MiB
+[10/21/2026-06:59:21] [I] Engine deserialized in 0.0717348 sec.
+[10/21/2026-06:59:21] [I] [TRT] [MemUsageChange] TensorRT-managed allocation in IExecutionContext creation: CPU +1, GPU +102, now: CPU 1, GPU 189 (MiB)
+[10/21/2026-06:59:21] [I] Setting persistentCacheLimit to 0 bytes.
+[10/21/2026-06:59:21] [I] Created execution context with device memory size: 101.995 MiB
+[10/21/2026-06:59:21] [I] Using random values for input pixel_values
+[10/21/2026-06:59:21] [I] Input binding for pixel_values with dimensions 1x3x1008x1008 is created.
+[10/21/2026-06:59:21] [I] Using random values for input language_features
+[10/21/2026-06:59:21] [I] Input binding for language_features with dimensions 16x1x256 is created.
+[10/21/2026-06:59:21] [I] Using random values for input language_mask
+[10/21/2026-06:59:21] [I] Input binding for language_mask with dimensions 1x16 is created.
+[10/21/2026-06:59:21] [I] Output binding for detections with dimensions 1x200x5 is created.
+[10/21/2026-06:59:21] [I] Output binding for /decoder/presence_token_out_norm/LayerNormalization_output_0 with dimensions 1x1x256 is created.
+[10/21/2026-06:59:21] [I] Output binding for /decoder/presence_token_head/layers.0/Add_output_0 with dimensions 1x1x256 is created.
+[10/21/2026-06:59:21] [I] Output binding for /decoder/presence_token_head/Relu_output_0 with dimensions 1x1x256 is created.
+[10/21/2026-06:59:21] [I] Output binding for /decoder/presence_token_head/layers.1/Add_output_0 with dimensions 1x1x256 is created.
+[10/21/2026-06:59:21] [I] Output binding for /decoder/presence_token_head/Relu_1_output_0 with dimensions 1x1x256 is created.
+[10/21/2026-06:59:21] [I] Output binding for /decoder/presence_token_head/layers.2/Add_output_0 with dimensions 1x1x1 is created.
+[10/21/2026-06:59:21] [I] Output binding for /decoder/presence_token_out_norm_1/LayerNormalization_output_0 with dimensions 1x1x256 is created.
+[10/21/2026-06:59:21] [I] Output binding for /decoder/presence_token_head/layers.0_1/Add_output_0 with dimensions 1x1x256 is created.
+[10/21/2026-06:59:21] [I] Output binding for /decoder/presence_token_head_1/Relu_output_0 with dimensions 1x1x256 is created.
+[10/21/2026-06:59:21] [I] Output binding for /decoder/presence_token_head/layers.1_1/Add_output_0 with dimensions 1x1x256 is created.
+[10/21/2026-06:59:21] [I] Output binding for /decoder/presence_token_head_1/Relu_1_output_0 with dimensions 1x1x256 is created.
+[10/21/2026-06:59:21] [I] Output binding for /decoder/presence_token_head/layers.2_1/Add_output_0 with dimensions 1x1x1 is created.
+[10/21/2026-06:59:21] [I] Output binding for /decoder/presence_token_out_norm_2/LayerNormalization_output_0 with dimensions 1x1x256 is created.
+[10/21/2026-06:59:21] [I] Output binding for /decoder/presence_token_head/layers.0_2/Add_output_0 with dimensions 1x1x256 is created.
+[10/21/2026-06:59:21] [I] Output binding for /decoder/presence_token_head_2/Relu_output_0 with dimensions 1x1x256 is created.
+[10/21/2026-06:59:21] [I] Output binding for /decoder/presence_token_head/layers.1_2/Add_output_0 with dimensions 1x1x256 is created.
+[10/21/2026-06:59:21] [I] Output binding for /decoder/presence_token_head_2/Relu_1_output_0 with dimensions 1x1x256 is created.
+[10/21/2026-06:59:21] [I] Output binding for /decoder/presence_token_head/layers.2_2/Add_output_0 with dimensions 1x1x1 is created.
+[10/21/2026-06:59:21] [I] Output binding for /decoder/presence_token_out_norm_3/LayerNormalization_output_0 with dimensions 1x1x256 is created.
+[10/21/2026-06:59:21] [I] Output binding for /decoder/presence_token_head/layers.0_3/Add_output_0 with dimensions 1x1x256 is created.
+[10/21/2026-06:59:21] [I] Output binding for /decoder/presence_token_head_3/Relu_output_0 with dimensions 1x1x256 is created.
+[10/21/2026-06:59:21] [I] Output binding for /decoder/presence_token_head/layers.1_3/Add_output_0 with dimensions 1x1x256 is created.
+[10/21/2026-06:59:21] [I] Output binding for /decoder/presence_token_head_3/Relu_1_output_0 with dimensions 1x1x256 is created.
+[10/21/2026-06:59:21] [I] Output binding for /decoder/presence_token_head/layers.2_3/Add_output_0 with dimensions 1x1x1 is created.
+[10/21/2026-06:59:21] [I] Output binding for /decoder/presence_token_out_norm_4/LayerNormalization_output_0 with dimensions 1x1x256 is created.
+[10/21/2026-06:59:21] [I] Output binding for /decoder/presence_token_head/layers.0_4/Add_output_0 with dimensions 1x1x256 is created.
+[10/21/2026-06:59:21] [I] Output binding for /decoder/presence_token_head_4/Relu_output_0 with dimensions 1x1x256 is created.
+[10/21/2026-06:59:21] [I] Output binding for /decoder/presence_token_head/layers.1_4/Add_output_0 with dimensions 1x1x256 is created.
+[10/21/2026-06:59:21] [I] Output binding for /decoder/presence_token_head_4/Relu_1_output_0 with dimensions 1x1x256 is created.
+[10/21/2026-06:59:21] [I] Output binding for /decoder/presence_token_head/layers.2_4/Add_output_0 with dimensions 1x1x1 is created.
+[10/21/2026-06:59:21] [I] Output binding for /decoder/presence_token_out_norm_5/LayerNormalization_output_0 with dimensions 1x1x256 is created.
+[10/21/2026-06:59:21] [I] Output binding for /decoder/presence_token_head/layers.0_5/Add_output_0 with dimensions 1x1x256 is created.
+[10/21/2026-06:59:21] [I] Output binding for /decoder/presence_token_head_5/Relu_output_0 with dimensions 1x1x256 is created.
+[10/21/2026-06:59:21] [I] Output binding for /decoder/presence_token_head/layers.1_5/Add_output_0 with dimensions 1x1x256 is created.
+[10/21/2026-06:59:21] [I] Output binding for /decoder/presence_token_head_5/Relu_1_output_0 with dimensions 1x1x256 is created.
+[10/21/2026-06:59:21] [I] Output binding for /decoder/presence_token_head/layers.2_5/Add_output_0 with dimensions 1x1x1 is created.
+[10/21/2026-06:59:21] [I] Starting inference
+[10/21/2026-06:59:24] [I] Warmup completed 6 queries over 200 ms
+[10/21/2026-06:59:24] [I] Timing trace has 78 queries over 3.11157 s
+[10/21/2026-06:59:24] [I] 
+[10/21/2026-06:59:24] [I] === Trace details ===
+[10/21/2026-06:59:24] [I] Trace averages of 10 runs:
+[10/21/2026-06:59:24] [I] Average on 10 runs - GPU latency: 39.3949 ms - Host latency: 40.2354 ms (enqueue 37.6082 ms)
+[10/21/2026-06:59:24] [I] Average on 10 runs - GPU latency: 39.3898 ms - Host latency: 40.227 ms (enqueue 37.6091 ms)
+[10/21/2026-06:59:24] [I] Average on 10 runs - GPU latency: 39.3975 ms - Host latency: 40.2435 ms (enqueue 37.4942 ms)
+[10/21/2026-06:59:24] [I] Average on 10 runs - GPU latency: 39.3795 ms - Host latency: 40.2184 ms (enqueue 37.3246 ms)
+[10/21/2026-06:59:24] [I] Average on 10 runs - GPU latency: 39.3885 ms - Host latency: 40.225 ms (enqueue 37.1837 ms)
+[10/21/2026-06:59:24] [I] Average on 10 runs - GPU latency: 39.3986 ms - Host latency: 40.2406 ms (enqueue 37.6214 ms)
+[10/21/2026-06:59:24] [I] Average on 10 runs - GPU latency: 39.3809 ms - Host latency: 40.2202 ms (enqueue 37.5997 ms)
+[10/21/2026-06:59:24] [I] 
+[10/21/2026-06:59:24] [I] === Performance summary ===
+[10/21/2026-06:59:24] [I] Throughput: 25.0677 qps
+[10/21/2026-06:59:24] [I] Latency: min = 39.9619 ms, max = 40.3201 ms, mean = 40.2249 ms, median = 40.2195 ms, percentile(90%) = 40.2735 ms, percentile(95%) = 40.2991 ms, percentile(99%) = 40.3201 ms
+[10/21/2026-06:59:24] [I] Enqueue Time: min = 35.2362 ms, max = 37.7046 ms, mean = 37.5012 ms, median = 37.5986 ms, percentile(90%) = 37.6518 ms, percentile(95%) = 37.6761 ms, percentile(99%) = 37.7046 ms
+[10/21/2026-06:59:24] [I] H2D Latency: min = 0.630371 ms, max = 0.673218 ms, mean = 0.656659 ms, median = 0.659058 ms, percentile(90%) = 0.668213 ms, percentile(95%) = 0.672119 ms, percentile(99%) = 0.673218 ms
+[10/21/2026-06:59:24] [I] GPU Compute Time: min = 39.2854 ms, max = 39.4561 ms, mean = 39.3875 ms, median = 39.3839 ms, percentile(90%) = 39.4337 ms, percentile(95%) = 39.4485 ms, percentile(99%) = 39.4561 ms
+[10/21/2026-06:59:24] [I] D2H Latency: min = 0.0310059 ms, max = 0.219482 ms, mean = 0.18072 ms, median = 0.178192 ms, percentile(90%) = 0.203735 ms, percentile(95%) = 0.20874 ms, percentile(99%) = 0.219482 ms
+[10/21/2026-06:59:24] [I] Total Host Walltime: 3.11157 s
+[10/21/2026-06:59:24] [I] Total GPU Compute Time: 3.07222 s
+[10/21/2026-06:59:24] [W] * Throughput may be bound by Enqueue Time rather than GPU Compute and the GPU may be under-utilized.
+[10/21/2026-06:59:24] [W]   If not already in use, --useCudaGraph (utilize CUDA graphs where possible) may increase the throughput.
+[10/21/2026-06:59:24] [I] Explanations of the performance metrics are printed in the verbose logs.
+[10/21/2026-06:59:24] [I] 
+&&&& PASSED TensorRT.trtexec [TensorRT v100300] # /usr/src/tensorrt/bin/trtexec --onnx=/mnt/data/work/export/efficientsam3-rv-m/open_vocab/vision_decoder_noif_pfb.onnx --shapes=pixel_values:1x3x1008x1008,language_features:16x1x256,language_mask:1x16 --saveEngine=/mnt/data/work/export/efficientsam3-rv-m/trt/rv-m_vision_decoder_final_fp16.plan --timingCacheFile=/mnt/data/work/export/efficientsam3-rv-m/trt/timing.cache --exportLayerInfo=/mnt/data/work/export/efficientsam3-rv-m/trt/rv-m_vision_decoder_final_fp16.layers.json --profilingVerbosity=detailed --separateProfileRun --fp16
+exit=0 wall_s=188.437847746
+-rw-r--r-- 1 root root 96555036 Oct 21 06:59 /mnt/data/work/export/efficientsam3-rv-m/trt/rv-m_vision_decoder_final_fp16.plan

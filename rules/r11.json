@@ -1,0 +1,24 @@
+{
+  "rule_id": "r11",
+  "title": "No forklift stopped in front of the loading door",
+  "objects": [
+    {
+      "name": "forklift",
+      "prompt": "forklift"
+    }
+  ],
+  "zones": [
+    "fire_exit_zone"
+  ],
+  "condition": {
+    "in_zone": {
+      "object": "forklift",
+      "zone": "fire_exit_zone"
+    }
+  },
+  "min_duration_s": 2,
+  "severity": "medium",
+  "explanation_template": "Forklift in the area in front of the loading door for {duration_s} s, at {time}.",
+  "unsupported": null,
+  "suggested_rewrite": null
+}

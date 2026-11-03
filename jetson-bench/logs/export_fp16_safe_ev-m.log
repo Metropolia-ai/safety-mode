@@ -1,0 +1,13 @@
+$ python bench/onnx_fp16_safe_linear_att.py open_vocab/vision_decoder_noif.onnx open_vocab/vision_decoder_noif_fp16safe.onnx
+k scaled by 0.015625 in 7 LiteMLA blocks, eps -> 0.0001 in 7; saved /mnt/data/work/export/efficientsam3-ev-m/open_vocab/vision_decoder_noif_fp16safe.onnx
+$ python bench/onnx_fp16_safe_linear_att.py fixed4/efficientsam3_ev-m_fixed4_mask_noif.onnx fixed4/efficientsam3_ev-m_fixed4_mask_noif_fp16safe.onnx
+k scaled by 0.015625 in 7 LiteMLA blocks, eps -> 0.0001 in 7; saved /mnt/data/work/export/efficientsam3-ev-m/fixed4/efficientsam3_ev-m_fixed4_mask_noif_fp16safe.onnx
+# ORT CPU EP FP32: vision_decoder_noif vs vision_decoder_noif_fp16safe, frames 006/012, 4 prompts
+frame 006 [person] max|dscore|=1.73e-03 kept a/b=2/2 max|dbox| (score>0.3)=0.001px
+frame 006 [forklift] max|dscore|=2.15e-05 kept a/b=0/0 max|dbox| (score>0.3)=0.000px
+frame 006 [high-visibility vest] max|dscore|=2.88e-04 kept a/b=0/0 max|dbox| (score>0.3)=0.000px
+frame 006 [hard hat] max|dscore|=4.82e-05 kept a/b=0/0 max|dbox| (score>0.3)=0.000px
+frame 012 [person] max|dscore|=6.68e-05 kept a/b=1/1 max|dbox| (score>0.3)=0.000px
+frame 012 [forklift] max|dscore|=1.22e-05 kept a/b=0/0 max|dbox| (score>0.3)=0.000px
+frame 012 [high-visibility vest] max|dscore|=1.77e-04 kept a/b=0/0 max|dbox| (score>0.3)=0.000px
+frame 012 [hard hat] max|dscore|=1.42e-05 kept a/b=0/0 max|dbox| (score>0.3)=0.000px

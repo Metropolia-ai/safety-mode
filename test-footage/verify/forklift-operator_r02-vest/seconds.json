@@ -1,0 +1,276 @@
+{
+ "clip": "forklift-operator",
+ "rule": "r02-vest",
+ "events": [
+  {
+   "start_s": 2.0,
+   "end_s": 9.0,
+   "condition_since_s": 0.0,
+   "subject": "person #0"
+  }
+ ],
+ "timeline": "TTTTTTTTTT",
+ "seconds": [
+  {
+   "s": 0,
+   "truth": "T",
+   "state": {
+    "phase": "candidate",
+    "since_s": 0.0,
+    "held_s": 1.0,
+    "min_s": 3.0
+   },
+   "measured": [
+    "person #0: in Warehouse floor; vest 0.00 NO",
+    "person #1: in Warehouse floor; vest 0.00 NO"
+   ],
+   "hits": [
+    {
+     "name": "person",
+     "box": [
+      0.2883,
+      0.2486,
+      0.6813,
+      1.0
+     ],
+     "id": 0
+    },
+    {
+     "name": "person",
+     "box": [
+      0.0,
+      0.7042,
+      0.0547,
+      1.0
+     ],
+     "id": 1
+    }
+   ]
+  },
+  {
+   "s": 1,
+   "truth": "T",
+   "state": {
+    "phase": "candidate",
+    "since_s": 0.0,
+    "held_s": 2.0,
+    "min_s": 3.0
+   },
+   "measured": [
+    "person #0: in Warehouse floor; vest 0.00 NO"
+   ],
+   "hits": [
+    {
+     "name": "person",
+     "box": [
+      0.2781,
+      0.3278,
+      0.6102,
+      1.0
+     ],
+     "id": 0
+    }
+   ]
+  },
+  {
+   "s": 2,
+   "truth": "T",
+   "state": {
+    "phase": "alert",
+    "since_s": 0.0,
+    "start_s": 2.0,
+    "min_s": 3.0
+   },
+   "measured": [
+    "person #0: in Warehouse floor; vest 0.00 NO"
+   ],
+   "hits": [
+    {
+     "name": "person",
+     "box": [
+      0.4125,
+      0.3694,
+      0.607,
+      0.9444
+     ],
+     "id": 0
+    }
+   ]
+  },
+  {
+   "s": 3,
+   "truth": "T",
+   "state": {
+    "phase": "alert",
+    "since_s": 0.0,
+    "start_s": 2.0,
+    "min_s": 3.0
+   },
+   "measured": [
+    "person #0: in Warehouse floor; vest 0.00 NO"
+   ],
+   "hits": [
+    {
+     "name": "person",
+     "box": [
+      0.4711,
+      0.3319,
+      0.6867,
+      0.8
+     ],
+     "id": 0
+    }
+   ]
+  },
+  {
+   "s": 4,
+   "truth": "T",
+   "state": {
+    "phase": "alert",
+    "since_s": 0.0,
+    "start_s": 2.0,
+    "min_s": 3.0
+   },
+   "measured": [
+    "person #0: in Warehouse floor; vest 0.00 NO"
+   ],
+   "hits": [
+    {
+     "name": "person",
+     "box": [
+      0.5219,
+      0.3472,
+      0.6906,
+      0.7014
+     ],
+     "id": 0
+    }
+   ]
+  },
+  {
+   "s": 5,
+   "truth": "T",
+   "state": {
+    "phase": "alert",
+    "since_s": 0.0,
+    "start_s": 2.0,
+    "min_s": 3.0
+   },
+   "measured": [
+    "person #0: in Warehouse floor; vest 0.00 NO"
+   ],
+   "hits": [
+    {
+     "name": "person",
+     "box": [
+      0.607,
+      0.3181,
+      0.6641,
+      0.6236
+     ],
+     "id": 0
+    }
+   ]
+  },
+  {
+   "s": 6,
+   "truth": "T",
+   "state": {
+    "phase": "alert",
+    "since_s": 0.0,
+    "start_s": 2.0,
+    "min_s": 3.0
+   },
+   "measured": [
+    "person #0: in Warehouse floor; vest 0.00 NO"
+   ],
+   "hits": [
+    {
+     "name": "person",
+     "box": [
+      0.657,
+      0.3222,
+      0.7047,
+      0.5806
+     ],
+     "id": 0
+    }
+   ]
+  },
+  {
+   "s": 7,
+   "truth": "T",
+   "state": {
+    "phase": "alert",
+    "since_s": 0.0,
+    "start_s": 2.0,
+    "min_s": 3.0
+   },
+   "measured": [
+    "person #0: in Warehouse floor; vest 0.00 NO"
+   ],
+   "hits": [
+    {
+     "name": "person",
+     "box": [
+      0.607,
+      0.2972,
+      0.6977,
+      0.5
+     ],
+     "id": 0
+    }
+   ]
+  },
+  {
+   "s": 8,
+   "truth": "T",
+   "state": {
+    "phase": "alert",
+    "since_s": 0.0,
+    "start_s": 2.0,
+    "min_s": 3.0
+   },
+   "measured": [
+    "person #0: in Warehouse floor; vest 0.00 NO"
+   ],
+   "hits": [
+    {
+     "name": "person",
+     "box": [
+      0.5727,
+      0.2917,
+      0.6578,
+      0.4736
+     ],
+     "id": 0
+    }
+   ]
+  },
+  {
+   "s": 9,
+   "truth": "T",
+   "state": {
+    "phase": "alert",
+    "since_s": 0.0,
+    "start_s": 2.0,
+    "min_s": 3.0
+   },
+   "measured": [
+    "person #0: in Warehouse floor; vest 0.00 NO"
+   ],
+   "hits": [
+    {
+     "name": "person",
+     "box": [
+      0.5594,
+      0.3083,
+      0.607,
+      0.4292
+     ],
+     "id": 0
+    }
+   ]
+  }
+ ]
+}

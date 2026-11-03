@@ -1,0 +1,86 @@
+23:49:08 page load: DOM 1.96 s, first clip playable 3.08 s, network idle 3.11 s; navigation entry {"name":"https://safety-mode.vercel.app/","entryType":"navigation","startTime":0,"duration":1916.5999999046326,"navigationId":6389,"initiatorType":"navigation","deliveryType":"","nextHopProtocol":"h2"
+23:49:08 OK   first clip selected on load
+23:49:09 OK   clip selector order: Worker crosses the floor | Site: vest check | Forklift crosses the walkway | Team at the racks | Webcam | Your clip
+23:49:09 screenshot 01-start.png
+23:49:10 OK   /api/health without a key shows the limits: {'sam_frames_per_hour_per_ip': 300, 'spark_calls_per_hour_per_ip': 30, 'scout_runs_per_hour_per_ip': 2, 'scout_steps_per_hour_per_ip': 40, 'sam_frames_per_day': 2500, 'spark_calls_per_day': 500, 'scout_runs_per_day': 30, 'scout_steps_per_day': 600}; remaining for this address {'sam_frames': 299, 'spark_calls': 28, 'scout_runs': 2, 'scout_steps': 40}; today {'sam_frames': 2499, 'spark_calls': 498, 'scout_runs': 30, 'scout_steps': 600}
+23:49:10 OK   no key field on the page: footer 'Built during the Meta Global AI Developer Hackathon, 26 Oct–4 Nov 2026\nDetection: SAM 3.1. Rules, explanations and the report: Muse Spark. Clips: Pexels.\nFrappua, Helsinki'
+23:49:11 OK   man-crosses-floor: default example r2 (want r2): 'Everyone on the warehouse floor must wear a hard hat and a high-visibility vest.'
+23:49:12 man-crosses-floor: check + run 1.3 s
+23:49:12 OK   man-crosses-floor r2: alerts [(7, 21)] (want [(7, 21)]), strip '.....ccAAAAAAAAAAAAAAA..', note 'alert 7–21 s'
+23:49:12 OK   man-crosses-floor: phases ['idle', 'candidate', 'alert', 'idle']
+23:49:12 man-crosses-floor: caption 'Alert from 00:07 to 00:21 (true since 00:05, needs 3 s): person #0 without hard hat / vest 5–21 s.'
+23:49:32 screenshot judge-man-crosses-floor-alert.png
+23:49:40 man-crosses-floor: feed now ['Hard hat and high-visibility vest required on shop floor · person #0 | Worker crosses the floor, 00:07, medium, condition held 17 s']
+23:49:41 man-crosses-floor: explanation of the newest alert 'The camera detected Person #0 on the right side of the frame, near the camera, inside Shop floor without a hard hat and safety vest. The condition lasted 17 s starting at 00:07.'
+23:49:41 OK   man-crosses-floor: explanation places person #0 on the right at 00:07
+23:49:41 screenshot judge-man-crosses-floor-end.png
+23:49:43 OK   site-worker-no-vest: default example r2-vest (want r2-vest): 'Everyone on the floor must wear a high-visibility vest.'
+23:49:44 site-worker-no-vest: check + run 1.0 s
+23:49:44 OK   site-worker-no-vest r2-vest: alerts [(2, 5)] (want [(2, 5)]), strip 'ccAGAA....c', note 'alert 2–5 s'
+23:49:44 OK   site-worker-no-vest: phases ['candidate', 'alert', 'idle', 'candidate'] (violation already on at 0 s: candidate -> alert -> idle)
+23:49:44 site-worker-no-vest: caption 'Alert from 00:02 to 00:05 (true since 00:00, needs 3 s): person #1 without vest 0–2 s, 4–5 s. Nobody at 3 s: kept open over a 1 s gap.'
+23:50:01 screenshot judge-site-worker-no-vest-alert.png
+23:50:13 site-worker-no-vest: feed now ['High-visibility vest required on site floor · person #1 | Site: vest check, 00:02, medium, condition held 6 s']
+23:50:13 site-worker-no-vest: explanation of the newest alert 'The camera detected Person #1 inside Site floor on the right side of the frame, near the camera, without a safety vest. The condition lasted 6 s starting at 00:02.'
+23:50:14 screenshot judge-site-worker-no-vest-end.png
+23:50:14 OK   forklift-crosses-aisle: default example r8 (want r8): 'No forklift in the walkway crossing.'
+23:50:15 forklift-crosses-aisle: check + run 1.0 s
+23:50:16 OK   forklift-crosses-aisle r8: alerts [(6, 7)] (want [(6, 7)]), strip '.....cAA....', note 'alert 6–7 s'
+23:50:16 OK   forklift-crosses-aisle: phases ['idle', 'candidate', 'alert', 'idle']
+23:50:16 forklift-crosses-aisle: caption 'Alert from 00:06 to 00:07 (true since 00:05, needs 2 s): forklift #0 in the walkway crossing 5–7 s.'
+23:50:26 screenshot judge-forklift-crosses-aisle-alert.png
+23:50:28 forklift-crosses-aisle: feed now ['No forklift in walkway crossing · forklift #0 | Forklift crosses the walkway, 00:06, medium, condition held 3 s']
+23:50:28 forklift-crosses-aisle: explanation of the newest alert 'Forklift #0 was inside the Walkway crossing in the centre of the frame, near the camera. The camera detected it for 3 s starting at 00:06.'
+23:50:29 screenshot judge-forklift-crosses-aisle-end.png
+23:50:29 OK   warehouse-team: default example r3 (want r3): 'A forklift must not come closer than 2 m to a pedestrian.'
+23:50:30 warehouse-team: check + run 1.5 s
+23:50:31 OK   warehouse-team r3: alerts [(1, 6), (10, 12), (15, 15), (18, 22)] (want [(1, 6), (10, 12), (15, 15), (18, 22)]), strip '.AAAAAA...AAA..A..AAAGA', note 'alert 1–6 s, alert 10–12 s, alert at 15 s, alert 18–22 s'
+23:50:31 OK   warehouse-team: phases ['idle', 'alert', 'idle', 'alert', 'idle', 'alert', 'idle', 'alert'] (alert 1 s rule: no candidate seconds; the clip ends inside the last alert)
+23:50:31 warehouse-team: caption 'Alert from 00:01 to 00:06: person #2 near forklift #0 (closest 0.26 m) 1–6 s; person #1 near forklift #0 (closest 0.53 m) 1–6 s. Alert from 00:10 to 00:12: person #5 near forklift #0 (closest 0.88 m) 10–11 s; person #2 near forklift #0 (closest 0.98 m) 10–12 s; 1 more. Alert at 00:15: person #2 near forklift #0 (closest 0.60 m) 15 s; person #7 near forklift #0 (closest 0.93 m) 15 s. Alert from 00:18 to 00:22: person #2 near forklift #0 (closest 0.12 m) 18–20 s; person #11 near forklift #0 (closest 0.69 m) 19 s; 3 more. Nobody at 21 s: kept open over a 1 s gap.'
+23:50:37 screenshot judge-warehouse-team-alert.png
+23:50:59 warehouse-team: feed now ['Forklift too close to pedestrian · forklift #0 and person #2 | Team at the racks, 00:18, high, condition held 5 s', 'Forklift too close to pedestrian · forklift #0, person #2 and person #7 | Team at the racks, 00:15, high, condition held 1 s', 'Forklift too close to pedestrian · forklift #0, person #2 and person #5 | Team at the racks, 00:10, high, condition held 3 s', 'Forklift too close to pedestrian · forklift #0, person #1 and person #2 | Team at the racks, 00:01, high, condition held 6 s']
+23:50:59 warehouse-team: explanation of the newest alert 'Forklift within 0.12 m of pedestrian for 5 s at 00:18.'
+23:51:00 screenshot judge-warehouse-team-end.png
+23:51:02 OK   refusal card on man-crosses-floor, example 4, no zone keys []: 'SAM 3.1 looks for\n“forklift”\nWhere\nThe place this rule names is not marked on this camera\nCondition\nThis rule cannot be checked as written. The rule needs the walkway crossing, which is not marked on this camera (marked: Shop floor). Another zone cannot stand in for it.\nTry instead: Draw a zone call'
+23:51:03 screenshot judge-refusal-man-crosses-floor-r8.png
+23:51:10 OK   live rule man-crosses-floor (first): card says SAM runs live; objects “person”“glove” live
+23:51:14 screenshot live-rule-man-crosses-floor-progress.png
+23:52:00 live rule man-crosses-floor (first): compile 7.0 s, Run -> strip 49.4 s, 24 /api/detect requests (1.1-2.6 s each); progress ['SAM 3.1 live: 0/24 frames…', 'SAM 3.1 live: 1/24 frames…', 'SAM 3.1 live: 23/24 frames…']; msg 'SAM 3.1 ran live on 24 frames in 35.7 s. 1 alert on this clip. They appear in the feed as the video reaches them.'
+23:52:00 OK   live rule man-crosses-floor (first): strip '.....ccAAAAAAAAAAAAAAA..', note 'alert 7–21 s'
+23:52:00 OK   live rule man-crosses-floor: video label 'Worker crosses the floor · SAM 3.1 live'
+23:52:00 live rule man-crosses-floor: caption 'Alert from 00:07 to 00:21 (true since 00:05, needs 3 s): person #0 without glove 5–21 s.'
+23:52:02 screenshot live-rule-man-crosses-floor-run.png
+23:52:09 OK   live rule man-crosses-floor: 1 alert(s) on the strip, 1 new in the feed ['Gloves required on shop floor · person #0 | Worker crosses the floor, 00:07, medium, condition held 17 s | Explanation: Muse Spark']
+23:52:12 screenshot live-rule-man-crosses-floor-result.png
+23:52:12 OK   live rule man-crosses-floor (again): card says SAM runs live; objects “person”“glove” live
+23:52:12 live rule man-crosses-floor (again): compile 0.0 s, Run -> strip 0.5 s, 0 /api/detect requests; progress ['SAM 3.1 live results from earlier in this session reused: no new calls. Running the engine; Muse Spark explains the first alerts…', 'SAM 3.1 live results from earlier in this session reused: no new calls. 1 alert on this clip. They appear in the feed as the video reaches them.', 'SAM 3.1 live results from earlier in this session reused: no new calls. 1 alert on this clip. They appear in the feed as the video reaches them.']; msg 'SAM 3.1 live results from earlier in this session reused: no new calls. 1 alert on this clip. They appear in the feed as the video reaches them.'
+23:52:12 OK   live rule man-crosses-floor (again): strip '.....ccAAAAAAAAAAAAAAA..', note 'alert 7–21 s'
+23:52:12 OK   live rule man-crosses-floor: video label 'Worker crosses the floor · SAM 3.1 live'
+23:52:12 OK   live rule man-crosses-floor: second run reuses the session's live results (0 SAM requests)
+23:52:12 live rule man-crosses-floor: caption 'Alert from 00:07 to 00:21 (true since 00:05, needs 3 s): person #0 without glove 5–21 s.'
+23:52:35 OK   live rule forklift-crosses-aisle (first): card says SAM runs live; objects “pallet” live
+23:52:39 screenshot live-rule-forklift-crosses-aisle-progress.png
+23:53:12 live rule forklift-crosses-aisle (first): compile 13.2 s, Run -> strip 37.1 s, 12 /api/detect requests (1.1-2.8 s each); progress ['SAM 3.1 live: 0/12 frames…', 'SAM 3.1 live: 1/12 frames…', 'SAM 3.1 live: 11/12 frames…']; msg 'SAM 3.1 ran live on 12 frames in 21.7 s. 1 alert on this clip. They appear in the feed as the video reaches them.'
+23:53:13 OK   live rule forklift-crosses-aisle (first): strip 'ccccAAAAAAAA', note 'alert 4–11 s'
+23:53:13 OK   live rule forklift-crosses-aisle: video label 'Forklift crosses the walkway · SAM 3.1 live'
+23:53:13 live rule forklift-crosses-aisle: caption 'Alert from 00:04 to 00:11 (true since 00:00, needs 5 s): pallet (up to 9 at once) in the walkway crossing 0–11 s.'
+23:53:16 screenshot live-rule-forklift-crosses-aisle-run.png
+23:53:20 OK   live rule forklift-crosses-aisle: 1 alert(s) on the strip, 1 new in the feed ['No pallets on Walkway crossing | Forklift crosses the walkway, 00:04, medium, condition held 12 s | Explanation: Muse Spark']
+23:53:23 screenshot live-rule-forklift-crosses-aisle-result.png
+23:53:23 OK   live rule forklift-crosses-aisle (again): card says SAM runs live; objects “pallet” live
+23:53:24 live rule forklift-crosses-aisle (again): compile 0.0 s, Run -> strip 0.8 s, 0 /api/detect requests; progress ['SAM 3.1 live results from earlier in this session reused: no new calls. Running the engine; Muse Spark explains the first alerts…', 'SAM 3.1 live results from earlier in this session reused: no new calls. 1 alert on this clip. They appear in the feed as the video reaches them.', 'SAM 3.1 live results from earlier in this session reused: no new calls. 1 alert on this clip. They appear in the feed as the video reaches them.']; msg 'SAM 3.1 live results from earlier in this session reused: no new calls. 1 alert on this clip. They appear in the feed as the video reaches them.'
+23:53:24 OK   live rule forklift-crosses-aisle (again): strip 'ccccAAAAAAAA', note 'alert 4–11 s'
+23:53:24 OK   live rule forklift-crosses-aisle: video label 'Forklift crosses the walkway · SAM 3.1 live'
+23:53:24 OK   live rule forklift-crosses-aisle: second run reuses the session's live results (0 SAM requests)
+23:53:24 live rule forklift-crosses-aisle: caption 'Alert from 00:04 to 00:11 (true since 00:00, needs 5 s): pallet (up to 9 at once) in the walkway crossing 0–11 s.'
+23:53:42 report in 12.1 s: 'Safety report — Frappua demo warehouse, camera Worker crosses the floor, Forklift crosses the walkway (times are minutes:seconds into each clip) — Mon 2026-11-02\n\nSummary. 2 events, 0 high, 2 medium. No critical events. Both events overlapped between 00:07 and 00:11. Camera uptime 0 h 1 min.\n\nMedium\n\n00:04–00:11 — Rule 2 No pallets on Walkway crossing. 8 pallets inside the Walkway crossing across the left, centre and right sides, mid-distance. Duration 12 s. Frame: evt-02.jpg.\n00:07–00:21 — Rule 1 Gloves required on shop floor. A person inside the Shop floor without gloves, on the right side near the camera. Duration 17 s. Frame: evt-01.jpg.\n\nPatterns and suggestions\n\nBoth medium events occurred between 00:04 and 00:21 and overlapped between 00:07 and 00:11. Consider a brief reminder to keep the Walkway crossing clear and wear gloves when on the shop floor.\n\nRule health. Rule 1 recorded 1 event and Rule 2 recorded 1 event. No false positives marked, no rules disabled or edited.'
+23:53:42 OK   report gives the A alert as 00:07-00:21
+23:53:43 screenshot 09-report.png
+23:53:52 screenshot 10-webcam-ready.png
+23:53:58 OK   webcam alert 6.1 s after Start
+23:54:11 screenshot 11-webcam-alert.png
+23:54:11 webcam: 'Webcam check stopped.'
+23:54:11 API times: compile n=14 0.17-7.35 s; detect n=44 1.00-2.78 s; explain n=1 12.26-12.26 s; health n=1 0.17-0.17 s; report n=1 11.48-11.48 s; run n=8 0.18-14.54 s; step n=8 0.17-0.28 s
+23:54:12 left for this address this hour: {'sam_frames': 274, 'spark_calls': 23, 'scout_runs': 2, 'scout_steps': 40}
+23:54:12 OK   console errors: none
+23:54:12 failures: none

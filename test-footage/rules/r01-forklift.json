@@ -1,0 +1,38 @@
+{
+  "rule_id": "r1-forklift",
+  "title": "Nobody in the yellow zone while the forklift is running",
+  "objects": [
+    {
+      "name": "person",
+      "prompt": "person"
+    },
+    {
+      "name": "forklift",
+      "prompt": "forklift"
+    }
+  ],
+  "zones": [
+    "yellow_zone"
+  ],
+  "condition": {
+    "all": [
+      {
+        "in_zone": {
+          "object": "person",
+          "zone": "yellow_zone"
+        }
+      },
+      {
+        "machine_state": {
+          "machine": "forklift",
+          "state": "running"
+        }
+      }
+    ]
+  },
+  "min_duration_s": 1,
+  "severity": "high",
+  "explanation_template": "{person_count} person(s) inside the yellow zone for {duration_s} s while the forklift was running, at {time}.",
+  "unsupported": null,
+  "suggested_rewrite": null
+}

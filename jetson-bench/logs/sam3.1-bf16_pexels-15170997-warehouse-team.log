@@ -1,0 +1,11 @@
+idle: RAM 2879/62841MB
+loaded /mnt/data/work/weights/sam3.1/sam3.1_multiplex.pt and found missing and/or unexpected keys:
+missing_keys=['backbone.vision_backbone.convs.3.conv_1x1.weight', 'backbone.vision_backbone.convs.3.conv_1x1.bias', 'backbone.vision_backbone.convs.3.conv_3x3.weight', 'backbone.vision_backbone.convs.3.conv_3x3.bias']
+[sam3.1-bf16] pexels-15170997-warehouse-team frames=65 size=(720, 1280) load=28.3s
+person {'mean_ms': 513.6, 'p95_ms': 516.9, 'min_ms': 510.0, 'max_ms': 522.2, 'fps': 1.95, 'n': 60, 'found_mean': 2.83, 'found_min': 1, 'found_max': 5, 'frames_with_found': 60}
+forklift {'mean_ms': 514.2, 'p95_ms': 516.7, 'min_ms': 510.3, 'max_ms': 519.0, 'fps': 1.94, 'n': 60, 'found_mean': 0.92, 'found_min': 0, 'found_max': 2, 'frames_with_found': 53}
+high-visibility vest {'mean_ms': 514.2, 'p95_ms': 516.3, 'min_ms': 512.0, 'max_ms': 517.8, 'fps': 1.94, 'n': 60, 'found_mean': 1.43, 'found_min': 0, 'found_max': 2, 'frames_with_found': 54}
+hard hat {'mean_ms': 514.4, 'p95_ms': 516.6, 'min_ms': 510.7, 'max_ms': 528.1, 'fps': 1.94, 'n': 60, 'found_mean': 0.1, 'found_min': 0, 'found_max': 2, 'frames_with_found': 4}
+split {'prompt': 'person', 'image_encoder': (345.4, 348.0), 'text_decoder': (172.8, 173.5)}
+memory {'ram_first_mb': 2897, 'ram_peak_mb': 10355, 'ram_peak_delta_mb': 7458, 'cuda_max_allocated_mb': 4626.5, 'cuda_max_reserved_mb': 4956.0, 'weights_mb': 3340.5}
+saved /mnt/data/work/aivm-safety-mode/jetson-bench/logs/sam3.1-bf16_pexels-15170997-warehouse-team.json

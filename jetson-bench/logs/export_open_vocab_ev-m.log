@@ -1,0 +1,96 @@
+# 2026-10-21T04:41:03-04:00
+# cwd: /mnt/data/work/efficientsam3/sam3/efficientsam3_examples
+$ python export_onnx_open_vocab.py --checkpoint /mnt/data/work/weights/efficientsam3/efficientsam3_efficientvit.pt --backbone-type efficientvit --model-name b1 --text-encoder-type MobileCLIP-S0 --text-encoder-context-length 16 --opset 17 --device cuda --output-dir /mnt/data/work/export/efficientsam3-ev-m/open_vocab
+/mnt/data/work/venv-sam/lib/python3.10/site-packages/timm/models/layers/__init__.py:49: FutureWarning: Importing from timm.models.layers is deprecated, please import via timm.layers
+  warnings.warn(f"Importing from {__name__} is deprecated, please import via timm.layers", FutureWarning)
+/mnt/data/work/venv-sam/lib/python3.10/site-packages/torch/backends/__init__.py:46: UserWarning: Please use the new API settings to control TF32 behavior, such as torch.backends.cudnn.conv.fp32_precision = 'tf32' or torch.backends.cuda.matmul.fp32_precision = 'ieee'. Old settings, e.g, torch.backends.cuda.matmul.allow_tf32 = True, torch.backends.cudnn.allow_tf32 = True, allowTF32CuDNN() and allowTF32CuBLAS() will be deprecated after Pytorch 2.9. Please see https://pytorch.org/docs/main/notes/cuda.html#tensorfloat-32-tf32-on-ampere-and-later-devices (Triggered internally at /opt/pytorch/aten/src/ATen/Context.cpp:80.)
+  self.setter(val)
+/mnt/data/work/efficientsam3/sam3/efficientsam3_examples/export_onnx_open_vocab.py:134: DeprecationWarning: You are using the legacy TorchScript-based ONNX export. Starting in PyTorch 2.9, the new torch.export-based ONNX exporter will be the default. To switch now, set dynamo=True in torch.onnx.export. This new exporter supports features like exporting LLMs with DynamicCache. We encourage you to try it and share feedback to help improve the experience. Learn more about the new export logic: https://pytorch.org/docs/stable/onnx_dynamo.html. For exporting control flow: https://pytorch.org/tutorials/beginner/onnx/export_control_flow_model_to_onnx_tutorial.html.
+  torch.onnx.export(
+/mnt/data/work/efficientsam3/sam3/sam3/backbones/mobile_clip.py:311: TracerWarning: Converting a tensor to a Python boolean might cause the trace to be incorrect. We can't record the data flow of Python values, so this value will be treated as a constant in the future. This means that the trace might not generalize to other inputs!
+  if seq_len != self.num_embeddings:
+/mnt/data/work/efficientsam3/sam3/efficientsam3_examples/export_onnx_open_vocab.py:158: DeprecationWarning: You are using the legacy TorchScript-based ONNX export. Starting in PyTorch 2.9, the new torch.export-based ONNX exporter will be the default. To switch now, set dynamo=True in torch.onnx.export. This new exporter supports features like exporting LLMs with DynamicCache. We encourage you to try it and share feedback to help improve the experience. Learn more about the new export logic: https://pytorch.org/docs/stable/onnx_dynamo.html. For exporting control flow: https://pytorch.org/tutorials/beginner/onnx/export_control_flow_model_to_onnx_tutorial.html.
+  torch.onnx.export(
+/mnt/data/work/efficientsam3/sam3/sam3/backbones/efficientvit/nn/ops.py:665: TracerWarning: Converting a tensor to a Python boolean might cause the trace to be incorrect. We can't record the data flow of Python values, so this value will be treated as a constant in the future. This means that the trace might not generalize to other inputs!
+  if H * W > self.dim:
+/mnt/data/work/efficientsam3/sam3/sam3/model_builder.py:780: TracerWarning: Converting a tensor to a Python boolean might cause the trace to be incorrect. We can't record the data flow of Python values, so this value will be treated as a constant in the future. This means that the trace might not generalize to other inputs!
+  if feats.shape[-1] != self.embed_size or feats.shape[-2] != self.embed_size:
+/mnt/data/work/efficientsam3/sam3/sam3/model/geometry_encoders.py:163: TracerWarning: Converting a tensor to a Python boolean might cause the trace to be incorrect. We can't record the data flow of Python values, so this value will be treated as a constant in the future. This means that the trace might not generalize to other inputs!
+  and list(box_embeddings.shape[:2])
+/mnt/data/work/efficientsam3/sam3/sam3/model/geometry_encoders.py:171: TracerWarning: Converting a tensor to a Python boolean might cause the trace to be incorrect. We can't record the data flow of Python values, so this value will be treated as a constant in the future. This means that the trace might not generalize to other inputs!
+  and list(box_mask.shape)
+/mnt/data/work/efficientsam3/sam3/sam3/model/geometry_encoders.py:179: TracerWarning: Converting a tensor to a Python boolean might cause the trace to be incorrect. We can't record the data flow of Python values, so this value will be treated as a constant in the future. This means that the trace might not generalize to other inputs!
+  and list(point_embeddings.shape[:2])
+/mnt/data/work/efficientsam3/sam3/sam3/model/geometry_encoders.py:187: TracerWarning: Converting a tensor to a Python boolean might cause the trace to be incorrect. We can't record the data flow of Python values, so this value will be treated as a constant in the future. This means that the trace might not generalize to other inputs!
+  and list(point_mask.shape)
+/mnt/data/work/efficientsam3/sam3/sam3/model/geometry_encoders.py:195: TracerWarning: Converting a tensor to a Python boolean might cause the trace to be incorrect. We can't record the data flow of Python values, so this value will be treated as a constant in the future. This means that the trace might not generalize to other inputs!
+  and list(box_labels.shape)
+/mnt/data/work/efficientsam3/sam3/sam3/model/geometry_encoders.py:203: TracerWarning: Converting a tensor to a Python boolean might cause the trace to be incorrect. We can't record the data flow of Python values, so this value will be treated as a constant in the future. This means that the trace might not generalize to other inputs!
+  and list(point_labels.shape)
+/mnt/data/work/efficientsam3/sam3/sam3/model/geometry_encoders.py:220: TracerWarning: Converting a tensor to a Python boolean might cause the trace to be incorrect. We can't record the data flow of Python values, so this value will be treated as a constant in the future. This means that the trace might not generalize to other inputs!
+  or list(mask_mask.shape)
+/mnt/data/work/efficientsam3/sam3/sam3/model/geometry_encoders.py:766: TracerWarning: Converting a tensor to a Python boolean might cause the trace to be incorrect. We can't record the data flow of Python values, so this value will be treated as a constant in the future. This means that the trace might not generalize to other inputs!
+  assert cur_img_feat.shape[0] == H * W
+/mnt/data/work/efficientsam3/sam3/sam3/model/geometry_encoders.py:621: TracerWarning: Converting a tensor to a Python boolean might cause the trace to be incorrect. We can't record the data flow of Python values, so this value will be treated as a constant in the future. This means that the trace might not generalize to other inputs!
+  if self.points_pool_project is not None and n_points > 0:
+/mnt/data/work/efficientsam3/sam3/sam3/model/position_encoding.py:55: TracerWarning: Using len to get tensor shape might cause the trace to be incorrect. Recommended usage would be tensor.shape[0]. Passing a tensor of different shape might lead to errors or silently give incorrect results.
+  assert len(x) == len(y) and x.ndim == y.ndim == 1
+/mnt/data/work/efficientsam3/sam3/sam3/model/geometry_encoders.py:664: TracerWarning: Converting a tensor to a Python boolean might cause the trace to be incorrect. We can't record the data flow of Python values, so this value will be treated as a constant in the future. This means that the trace might not generalize to other inputs!
+  if self.boxes_pool_project is not None and n_boxes > 0:
+/mnt/data/work/efficientsam3/sam3/sam3/model/geometry_encoders.py:42: TracerWarning: Converting a tensor to a Python boolean might cause the trace to be incorrect. We can't record the data flow of Python values, so this value will be treated as a constant in the future. This means that the trace might not generalize to other inputs!
+  assert batch_size == seq1.size(1) == seq2.size(1) == mask1.size(0) == mask2.size(0)
+/mnt/data/work/efficientsam3/sam3/sam3/model/geometry_encoders.py:43: TracerWarning: Converting a tensor to a Python boolean might cause the trace to be incorrect. We can't record the data flow of Python values, so this value will be treated as a constant in the future. This means that the trace might not generalize to other inputs!
+  assert hidden_size == seq1.size(2) == seq2.size(2)
+/mnt/data/work/efficientsam3/sam3/sam3/model/geometry_encoders.py:44: TracerWarning: Converting a tensor to a Python boolean might cause the trace to be incorrect. We can't record the data flow of Python values, so this value will be treated as a constant in the future. This means that the trace might not generalize to other inputs!
+  assert seq1_length == mask1.size(1)
+/mnt/data/work/efficientsam3/sam3/sam3/model/geometry_encoders.py:45: TracerWarning: Converting a tensor to a Python boolean might cause the trace to be incorrect. We can't record the data flow of Python values, so this value will be treated as a constant in the future. This means that the trace might not generalize to other inputs!
+  assert seq2_length == mask2.size(1)
+/mnt/data/work/efficientsam3/sam3/sam3/model/geometry_encoders.py:47: TracerWarning: Converting a tensor to a Python boolean might cause the trace to be incorrect. We can't record the data flow of Python values, so this value will be treated as a constant in the future. This means that the trace might not generalize to other inputs!
+  if seq2_length == 0:
+/mnt/data/work/efficientsam3/sam3/sam3/model/geometry_encoders.py:837: TracerWarning: Converting a tensor to a Python boolean might cause the trace to be incorrect. We can't record the data flow of Python values, so this value will be treated as a constant in the future. This means that the trace might not generalize to other inputs!
+  assert final_mask.shape[0] == bs
+/mnt/data/work/efficientsam3/sam3/sam3/model/geometry_encoders.py:53: TracerWarning: Converting a tensor to a Python boolean might cause the trace to be incorrect. We can't record the data flow of Python values, so this value will be treated as a constant in the future. This means that the trace might not generalize to other inputs!
+  if seq1_length == 0:
+/mnt/data/work/efficientsam3/sam3/sam3/model/encoder.py:352: TracerWarning: torch.tensor results are registered as constants in the trace. You can safely ignore this warning if you use this function to create tensors out of constant variables that would be the same every time you call this function. In any other case, this might cause the trace to be incorrect.
+  spatial_shapes = torch.tensor(
+/mnt/data/work/efficientsam3/sam3/sam3/model/model_misc.py:256: TracerWarning: Converting a tensor to a Python boolean might cause the trace to be incorrect. We can't record the data flow of Python values, so this value will be treated as a constant in the future. This means that the trace might not generalize to other inputs!
+  if pos_tensor.size(-1) == 2:
+/mnt/data/work/efficientsam3/sam3/sam3/model/model_misc.py:258: TracerWarning: Converting a tensor to a Python boolean might cause the trace to be incorrect. We can't record the data flow of Python values, so this value will be treated as a constant in the future. This means that the trace might not generalize to other inputs!
+  elif pos_tensor.size(-1) == 4:
+/mnt/data/work/efficientsam3/sam3/sam3/model/decoder.py:525: TracerWarning: Converting a tensor to a Python boolean might cause the trace to be incorrect. We can't record the data flow of Python values, so this value will be treated as a constant in the future. This means that the trace might not generalize to other inputs!
+  spatial_shapes.shape[0] == 1
+/mnt/data/work/efficientsam3/sam3/sam3/model/decoder.py:341: TracerWarning: Converting a tensor to a Python boolean might cause the trace to be incorrect. We can't record the data flow of Python values, so this value will be treated as a constant in the future. This means that the trace might not generalize to other inputs!
+  if torch.compiler.is_dynamo_compiling() or self.compilable_stored_size == (
+/mnt/data/work/efficientsam3/sam3/sam3/model/decoder.py:402: TracerWarning: Converting a tensor to a Python boolean might cause the trace to be incorrect. We can't record the data flow of Python values, so this value will be treated as a constant in the future. This means that the trace might not generalize to other inputs!
+  assert deltas_x.shape[:3] == (bs, num_queries, W)
+/mnt/data/work/efficientsam3/sam3/sam3/model/decoder.py:403: TracerWarning: Converting a tensor to a Python boolean might cause the trace to be incorrect. We can't record the data flow of Python values, so this value will be treated as a constant in the future. This means that the trace might not generalize to other inputs!
+  assert deltas_y.shape[:3] == (bs, num_queries, H)
+/mnt/data/work/efficientsam3/sam3/sam3/model/decoder.py:409: TracerWarning: Converting a tensor to a Python boolean might cause the trace to be incorrect. We can't record the data flow of Python values, so this value will be treated as a constant in the future. This means that the trace might not generalize to other inputs!
+  assert B.shape[:4] == (bs, num_queries, H, W)
+/mnt/data/work/efficientsam3/sam3/sam3/model/decoder.py:414: TracerWarning: Converting a tensor to a Python boolean might cause the trace to be incorrect. We can't record the data flow of Python values, so this value will be treated as a constant in the future. This means that the trace might not generalize to other inputs!
+  assert B.shape[2:] == (num_queries, H * W)
+/mnt/data/work/efficientsam3/sam3/sam3/model/sam3_image.py:315: TracerWarning: Converting a tensor to a Python boolean might cause the trace to be incorrect. We can't record the data flow of Python values, so this value will be treated as a constant in the future. This means that the trace might not generalize to other inputs!
+  assert num_o2m == (num_o2o if apply_dac else 0)
+/mnt/data/work/efficientsam3/sam3/sam3/model/sam3_image.py:368: TracerWarning: Converting a tensor to a Python boolean might cause the trace to be incorrect. We can't record the data flow of Python values, so this value will be treated as a constant in the future. This means that the trace might not generalize to other inputs!
+  if num_o2m > 0 and self.training:
+/mnt/data/work/efficientsam3/sam3/sam3/model/maskformer_segmentation.py:112: TracerWarning: Converting a tensor to a Python boolean might cause the trace to be incorrect. We can't record the data flow of Python values, so this value will be treated as a constant in the future. This means that the trace might not generalize to other inputs!
+  if backbone_feats[0].shape[0] > 1:
+/mnt/data/work/efficientsam3/sam3/sam3/model/sam3_image.py:418: TracerWarning: Converting a tensor to a Python boolean might cause the trace to be incorrect. We can't record the data flow of Python values, so this value will be treated as a constant in the future. This means that the trace might not generalize to other inputs!
+  self.o2m_mask_predict and num_o2m > 0
+/mnt/data/work/venv-sam/lib/python3.10/site-packages/torch/onnx/_internal/jit_utils.py:309: UserWarning: Constant folding - Only steps=1 can be constant folded for opset >= 10 onnx::Slice op. Constant folding not applied. (Triggered internally at /opt/pytorch/torch/csrc/jit/passes/onnx/constant_fold.cpp:178.)
+  _C._jit_pass_onnx_node_shape_type_inference(node, params_dict, opset_version)
+/mnt/data/work/venv-sam/lib/python3.10/site-packages/torch/onnx/utils.py:684: UserWarning: Constant folding - Only steps=1 can be constant folded for opset >= 10 onnx::Slice op. Constant folding not applied. (Triggered internally at /opt/pytorch/torch/csrc/jit/passes/onnx/constant_fold.cpp:178.)
+  _C._jit_pass_onnx_graph_shape_type_inference(
+/mnt/data/work/venv-sam/lib/python3.10/site-packages/torch/onnx/utils.py:1154: UserWarning: Constant folding - Only steps=1 can be constant folded for opset >= 10 onnx::Slice op. Constant folding not applied. (Triggered internally at /opt/pytorch/torch/csrc/jit/passes/onnx/constant_fold.cpp:178.)
+  _C._jit_pass_onnx_graph_shape_type_inference(
+Resizing positional embeddings from 77 to 16
+[Load] 6.2s
+[Check] Text encoder sanity forward pass ...
+[Check] language_features (16, 1, 256) language_mask (1, 16) language_embeds (16, 1, 512)
+[Export] /mnt/data/work/export/efficientsam3-ev-m/open_vocab/text_encoder.onnx ...
+[Export] Saved: /mnt/data/work/export/efficientsam3-ev-m/open_vocab/text_encoder.onnx
+[Check] Vision+decoder sanity forward pass ...
+[Check] detections (1, 200, 5)
+[Export] /mnt/data/work/export/efficientsam3-ev-m/open_vocab/vision_decoder.onnx ...
+[Export] Saved: /mnt/data/work/export/efficientsam3-ev-m/open_vocab/vision_decoder.onnx
+exit=0 wall_s=25.606897218

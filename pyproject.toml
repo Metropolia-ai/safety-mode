@@ -1,0 +1,22 @@
+[build-system]
+requires = ["setuptools>=61"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "safety-mode"
+version = "0.1.0"
+description = "AI Vision Monitor Safety Mode: plain-language safety rule compiler"
+requires-python = ">=3.10"
+dependencies = ["openai>=1.40", "jsonschema>=4.20", "pytest>=8", "meta-sam-parser>=0.1.0", "pillow>=10", "numpy>=1.26"]
+
+[project.optional-dependencies]
+web = ["fastapi>=0.115", "uvicorn>=0.30"]
+
+[tool.setuptools]
+packages = ["safety_mode"]
+
+[tool.setuptools.package-data]
+safety_mode = ["prompts/*.md"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]

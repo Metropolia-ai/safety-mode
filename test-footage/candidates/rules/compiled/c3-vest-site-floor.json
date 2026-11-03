@@ -1,0 +1,42 @@
+{
+  "condition": {
+    "all": [
+      {
+        "in_zone": {
+          "object": "person",
+          "zone": "past_gate"
+        }
+      },
+      {
+        "not": {
+          "wearing": {
+            "person": "person",
+            "ppe": [
+              "safety_vest"
+            ]
+          }
+        }
+      }
+    ]
+  },
+  "explanation_template": "Person on site floor without high-visibility vest for {duration_s} at {time}, missing {missing_ppe}.",
+  "min_duration_s": 3,
+  "objects": [
+    {
+      "name": "person",
+      "prompt": "person"
+    },
+    {
+      "name": "safety_vest",
+      "prompt": "safety vest"
+    }
+  ],
+  "rule_id": "c3",
+  "severity": "medium",
+  "suggested_rewrite": null,
+  "title": "High-visibility vest required on site floor",
+  "unsupported": null,
+  "zones": [
+    "past_gate"
+  ]
+}

@@ -1,0 +1,35 @@
+{
+  "clip": "pexels-32268407-forklift-roll-worker",
+  "reference_frame": "candidates/frames/pexels-32268407-forklift-roll-worker/003.jpg",
+  "frame_size": [
+    1280,
+    720
+  ],
+  "zones": [
+    {
+      "name": "fork_zone",
+      "title": "In front of the forks",
+      "polygon": [
+        [
+          0.55,
+          0.44
+        ],
+        [
+          0.82,
+          0.44
+        ],
+        [
+          0.86,
+          0.6
+        ],
+        [
+          0.56,
+          0.62
+        ]
+      ],
+      "note": "Floor under the raised forks and about one metre in front of their tips (forks x 0.55–0.77, y 0.49–0.54 in frame 003). The forklift stands still for the whole clip (s0–s42)."
+    }
+  ],
+  "floor_calibration": null,
+  "floor_calibration_note": "No calibration set: the horizon estimates from the Heli K35 wheelbase (1.7 m) and from the person height contradict each other (the horizon comes out below the visible far part of the floor), so r03 with a 2 m threshold on this clip would be a guess. A zone rule in front of the forks is used instead of r03."
+}

@@ -1,0 +1,29 @@
+{
+  "tag": "r01-schema",
+  "model": "muse-glimmer-30B",
+  "base_url": "http://127.0.0.1:8090/v1",
+  "structured": "auto",
+  "reasoning": "",
+  "pass": 1,
+  "n": 1,
+  "total_s": 135.8,
+  "ram_first_mb": 24129,
+  "ram_peak_mb": 24572,
+  "rows": [
+    {
+      "rule": 1,
+      "pass": true,
+      "kind": "condition",
+      "diffs": [],
+      "s": 135.8,
+      "calls": 1,
+      "prompt_tokens": 2115,
+      "completion_tokens": 1076,
+      "reasoning_tokens": 0,
+      "mode": "json_schema",
+      "finish": [
+        "stop"
+      ]
+    }
+  ]
+}

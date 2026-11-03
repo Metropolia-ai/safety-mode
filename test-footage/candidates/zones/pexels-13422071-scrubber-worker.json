@@ -1,0 +1,35 @@
+{
+  "clip": "pexels-13422071-scrubber-worker",
+  "reference_frame": "candidates/frames/pexels-13422071-scrubber-worker/011.jpg",
+  "frame_size": [
+    1280,
+    720
+  ],
+  "zones": [
+    {
+      "name": "past_gate",
+      "title": "Aisle floor",
+      "polygon": [
+        [
+          0.0,
+          0.6
+        ],
+        [
+          1.0,
+          0.6
+        ],
+        [
+          1.0,
+          1.0
+        ],
+        [
+          0.0,
+          1.0
+        ]
+      ],
+      "note": "Aisle floor in front of the stacks, full frame width (the frame edges are vignetted)."
+    }
+  ],
+  "floor_calibration": null,
+  "floor_calibration_note": "No floor calibration: there is no object of known size on the floor, rule r02 needs no distances."
+}

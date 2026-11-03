@@ -1,0 +1,6 @@
+idle: RAM 2876/62841MB
+Resizing positional embeddings from 77 to 16
+[combo-efficientsam3-rv-m-fp32] pexels-15170997-warehouse-team frames=25 size=(720, 1280) load=21.4s
+combo frame {'mean_ms': 746.0, 'p95_ms': 747.8, 'min_ms': 742.4, 'max_ms': 774.3, 'fps': 1.34, 'n': 20} enc 85.6 {'person': 221.9, 'forklift': 219.4, 'high-visibility vest': 219.1}
+memory {'ram_first_mb': 2890, 'ram_peak_mb': 5894, 'ram_peak_delta_mb': 3004, 'cuda_max_allocated_mb': 1399.3, 'weights_mb': 460.0}
+saved /mnt/data/work/aivm-safety-mode/jetson-bench/logs/combo-efficientsam3-rv-m-fp32_pexels-15170997-warehouse-team.json

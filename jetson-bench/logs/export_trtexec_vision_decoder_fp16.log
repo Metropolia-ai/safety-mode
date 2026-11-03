@@ -1,0 +1,196 @@
+# 2026-10-21T04:49:16-04:00
+$ /usr/src/tensorrt/bin/trtexec --onnx=/mnt/data/work/export/efficientsam3-ev-m/open_vocab/vision_decoder_noif.onnx --shapes=pixel_values:1x3x1008x1008\,language_features:16x1x256\,language_mask:1x16 --saveEngine=/mnt/data/work/export/efficientsam3-ev-m/trt/vision_decoder_fp16.plan --timingCacheFile=/mnt/data/work/export/efficientsam3-ev-m/trt/timing.cache --exportLayerInfo=/mnt/data/work/export/efficientsam3-ev-m/trt/vision_decoder_fp16.layers.json --profilingVerbosity=detailed --separateProfileRun --fp16 
+
+&&&& RUNNING TensorRT.trtexec [TensorRT v100300] # /usr/src/tensorrt/bin/trtexec --onnx=/mnt/data/work/export/efficientsam3-ev-m/open_vocab/vision_decoder_noif.onnx --shapes=pixel_values:1x3x1008x1008,language_features:16x1x256,language_mask:1x16 --saveEngine=/mnt/data/work/export/efficientsam3-ev-m/trt/vision_decoder_fp16.plan --timingCacheFile=/mnt/data/work/export/efficientsam3-ev-m/trt/timing.cache --exportLayerInfo=/mnt/data/work/export/efficientsam3-ev-m/trt/vision_decoder_fp16.layers.json --profilingVerbosity=detailed --separateProfileRun --fp16
+[10/21/2026-04:49:16] [I] === Model Options ===
+[10/21/2026-04:49:16] [I] Format: ONNX
+[10/21/2026-04:49:16] [I] Model: /mnt/data/work/export/efficientsam3-ev-m/open_vocab/vision_decoder_noif.onnx
+[10/21/2026-04:49:16] [I] Output:
+[10/21/2026-04:49:16] [I] === Build Options ===
+[10/21/2026-04:49:16] [I] Memory Pools: workspace: default, dlaSRAM: default, dlaLocalDRAM: default, dlaGlobalDRAM: default, tacticSharedMem: default
+[10/21/2026-04:49:16] [I] avgTiming: 8
+[10/21/2026-04:49:16] [I] Precision: FP32+FP16
+[10/21/2026-04:49:16] [I] LayerPrecisions: 
+[10/21/2026-04:49:16] [I] Layer Device Types: 
+[10/21/2026-04:49:16] [I] Calibration: 
+[10/21/2026-04:49:16] [I] Refit: Disabled
+[10/21/2026-04:49:16] [I] Strip weights: Disabled
+[10/21/2026-04:49:16] [I] Version Compatible: Disabled
+[10/21/2026-04:49:16] [I] ONNX Plugin InstanceNorm: Disabled
+[10/21/2026-04:49:16] [I] TensorRT runtime: full
+[10/21/2026-04:49:16] [I] Lean DLL Path: 
+[10/21/2026-04:49:16] [I] Tempfile Controls: { in_memory: allow, temporary: allow }
+[10/21/2026-04:49:16] [I] Exclude Lean Runtime: Disabled
+[10/21/2026-04:49:16] [I] Sparsity: Disabled
+[10/21/2026-04:49:16] [I] Safe mode: Disabled
+[10/21/2026-04:49:16] [I] Build DLA standalone loadable: Disabled
+[10/21/2026-04:49:16] [I] Allow GPU fallback for DLA: Disabled
+[10/21/2026-04:49:16] [I] DirectIO mode: Disabled
+[10/21/2026-04:49:16] [I] Restricted mode: Disabled
+[10/21/2026-04:49:16] [I] Skip inference: Disabled
+[10/21/2026-04:49:16] [I] Save engine: /mnt/data/work/export/efficientsam3-ev-m/trt/vision_decoder_fp16.plan
+[10/21/2026-04:49:16] [I] Load engine: 
+[10/21/2026-04:49:16] [I] Profiling verbosity: 2
+[10/21/2026-04:49:16] [I] Tactic sources: Using default tactic sources
+[10/21/2026-04:49:16] [I] timingCacheMode: global
+[10/21/2026-04:49:16] [I] timingCacheFile: /mnt/data/work/export/efficientsam3-ev-m/trt/timing.cache
+[10/21/2026-04:49:16] [I] Enable Compilation Cache: Enabled
+[10/21/2026-04:49:16] [I] errorOnTimingCacheMiss: Disabled
+[10/21/2026-04:49:16] [I] Preview Features: Use default preview flags.
+[10/21/2026-04:49:16] [I] MaxAuxStreams: -1
+[10/21/2026-04:49:16] [I] BuilderOptimizationLevel: -1
+[10/21/2026-04:49:16] [I] Calibration Profile Index: 0
+[10/21/2026-04:49:16] [I] Weight Streaming: Disabled
+[10/21/2026-04:49:16] [I] Runtime Platform: Same As Build
+[10/21/2026-04:49:16] [I] Debug Tensors: 
+[10/21/2026-04:49:16] [I] Input(s)s format: fp32:CHW
+[10/21/2026-04:49:16] [I] Output(s)s format: fp32:CHW
+[10/21/2026-04:49:16] [I] Input build shape (profile 0): pixel_values=1x3x1008x1008+1x3x1008x1008+1x3x1008x1008
+[10/21/2026-04:49:16] [I] Input build shape (profile 0): language_features=16x1x256+16x1x256+16x1x256
+[10/21/2026-04:49:16] [I] Input build shape (profile 0): language_mask=1x16+1x16+1x16
+[10/21/2026-04:49:16] [I] Input calibration shapes: model
+[10/21/2026-04:49:16] [I] === System Options ===
+[10/21/2026-04:49:16] [I] Device: 0
+[10/21/2026-04:49:16] [I] DLACore: 
+[10/21/2026-04:49:16] [I] Plugins:
+[10/21/2026-04:49:16] [I] setPluginsToSerialize:
+[10/21/2026-04:49:16] [I] dynamicPlugins:
+[10/21/2026-04:49:16] [I] ignoreParsedPluginLibs: 0
+[10/21/2026-04:49:16] [I] 
+[10/21/2026-04:49:16] [I] === Inference Options ===
+[10/21/2026-04:49:16] [I] Batch: Explicit
+[10/21/2026-04:49:16] [I] Input inference shape : language_mask=1x16
+[10/21/2026-04:49:16] [I] Input inference shape : language_features=16x1x256
+[10/21/2026-04:49:16] [I] Input inference shape : pixel_values=1x3x1008x1008
+[10/21/2026-04:49:16] [I] Iterations: 10
+[10/21/2026-04:49:16] [I] Duration: 3s (+ 200ms warm up)
+[10/21/2026-04:49:16] [I] Sleep time: 0ms
+[10/21/2026-04:49:16] [I] Idle time: 0ms
+[10/21/2026-04:49:16] [I] Inference Streams: 1
+[10/21/2026-04:49:16] [I] ExposeDMA: Disabled
+[10/21/2026-04:49:16] [I] Data transfers: Enabled
+[10/21/2026-04:49:16] [I] Spin-wait: Disabled
+[10/21/2026-04:49:16] [I] Multithreading: Disabled
+[10/21/2026-04:49:16] [I] CUDA Graph: Disabled
+[10/21/2026-04:49:16] [I] Separate profiling: Enabled
+[10/21/2026-04:49:16] [I] Time Deserialize: Disabled
+[10/21/2026-04:49:16] [I] Time Refit: Disabled
+[10/21/2026-04:49:16] [I] NVTX verbosity: 2
+[10/21/2026-04:49:16] [I] Persistent Cache Ratio: 0
+[10/21/2026-04:49:16] [I] Optimization Profile Index: 0
+[10/21/2026-04:49:16] [I] Weight Streaming Budget: 100.000000%
+[10/21/2026-04:49:16] [I] Inputs:
+[10/21/2026-04:49:16] [I] Debug Tensor Save Destinations:
+[10/21/2026-04:49:16] [I] === Reporting Options ===
+[10/21/2026-04:49:16] [I] Verbose: Disabled
+[10/21/2026-04:49:16] [I] Averages: 10 inferences
+[10/21/2026-04:49:16] [I] Percentiles: 90,95,99
+[10/21/2026-04:49:16] [I] Dump refittable layers:Disabled
+[10/21/2026-04:49:16] [I] Dump output: Disabled
+[10/21/2026-04:49:16] [I] Profile: Disabled
+[10/21/2026-04:49:16] [I] Export timing to JSON file: 
+[10/21/2026-04:49:16] [I] Export output to JSON file: 
+[10/21/2026-04:49:16] [I] Export profile to JSON file: 
+[10/21/2026-04:49:16] [I] 
+[10/21/2026-04:49:16] [I] === Device Information ===
+[10/21/2026-04:49:16] [I] Available Devices: 
+[10/21/2026-04:49:16] [I]   Device 0: "Orin" UUID: GPU-0badbdc3-0493-5594-940d-c37016327c07
+[10/21/2026-04:49:16] [I] Selected Device: Orin
+[10/21/2026-04:49:16] [I] Selected Device ID: 0
+[10/21/2026-04:49:16] [I] Selected Device UUID: GPU-0badbdc3-0493-5594-940d-c37016327c07
+[10/21/2026-04:49:16] [I] Compute Capability: 8.7
+[10/21/2026-04:49:16] [I] SMs: 16
+[10/21/2026-04:49:16] [I] Device Global Memory: 62840 MiB
+[10/21/2026-04:49:16] [I] Shared Memory per SM: 164 KiB
+[10/21/2026-04:49:16] [I] Memory Bus Width: 256 bits (ECC disabled)
+[10/21/2026-04:49:16] [I] Application Compute Clock Rate: 1.3 GHz
+[10/21/2026-04:49:16] [I] Application Memory Clock Rate: 1.3 GHz
+[10/21/2026-04:49:16] [I] 
+[10/21/2026-04:49:16] [I] Note: The application clock rates do not reflect the actual clock rates that the GPU is currently running at.
+[10/21/2026-04:49:16] [I] 
+[10/21/2026-04:49:16] [I] TensorRT version: 10.3.0
+[10/21/2026-04:49:16] [I] Loading standard plugins
+[10/21/2026-04:49:16] [I] [TRT] [MemUsageChange] Init CUDA: CPU +2, GPU +0, now: CPU 31, GPU 11683 (MiB)
+[10/21/2026-04:49:18] [I] [TRT] [MemUsageChange] Init builder kernel library: CPU +928, GPU +752, now: CPU 1002, GPU 12480 (MiB)
+[10/21/2026-04:49:18] [I] Start parsing network model.
+[10/21/2026-04:49:18] [I] [TRT] ----------------------------------------------------------------
+[10/21/2026-04:49:18] [I] [TRT] Input filename:   /mnt/data/work/export/efficientsam3-ev-m/open_vocab/vision_decoder_noif.onnx
+[10/21/2026-04:49:18] [I] [TRT] ONNX IR version:  0.0.8
+[10/21/2026-04:49:18] [I] [TRT] Opset version:    17
+[10/21/2026-04:49:18] [I] [TRT] Producer name:    pytorch
+[10/21/2026-04:49:18] [I] [TRT] Producer version: 2.8.0
+[10/21/2026-04:49:18] [I] [TRT] Domain:           
+[10/21/2026-04:49:18] [I] [TRT] Model version:    0
+[10/21/2026-04:49:18] [I] [TRT] Doc string:       
+[10/21/2026-04:49:18] [I] [TRT] ----------------------------------------------------------------
+[10/21/2026-04:49:19] [I] Finished parsing network model. Parse time: 0.731047
+[10/21/2026-04:49:19] [I] Set shape of input tensor pixel_values for optimization profile 0 to: MIN=1x3x1008x1008 OPT=1x3x1008x1008 MAX=1x3x1008x1008
+[10/21/2026-04:49:19] [I] Set shape of input tensor language_features for optimization profile 0 to: MIN=16x1x256 OPT=16x1x256 MAX=16x1x256
+[10/21/2026-04:49:19] [I] Set shape of input tensor language_mask for optimization profile 0 to: MIN=1x16 OPT=1x16 MAX=1x16
+[10/21/2026-04:49:19] [I] [TRT] Loaded 683607 bytes of timing cache from /mnt/data/work/export/efficientsam3-ev-m/trt/timing.cache
+[10/21/2026-04:49:19] [I] [TRT] Global timing cache in use. Profiling results in this builder pass will be stored.
+[10/21/2026-04:54:24] [I] [TRT] Detected 3 inputs and 1 output network tensors.
+[10/21/2026-04:54:37] [I] [TRT] Total Host Persistent Memory: 431520
+[10/21/2026-04:54:37] [I] [TRT] Total Device Persistent Memory: 1024
+[10/21/2026-04:54:37] [I] [TRT] Total Scratch Memory: 82563072
+[10/21/2026-04:54:37] [I] [TRT] [BlockAssignment] Started assigning block shifts. This will take 153 steps to complete.
+[10/21/2026-04:54:37] [I] [TRT] [BlockAssignment] Algorithm ShiftNTopDown took 8.2227ms to assign 5 blocks to 153 nodes requiring 109997056 bytes.
+[10/21/2026-04:54:37] [I] [TRT] Total Activation Memory: 109997056
+[10/21/2026-04:54:37] [I] [TRT] Total Weights Memory: 85258880
+[10/21/2026-04:54:37] [I] [TRT] Engine generation completed in 318.016 seconds.
+[10/21/2026-04:54:38] [I] [TRT] [MemUsageStats] Peak memory usage of TRT CPU/GPU memory allocators: CPU 51 MiB, GPU 1811 MiB
+[10/21/2026-04:54:38] [I] [TRT] [MemUsageStats] Peak memory usage during Engine building and serialization: CPU: 4323 MiB
+[10/21/2026-04:54:38] [I] Engine built in 319.251 sec.
+[10/21/2026-04:54:38] [I] Created engine with size: 86.1597 MiB
+[10/21/2026-04:54:38] [I] [TRT] Loaded 683607 bytes of timing cache from /mnt/data/work/export/efficientsam3-ev-m/trt/timing.cache
+[10/21/2026-04:54:38] [I] [TRT] Serialized 17931 bytes of code generator cache.
+[10/21/2026-04:54:38] [I] [TRT] Serialized 2969339 bytes of compilation cache.
+[10/21/2026-04:54:38] [I] [TRT] Serialized 2655 timing cache entries
+[10/21/2026-04:54:38] [I] [TRT] Saved 3263562 bytes of timing cache to /mnt/data/work/export/efficientsam3-ev-m/trt/timing.cache
+[10/21/2026-04:54:39] [I] [TRT] Loaded engine size: 86 MiB
+[10/21/2026-04:54:39] [I] Engine deserialized in 0.0834064 sec.
+[10/21/2026-04:54:39] [I] [TRT] [MS] Running engine with multi stream info
+[10/21/2026-04:54:39] [I] [TRT] [MS] Number of aux streams is 1
+[10/21/2026-04:54:39] [I] [TRT] [MS] Number of total worker streams is 2
+[10/21/2026-04:54:39] [I] [TRT] [MS] The main stream provided by execute/enqueue calls is the first worker stream
+[10/21/2026-04:54:39] [I] [TRT] [MemUsageChange] TensorRT-managed allocation in IExecutionContext creation: CPU +0, GPU +105, now: CPU 0, GPU 186 (MiB)
+[10/21/2026-04:54:39] [I] Setting persistentCacheLimit to 0 bytes.
+[10/21/2026-04:54:39] [I] Created execution context with device memory size: 104.901 MiB
+[10/21/2026-04:54:39] [I] Using random values for input pixel_values
+[10/21/2026-04:54:39] [I] Input binding for pixel_values with dimensions 1x3x1008x1008 is created.
+[10/21/2026-04:54:39] [I] Using random values for input language_features
+[10/21/2026-04:54:39] [I] Input binding for language_features with dimensions 16x1x256 is created.
+[10/21/2026-04:54:39] [I] Using random values for input language_mask
+[10/21/2026-04:54:39] [I] Input binding for language_mask with dimensions 1x16 is created.
+[10/21/2026-04:54:39] [I] Output binding for detections with dimensions 1x200x5 is created.
+[10/21/2026-04:54:39] [I] Starting inference
+[10/21/2026-04:54:42] [I] Warmup completed 6 queries over 200 ms
+[10/21/2026-04:54:42] [I] Timing trace has 88 queries over 3.12298 s
+[10/21/2026-04:54:42] [I] 
+[10/21/2026-04:54:42] [I] === Trace details ===
+[10/21/2026-04:54:42] [I] Trace averages of 10 runs:
+[10/21/2026-04:54:42] [I] Average on 10 runs - GPU latency: 35.1104 ms - Host latency: 36.0277 ms (enqueue 31.9736 ms)
+[10/21/2026-04:54:42] [I] Average on 10 runs - GPU latency: 35.1072 ms - Host latency: 36.0268 ms (enqueue 31.9821 ms)
+[10/21/2026-04:54:42] [I] Average on 10 runs - GPU latency: 35.1378 ms - Host latency: 36.0621 ms (enqueue 31.8686 ms)
+[10/21/2026-04:54:42] [I] Average on 10 runs - GPU latency: 35.0693 ms - Host latency: 35.9897 ms (enqueue 31.562 ms)
+[10/21/2026-04:54:42] [I] Average on 10 runs - GPU latency: 35.0763 ms - Host latency: 35.9948 ms (enqueue 31.9559 ms)
+[10/21/2026-04:54:42] [I] Average on 10 runs - GPU latency: 35.1018 ms - Host latency: 36.0251 ms (enqueue 31.976 ms)
+[10/21/2026-04:54:42] [I] Average on 10 runs - GPU latency: 35.0779 ms - Host latency: 35.9907 ms (enqueue 31.6696 ms)
+[10/21/2026-04:54:42] [I] Average on 10 runs - GPU latency: 35.0937 ms - Host latency: 36.012 ms (enqueue 31.7342 ms)
+[10/21/2026-04:54:42] [I] 
+[10/21/2026-04:54:42] [I] === Performance summary ===
+[10/21/2026-04:54:42] [I] Throughput: 28.1782 qps
+[10/21/2026-04:54:42] [I] Latency: min = 35.374 ms, max = 36.1644 ms, mean = 36.0053 ms, median = 36.0069 ms, percentile(90%) = 36.0797 ms, percentile(95%) = 36.0935 ms, percentile(99%) = 36.1644 ms
+[10/21/2026-04:54:42] [I] Enqueue Time: min = 29.588 ms, max = 32.0957 ms, mean = 31.8493 ms, median = 31.9573 ms, percentile(90%) = 32.0225 ms, percentile(95%) = 32.053 ms, percentile(99%) = 32.0957 ms
+[10/21/2026-04:54:42] [I] H2D Latency: min = 0.883865 ms, max = 0.959229 ms, mean = 0.910863 ms, median = 0.910217 ms, percentile(90%) = 0.926514 ms, percentile(95%) = 0.92981 ms, percentile(99%) = 0.959229 ms
+[10/21/2026-04:54:42] [I] GPU Compute Time: min = 34.449 ms, max = 35.2264 ms, mean = 35.0863 ms, median = 35.0881 ms, percentile(90%) = 35.158 ms, percentile(95%) = 35.1678 ms, percentile(99%) = 35.2264 ms
+[10/21/2026-04:54:42] [I] D2H Latency: min = 0.00390625 ms, max = 0.0168457 ms, mean = 0.00820767 ms, median = 0.00775146 ms, percentile(90%) = 0.0136719 ms, percentile(95%) = 0.014679 ms, percentile(99%) = 0.0168457 ms
+[10/21/2026-04:54:42] [I] Total Host Walltime: 3.12298 s
+[10/21/2026-04:54:42] [I] Total GPU Compute Time: 3.08759 s
+[10/21/2026-04:54:42] [W] * Throughput may be bound by Enqueue Time rather than GPU Compute and the GPU may be under-utilized.
+[10/21/2026-04:54:42] [W]   If not already in use, --useCudaGraph (utilize CUDA graphs where possible) may increase the throughput.
+[10/21/2026-04:54:42] [I] Explanations of the performance metrics are printed in the verbose logs.
+[10/21/2026-04:54:42] [I] 
+&&&& PASSED TensorRT.trtexec [TensorRT v100300] # /usr/src/tensorrt/bin/trtexec --onnx=/mnt/data/work/export/efficientsam3-ev-m/open_vocab/vision_decoder_noif.onnx --shapes=pixel_values:1x3x1008x1008,language_features:16x1x256,language_mask:1x16 --saveEngine=/mnt/data/work/export/efficientsam3-ev-m/trt/vision_decoder_fp16.plan --timingCacheFile=/mnt/data/work/export/efficientsam3-ev-m/trt/timing.cache --exportLayerInfo=/mnt/data/work/export/efficientsam3-ev-m/trt/vision_decoder_fp16.layers.json --profilingVerbosity=detailed --separateProfileRun --fp16
+exit=0 wall_s=326.672487696
+-rw-r--r-- 1 root root 90344956 Oct 21 04:54 /mnt/data/work/export/efficientsam3-ev-m/trt/vision_decoder_fp16.plan

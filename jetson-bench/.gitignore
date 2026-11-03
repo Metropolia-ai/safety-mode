@@ -1,0 +1,9 @@
+footage/raw/
+footage/frames/
+out/
+weights/
+*.pt
+*.onnx
+*.onnx.data
+*.plan
+__pycache__/

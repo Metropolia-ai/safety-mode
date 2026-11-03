@@ -1,0 +1,238 @@
+{
+  "title": "Safety Mode daily report input (input of the Muse Spark daily report)",
+  "description": "Structured events of the day; Spark writes the report-template.md report from them. The schema follows strict-mode style (like rule.schema.json), so it can also be used as response_format.",
+  "type": "object",
+  "properties": {
+    "site": {
+      "type": "string",
+      "description": "site, for example Warehouse A"
+    },
+    "camera": {
+      "type": "string",
+      "description": "camera identifier"
+    },
+    "date": {
+      "type": "string",
+      "description": "date YYYY-MM-DD"
+    },
+    "uptime_min": {
+      "type": "number",
+      "description": "camera uptime over the day, minutes"
+    },
+    "events": {
+      "type": "array",
+      "items": {
+        "description": "one engine event (alert)",
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "description": "event identifier, for example evt-0412 (matches the frame name)"
+          },
+          "time": {
+            "type": "string",
+            "description": "event start time HH:MM:SS by the camera clock"
+          },
+          "rule_id": {
+            "type": "string",
+            "description": "rule_id of the rule from rules/*.json"
+          },
+          "severity": {
+            "type": "string",
+            "enum": [
+              "low",
+              "medium",
+              "high",
+              "critical"
+            ],
+            "description": "severity"
+          },
+          "duration_s": {
+            "type": "number",
+            "description": "event duration in seconds"
+          },
+          "objects": {
+            "type": "array",
+            "description": "objects in the event frame",
+            "items": {
+              "type": "object",
+              "properties": {
+                "name": {
+                  "type": "string",
+                  "description": "object name from the rule"
+                },
+                "box": {
+                  "type": "array",
+                  "items": {
+                    "type": "number"
+                  },
+                  "description": "x1, y1, x2, y2 in frame pixels"
+                }
+              },
+              "required": [
+                "name",
+                "box"
+              ],
+              "additionalProperties": false
+            }
+          },
+          "measurements": {
+            "description": "engine measurements; unused ones = null",
+            "type": "object",
+            "properties": {
+              "distance_m": {
+                "description": "minimum floor distance, m (distance_lt) or null",
+                "anyOf": [
+                  {
+                    "type": "number"
+                  },
+                  {
+                    "type": "null"
+                  }
+                ]
+              },
+              "count": {
+                "description": "number of objects in the zone (count_in_zone) or null",
+                "anyOf": [
+                  {
+                    "type": "integer"
+                  },
+                  {
+                    "type": "null"
+                  }
+                ]
+              },
+              "height_m": {
+                "description": "height above the floor, m (height_above_floor) or null",
+                "anyOf": [
+                  {
+                    "type": "number"
+                  },
+                  {
+                    "type": "null"
+                  }
+                ]
+              }
+            },
+            "required": [
+              "distance_m",
+              "count",
+              "height_m"
+            ],
+            "additionalProperties": false
+          },
+          "frame": {
+            "type": "string",
+            "description": "file name of the event frame"
+          },
+          "explanation": {
+            "type": "string",
+            "description": "one-paragraph alert explanation (Muse Spark, from the structured event)"
+          },
+          "end_time": {
+            "type": "string",
+            "description": "alert end time (the last second the condition was true), in the same format as time; without this field the end = time + duration_s"
+          }
+        },
+        "required": [
+          "id",
+          "time",
+          "rule_id",
+          "severity",
+          "duration_s",
+          "objects",
+          "measurements",
+          "frame",
+          "explanation"
+        ],
+        "additionalProperties": false
+      },
+      "description": "all events of the day"
+    },
+    "rules": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "description": "rule_id"
+          },
+          "title": {
+            "type": "string",
+            "description": "rule title"
+          },
+          "events": {
+            "type": "integer",
+            "description": "number of events in the day"
+          },
+          "false_positives_marked": {
+            "type": "integer",
+            "description": "number of alerts the manager marked as false"
+          },
+          "enabled": {
+            "type": "boolean",
+            "description": "rule enabled at the end of the day"
+          }
+        },
+        "required": [
+          "id",
+          "title",
+          "events",
+          "false_positives_marked",
+          "enabled"
+        ],
+        "additionalProperties": false
+      },
+      "description": "rule health"
+    },
+    "manager_actions": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "time": {
+            "type": "string",
+            "description": "HH:MM"
+          },
+          "action": {
+            "type": "string",
+            "enum": [
+              "enabled",
+              "disabled",
+              "edited",
+              "marked_false_positive"
+            ],
+            "description": "what the manager did"
+          },
+          "rule_id": {
+            "type": "string",
+            "description": "rule_id"
+          },
+          "reason": {
+            "type": "string",
+            "description": "reason in the manager's words"
+          }
+        },
+        "required": [
+          "time",
+          "action",
+          "rule_id",
+          "reason"
+        ],
+        "additionalProperties": false
+      },
+      "description": "manager actions during the day"
+    }
+  },
+  "required": [
+    "site",
+    "camera",
+    "date",
+    "uptime_min",
+    "events",
+    "rules",
+    "manager_actions"
+  ],
+  "additionalProperties": false
+}

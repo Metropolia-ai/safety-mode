@@ -1,0 +1,25 @@
+{
+  "rule_id": "r4",
+  "title": "Nobody under a raised load",
+  "objects": [
+    {
+      "name": "forklift",
+      "prompt": "forklift"
+    },
+    {
+      "name": "load",
+      "prompt": "raised load"
+    },
+    {
+      "name": "person",
+      "prompt": "person"
+    }
+  ],
+  "zones": [],
+  "condition": null,
+  "min_duration_s": 1,
+  "severity": "high",
+  "explanation_template": "Person under a raised load at {time}.",
+  "unsupported": "\"Under the load\" is a vertical relation: the person must stand below the raised forks. None of the primitives expresses it: distance_lt measures distance along the floor between ground contact points, and a load held in the air has no ground contact point to measure from. height_above_floor can tell that the load is above 1.5 m, but not who is beneath it.",
+  "suggested_rewrite": "Nobody within 1 m of a forklift while its load is raised above 1.5 m."
+}

@@ -1,0 +1,17 @@
+$ python bench/text_embeddings.py --onnx /mnt/data/work/export/efficientsam3-ev-m/open_vocab/text_encoder.onnx --ckpt /mnt/data/work/weights/efficientsam3/efficientsam3_efficientvit.pt --out /mnt/data/work/export/efficientsam3-ev-m/text_embeddings.npz
+  self.setter(val)
+Resizing positional embeddings from 77 to 16
+30 prompts, ORT CPU text encoder 12.6 ms/prompt; max|ORT-torch| features 7.63e-06 embeds 0.00e+00
+tokens per prompt (non-pad): [3, 3, 6, 4, 3, 4, 4, 4, 3, 3, 5, 4, 3, 3, 3, 3, 4, 3, 5, 4, 4, 4, 3, 3, 3, 3, 3, 3, 5, 3]
+bytes/prompt fp32: features 16384 + mask 16 + embeds 32768 (+ids 128); needed by vision graph = features+mask 16400
+npz /mnt/data/work/export/efficientsam3-ev-m/text_embeddings.npz: 1482592 bytes (1448 KiB) for 30 prompts; features+mask only: 480 KiB fp32, 240 KiB fp16
+text_encoder.onnx on disk: 161.3 MiB (not shipped to the phone with precomputed embeddings)
+
+# rerun with the CPU idle (first run above overlapped a TensorRT build)
+$ python bench/text_embeddings.py --onnx /mnt/data/work/export/efficientsam3-ev-m/open_vocab/text_encoder.onnx --ckpt /mnt/data/work/weights/efficientsam3/efficientsam3_efficientvit.pt --out /mnt/data/work/export/efficientsam3-ev-m/text_embeddings.npz
+Resizing positional embeddings from 77 to 16
+30 prompts, ORT CPU text encoder 4.7 ms/prompt; max|ORT-torch| features 7.63e-06 embeds 0.00e+00
+tokens per prompt (non-pad): [3, 3, 6, 4, 3, 4, 4, 4, 3, 3, 5, 4, 3, 3, 3, 3, 4, 3, 5, 4, 4, 4, 3, 3, 3, 3, 3, 3, 5, 3]
+bytes/prompt fp32: features 16384 + mask 16 + embeds 32768 (+ids 128); needed by vision graph = features+mask 16400
+npz /mnt/data/work/export/efficientsam3-ev-m/text_embeddings.npz: 1482592 bytes (1448 KiB) for 30 prompts; features+mask only: 480 KiB fp32, 240 KiB fp16
+text_encoder.onnx on disk: 161.3 MiB (not shipped to the phone with precomputed embeddings)

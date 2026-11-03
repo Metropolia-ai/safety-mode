@@ -1,0 +1,177 @@
+{
+  "clip": "pexels-6079421-forklift-busy-warehouse",
+  "reference_frame": "frames/pexels-6079421-forklift-busy-warehouse/001.jpg",
+  "frame_size": [
+    1280,
+    720
+  ],
+  "zones": [
+    {
+      "name": "past_gate",
+      "title": "Warehouse floor",
+      "polygon": [
+        [
+          0.0,
+          0.5
+        ],
+        [
+          0.3672,
+          0.5
+        ],
+        [
+          0.3672,
+          0.5347
+        ],
+        [
+          0.3734,
+          0.625
+        ],
+        [
+          0.4609,
+          0.625
+        ],
+        [
+          0.4688,
+          0.5889
+        ],
+        [
+          0.625,
+          0.5889
+        ],
+        [
+          0.6875,
+          0.6417
+        ],
+        [
+          0.9219,
+          0.8306
+        ],
+        [
+          1.0,
+          0.875
+        ],
+        [
+          1.0,
+          1.0
+        ],
+        [
+          0.0,
+          1.0
+        ]
+      ],
+      "note": "The floor area the camera sees: the hall floor up to the roll-up door threshold. The doorway and the corridor behind it are not included.",
+      "dev_note": "All visible hall floor up to the threshold of the roll-up door. The doorway and the corridor behind it (a pedestrian stands there) are not included: that is no longer the hall. in_zone for people and machines uses the footpoint (the middle of the bottom edge of the box). 30.10: the far edge on the left was raised from y=0.5347 to 0.50 (x 0–0.367): the hall floor between the workbenches and the racks is visible there, and a person stands on it by the racks (person #5, s5–s24, box bottom y=0.51–0.524); before that he was outside the zone, although the zone note and expected.md count him as in the hall (test-footage/verification-2026-10-30.md)."
+    },
+    {
+      "name": "fire_exit_zone",
+      "title": "Area in front of the loading door",
+      "polygon": [
+        [
+          0.4593,
+          0.5903
+        ],
+        [
+          0.6209,
+          0.5903
+        ],
+        [
+          0.8643,
+          0.74
+        ],
+        [
+          0.53,
+          0.74
+        ]
+      ],
+      "note": "The floor in front of the roll-up loading door, about 6.5 m deep from the threshold. Not marked on the floor; drawn by hand.",
+      "dev_note": "floor apron in front of the roll-up door, ≈6.5 m deep by the homography; forklifts must not stop here. Width as before (X 2.73–5.73 m by the homography), depth from the threshold 6.47 m (bottom edge y=0.74). Until 28.10 it was 3 m (y up to 0.635), extended down for rule r11; the name fire_exit_zone is kept so that r05 loads."
+    },
+    {
+      "name": "pedestrian_lane",
+      "title": "Pedestrian lane",
+      "polygon": [
+        [
+          0.587,
+          0.5903
+        ],
+        [
+          0.6193,
+          0.5903
+        ],
+        [
+          1.0,
+          0.8264
+        ],
+        [
+          1.0,
+          0.8889
+        ]
+      ],
+      "note": "The 0.6 m strip between the yellow dashed line and the racks, from the door to the edge of the frame.",
+      "dev_note": "A 0.6 m strip between the yellow dashed line (X=3.6 m by the floor model, matches the line along its whole length) and the racks, from the door to the edge of the frame. Part of the strip is taken up by pallets with reels at the base of the rack."
+    },
+    {
+      "name": "yellow_zone",
+      "title": "Yellow zone (walkway behind the yellow line)",
+      "polygon": [
+        [
+          0.587,
+          0.5903
+        ],
+        [
+          0.6193,
+          0.5903
+        ],
+        [
+          1.0,
+          0.8264
+        ],
+        [
+          1.0,
+          0.8889
+        ]
+      ],
+      "note": "The walkway between the yellow dashed line on the floor and the racks (same area as the pedestrian lane).",
+      "dev_note": "Same polygon as pedestrian_lane: a variant of rule 1 \"nobody in the yellow zone while the forklift is moving\"."
+    }
+  ],
+  "floor_calibration": {
+    "points_px": [
+      [
+        0.2916,
+        0.6259
+      ],
+      [
+        0.4943,
+        0.6259
+      ],
+      [
+        0.5957,
+        0.8018
+      ],
+      [
+        0.1902,
+        0.8018
+      ]
+    ],
+    "points_m": [
+      [
+        0,
+        0
+      ],
+      [
+        3.0,
+        0
+      ],
+      [
+        3.0,
+        5.0
+      ],
+      [
+        0,
+        5.0
+      ]
+    ],
+    "assumption": "Scale from the width of the roll-up door opening = 3.0 m (at the threshold, y=425 px in the 1280×720 frame). The horizon y=324 px and the vanishing point of the lengthwise lines x=503 px were found from the floor seam and the yellow line; the camera height comes out at 1.46 m, focal length ~865 px (from the length of a Toyota 8-series body ≈2.5 m without forks). Check: the yellow line lies on X=3.6 m along its whole length, the forklift overhead guard height ≈2.0 m (spec ~2.1 m), the open doorway height ≈2.3 m. Rectangle 3×5 m: far edge 10 m from the camera, near edge 5 m; the first axis runs across the aisle, the second along the aisle towards the camera. Handheld camera: by second 9 the scene shifts ~50 px to the right, so the calibration and zones are right for the start of the clip and off by ~0.5 m later."
+  }
+}

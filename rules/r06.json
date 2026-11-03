@@ -1,0 +1,34 @@
+{
+  "rule_id": "r6",
+  "title": "No climbing on racks",
+  "objects": [
+    {
+      "name": "person",
+      "prompt": "person"
+    }
+  ],
+  "zones": [
+    "rack_zone"
+  ],
+  "condition": {
+    "all": [
+      {
+        "in_zone": {
+          "object": "person",
+          "zone": "rack_zone"
+        }
+      },
+      {
+        "height_above_floor": {
+          "object": "person",
+          "m": 1.2
+        }
+      }
+    ]
+  },
+  "min_duration_s": 2,
+  "severity": "high",
+  "explanation_template": "Person {height_m} m above the floor in the rack zone for {duration_s} s, at {time}.",
+  "unsupported": null,
+  "suggested_rewrite": null
+}

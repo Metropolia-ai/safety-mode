@@ -1,0 +1,220 @@
+2026-10-20T11:43:54-04:00
+NOTE: /usr/bin/time not installed; wall time and peak RSS via python getrusage(RUSAGE_CHILDREN) wrapper
+CMD: trtexec --onnx=embedl_sam3_quant.onnx --fp16 --int8 --builderOptimizationLevel=5 --memPoolSize=workspace:4294967296 --timingCacheFile=embedl_sam3_timing_cache.bin --saveEngine=embedl_sam3_quant.engine
+&&&& RUNNING TensorRT.trtexec [TensorRT v100300] # /usr/src/tensorrt/bin/trtexec --onnx=embedl_sam3_quant.onnx --fp16 --int8 --builderOptimizationLevel=5 --memPoolSize=workspace:4294967296 --timingCacheFile=embedl_sam3_timing_cache.bin --saveEngine=embedl_sam3_quant.engine
+[10/20/2026-11:43:54] [I] === Model Options ===
+[10/20/2026-11:43:54] [I] Format: ONNX
+[10/20/2026-11:43:54] [I] Model: embedl_sam3_quant.onnx
+[10/20/2026-11:43:54] [I] Output:
+[10/20/2026-11:43:54] [I] === Build Options ===
+[10/20/2026-11:43:54] [I] Memory Pools: workspace: 4.29497e+09 MiB, dlaSRAM: default, dlaLocalDRAM: default, dlaGlobalDRAM: default, tacticSharedMem: default
+[10/20/2026-11:43:54] [I] avgTiming: 8
+[10/20/2026-11:43:54] [I] Precision: FP32+FP16+INT8
+[10/20/2026-11:43:54] [I] LayerPrecisions: 
+[10/20/2026-11:43:54] [I] Layer Device Types: 
+[10/20/2026-11:43:54] [I] Calibration: Dynamic
+[10/20/2026-11:43:54] [I] Refit: Disabled
+[10/20/2026-11:43:54] [I] Strip weights: Disabled
+[10/20/2026-11:43:54] [I] Version Compatible: Disabled
+[10/20/2026-11:43:54] [I] ONNX Plugin InstanceNorm: Disabled
+[10/20/2026-11:43:54] [I] TensorRT runtime: full
+[10/20/2026-11:43:54] [I] Lean DLL Path: 
+[10/20/2026-11:43:54] [I] Tempfile Controls: { in_memory: allow, temporary: allow }
+[10/20/2026-11:43:54] [I] Exclude Lean Runtime: Disabled
+[10/20/2026-11:43:54] [I] Sparsity: Disabled
+[10/20/2026-11:43:54] [I] Safe mode: Disabled
+[10/20/2026-11:43:54] [I] Build DLA standalone loadable: Disabled
+[10/20/2026-11:43:54] [I] Allow GPU fallback for DLA: Disabled
+[10/20/2026-11:43:54] [I] DirectIO mode: Disabled
+[10/20/2026-11:43:54] [I] Restricted mode: Disabled
+[10/20/2026-11:43:54] [I] Skip inference: Disabled
+[10/20/2026-11:43:54] [I] Save engine: embedl_sam3_quant.engine
+[10/20/2026-11:43:54] [I] Load engine: 
+[10/20/2026-11:43:54] [I] Profiling verbosity: 0
+[10/20/2026-11:43:54] [I] Tactic sources: Using default tactic sources
+[10/20/2026-11:43:54] [I] timingCacheMode: global
+[10/20/2026-11:43:54] [I] timingCacheFile: embedl_sam3_timing_cache.bin
+[10/20/2026-11:43:54] [I] Enable Compilation Cache: Enabled
+[10/20/2026-11:43:54] [I] errorOnTimingCacheMiss: Disabled
+[10/20/2026-11:43:54] [I] Preview Features: Use default preview flags.
+[10/20/2026-11:43:54] [I] MaxAuxStreams: -1
+[10/20/2026-11:43:54] [I] BuilderOptimizationLevel: 5
+[10/20/2026-11:43:54] [I] Calibration Profile Index: 0
+[10/20/2026-11:43:54] [I] Weight Streaming: Disabled
+[10/20/2026-11:43:54] [I] Runtime Platform: Same As Build
+[10/20/2026-11:43:54] [I] Debug Tensors: 
+[10/20/2026-11:43:54] [I] Input(s)s format: fp32:CHW
+[10/20/2026-11:43:54] [I] Output(s)s format: fp32:CHW
+[10/20/2026-11:43:54] [I] Input build shapes: model
+[10/20/2026-11:43:54] [I] Input calibration shapes: model
+[10/20/2026-11:43:54] [I] === System Options ===
+[10/20/2026-11:43:54] [I] Device: 0
+[10/20/2026-11:43:54] [I] DLACore: 
+[10/20/2026-11:43:54] [I] Plugins:
+[10/20/2026-11:43:54] [I] setPluginsToSerialize:
+[10/20/2026-11:43:54] [I] dynamicPlugins:
+[10/20/2026-11:43:54] [I] ignoreParsedPluginLibs: 0
+[10/20/2026-11:43:54] [I] 
+[10/20/2026-11:43:54] [I] === Inference Options ===
+[10/20/2026-11:43:54] [I] Batch: Explicit
+[10/20/2026-11:43:54] [I] Input inference shapes: model
+[10/20/2026-11:43:54] [I] Iterations: 10
+[10/20/2026-11:43:54] [I] Duration: 3s (+ 200ms warm up)
+[10/20/2026-11:43:54] [I] Sleep time: 0ms
+[10/20/2026-11:43:54] [I] Idle time: 0ms
+[10/20/2026-11:43:54] [I] Inference Streams: 1
+[10/20/2026-11:43:54] [I] ExposeDMA: Disabled
+[10/20/2026-11:43:54] [I] Data transfers: Enabled
+[10/20/2026-11:43:54] [I] Spin-wait: Disabled
+[10/20/2026-11:43:54] [I] Multithreading: Disabled
+[10/20/2026-11:43:54] [I] CUDA Graph: Disabled
+[10/20/2026-11:43:54] [I] Separate profiling: Disabled
+[10/20/2026-11:43:54] [I] Time Deserialize: Disabled
+[10/20/2026-11:43:54] [I] Time Refit: Disabled
+[10/20/2026-11:43:54] [I] NVTX verbosity: 0
+[10/20/2026-11:43:54] [I] Persistent Cache Ratio: 0
+[10/20/2026-11:43:54] [I] Optimization Profile Index: 0
+[10/20/2026-11:43:54] [I] Weight Streaming Budget: 100.000000%
+[10/20/2026-11:43:54] [I] Inputs:
+[10/20/2026-11:43:54] [I] Debug Tensor Save Destinations:
+[10/20/2026-11:43:54] [I] === Reporting Options ===
+[10/20/2026-11:43:54] [I] Verbose: Disabled
+[10/20/2026-11:43:54] [I] Averages: 10 inferences
+[10/20/2026-11:43:54] [I] Percentiles: 90,95,99
+[10/20/2026-11:43:54] [I] Dump refittable layers:Disabled
+[10/20/2026-11:43:54] [I] Dump output: Disabled
+[10/20/2026-11:43:54] [I] Profile: Disabled
+[10/20/2026-11:43:54] [I] Export timing to JSON file: 
+[10/20/2026-11:43:54] [I] Export output to JSON file: 
+[10/20/2026-11:43:54] [I] Export profile to JSON file: 
+[10/20/2026-11:43:54] [I] 
+[10/20/2026-11:43:54] [I] === Device Information ===
+[10/20/2026-11:43:54] [I] Available Devices: 
+[10/20/2026-11:43:54] [I]   Device 0: "Orin" UUID: GPU-0badbdc3-0493-5594-940d-c37016327c07
+[10/20/2026-11:43:55] [I] Selected Device: Orin
+[10/20/2026-11:43:55] [I] Selected Device ID: 0
+[10/20/2026-11:43:55] [I] Selected Device UUID: GPU-0badbdc3-0493-5594-940d-c37016327c07
+[10/20/2026-11:43:55] [I] Compute Capability: 8.7
+[10/20/2026-11:43:55] [I] SMs: 16
+[10/20/2026-11:43:55] [I] Device Global Memory: 62840 MiB
+[10/20/2026-11:43:55] [I] Shared Memory per SM: 164 KiB
+[10/20/2026-11:43:55] [I] Memory Bus Width: 256 bits (ECC disabled)
+[10/20/2026-11:43:55] [I] Application Compute Clock Rate: 1.3 GHz
+[10/20/2026-11:43:55] [I] Application Memory Clock Rate: 1.3 GHz
+[10/20/2026-11:43:55] [I] 
+[10/20/2026-11:43:55] [I] Note: The application clock rates do not reflect the actual clock rates that the GPU is currently running at.
+[10/20/2026-11:43:55] [I] 
+[10/20/2026-11:43:55] [I] TensorRT version: 10.3.0
+[10/20/2026-11:43:55] [I] Loading standard plugins
+[10/20/2026-11:43:55] [I] [TRT] [MemUsageChange] Init CUDA: CPU +2, GPU +0, now: CPU 31, GPU 5858 (MiB)
+[10/20/2026-11:43:56] [I] [TRT] [MemUsageChange] Init builder kernel library: CPU +928, GPU +750, now: CPU 1002, GPU 6654 (MiB)
+[10/20/2026-11:43:56] [I] Start parsing network model.
+[10/20/2026-11:43:56] [I] [TRT] ----------------------------------------------------------------
+[10/20/2026-11:43:56] [I] [TRT] Input filename:   embedl_sam3_quant.onnx
+[10/20/2026-11:43:56] [I] [TRT] ONNX IR version:  0.0.8
+[10/20/2026-11:43:56] [I] [TRT] Opset version:    17
+[10/20/2026-11:43:56] [I] [TRT] Producer name:    pytorch
+[10/20/2026-11:43:56] [I] [TRT] Producer version: 2.10.0
+[10/20/2026-11:43:56] [I] [TRT] Domain:           
+[10/20/2026-11:43:56] [I] [TRT] Model version:    0
+[10/20/2026-11:43:56] [I] [TRT] Doc string:       
+[10/20/2026-11:43:56] [I] [TRT] ----------------------------------------------------------------
+[10/20/2026-11:43:56] [W] [TRT] ModelImporter.cpp:420: Make sure input tokenized_text has Int64 binding.
+[10/20/2026-11:43:59] [I] Finished parsing network model. Parse time: 2.25297
+[10/20/2026-11:43:59] [W] [TRT] Could not read timing cache from: embedl_sam3_timing_cache.bin. A new timing cache will be generated and written.
+[10/20/2026-11:43:59] [W] [TRT] Calibrator won't be used in explicit quantization mode. Please insert Quantize/Dequantize layers to indicate which tensors to quantize/dequantize.
+[10/20/2026-11:44:00] [I] [TRT] Global timing cache in use. Profiling results in this builder pass will be stored.
+[10/20/2026-12:31:33] [I] [TRT] [GraphReduction] The approximate region cut reduction algorithm is called.
+[10/20/2026-12:31:33] [I] [TRT] Detected 2 inputs and 4 output network tensors.
+[10/20/2026-12:32:17] [I] [TRT] Total Host Persistent Memory: 458816
+[10/20/2026-12:32:17] [I] [TRT] Total Device Persistent Memory: 423424
+[10/20/2026-12:32:17] [I] [TRT] Total Scratch Memory: 86201344
+[10/20/2026-12:32:17] [I] [TRT] [BlockAssignment] Started assigning block shifts. This will take 3925 steps to complete.
+[10/20/2026-12:32:21] [I] [TRT] [BlockAssignment] Algorithm ShiftNTopDown took 4718.18ms to assign 38 blocks to 3925 nodes requiring 353780736 bytes.
+[10/20/2026-12:32:21] [I] [TRT] Total Activation Memory: 353779712
+[10/20/2026-12:32:22] [I] [TRT] Total Weights Memory: 1742317184
+[10/20/2026-12:32:24] [I] [TRT] Engine generation completed in 2904.74 seconds.
+[10/20/2026-12:32:24] [I] [TRT] [MS] Running engine with multi stream info
+[10/20/2026-12:32:24] [I] [TRT] [MS] Number of aux streams is 4
+[10/20/2026-12:32:24] [I] [TRT] [MS] Number of total worker streams is 5
+[10/20/2026-12:32:24] [I] [TRT] [MS] The main stream provided by execute/enqueue calls is the first worker stream
+[10/20/2026-12:32:26] [I] [TRT] [MemUsageChange] TensorRT-managed allocation in IExecutionContext creation: CPU +1, GPU +338, now: CPU 1, GPU 2567 (MiB)
+[10/20/2026-12:32:32] [I] [TRT] Global timing cache in use. Profiling results in this builder pass will be stored.
+[10/20/2026-12:45:01] [I] [TRT] Detected 2 inputs and 4 output network tensors.
+[10/20/2026-12:45:26] [I] [TRT] Total Host Persistent Memory: 63696
+[10/20/2026-12:45:26] [I] [TRT] Total Device Persistent Memory: 423424
+[10/20/2026-12:45:26] [I] [TRT] Total Scratch Memory: 242046464
+[10/20/2026-12:45:26] [I] [TRT] [BlockAssignment] Started assigning block shifts. This will take 53 steps to complete.
+[10/20/2026-12:45:26] [I] [TRT] [BlockAssignment] Algorithm ShiftNTopDown took 6.44491ms to assign 11 blocks to 53 nodes requiring 333521920 bytes.
+[10/20/2026-12:45:26] [I] [TRT] Total Activation Memory: 333521920
+[10/20/2026-12:45:26] [I] [TRT] Total Weights Memory: 939297952
+[10/20/2026-12:45:27] [I] [TRT] Engine generation completed in 775.055 seconds.
+[10/20/2026-12:45:27] [I] [TRT] [MS] Running engine with multi stream info
+[10/20/2026-12:45:27] [I] [TRT] [MS] Number of aux streams is 7
+[10/20/2026-12:45:27] [I] [TRT] [MS] Number of total worker streams is 8
+[10/20/2026-12:45:27] [I] [TRT] [MS] The main stream provided by execute/enqueue calls is the first worker stream
+[10/20/2026-12:45:28] [I] [TRT] [MemUsageChange] TensorRT-managed allocation in IExecutionContext creation: CPU +0, GPU +319, now: CPU 1, GPU 3446 (MiB)
+[10/20/2026-12:45:31] [I] [TRT] Global timing cache in use. Profiling results in this builder pass will be stored.
+[10/20/2026-12:50:43] [I] [TRT] Detected 2 inputs and 4 output network tensors.
+[10/20/2026-12:51:08] [I] [TRT] Total Host Persistent Memory: 63888
+[10/20/2026-12:51:08] [I] [TRT] Total Device Persistent Memory: 423424
+[10/20/2026-12:51:08] [I] [TRT] Total Scratch Memory: 252391424
+[10/20/2026-12:51:08] [I] [TRT] [BlockAssignment] Started assigning block shifts. This will take 50 steps to complete.
+[10/20/2026-12:51:08] [I] [TRT] [BlockAssignment] Algorithm ShiftNTopDown took 5.05779ms to assign 11 blocks to 50 nodes requiring 329370112 bytes.
+[10/20/2026-12:51:08] [I] [TRT] Total Activation Memory: 329370112
+[10/20/2026-12:51:09] [I] [TRT] Total Weights Memory: 939297952
+[10/20/2026-12:51:09] [I] [TRT] Engine generation completed in 337.652 seconds.
+[10/20/2026-12:51:09] [I] [TRT] [MS] Running engine with multi stream info
+[10/20/2026-12:51:09] [I] [TRT] [MS] Number of aux streams is 7
+[10/20/2026-12:51:09] [I] [TRT] [MS] Number of total worker streams is 8
+[10/20/2026-12:51:09] [I] [TRT] [MS] The main stream provided by execute/enqueue calls is the first worker stream
+[10/20/2026-12:51:10] [I] [TRT] [MemUsageChange] TensorRT-managed allocation in IExecutionContext creation: CPU +0, GPU +315, now: CPU 1, GPU 2111 (MiB)
+[10/20/2026-12:51:13] [I] [TRT] [MemUsageStats] Peak memory usage of TRT CPU/GPU memory allocators: CPU 851 MiB, GPU 5200 MiB
+[10/20/2026-12:51:16] [I] [TRT] [MemUsageStats] Peak memory usage during Engine building and serialization: CPU: 14224 MiB
+[10/20/2026-12:51:16] [I] Engine built in 4037.08 sec.
+[10/20/2026-12:51:16] [I] Created engine with size: 926.748 MiB
+[10/20/2026-12:51:17] [I] [TRT] Serialized 44365 bytes of code generator cache.
+[10/20/2026-12:51:18] [I] [TRT] Serialized 35103441 bytes of compilation cache.
+[10/20/2026-12:51:18] [I] [TRT] Serialized 15338 timing cache entries
+[10/20/2026-12:51:18] [I] [TRT] Saved 36743130 bytes of timing cache to embedl_sam3_timing_cache.bin
+[10/20/2026-12:51:20] [I] [TRT] Loaded engine size: 926 MiB
+[10/20/2026-12:51:20] [I] Engine deserialized in 0.652695 sec.
+[10/20/2026-12:51:20] [I] [TRT] [MS] Running engine with multi stream info
+[10/20/2026-12:51:20] [I] [TRT] [MS] Number of aux streams is 7
+[10/20/2026-12:51:20] [I] [TRT] [MS] Number of total worker streams is 8
+[10/20/2026-12:51:20] [I] [TRT] [MS] The main stream provided by execute/enqueue calls is the first worker stream
+[10/20/2026-12:51:22] [I] [TRT] [MemUsageChange] TensorRT-managed allocation in IExecutionContext creation: CPU +0, GPU +314, now: CPU 0, GPU 1210 (MiB)
+[10/20/2026-12:51:22] [I] Setting persistentCacheLimit to 0 bytes.
+[10/20/2026-12:51:22] [I] Created execution context with device memory size: 314.112 MiB
+[10/20/2026-12:51:22] [I] Using random values for input image
+[10/20/2026-12:51:22] [I] Input binding for image with dimensions 1x3x924x924 is created.
+[10/20/2026-12:51:22] [I] Using random values for input tokenized_text
+[10/20/2026-12:51:22] [I] Input binding for tokenized_text with dimensions 1x32 is created.
+[10/20/2026-12:51:22] [I] Output binding for pred_masks with dimensions 1x200x264x264 is created.
+[10/20/2026-12:51:22] [I] Output binding for pred_logits with dimensions 1x200x1 is created.
+[10/20/2026-12:51:22] [I] Output binding for pred_boxes with dimensions 1x200x4 is created.
+[10/20/2026-12:51:22] [I] Output binding for presence_logit_dec with dimensions 1x1 is created.
+[10/20/2026-12:51:22] [I] Starting inference
+[10/20/2026-12:51:25] [I] Warmup completed 1 queries over 200 ms
+[10/20/2026-12:51:25] [I] Timing trace has 15 queries over 3.71523 s
+[10/20/2026-12:51:25] [I] 
+[10/20/2026-12:51:25] [I] === Trace details ===
+[10/20/2026-12:51:25] [I] Trace averages of 10 runs:
+[10/20/2026-12:51:25] [I] Average on 10 runs - GPU latency: 239.083 ms - Host latency: 350.82 ms (enqueue 238.155 ms)
+[10/20/2026-12:51:25] [I] 
+[10/20/2026-12:51:25] [I] === Performance summary ===
+[10/20/2026-12:51:25] [I] Throughput: 4.03743 qps
+[10/20/2026-12:51:25] [I] Latency: min = 240.462 ms, max = 392.968 ms, mean = 332.315 ms, median = 376.011 ms, percentile(90%) = 377.664 ms, percentile(95%) = 392.968 ms, percentile(99%) = 392.968 ms
+[10/20/2026-12:51:25] [I] Enqueue Time: min = 222.25 ms, max = 254.989 ms, mean = 238.296 ms, median = 238.743 ms, percentile(90%) = 239.878 ms, percentile(95%) = 254.989 ms, percentile(99%) = 254.989 ms
+[10/20/2026-12:51:25] [I] H2D Latency: min = 0.5625 ms, max = 151.929 ms, mean = 91.1674 ms, median = 135.305 ms, percentile(90%) = 135.63 ms, percentile(95%) = 151.929 ms, percentile(99%) = 151.929 ms
+[10/20/2026-12:51:25] [I] GPU Compute Time: min = 238.344 ms, max = 240.077 ms, mean = 238.935 ms, median = 238.852 ms, percentile(90%) = 239.847 ms, percentile(95%) = 240.077 ms, percentile(99%) = 240.077 ms
+[10/20/2026-12:51:25] [I] D2H Latency: min = 1.53125 ms, max = 2.8855 ms, mean = 2.21201 ms, median = 2.18677 ms, percentile(90%) = 2.54828 ms, percentile(95%) = 2.8855 ms, percentile(99%) = 2.8855 ms
+[10/20/2026-12:51:25] [I] Total Host Walltime: 3.71523 s
+[10/20/2026-12:51:25] [I] Total GPU Compute Time: 3.58403 s
+[10/20/2026-12:51:25] [W] * Throughput may be bound by Enqueue Time rather than GPU Compute and the GPU may be under-utilized.
+[10/20/2026-12:51:25] [W]   If not already in use, --useCudaGraph (utilize CUDA graphs where possible) may increase the throughput.
+[10/20/2026-12:51:25] [I] Explanations of the performance metrics are printed in the verbose logs.
+[10/20/2026-12:51:25] [I] 
+&&&& PASSED TensorRT.trtexec [TensorRT v100300] # /usr/src/tensorrt/bin/trtexec --onnx=embedl_sam3_quant.onnx --fp16 --int8 --builderOptimizationLevel=5 --memPoolSize=workspace:4294967296 --timingCacheFile=embedl_sam3_timing_cache.bin --saveEngine=embedl_sam3_quant.engine
+
+[timev] exit=0 wall_s=4052.1 (67.5 min) peak_rss_kb=14566280 (13.89 GiB) user_s=3018.3 sys_s=545.8

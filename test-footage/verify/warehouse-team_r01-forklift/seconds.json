@@ -1,0 +1,500 @@
+{
+ "clip": "warehouse-team",
+ "rule": "r01-forklift",
+ "events": [
+  {
+   "start_s": 1.0,
+   "end_s": 4.0,
+   "condition_since_s": 1.0,
+   "subject": "person #2"
+  },
+  {
+   "start_s": 18.0,
+   "end_s": 18.0,
+   "condition_since_s": 18.0,
+   "subject": "person #11"
+  },
+  {
+   "start_s": 22.0,
+   "end_s": 22.0,
+   "condition_since_s": 22.0,
+   "subject": "person #7 and person #12"
+  }
+ ],
+ "timeline": ".TT.T.............T...T",
+ "seconds": [
+  {
+   "s": 0,
+   "truth": ".",
+   "state": {
+    "phase": "idle",
+    "min_s": 1.0
+   },
+   "measured": [
+    "person #0: outside Yellow zone (reach-truck parking spot)"
+   ],
+   "hits": []
+  },
+  {
+   "s": 1,
+   "truth": "T",
+   "state": {
+    "phase": "alert",
+    "since_s": 1.0,
+    "start_s": 1.0,
+    "min_s": 1.0
+   },
+   "measured": [
+    "person #0: outside Yellow zone (reach-truck parking spot)",
+    "person #1: outside Yellow zone (reach-truck parking spot)",
+    "person #2: in Yellow zone (reach-truck parking spot)",
+    "person #3: outside Yellow zone (reach-truck parking spot)"
+   ],
+   "hits": [
+    {
+     "name": "forklift",
+     "box": [
+      0.5764,
+      0.0,
+      0.7945,
+      0.5461
+     ],
+     "id": 0
+    },
+    {
+     "name": "person",
+     "box": [
+      0.693,
+      0.4469,
+      0.7555,
+      0.5578
+     ],
+     "id": 2
+    }
+   ]
+  },
+  {
+   "s": 2,
+   "truth": "T",
+   "state": {
+    "phase": "alert",
+    "since_s": 1.0,
+    "start_s": 1.0,
+    "min_s": 1.0
+   },
+   "measured": [
+    "person #0: outside Yellow zone (reach-truck parking spot)",
+    "person #1: in Yellow zone (reach-truck parking spot)",
+    "person #2: in Yellow zone (reach-truck parking spot)"
+   ],
+   "hits": [
+    {
+     "name": "forklift",
+     "box": [
+      0.3778,
+      0.0,
+      0.5889,
+      0.5422
+     ],
+     "id": 0
+    },
+    {
+     "name": "person",
+     "box": [
+      0.6472,
+      0.4422,
+      0.6903,
+      0.5414
+     ],
+     "id": 1
+    },
+    {
+     "name": "person",
+     "box": [
+      0.6014,
+      0.4438,
+      0.6528,
+      0.5484
+     ],
+     "id": 2
+    }
+   ]
+  },
+  {
+   "s": 3,
+   "truth": ".",
+   "state": {
+    "phase": "alert",
+    "since_s": 1.0,
+    "start_s": 1.0,
+    "min_s": 1.0
+   },
+   "measured": [
+    "person #0: outside Yellow zone (reach-truck parking spot)",
+    "person #1: outside Yellow zone (reach-truck parking spot)",
+    "person #2: outside Yellow zone (reach-truck parking spot)"
+   ],
+   "hits": []
+  },
+  {
+   "s": 4,
+   "truth": "T",
+   "state": {
+    "phase": "alert",
+    "since_s": 1.0,
+    "start_s": 1.0,
+    "min_s": 1.0
+   },
+   "measured": [
+    "person #0: outside Yellow zone (reach-truck parking spot)",
+    "person #1: in Yellow zone (reach-truck parking spot)",
+    "person #2: outside Yellow zone (reach-truck parking spot)"
+   ],
+   "hits": [
+    {
+     "name": "forklift",
+     "box": [
+      0.3889,
+      0.0,
+      0.5875,
+      0.5586
+     ],
+     "id": 0
+    },
+    {
+     "name": "person",
+     "box": [
+      0.5611,
+      0.432,
+      0.668,
+      0.5711
+     ],
+     "id": 1
+    }
+   ]
+  },
+  {
+   "s": 5,
+   "truth": ".",
+   "state": {
+    "phase": "alert",
+    "since_s": 1.0,
+    "start_s": 1.0,
+    "min_s": 1.0
+   },
+   "measured": [
+    "person #0: outside Yellow zone (reach-truck parking spot)",
+    "person #1: outside Yellow zone (reach-truck parking spot)",
+    "person #2: outside Yellow zone (reach-truck parking spot)",
+    "person #5: outside Yellow zone (reach-truck parking spot)"
+   ],
+   "hits": []
+  },
+  {
+   "s": 6,
+   "truth": ".",
+   "state": {
+    "phase": "idle",
+    "min_s": 1.0
+   },
+   "measured": [
+    "person #0: outside Yellow zone (reach-truck parking spot)",
+    "person #1: outside Yellow zone (reach-truck parking spot)",
+    "person #2: outside Yellow zone (reach-truck parking spot)"
+   ],
+   "hits": []
+  },
+  {
+   "s": 7,
+   "truth": ".",
+   "state": {
+    "phase": "idle",
+    "min_s": 1.0
+   },
+   "measured": [
+    "person #0: outside Yellow zone (reach-truck parking spot)",
+    "person #1: outside Yellow zone (reach-truck parking spot)",
+    "person #2: outside Yellow zone (reach-truck parking spot)",
+    "person #5: outside Yellow zone (reach-truck parking spot)"
+   ],
+   "hits": []
+  },
+  {
+   "s": 8,
+   "truth": ".",
+   "state": {
+    "phase": "idle",
+    "min_s": 1.0
+   },
+   "measured": [
+    "person #0: outside Yellow zone (reach-truck parking spot)",
+    "person #1: outside Yellow zone (reach-truck parking spot)",
+    "person #2: outside Yellow zone (reach-truck parking spot)",
+    "person #5: outside Yellow zone (reach-truck parking spot)",
+    "person #7: outside Yellow zone (reach-truck parking spot)"
+   ],
+   "hits": []
+  },
+  {
+   "s": 9,
+   "truth": ".",
+   "state": {
+    "phase": "idle",
+    "min_s": 1.0
+   },
+   "measured": [
+    "person #0: outside Yellow zone (reach-truck parking spot)",
+    "person #1: outside Yellow zone (reach-truck parking spot)",
+    "person #2: outside Yellow zone (reach-truck parking spot)",
+    "person #5: outside Yellow zone (reach-truck parking spot)",
+    "person #7: outside Yellow zone (reach-truck parking spot)"
+   ],
+   "hits": []
+  },
+  {
+   "s": 10,
+   "truth": ".",
+   "state": {
+    "phase": "idle",
+    "min_s": 1.0
+   },
+   "measured": [
+    "person #0: outside Yellow zone (reach-truck parking spot)",
+    "person #1: outside Yellow zone (reach-truck parking spot)",
+    "person #2: outside Yellow zone (reach-truck parking spot)",
+    "person #5: outside Yellow zone (reach-truck parking spot)",
+    "person #7: outside Yellow zone (reach-truck parking spot)"
+   ],
+   "hits": []
+  },
+  {
+   "s": 11,
+   "truth": ".",
+   "state": {
+    "phase": "idle",
+    "min_s": 1.0
+   },
+   "measured": [
+    "person #0: outside Yellow zone (reach-truck parking spot)",
+    "person #1: outside Yellow zone (reach-truck parking spot)",
+    "person #2: outside Yellow zone (reach-truck parking spot)",
+    "person #5: outside Yellow zone (reach-truck parking spot)",
+    "person #7: outside Yellow zone (reach-truck parking spot)"
+   ],
+   "hits": []
+  },
+  {
+   "s": 12,
+   "truth": ".",
+   "state": {
+    "phase": "idle",
+    "min_s": 1.0
+   },
+   "measured": [
+    "person #0: outside Yellow zone (reach-truck parking spot)",
+    "person #1: outside Yellow zone (reach-truck parking spot)",
+    "person #2: outside Yellow zone (reach-truck parking spot)",
+    "person #5: outside Yellow zone (reach-truck parking spot)",
+    "person #7: outside Yellow zone (reach-truck parking spot)"
+   ],
+   "hits": []
+  },
+  {
+   "s": 13,
+   "truth": ".",
+   "state": {
+    "phase": "idle",
+    "min_s": 1.0
+   },
+   "measured": [
+    "person #0: outside Yellow zone (reach-truck parking spot)",
+    "person #2: outside Yellow zone (reach-truck parking spot)",
+    "person #7: outside Yellow zone (reach-truck parking spot)"
+   ],
+   "hits": []
+  },
+  {
+   "s": 14,
+   "truth": ".",
+   "state": {
+    "phase": "idle",
+    "min_s": 1.0
+   },
+   "measured": [
+    "person #0: outside Yellow zone (reach-truck parking spot)",
+    "person #2: outside Yellow zone (reach-truck parking spot)",
+    "person #5: outside Yellow zone (reach-truck parking spot)",
+    "person #7: outside Yellow zone (reach-truck parking spot)"
+   ],
+   "hits": []
+  },
+  {
+   "s": 15,
+   "truth": ".",
+   "state": {
+    "phase": "idle",
+    "min_s": 1.0
+   },
+   "measured": [
+    "person #0: outside Yellow zone (reach-truck parking spot)",
+    "person #2: outside Yellow zone (reach-truck parking spot)",
+    "person #5: outside Yellow zone (reach-truck parking spot)",
+    "person #7: outside Yellow zone (reach-truck parking spot)"
+   ],
+   "hits": []
+  },
+  {
+   "s": 16,
+   "truth": ".",
+   "state": {
+    "phase": "idle",
+    "min_s": 1.0
+   },
+   "measured": [
+    "person #2: outside Yellow zone (reach-truck parking spot)",
+    "person #5: outside Yellow zone (reach-truck parking spot)",
+    "person #7: outside Yellow zone (reach-truck parking spot)"
+   ],
+   "hits": []
+  },
+  {
+   "s": 17,
+   "truth": ".",
+   "state": {
+    "phase": "idle",
+    "min_s": 1.0
+   },
+   "measured": [
+    "person #2: outside Yellow zone (reach-truck parking spot)",
+    "person #7: outside Yellow zone (reach-truck parking spot)"
+   ],
+   "hits": []
+  },
+  {
+   "s": 18,
+   "truth": "T",
+   "state": {
+    "phase": "alert",
+    "since_s": 18.0,
+    "start_s": 18.0,
+    "min_s": 1.0
+   },
+   "measured": [
+    "person #2: outside Yellow zone (reach-truck parking spot)",
+    "person #7: outside Yellow zone (reach-truck parking spot)",
+    "person #11: in Yellow zone (reach-truck parking spot)"
+   ],
+   "hits": [
+    {
+     "name": "forklift",
+     "box": [
+      0.1041,
+      0.1804,
+      0.4778,
+      0.5836
+     ],
+     "id": 0
+    },
+    {
+     "name": "person",
+     "box": [
+      0.6014,
+      0.4422,
+      0.6805,
+      0.5508
+     ],
+     "id": 11
+    }
+   ]
+  },
+  {
+   "s": 19,
+   "truth": ".",
+   "state": {
+    "phase": "alert",
+    "since_s": 18.0,
+    "start_s": 18.0,
+    "min_s": 1.0
+   },
+   "measured": [
+    "person #2: outside Yellow zone (reach-truck parking spot)",
+    "person #7: outside Yellow zone (reach-truck parking spot)",
+    "person #11: outside Yellow zone (reach-truck parking spot)"
+   ],
+   "hits": []
+  },
+  {
+   "s": 20,
+   "truth": ".",
+   "state": {
+    "phase": "idle",
+    "min_s": 1.0
+   },
+   "measured": [
+    "person #2: outside Yellow zone (reach-truck parking spot)",
+    "person #7: outside Yellow zone (reach-truck parking spot)",
+    "person #11: outside Yellow zone (reach-truck parking spot)"
+   ],
+   "hits": []
+  },
+  {
+   "s": 21,
+   "truth": ".",
+   "state": {
+    "phase": "idle",
+    "min_s": 1.0
+   },
+   "measured": [
+    "person #12: outside Yellow zone (reach-truck parking spot)"
+   ],
+   "hits": []
+  },
+  {
+   "s": 22,
+   "truth": "T",
+   "state": {
+    "phase": "alert",
+    "since_s": 22.0,
+    "start_s": 22.0,
+    "min_s": 1.0
+   },
+   "measured": [
+    "person #7: in Yellow zone (reach-truck parking spot)",
+    "person #12: in Yellow zone (reach-truck parking spot)",
+    "person #13: outside Yellow zone (reach-truck parking spot)"
+   ],
+   "hits": [
+    {
+     "name": "forklift",
+     "box": [
+      0.282,
+      0.2266,
+      0.593,
+      0.5742
+     ],
+     "id": 0
+    },
+    {
+     "name": "person",
+     "box": [
+      0.75,
+      0.4977,
+      0.7903,
+      0.5484
+     ],
+     "id": 7
+    },
+    {
+     "name": "person",
+     "box": [
+      0.6347,
+      0.4477,
+      0.6916,
+      0.5383
+     ],
+     "id": 12
+    }
+   ]
+  }
+ ]
+}

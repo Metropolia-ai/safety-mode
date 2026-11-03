@@ -1,0 +1,9 @@
+{
+  "functions": {
+    "api/index.py": { "maxDuration": 60, "excludeFiles": "{media/**,data/**,cache/**,index.html}" }
+  },
+  "rewrites": [{ "source": "/api/(.*)", "destination": "/api/index" }],
+  "headers": [
+    { "source": "/media/(.*)", "headers": [{ "key": "Cache-Control", "value": "public, max-age=604800, immutable" }] }
+  ]
+}

@@ -1,0 +1,426 @@
+{
+ "clip": "site-worker-no-vest",
+ "goal": "Find 2 to 4 safety rules worth enforcing on this camera, check each against the footage, and keep only the ones whose alerts are real violations.",
+ "trace": [
+  {
+   "i": 1,
+   "round": 1,
+   "kind": "note",
+   "summary": "Starting your vest-check review — gathering what this camera can see."
+  },
+  {
+   "i": 2,
+   "round": 1,
+   "kind": "facts",
+   "summary": "camera facts: 11 s, zones Site floor; calibration no; prompts forklift 0/11 s, hard hat 10/11 s, person 11/11 s, safety vest 10/11 s",
+   "tool": "get_camera_facts",
+   "args": {},
+   "ms": 0
+  },
+  {
+   "i": 3,
+   "round": 2,
+   "kind": "note",
+   "summary": "This view shows only PPE compliance potential — drafting vest and hard-hat checks."
+  },
+  {
+   "i": 4,
+   "round": 2,
+   "kind": "propose",
+   "summary": "p1 compiled: Safety vest required on Site floor",
+   "tool": "compile_rule",
+   "args": {
+    "reason": "Site floor requires high-vis; footage shows persons present with only one vest detected, so a missing-vest rule is testable.",
+    "text": "Every person on the Site floor must wear a safety vest, alert if missing for more than 3 seconds."
+   },
+   "rule_ref": "p1",
+   "text": "Every person on the Site floor must wear a safety vest, alert if missing for more than 3 seconds.",
+   "reason": "Site floor requires high-vis; footage shows persons present with only one vest detected, so a missing-vest rule is testable.",
+   "revises": null,
+   "cached": false,
+   "rule": {
+    "title": "Safety vest required on Site floor",
+    "objects": [
+     {
+      "name": "person",
+      "prompt": "person"
+     },
+     {
+      "name": "safety_vest",
+      "prompt": "safety vest"
+     }
+    ],
+    "zones": [
+     "past_gate"
+    ],
+    "condition": {
+     "all": [
+      {
+       "in_zone": {
+        "object": "person",
+        "zone": "past_gate"
+       }
+      },
+      {
+       "not": {
+        "wearing": {
+         "person": "person",
+         "ppe": [
+          "safety_vest"
+         ]
+        }
+       }
+      }
+     ]
+    },
+    "min_duration_s": 3,
+    "severity": "medium",
+    "unsupported": null,
+    "suggested_rewrite": null
+   },
+   "can_run": true,
+   "why_not": null,
+   "ms": 8
+  },
+  {
+   "i": 5,
+   "round": 2,
+   "kind": "propose",
+   "summary": "p2 compiled: Hard hat required on Site floor",
+   "tool": "compile_rule",
+   "args": {
+    "reason": "Head protection is a standard site requirement and hard hat detections exist alongside persons, so a missing-helmet rule can be confirmed or refuted.",
+    "text": "Every person on the Site floor must wear a hard hat, alert if missing for more than 3 seconds."
+   },
+   "rule_ref": "p2",
+   "text": "Every person on the Site floor must wear a hard hat, alert if missing for more than 3 seconds.",
+   "reason": "Head protection is a standard site requirement and hard hat detections exist alongside persons, so a missing-helmet rule can be confirmed or refuted.",
+   "revises": null,
+   "cached": false,
+   "rule": {
+    "title": "Hard hat required on Site floor",
+    "objects": [
+     {
+      "name": "person",
+      "prompt": "person"
+     },
+     {
+      "name": "hard_hat",
+      "prompt": "hard hat"
+     }
+    ],
+    "zones": [
+     "past_gate"
+    ],
+    "condition": {
+     "all": [
+      {
+       "in_zone": {
+        "object": "person",
+        "zone": "past_gate"
+       }
+      },
+      {
+       "not": {
+        "wearing": {
+         "person": "person",
+         "ppe": [
+          "hard_hat"
+         ]
+        }
+       }
+      }
+     ]
+    },
+    "min_duration_s": 3,
+    "severity": "medium",
+    "unsupported": null,
+    "suggested_rewrite": null
+   },
+   "can_run": true,
+   "why_not": null,
+   "ms": 6
+  },
+  {
+   "i": 6,
+   "round": 3,
+   "kind": "note",
+   "summary": "Both rules compiled cleanly — running them against the footage."
+  },
+  {
+   "i": 7,
+   "round": 3,
+   "kind": "run",
+   "summary": "p1 ran: 1 alert, condition true 6 of 11 s",
+   "tool": "run_rule",
+   "args": {
+    "rule_ref": "p1"
+   },
+   "rule_ref": "p1",
+   "ran": true,
+   "alerts": 1,
+   "timeline": "TTT.TT....T",
+   "why_not": null,
+   "events": [
+    {
+     "event_id": "p1.e1",
+     "start_s": 2.0,
+     "end_s": 5.0,
+     "subject": "person #1"
+    }
+   ],
+   "ms": 33
+  },
+  {
+   "i": 8,
+   "round": 3,
+   "kind": "run",
+   "summary": "p2 ran: 0 alerts, condition true 1 of 11 s",
+   "tool": "run_rule",
+   "args": {
+    "rule_ref": "p2"
+   },
+   "rule_ref": "p2",
+   "ran": true,
+   "alerts": 0,
+   "timeline": "..........T",
+   "why_not": null,
+   "events": [],
+   "ms": 23
+  },
+  {
+   "i": 9,
+   "round": 4,
+   "kind": "note",
+   "summary": "The vest rule fired while the hard-hat rule stayed silent — inspecting the vest alert details."
+  },
+  {
+   "i": 10,
+   "round": 4,
+   "kind": "inspect",
+   "summary": "inspected p1.e1 at s2: person 0.957 on the right side of the frame, near the camera",
+   "tool": "inspect_alert",
+   "args": {
+    "event_id": "p1.e1",
+    "second": 2
+   },
+   "event_id": "p1.e1",
+   "second": 2,
+   "detections": [
+    {
+     "object": "person",
+     "id": 0,
+     "score": 0.957,
+     "where": "on the right side of the frame, near the camera",
+     "standing_in_zones": [
+      "Site floor"
+     ],
+     "matched_by_engine": false
+    },
+    {
+     "object": "person",
+     "id": 1,
+     "score": 0.957,
+     "where": "on the right side of the frame, near the camera",
+     "standing_in_zones": [
+      "Site floor"
+     ],
+     "matched_by_engine": true
+    },
+    {
+     "object": "safety_vest",
+     "id": 0,
+     "score": 0.918,
+     "where": "on the right side of the frame, mid-distance from the camera",
+     "standing_in_zones": [],
+     "matched_by_engine": false
+    }
+   ],
+   "pairs": null,
+   "ppe": [
+    {
+     "person": "person #0",
+     "ppe_overlap_share": {
+      "safety vest": 0.54
+     },
+     "needed_share": 0.3
+    },
+    {
+     "person": "person #1",
+     "ppe_overlap_share": "none (no PPE box on this person)",
+     "needed_share": 0.3
+    }
+   ],
+   "ms": 12
+  },
+  {
+   "i": 11,
+   "round": 5,
+   "kind": "accept",
+   "summary": "accepted p1: Fired once on person #1 missing vest for 6s (s0-s5) with scores 0.957 person / 0.918 vest on the other worker, while person #0 correctly counted as wearing (overlap 0.54).",
+   "tool": "accept_rule",
+   "args": {
+    "reason": "Fired once on person #1 missing vest for 6s (s0-s5) with scores 0.957 person / 0.918 vest on the other worker, while person #0 correctly counted as wearing (overlap 0.54).",
+    "rule_ref": "p1"
+   },
+   "rule_ref": "p1",
+   "reason": "Fired once on person #1 missing vest for 6s (s0-s5) with scores 0.957 person / 0.918 vest on the other worker, while person #0 correctly counted as wearing (overlap 0.54).",
+   "ms": 0
+  },
+  {
+   "i": 12,
+   "round": 5,
+   "kind": "reject",
+   "summary": "rejected p2: Ran but raised zero alerts in 11s with condition true only 1s, so no missing-hard-hat violation is proven in this footage.",
+   "tool": "reject_rule",
+   "args": {
+    "reason": "Ran but raised zero alerts in 11s with condition true only 1s, so no missing-hard-hat violation is proven in this footage.",
+    "rule_ref": "p2"
+   },
+   "rule_ref": "p2",
+   "reason": "Ran but raised zero alerts in 11s with condition true only 1s, so no missing-hard-hat violation is proven in this footage.",
+   "ms": 0
+  },
+  {
+   "i": 13,
+   "round": 5,
+   "kind": "stop",
+   "summary": "every rule has a decision"
+  }
+ ],
+ "rules": [
+  {
+   "rule_ref": "p1",
+   "text": "Every person on the Site floor must wear a safety vest, alert if missing for more than 3 seconds.",
+   "proposal_reason": "Site floor requires high-vis; footage shows persons present with only one vest detected, so a missing-vest rule is testable.",
+   "revises": null,
+   "rule": {
+    "condition": {
+     "all": [
+      {
+       "in_zone": {
+        "object": "person",
+        "zone": "past_gate"
+       }
+      },
+      {
+       "not": {
+        "wearing": {
+         "person": "person",
+         "ppe": [
+          "safety_vest"
+         ]
+        }
+       }
+      }
+     ]
+    },
+    "explanation_template": "Person on Site floor missing {missing_ppe} for {duration_s} at {time}.",
+    "min_duration_s": 3,
+    "objects": [
+     {
+      "name": "person",
+      "prompt": "person"
+     },
+     {
+      "name": "safety_vest",
+      "prompt": "safety vest"
+     }
+    ],
+    "rule_id": "p1",
+    "severity": "medium",
+    "suggested_rewrite": null,
+    "title": "Safety vest required on Site floor",
+    "unsupported": null,
+    "zones": [
+     "past_gate"
+    ]
+   },
+   "compile_error": null,
+   "alerts": 1,
+   "events": [
+    {
+     "event_id": "p1.e1",
+     "start_s": 2.0,
+     "end_s": 5.0,
+     "since_s": 0.0,
+     "subject": "person #1"
+    }
+   ],
+   "timeline": "TTT.TT....T",
+   "decision": "accept",
+   "reason": "Fired once on person #1 missing vest for 6s (s0-s5) with scores 0.957 person / 0.918 vest on the other worker, while person #0 correctly counted as wearing (overlap 0.54)."
+  }
+ ],
+ "rejected": [
+  {
+   "rule_ref": "p2",
+   "text": "Every person on the Site floor must wear a hard hat, alert if missing for more than 3 seconds.",
+   "proposal_reason": "Head protection is a standard site requirement and hard hat detections exist alongside persons, so a missing-helmet rule can be confirmed or refuted.",
+   "revises": null,
+   "rule": {
+    "condition": {
+     "all": [
+      {
+       "in_zone": {
+        "object": "person",
+        "zone": "past_gate"
+       }
+      },
+      {
+       "not": {
+        "wearing": {
+         "person": "person",
+         "ppe": [
+          "hard_hat"
+         ]
+        }
+       }
+      }
+     ]
+    },
+    "explanation_template": "Person on Site floor missing {missing_ppe} for {duration_s} at {time}.",
+    "min_duration_s": 3,
+    "objects": [
+     {
+      "name": "person",
+      "prompt": "person"
+     },
+     {
+      "name": "hard_hat",
+      "prompt": "hard hat"
+     }
+    ],
+    "rule_id": "p2",
+    "severity": "medium",
+    "suggested_rewrite": null,
+    "title": "Hard hat required on Site floor",
+    "unsupported": null,
+    "zones": [
+     "past_gate"
+    ]
+   },
+   "compile_error": null,
+   "alerts": 0,
+   "events": [],
+   "timeline": "..........T",
+   "decision": "reject",
+   "reason": "Ran but raised zero alerts in 11s with condition true only 1s, so no missing-hard-hat violation is proven in this footage."
+  }
+ ],
+ "undecided": [],
+ "usage": {
+  "agent_calls": 5,
+  "compile_calls": 2,
+  "compile_cached": 0,
+  "prompt_tokens": 41061,
+  "completion_tokens": 3551,
+  "reasoning_tokens": 2569
+ },
+ "cost_usd": 0.0664,
+ "stop_reason": "every rule has a decision",
+ "rounds": 5,
+ "model": "muse-spark-1.3",
+ "duration_s": 14.1,
+ "created": "2026-10-29 18:10"
+}

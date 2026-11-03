@@ -1,0 +1,24 @@
+{
+  "condition": {
+    "in_zone": {
+      "object": "forklift",
+      "zone": "pedestrian_lane"
+    }
+  },
+  "explanation_template": "Forklift {object} detected in walkway crossing for {duration_s}s.",
+  "min_duration_s": 2,
+  "objects": [
+    {
+      "name": "forklift",
+      "prompt": "forklift"
+    }
+  ],
+  "rule_id": "c2",
+  "severity": "medium",
+  "suggested_rewrite": null,
+  "title": "No forklift in walkway crossing",
+  "unsupported": null,
+  "zones": [
+    "pedestrian_lane"
+  ]
+}

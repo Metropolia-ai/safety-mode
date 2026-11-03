@@ -1,0 +1,14 @@
+$ python bench/onnx_presence_fusion_break.py open_vocab/vision_decoder_noif_fp16safe.onnx open_vocab/vision_decoder_noif_fp16safe_pfb.onnx
+exposed 6 presence-head activations as outputs: ['/decoder/presence_token_head/Relu_1_output_0', '/decoder/presence_token_head_1/Relu_1_output_0']...; saved /mnt/data/work/export/efficientsam3-ev-m/open_vocab/vision_decoder_noif_fp16safe_pfb.onnx
+$ python bench/onnx_presence_fusion_break.py fixed4/efficientsam3_ev-m_fixed4_mask_noif_fp16safe.onnx fixed4/efficientsam3_ev-m_fixed4_mask_noif_fp16safe_pfb.onnx
+exposed 24 presence-head activations as outputs: ['/decoder/presence_token_head/Relu_1_output_0', '/decoder/presence_token_head_1/Relu_1_output_0']...; saved /mnt/data/work/export/efficientsam3-ev-m/fixed4/efficientsam3_ev-m_fixed4_mask_noif_fp16safe_pfb.onnx
+# v2: also exposes final presence logits
+$ python bench/onnx_presence_fusion_break.py open_vocab/vision_decoder_noif_fp16safe.onnx open_vocab/vision_decoder_noif_fp16safe_pfb.onnx
+exposed 7 presence-head activations as outputs: ['/decoder/presence_token_head/Relu_1_output_0', '/decoder/presence_token_head_1/Relu_1_output_0']...; saved /mnt/data/work/export/efficientsam3-ev-m/open_vocab/vision_decoder_noif_fp16safe_pfb.onnx
+$ python bench/onnx_presence_fusion_break.py fixed4/efficientsam3_ev-m_fixed4_mask_noif_fp16safe.onnx fixed4/efficientsam3_ev-m_fixed4_mask_noif_fp16safe_pfb.onnx
+exposed 28 presence-head activations as outputs: ['/decoder/presence_token_head/Relu_1_output_0', '/decoder/presence_token_head_1/Relu_1_output_0']...; saved /mnt/data/work/export/efficientsam3-ev-m/fixed4/efficientsam3_ev-m_fixed4_mask_noif_fp16safe_pfb.onnx
+# v3 (final): expose every LayerNormalization/Add/Relu output of the presence path
+$ python bench/onnx_presence_fusion_break.py open_vocab/vision_decoder_noif_fp16safe.onnx open_vocab/vision_decoder_noif_fp16safe_pfb.onnx
+exposed 36 presence-path tensors as extra outputs (e.g. ['/decoder/presence_token_out_norm/LayerNormalization_output_0', '/decoder/presence_token_head/layers.0/Add_output_0']); saved /mnt/data/work/export/efficientsam3-ev-m/open_vocab/vision_decoder_noif_fp16safe_pfb.onnx
+$ python bench/onnx_presence_fusion_break.py fixed4/efficientsam3_ev-m_fixed4_mask_noif_fp16safe.onnx fixed4/efficientsam3_ev-m_fixed4_mask_noif_fp16safe_pfb.onnx
+exposed 144 presence-path tensors as extra outputs (e.g. ['/decoder/presence_token_out_norm/LayerNormalization_output_0', '/decoder/presence_token_head/layers.0/Add_output_0']); saved /mnt/data/work/export/efficientsam3-ev-m/fixed4/efficientsam3_ev-m_fixed4_mask_noif_fp16safe_pfb.onnx

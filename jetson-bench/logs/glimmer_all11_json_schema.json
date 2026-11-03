@@ -1,0 +1,179 @@
+{
+  "tag": "all10-schema",
+  "model": "muse-glimmer-30B",
+  "base_url": "http://127.0.0.1:8090/v1",
+  "structured": "auto",
+  "reasoning": "",
+  "pass": 11,
+  "n": 11,
+  "total_s": 1694.9,
+  "ram_first_mb": 24442,
+  "ram_peak_mb": 33003,
+  "rows": [
+    {
+      "rule": 1,
+      "pass": true,
+      "kind": "condition",
+      "diffs": [],
+      "s": 183.8,
+      "calls": 1,
+      "prompt_tokens": 2115,
+      "completion_tokens": 1543,
+      "reasoning_tokens": 0,
+      "mode": "json_schema",
+      "finish": [
+        "stop"
+      ]
+    },
+    {
+      "rule": 2,
+      "pass": true,
+      "kind": "condition",
+      "diffs": [],
+      "s": 146.4,
+      "calls": 1,
+      "prompt_tokens": 2116,
+      "completion_tokens": 1144,
+      "reasoning_tokens": 0,
+      "mode": "json_schema",
+      "finish": [
+        "stop"
+      ]
+    },
+    {
+      "rule": 3,
+      "pass": true,
+      "kind": "condition",
+      "diffs": [],
+      "s": 120.6,
+      "calls": 1,
+      "prompt_tokens": 2131,
+      "completion_tokens": 868,
+      "reasoning_tokens": 0,
+      "mode": "json_schema",
+      "finish": [
+        "stop"
+      ]
+    },
+    {
+      "rule": 4,
+      "pass": true,
+      "kind": "unsupported",
+      "diffs": [],
+      "s": 271.4,
+      "calls": 1,
+      "prompt_tokens": 2127,
+      "completion_tokens": 2274,
+      "reasoning_tokens": 0,
+      "mode": "json_schema",
+      "finish": [
+        "stop"
+      ]
+    },
+    {
+      "rule": 5,
+      "pass": true,
+      "kind": "condition",
+      "diffs": [],
+      "s": 168.5,
+      "calls": 1,
+      "prompt_tokens": 2112,
+      "completion_tokens": 1351,
+      "reasoning_tokens": 0,
+      "mode": "json_schema",
+      "finish": [
+        "stop"
+      ]
+    },
+    {
+      "rule": 6,
+      "pass": true,
+      "kind": "condition",
+      "diffs": [],
+      "s": 130.6,
+      "calls": 1,
+      "prompt_tokens": 2111,
+      "completion_tokens": 1031,
+      "reasoning_tokens": 0,
+      "mode": "json_schema",
+      "finish": [
+        "stop"
+      ]
+    },
+    {
+      "rule": 7,
+      "pass": true,
+      "kind": "condition",
+      "diffs": [],
+      "s": 102.7,
+      "calls": 1,
+      "prompt_tokens": 2114,
+      "completion_tokens": 724,
+      "reasoning_tokens": 0,
+      "mode": "json_schema",
+      "finish": [
+        "stop"
+      ]
+    },
+    {
+      "rule": 8,
+      "pass": true,
+      "kind": "condition",
+      "diffs": [],
+      "s": 109.5,
+      "calls": 1,
+      "prompt_tokens": 2115,
+      "completion_tokens": 854,
+      "reasoning_tokens": 0,
+      "mode": "json_schema",
+      "finish": [
+        "stop"
+      ]
+    },
+    {
+      "rule": 9,
+      "pass": true,
+      "kind": "unsupported",
+      "diffs": [],
+      "s": 232.7,
+      "calls": 1,
+      "prompt_tokens": 2118,
+      "completion_tokens": 1890,
+      "reasoning_tokens": 0,
+      "mode": "json_schema",
+      "finish": [
+        "stop"
+      ]
+    },
+    {
+      "rule": 10,
+      "pass": true,
+      "kind": "condition",
+      "diffs": [],
+      "s": 78.7,
+      "calls": 1,
+      "prompt_tokens": 2132,
+      "completion_tokens": 656,
+      "reasoning_tokens": 0,
+      "mode": "json_schema",
+      "finish": [
+        "stop"
+      ]
+    },
+    {
+      "rule": 11,
+      "pass": true,
+      "kind": "condition",
+      "diffs": [],
+      "s": 150.0,
+      "calls": 1,
+      "prompt_tokens": 2126,
+      "completion_tokens": 1256,
+      "reasoning_tokens": 0,
+      "mode": "json_schema",
+      "finish": [
+        "stop"
+      ]
+    }
+  ]
+}

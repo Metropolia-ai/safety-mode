@@ -1,0 +1,38 @@
+{
+  "rule_id": "r1",
+  "title": "Nobody in the yellow zone while the press runs",
+  "objects": [
+    {
+      "name": "person",
+      "prompt": "person"
+    },
+    {
+      "name": "press",
+      "prompt": "press machine"
+    }
+  ],
+  "zones": [
+    "yellow_zone"
+  ],
+  "condition": {
+    "all": [
+      {
+        "in_zone": {
+          "object": "person",
+          "zone": "yellow_zone"
+        }
+      },
+      {
+        "machine_state": {
+          "machine": "press",
+          "state": "running"
+        }
+      }
+    ]
+  },
+  "min_duration_s": 1,
+  "severity": "high",
+  "explanation_template": "{person_count} person(s) inside the yellow zone for {duration_s} s while the press was running, at {time}.",
+  "unsupported": null,
+  "suggested_rewrite": null
+}

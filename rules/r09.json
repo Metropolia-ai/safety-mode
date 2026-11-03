@@ -1,0 +1,19 @@
+{
+  "rule_id": "r9",
+  "title": "Pallet stacks at the ramp no higher than three",
+  "objects": [
+    {
+      "name": "pallet",
+      "prompt": "pallet"
+    }
+  ],
+  "zones": [
+    "ramp_zone"
+  ],
+  "condition": null,
+  "min_duration_s": 30,
+  "severity": "low",
+  "explanation_template": "Pallet stack higher than three pallets at the ramp since {time}.",
+  "unsupported": "Stack height is not a primitive. The engine can count objects in a zone (count_in_zone) and tell how high an object's lowest point is above the floor (height_above_floor), but not how many pallets sit on top of each other or where the top of a stack is. A stack is also often segmented as one object.",
+  "suggested_rewrite": "No more than 6 pallets in the ramp zone. (This limits clutter at the ramp, not stack height; checking height needs a new primitive for the top of an object.)"
+}

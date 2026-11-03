@@ -1,0 +1,682 @@
+{
+ "clip": "busy-warehouse",
+ "rule": "r02",
+ "events": [
+  {
+   "start_s": 7.0,
+   "end_s": 24.0,
+   "condition_since_s": 5.0,
+   "subject": "person #3 and person #5"
+  }
+ ],
+ "timeline": ".....TTTTTTTTTTTTTTTTTTTT",
+ "seconds": [
+  {
+   "s": 0,
+   "truth": ".",
+   "state": {
+    "phase": "idle",
+    "min_s": 3.0
+   },
+   "measured": [
+    "person #0: outside Warehouse floor; hard hat 0.00 NO, vest 0.00 NO",
+    "person #1: outside Warehouse floor; hard hat 0.00 NO, vest 0.00 NO",
+    "person #2: outside Warehouse floor; hard hat 0.00 NO, vest 0.00 NO"
+   ],
+   "hits": []
+  },
+  {
+   "s": 1,
+   "truth": ".",
+   "state": {
+    "phase": "idle",
+    "min_s": 3.0
+   },
+   "measured": [
+    "person #0: outside Warehouse floor; hard hat 0.00 NO, vest 0.00 NO",
+    "person #1: outside Warehouse floor; hard hat 0.00 NO, vest 0.00 NO",
+    "person #2: outside Warehouse floor; hard hat 0.00 NO, vest 0.00 NO"
+   ],
+   "hits": []
+  },
+  {
+   "s": 2,
+   "truth": ".",
+   "state": {
+    "phase": "idle",
+    "min_s": 3.0
+   },
+   "measured": [
+    "person #0: outside Warehouse floor; hard hat 0.00 NO, vest 0.00 NO",
+    "person #1: outside Warehouse floor; hard hat 0.00 NO, vest 0.00 NO",
+    "person #2: outside Warehouse floor; hard hat 0.00 NO, vest 0.00 NO"
+   ],
+   "hits": []
+  },
+  {
+   "s": 3,
+   "truth": ".",
+   "state": {
+    "phase": "idle",
+    "min_s": 3.0
+   },
+   "measured": [
+    "person #0: outside Warehouse floor; hard hat 0.00 NO, vest 0.00 NO",
+    "person #1: outside Warehouse floor; hard hat 0.00 NO, vest 0.00 NO",
+    "person #2: outside Warehouse floor; hard hat 0.00 NO, vest 0.00 NO",
+    "person #3: outside Warehouse floor; hard hat 0.00 NO, vest 0.00 NO"
+   ],
+   "hits": []
+  },
+  {
+   "s": 4,
+   "truth": ".",
+   "state": {
+    "phase": "idle",
+    "min_s": 3.0
+   },
+   "measured": [
+    "person #0: outside Warehouse floor; hard hat 0.00 NO, vest 0.00 NO",
+    "person #1: outside Warehouse floor; hard hat 0.00 NO, vest 0.00 NO",
+    "person #2: outside Warehouse floor; hard hat 0.00 NO, vest 0.00 NO",
+    "person #3: outside Warehouse floor; hard hat 0.00 NO, vest 0.00 NO",
+    "person #4: outside Warehouse floor; hard hat 0.00 NO, vest 0.00 NO"
+   ],
+   "hits": []
+  },
+  {
+   "s": 5,
+   "truth": "T",
+   "state": {
+    "phase": "candidate",
+    "since_s": 5.0,
+    "held_s": 1.0,
+    "min_s": 3.0
+   },
+   "measured": [
+    "person #0: outside Warehouse floor; hard hat 0.00 NO, vest 0.00 NO",
+    "person #1: outside Warehouse floor; hard hat 0.00 NO, vest 0.00 NO",
+    "person #2: outside Warehouse floor; hard hat 0.00 NO, vest 0.00 NO",
+    "person #3: outside Warehouse floor; hard hat 0.00 NO, vest 0.00 NO",
+    "person #4: outside Warehouse floor; hard hat 0.00 NO, vest 0.00 NO",
+    "person #5: in Warehouse floor; hard hat 0.00 NO, vest 0.00 NO"
+   ],
+   "hits": [
+    {
+     "name": "person",
+     "box": [
+      0.2039,
+      0.4625,
+      0.2148,
+      0.5236
+     ],
+     "id": 5
+    }
+   ]
+  },
+  {
+   "s": 6,
+   "truth": "T",
+   "state": {
+    "phase": "candidate",
+    "since_s": 5.0,
+    "held_s": 2.0,
+    "min_s": 3.0
+   },
+   "measured": [
+    "person #0: outside Warehouse floor; hard hat 0.00 NO, vest 0.00 NO",
+    "person #1: outside Warehouse floor; hard hat 0.00 NO, vest 0.00 NO",
+    "person #2: outside Warehouse floor; hard hat 0.00 NO, vest 0.00 NO",
+    "person #3: in Warehouse floor; hard hat 0.00 NO, vest 0.00 NO",
+    "person #4: outside Warehouse floor; hard hat 0.00 NO, vest 0.00 NO",
+    "person #5: in Warehouse floor; hard hat 0.00 NO, vest 0.00 NO"
+   ],
+   "hits": [
+    {
+     "name": "person",
+     "box": [
+      0.6047,
+      0.4833,
+      0.6367,
+      0.5903
+     ],
+     "id": 3
+    },
+    {
+     "name": "person",
+     "box": [
+      0.2008,
+      0.4611,
+      0.2117,
+      0.5236
+     ],
+     "id": 5
+    }
+   ]
+  },
+  {
+   "s": 7,
+   "truth": "T",
+   "state": {
+    "phase": "alert",
+    "since_s": 5.0,
+    "start_s": 7.0,
+    "min_s": 3.0
+   },
+   "measured": [
+    "person #0: outside Warehouse floor; hard hat 0.00 NO, vest 0.00 NO",
+    "person #2: outside Warehouse floor; hard hat 0.00 NO, vest 0.00 NO",
+    "person #3: in Warehouse floor; hard hat 0.00 NO, vest 0.00 NO",
+    "person #5: in Warehouse floor; hard hat 0.00 NO, vest 0.00 NO"
+   ],
+   "hits": [
+    {
+     "name": "person",
+     "box": [
+      0.6141,
+      0.4931,
+      0.6477,
+      0.5944
+     ],
+     "id": 3
+    },
+    {
+     "name": "person",
+     "box": [
+      0.1984,
+      0.4597,
+      0.2094,
+      0.5236
+     ],
+     "id": 5
+    }
+   ]
+  },
+  {
+   "s": 8,
+   "truth": "T",
+   "state": {
+    "phase": "alert",
+    "since_s": 5.0,
+    "start_s": 7.0,
+    "min_s": 3.0
+   },
+   "measured": [
+    "person #0: outside Warehouse floor; hard hat 0.00 NO, vest 0.00 NO",
+    "person #2: outside Warehouse floor; hard hat 0.00 NO, vest 0.00 NO",
+    "person #3: outside Warehouse floor; hard hat 0.00 NO, vest 0.00 NO",
+    "person #5: in Warehouse floor; hard hat 0.00 NO, vest 0.00 NO"
+   ],
+   "hits": [
+    {
+     "name": "person",
+     "box": [
+      0.2008,
+      0.4556,
+      0.2109,
+      0.5222
+     ],
+     "id": 5
+    }
+   ]
+  },
+  {
+   "s": 9,
+   "truth": "T",
+   "state": {
+    "phase": "alert",
+    "since_s": 5.0,
+    "start_s": 7.0,
+    "min_s": 3.0
+   },
+   "measured": [
+    "person #0: outside Warehouse floor; hard hat 0.00 NO, vest 0.00 NO",
+    "person #2: outside Warehouse floor; hard hat 0.00 NO, vest 0.00 NO",
+    "person #3: outside Warehouse floor; hard hat 0.00 NO, vest 0.00 NO",
+    "person #5: in Warehouse floor; hard hat 0.00 NO, vest 0.00 NO"
+   ],
+   "hits": [
+    {
+     "name": "person",
+     "box": [
+      0.2227,
+      0.4556,
+      0.2328,
+      0.5153
+     ],
+     "id": 5
+    }
+   ]
+  },
+  {
+   "s": 10,
+   "truth": "T",
+   "state": {
+    "phase": "alert",
+    "since_s": 5.0,
+    "start_s": 7.0,
+    "min_s": 3.0
+   },
+   "measured": [
+    "person #0: outside Warehouse floor; hard hat 0.00 NO, vest 0.00 NO",
+    "person #2: outside Warehouse floor; hard hat 0.00 NO, vest 0.00 NO",
+    "person #3: outside Warehouse floor; hard hat 0.00 NO, vest 0.00 NO",
+    "person #5: in Warehouse floor; hard hat 0.00 NO, vest 0.00 NO"
+   ],
+   "hits": [
+    {
+     "name": "person",
+     "box": [
+      0.2516,
+      0.4528,
+      0.2609,
+      0.5111
+     ],
+     "id": 5
+    }
+   ]
+  },
+  {
+   "s": 11,
+   "truth": "T",
+   "state": {
+    "phase": "alert",
+    "since_s": 5.0,
+    "start_s": 7.0,
+    "min_s": 3.0
+   },
+   "measured": [
+    "person #0: outside Warehouse floor; hard hat 0.00 NO, vest 0.00 NO",
+    "person #2: outside Warehouse floor; hard hat 0.00 NO, vest 0.00 NO",
+    "person #3: outside Warehouse floor; hard hat 0.00 NO, vest 0.00 NO",
+    "person #5: in Warehouse floor; hard hat 0.00 NO, vest 0.00 NO"
+   ],
+   "hits": [
+    {
+     "name": "person",
+     "box": [
+      0.2633,
+      0.4472,
+      0.2719,
+      0.5097
+     ],
+     "id": 5
+    }
+   ]
+  },
+  {
+   "s": 12,
+   "truth": "T",
+   "state": {
+    "phase": "alert",
+    "since_s": 5.0,
+    "start_s": 7.0,
+    "min_s": 3.0
+   },
+   "measured": [
+    "person #0: outside Warehouse floor; hard hat 0.00 NO, vest 0.00 NO",
+    "person #2: outside Warehouse floor; hard hat 0.00 NO, vest 0.00 NO",
+    "person #3: outside Warehouse floor; hard hat 0.00 NO, vest 0.00 NO",
+    "person #5: in Warehouse floor; hard hat 0.00 NO, vest 0.00 NO"
+   ],
+   "hits": [
+    {
+     "name": "person",
+     "box": [
+      0.2617,
+      0.4472,
+      0.2711,
+      0.5097
+     ],
+     "id": 5
+    }
+   ]
+  },
+  {
+   "s": 13,
+   "truth": "T",
+   "state": {
+    "phase": "alert",
+    "since_s": 5.0,
+    "start_s": 7.0,
+    "min_s": 3.0
+   },
+   "measured": [
+    "person #0: outside Warehouse floor; hard hat 0.00 NO, vest 0.00 NO",
+    "person #2: outside Warehouse floor; hard hat 0.00 NO, vest 0.00 NO",
+    "person #3: outside Warehouse floor; hard hat 0.00 NO, vest 0.00 NO",
+    "person #5: in Warehouse floor; hard hat 0.00 NO, vest 0.00 NO"
+   ],
+   "hits": [
+    {
+     "name": "person",
+     "box": [
+      0.2625,
+      0.4472,
+      0.2719,
+      0.5083
+     ],
+     "id": 5
+    }
+   ]
+  },
+  {
+   "s": 14,
+   "truth": "T",
+   "state": {
+    "phase": "alert",
+    "since_s": 5.0,
+    "start_s": 7.0,
+    "min_s": 3.0
+   },
+   "measured": [
+    "person #0: outside Warehouse floor; hard hat 0.00 NO, vest 0.00 NO",
+    "person #2: outside Warehouse floor; hard hat 0.00 NO, vest 0.00 NO",
+    "person #3: outside Warehouse floor; hard hat 0.00 NO, vest 0.00 NO",
+    "person #5: in Warehouse floor; hard hat 0.00 NO, vest 0.00 NO"
+   ],
+   "hits": [
+    {
+     "name": "person",
+     "box": [
+      0.2594,
+      0.4486,
+      0.2687,
+      0.5097
+     ],
+     "id": 5
+    }
+   ]
+  },
+  {
+   "s": 15,
+   "truth": "T",
+   "state": {
+    "phase": "alert",
+    "since_s": 5.0,
+    "start_s": 7.0,
+    "min_s": 3.0
+   },
+   "measured": [
+    "person #0: outside Warehouse floor; hard hat 0.00 NO, vest 0.00 NO",
+    "person #2: outside Warehouse floor; hard hat 0.00 NO, vest 0.00 NO",
+    "person #3: outside Warehouse floor; hard hat 0.00 NO, vest 0.00 NO",
+    "person #5: in Warehouse floor; hard hat 0.00 NO, vest 0.00 NO"
+   ],
+   "hits": [
+    {
+     "name": "person",
+     "box": [
+      0.2555,
+      0.4514,
+      0.2656,
+      0.5097
+     ],
+     "id": 5
+    }
+   ]
+  },
+  {
+   "s": 16,
+   "truth": "T",
+   "state": {
+    "phase": "alert",
+    "since_s": 5.0,
+    "start_s": 7.0,
+    "min_s": 3.0
+   },
+   "measured": [
+    "person #0: outside Warehouse floor; hard hat 0.00 NO, vest 0.00 NO",
+    "person #2: outside Warehouse floor; hard hat 0.00 NO, vest 0.00 NO",
+    "person #3: outside Warehouse floor; hard hat 0.00 NO, vest 0.00 NO",
+    "person #5: in Warehouse floor; hard hat 0.00 NO, vest 0.00 NO"
+   ],
+   "hits": [
+    {
+     "name": "person",
+     "box": [
+      0.2539,
+      0.4542,
+      0.2633,
+      0.5111
+     ],
+     "id": 5
+    }
+   ]
+  },
+  {
+   "s": 17,
+   "truth": "T",
+   "state": {
+    "phase": "alert",
+    "since_s": 5.0,
+    "start_s": 7.0,
+    "min_s": 3.0
+   },
+   "measured": [
+    "person #0: outside Warehouse floor; hard hat 0.00 NO, vest 0.00 NO",
+    "person #2: outside Warehouse floor; hard hat 0.00 NO, vest 0.00 NO",
+    "person #3: outside Warehouse floor; hard hat 0.00 NO, vest 0.00 NO",
+    "person #5: in Warehouse floor; hard hat 0.00 NO, vest 0.00 NO"
+   ],
+   "hits": [
+    {
+     "name": "person",
+     "box": [
+      0.2531,
+      0.4514,
+      0.2617,
+      0.5097
+     ],
+     "id": 5
+    }
+   ]
+  },
+  {
+   "s": 18,
+   "truth": "T",
+   "state": {
+    "phase": "alert",
+    "since_s": 5.0,
+    "start_s": 7.0,
+    "min_s": 3.0
+   },
+   "measured": [
+    "person #0: outside Warehouse floor; hard hat 0.00 NO, vest 0.00 NO",
+    "person #2: outside Warehouse floor; hard hat 0.00 NO, vest 0.00 NO",
+    "person #3: outside Warehouse floor; hard hat 0.00 NO, vest 0.00 NO",
+    "person #5: in Warehouse floor; hard hat 0.00 NO, vest 0.00 NO"
+   ],
+   "hits": [
+    {
+     "name": "person",
+     "box": [
+      0.2508,
+      0.4542,
+      0.2602,
+      0.5125
+     ],
+     "id": 5
+    }
+   ]
+  },
+  {
+   "s": 19,
+   "truth": "T",
+   "state": {
+    "phase": "alert",
+    "since_s": 5.0,
+    "start_s": 7.0,
+    "min_s": 3.0
+   },
+   "measured": [
+    "person #0: outside Warehouse floor; hard hat 0.00 NO, vest 0.00 NO",
+    "person #2: outside Warehouse floor; hard hat 0.00 NO, vest 0.00 NO",
+    "person #3: outside Warehouse floor; hard hat 0.00 NO, vest 0.00 NO",
+    "person #5: in Warehouse floor; hard hat 0.00 NO, vest 0.00 NO"
+   ],
+   "hits": [
+    {
+     "name": "person",
+     "box": [
+      0.25,
+      0.4542,
+      0.2594,
+      0.5111
+     ],
+     "id": 5
+    }
+   ]
+  },
+  {
+   "s": 20,
+   "truth": "T",
+   "state": {
+    "phase": "alert",
+    "since_s": 5.0,
+    "start_s": 7.0,
+    "min_s": 3.0
+   },
+   "measured": [
+    "person #0: outside Warehouse floor; hard hat 0.00 NO, vest 0.00 NO",
+    "person #2: outside Warehouse floor; hard hat 0.00 NO, vest 0.00 NO",
+    "person #3: outside Warehouse floor; hard hat 0.00 NO, vest 0.00 NO",
+    "person #5: in Warehouse floor; hard hat 0.00 NO, vest 0.00 NO"
+   ],
+   "hits": [
+    {
+     "name": "person",
+     "box": [
+      0.2461,
+      0.45,
+      0.2547,
+      0.5097
+     ],
+     "id": 5
+    }
+   ]
+  },
+  {
+   "s": 21,
+   "truth": "T",
+   "state": {
+    "phase": "alert",
+    "since_s": 5.0,
+    "start_s": 7.0,
+    "min_s": 3.0
+   },
+   "measured": [
+    "person #0: outside Warehouse floor; hard hat 0.00 NO, vest 0.00 NO",
+    "person #2: outside Warehouse floor; hard hat 0.00 NO, vest 0.00 NO",
+    "person #3: outside Warehouse floor; hard hat 0.00 NO, vest 0.00 NO",
+    "person #5: in Warehouse floor; hard hat 0.00 NO, vest 0.00 NO"
+   ],
+   "hits": [
+    {
+     "name": "person",
+     "box": [
+      0.2422,
+      0.45,
+      0.2508,
+      0.5111
+     ],
+     "id": 5
+    }
+   ]
+  },
+  {
+   "s": 22,
+   "truth": "T",
+   "state": {
+    "phase": "alert",
+    "since_s": 5.0,
+    "start_s": 7.0,
+    "min_s": 3.0
+   },
+   "measured": [
+    "person #0: outside Warehouse floor; hard hat 0.00 NO, vest 0.00 NO",
+    "person #2: outside Warehouse floor; hard hat 0.00 NO, vest 0.00 NO",
+    "person #3: outside Warehouse floor; hard hat 0.00 NO, vest 0.00 NO",
+    "person #5: in Warehouse floor; hard hat 0.00 NO, vest 0.00 NO"
+   ],
+   "hits": [
+    {
+     "name": "person",
+     "box": [
+      0.2406,
+      0.4542,
+      0.2492,
+      0.5111
+     ],
+     "id": 5
+    }
+   ]
+  },
+  {
+   "s": 23,
+   "truth": "T",
+   "state": {
+    "phase": "alert",
+    "since_s": 5.0,
+    "start_s": 7.0,
+    "min_s": 3.0
+   },
+   "measured": [
+    "person #0: outside Warehouse floor; hard hat 0.00 NO, vest 0.00 NO",
+    "person #2: outside Warehouse floor; hard hat 0.00 NO, vest 0.00 NO",
+    "person #3: outside Warehouse floor; hard hat 0.00 NO, vest 0.00 NO",
+    "person #5: in Warehouse floor; hard hat 0.00 NO, vest 0.00 NO"
+   ],
+   "hits": [
+    {
+     "name": "person",
+     "box": [
+      0.2414,
+      0.4528,
+      0.25,
+      0.5125
+     ],
+     "id": 5
+    }
+   ]
+  },
+  {
+   "s": 24,
+   "truth": "T",
+   "state": {
+    "phase": "alert",
+    "since_s": 5.0,
+    "start_s": 7.0,
+    "min_s": 3.0
+   },
+   "measured": [
+    "person #0: outside Warehouse floor; hard hat 0.00 NO, vest 0.00 NO",
+    "person #2: outside Warehouse floor; hard hat 0.00 NO, vest 0.00 NO",
+    "person #3: in Warehouse floor; hard hat 0.00 NO, vest 0.00 NO",
+    "person #5: in Warehouse floor; hard hat 0.00 NO, vest 0.00 NO"
+   ],
+   "hits": [
+    {
+     "name": "person",
+     "box": [
+      0.6719,
+      0.4875,
+      0.7258,
+      0.6722
+     ],
+     "id": 3
+    },
+    {
+     "name": "person",
+     "box": [
+      0.2891,
+      0.4542,
+      0.2984,
+      0.5042
+     ],
+     "id": 5
+    }
+   ]
+  }
+ ]
+}

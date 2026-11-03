@@ -1,0 +1,13 @@
+/mnt/data/work/venv-sam/lib/python3.10/site-packages/timm/models/layers/__init__.py:49: FutureWarning: Importing from timm.models.layers is deprecated, please import via timm.layers
+  warnings.warn(f"Importing from {__name__} is deprecated, please import via timm.layers", FutureWarning)
+/mnt/data/work/venv-sam/lib/python3.10/site-packages/torch/backends/__init__.py:46: UserWarning: Please use the new API settings to control TF32 behavior, such as torch.backends.cudnn.conv.fp32_precision = 'tf32' or torch.backends.cuda.matmul.fp32_precision = 'ieee'. Old settings, e.g, torch.backends.cuda.matmul.allow_tf32 = True, torch.backends.cudnn.allow_tf32 = True, allowTF32CuDNN() and allowTF32CuBLAS() will be deprecated after Pytorch 2.9. Please see https://pytorch.org/docs/main/notes/cuda.html#tensorfloat-32-tf32-on-ampere-and-later-devices (Triggered internally at /opt/pytorch/aten/src/ATen/Context.cpp:80.)
+  self.setter(val)
+Resizing positional embeddings from 77 to 16
+[efficientsam3-rv-m] pexels-6079421-forklift-busy-warehouse frames=65 size=(1280, 720) load=15.7s
+person {'mean_ms': 305.6, 'p95_ms': 306.7, 'min_ms': 304.0, 'max_ms': 307.0, 'fps': 3.27, 'n': 60, 'found_mean': 0.52, 'found_min': 0, 'found_max': 1, 'frames_with_found': 31}
+forklift {'mean_ms': 304.7, 'p95_ms': 306.1, 'min_ms': 303.2, 'max_ms': 306.4, 'fps': 3.28, 'n': 60, 'found_mean': 0, 'found_min': 0, 'found_max': 0, 'frames_with_found': 0}
+high-visibility vest {'mean_ms': 304.8, 'p95_ms': 305.8, 'min_ms': 303.5, 'max_ms': 307.4, 'fps': 3.28, 'n': 60, 'found_mean': 0, 'found_min': 0, 'found_max': 0, 'frames_with_found': 0}
+hard hat {'mean_ms': 304.8, 'p95_ms': 306.1, 'min_ms': 303.4, 'max_ms': 306.4, 'fps': 3.28, 'n': 60, 'found_mean': 0, 'found_min': 0, 'found_max': 0, 'frames_with_found': 0}
+split {'prompt': 'person', 'image_encoder': (84.8, 85.2), 'text_decoder': (222.5, 223.3)}
+memory {'ram_first_mb': 5750, 'ram_peak_mb': 7135, 'ram_peak_delta_mb': 1385, 'cuda_max_allocated_mb': 1398.7, 'cuda_max_reserved_mb': 1612.0, 'weights_mb': 460.0}
+saved /mnt/data/work/aivm-safety-mode/jetson-bench/logs/efficientsam3-rv-m_pexels-6079421-forklift-busy-warehouse.json

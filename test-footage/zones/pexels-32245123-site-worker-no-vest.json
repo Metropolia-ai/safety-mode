@@ -1,0 +1,36 @@
+{
+  "clip": "pexels-32245123-site-worker-no-vest",
+  "reference_frame": "frames/pexels-32245123-site-worker-no-vest/001.jpg",
+  "frame_size": [
+    1280,
+    720
+  ],
+  "zones": [
+    {
+      "name": "past_gate",
+      "title": "Site floor",
+      "polygon": [
+        [
+          0.0,
+          0.7
+        ],
+        [
+          1.0,
+          0.7
+        ],
+        [
+          1.0,
+          1.0
+        ],
+        [
+          0.0,
+          1.0
+        ]
+      ],
+      "note": "The site floor the camera sees: from the base of the first scaffolding row to the bottom of the frame, full width.",
+      "dev_note": "Site floor from the base of the first row of scaffolding (y≈0.70; concrete is also visible between the scaffold posts, people behind the scaffolding stand with their feet at y 0.75–0.81) to the bottom edge of the frame, full width. Before the first run it was y≥0.78: the person without a vest at s1 (feet at y 0.754) fell outside the zone."
+    }
+  ],
+  "floor_calibration": null,
+  "floor_calibration_dev_note": "No floor calibration: only a narrow strip of floor is visible, and there is no object of known size."
+}

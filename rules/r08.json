@@ -1,0 +1,24 @@
+{
+  "rule_id": "r8",
+  "title": "No forklifts on the pedestrian lane",
+  "objects": [
+    {
+      "name": "forklift",
+      "prompt": "forklift"
+    }
+  ],
+  "zones": [
+    "pedestrian_lane"
+  ],
+  "condition": {
+    "in_zone": {
+      "object": "forklift",
+      "zone": "pedestrian_lane"
+    }
+  },
+  "min_duration_s": 2,
+  "severity": "medium",
+  "explanation_template": "Forklift on the pedestrian lane for {duration_s} s, at {time}.",
+  "unsupported": null,
+  "suggested_rewrite": null
+}

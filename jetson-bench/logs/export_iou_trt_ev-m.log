@@ -1,0 +1,3 @@
+$ python bench/iou_trt.py --tag efficientsam3-ev-m-trt
+efficientsam3-ev-m-trt vs efficientsam3-ev-m [person, frames 5-14]: union IoU mean 0.998 over 9 frames (min 0.996); reference empty on 1
+efficientsam3-ev-m-trt vs sam3.1-fp32 [person, frames 5-14]: union IoU mean 0.594 over 10 frames (min 0.000); reference empty on 0

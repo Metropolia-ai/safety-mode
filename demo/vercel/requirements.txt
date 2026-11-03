@@ -1,0 +1,6 @@
+fastapi>=0.115
+openai>=1.40
+jsonschema>=4.20
+pillow>=10
+numpy>=1.26
+meta-sam-parser>=0.1.0

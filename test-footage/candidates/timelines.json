@@ -1,0 +1,3886 @@
+{
+ "pexels-38707991-man-crosses-floor": {
+  "rules": {
+   "r2": {
+    "title": "PPE on the warehouse floor",
+    "min_duration_s": 3,
+    "truth": ".....TTTTTTTTTTTTTTTTT..",
+    "states": [
+     "idle",
+     "idle",
+     "idle",
+     "idle",
+     "idle",
+     "candidate",
+     "candidate",
+     "ALERT",
+     "ALERT",
+     "ALERT",
+     "ALERT",
+     "ALERT",
+     "ALERT",
+     "ALERT",
+     "ALERT",
+     "ALERT",
+     "ALERT",
+     "ALERT",
+     "ALERT",
+     "ALERT",
+     "ALERT",
+     "ALERT",
+     "idle",
+     "idle"
+    ],
+    "events": [
+     {
+      "start_s": 7.0,
+      "end_s": 21.0,
+      "since_s": 5.0,
+      "subject": "person #0"
+     }
+    ],
+    "matched": [
+     [],
+     [],
+     [],
+     [],
+     [],
+     [
+      {
+       "name": "person",
+       "track_id": 0
+      }
+     ],
+     [
+      {
+       "name": "person",
+       "track_id": 0
+      }
+     ],
+     [
+      {
+       "name": "person",
+       "track_id": 0
+      }
+     ],
+     [
+      {
+       "name": "person",
+       "track_id": 0
+      }
+     ],
+     [
+      {
+       "name": "person",
+       "track_id": 0
+      }
+     ],
+     [
+      {
+       "name": "person",
+       "track_id": 0
+      }
+     ],
+     [
+      {
+       "name": "person",
+       "track_id": 0
+      }
+     ],
+     [
+      {
+       "name": "person",
+       "track_id": 0
+      }
+     ],
+     [
+      {
+       "name": "person",
+       "track_id": 0
+      }
+     ],
+     [
+      {
+       "name": "person",
+       "track_id": 0
+      }
+     ],
+     [
+      {
+       "name": "person",
+       "track_id": 0
+      }
+     ],
+     [
+      {
+       "name": "person",
+       "track_id": 0
+      }
+     ],
+     [
+      {
+       "name": "person",
+       "track_id": 0
+      }
+     ],
+     [
+      {
+       "name": "person",
+       "track_id": 0
+      }
+     ],
+     [
+      {
+       "name": "person",
+       "track_id": 0
+      }
+     ],
+     [
+      {
+       "name": "person",
+       "track_id": 0
+      }
+     ],
+     [
+      {
+       "name": "person",
+       "track_id": 0
+      }
+     ],
+     [],
+     []
+    ]
+   }
+  },
+  "detections": {
+   "001": {
+    "hard hat": [],
+    "person": [],
+    "safety vest": []
+   },
+   "002": {
+    "hard hat": [],
+    "person": [],
+    "safety vest": []
+   },
+   "003": {
+    "hard hat": [],
+    "person": [],
+    "safety vest": []
+   },
+   "004": {
+    "hard hat": [],
+    "person": [],
+    "safety vest": []
+   },
+   "005": {
+    "hard hat": [],
+    "person": [],
+    "safety vest": []
+   },
+   "006": {
+    "hard hat": [],
+    "person": [
+     {
+      "box": [
+       982.0,
+       96.0,
+       1176.0,
+       573.0
+      ],
+      "score": 0.84,
+      "track_id": 0
+     }
+    ],
+    "safety vest": []
+   },
+   "007": {
+    "hard hat": [],
+    "person": [
+     {
+      "box": [
+       928.0,
+       94.0,
+       1119.0,
+       577.0
+      ],
+      "score": 0.84,
+      "track_id": 0
+     }
+    ],
+    "safety vest": []
+   },
+   "008": {
+    "hard hat": [],
+    "person": [
+     {
+      "box": [
+       824.0,
+       93.0,
+       1024.0,
+       577.0
+      ],
+      "score": 0.84,
+      "track_id": 0
+     }
+    ],
+    "safety vest": []
+   },
+   "009": {
+    "hard hat": [],
+    "person": [
+     {
+      "box": [
+       781.0,
+       93.0,
+       992.0,
+       577.0
+      ],
+      "score": 0.84,
+      "track_id": 0
+     }
+    ],
+    "safety vest": []
+   },
+   "010": {
+    "hard hat": [],
+    "person": [
+     {
+      "box": [
+       720.0,
+       93.0,
+       877.0,
+       573.0
+      ],
+      "score": 0.84,
+      "track_id": 0
+     }
+    ],
+    "safety vest": []
+   },
+   "011": {
+    "hard hat": [],
+    "person": [
+     {
+      "box": [
+       640.0,
+       94.0,
+       856.0,
+       574.0
+      ],
+      "score": 0.84,
+      "track_id": 0
+     }
+    ],
+    "safety vest": []
+   },
+   "012": {
+    "hard hat": [],
+    "person": [
+     {
+      "box": [
+       575.0,
+       88.0,
+       752.0,
+       574.0
+      ],
+      "score": 0.84,
+      "track_id": 0
+     }
+    ],
+    "safety vest": []
+   },
+   "013": {
+    "hard hat": [],
+    "person": [
+     {
+      "box": [
+       507.0,
+       91.0,
+       717.0,
+       574.0
+      ],
+      "score": 0.84,
+      "track_id": 0
+     }
+    ],
+    "safety vest": []
+   },
+   "014": {
+    "hard hat": [],
+    "person": [
+     {
+      "box": [
+       478.0,
+       91.0,
+       627.0,
+       570.0
+      ],
+      "score": 0.84,
+      "track_id": 0
+     }
+    ],
+    "safety vest": []
+   },
+   "015": {
+    "hard hat": [],
+    "person": [
+     {
+      "box": [
+       368.0,
+       95.0,
+       583.0,
+       571.0
+      ],
+      "score": 0.84,
+      "track_id": 0
+     }
+    ],
+    "safety vest": []
+   },
+   "016": {
+    "hard hat": [],
+    "person": [
+     {
+      "box": [
+       353.0,
+       86.0,
+       505.0,
+       573.0
+      ],
+      "score": 0.84,
+      "track_id": 0
+     }
+    ],
+    "safety vest": []
+   },
+   "017": {
+    "hard hat": [],
+    "person": [
+     {
+      "box": [
+       241.0,
+       86.0,
+       452.0,
+       573.0
+      ],
+      "score": 0.84,
+      "track_id": 0
+     }
+    ],
+    "safety vest": []
+   },
+   "018": {
+    "hard hat": [],
+    "person": [
+     {
+      "box": [
+       227.0,
+       88.0,
+       406.0,
+       567.0
+      ],
+      "score": 0.84,
+      "track_id": 0
+     }
+    ],
+    "safety vest": []
+   },
+   "019": {
+    "hard hat": [],
+    "person": [
+     {
+      "box": [
+       105.0,
+       88.0,
+       332.0,
+       566.0
+      ],
+      "score": 0.84,
+      "track_id": 0
+     }
+    ],
+    "safety vest": []
+   },
+   "020": {
+    "hard hat": [],
+    "person": [
+     {
+      "box": [
+       104.0,
+       85.0,
+       305.0,
+       569.0
+      ],
+      "score": 0.84,
+      "track_id": 0
+     }
+    ],
+    "safety vest": []
+   },
+   "021": {
+    "hard hat": [],
+    "person": [
+     {
+      "box": [
+       104.0,
+       112.0,
+       194.0,
+       568.0
+      ],
+      "score": 0.84,
+      "track_id": 0
+     }
+    ],
+    "safety vest": []
+   },
+   "022": {
+    "hard hat": [],
+    "person": [
+     {
+      "box": [
+       7.0,
+       176.0,
+       165.0,
+       567.0
+      ],
+      "score": 0.84,
+      "track_id": 0
+     }
+    ],
+    "safety vest": []
+   },
+   "023": {
+    "hard hat": [],
+    "person": [
+     {
+      "box": [
+       0.0,
+       175.0,
+       48.0,
+       291.0
+      ],
+      "score": 0.84,
+      "track_id": 0
+     }
+    ],
+    "safety vest": []
+   },
+   "024": {
+    "hard hat": [],
+    "person": [
+     {
+      "box": [
+       0.0,
+       209.0,
+       4.0,
+       225.0
+      ],
+      "score": 0.84,
+      "track_id": 0
+     }
+    ],
+    "safety vest": []
+   }
+  }
+ },
+ "pexels-4280746-hatless-visitor": {
+  "rules": {
+   "r2-hat": {
+    "title": "Hard hat on the warehouse floor",
+    "min_duration_s": 3,
+    "truth": "TTTTTTTTTTTT",
+    "states": [
+     "candidate",
+     "candidate",
+     "ALERT",
+     "ALERT",
+     "ALERT",
+     "ALERT",
+     "ALERT",
+     "ALERT",
+     "ALERT",
+     "ALERT",
+     "ALERT",
+     "ALERT"
+    ],
+    "events": [
+     {
+      "start_s": 2.0,
+      "end_s": 11.0,
+      "since_s": 0.0,
+      "subject": "person #0 and person #1"
+     }
+    ],
+    "matched": [
+     [
+      {
+       "name": "person",
+       "track_id": 0
+      }
+     ],
+     [
+      {
+       "name": "person",
+       "track_id": 0
+      },
+      {
+       "name": "person",
+       "track_id": 1
+      }
+     ],
+     [
+      {
+       "name": "person",
+       "track_id": 0
+      },
+      {
+       "name": "person",
+       "track_id": 1
+      }
+     ],
+     [
+      {
+       "name": "person",
+       "track_id": 0
+      },
+      {
+       "name": "person",
+       "track_id": 1
+      },
+      {
+       "name": "person",
+       "track_id": 2
+      }
+     ],
+     [
+      {
+       "name": "person",
+       "track_id": 0
+      },
+      {
+       "name": "person",
+       "track_id": 1
+      },
+      {
+       "name": "person",
+       "track_id": 2
+      }
+     ],
+     [
+      {
+       "name": "person",
+       "track_id": 0
+      },
+      {
+       "name": "person",
+       "track_id": 1
+      },
+      {
+       "name": "person",
+       "track_id": 2
+      }
+     ],
+     [
+      {
+       "name": "person",
+       "track_id": 0
+      },
+      {
+       "name": "person",
+       "track_id": 1
+      },
+      {
+       "name": "person",
+       "track_id": 2
+      }
+     ],
+     [
+      {
+       "name": "person",
+       "track_id": 0
+      },
+      {
+       "name": "person",
+       "track_id": 1
+      },
+      {
+       "name": "person",
+       "track_id": 2
+      }
+     ],
+     [
+      {
+       "name": "person",
+       "track_id": 0
+      },
+      {
+       "name": "person",
+       "track_id": 1
+      },
+      {
+       "name": "person",
+       "track_id": 2
+      }
+     ],
+     [
+      {
+       "name": "person",
+       "track_id": 0
+      },
+      {
+       "name": "person",
+       "track_id": 1
+      },
+      {
+       "name": "person",
+       "track_id": 2
+      }
+     ],
+     [
+      {
+       "name": "person",
+       "track_id": 0
+      },
+      {
+       "name": "person",
+       "track_id": 1
+      }
+     ],
+     [
+      {
+       "name": "person",
+       "track_id": 1
+      }
+     ]
+    ]
+   }
+  },
+  "detections": {
+   "001": {
+    "hard hat": [],
+    "person": [
+     {
+      "box": [
+       288.0,
+       0.0,
+       371.0,
+       57.0
+      ],
+      "score": 0.914,
+      "track_id": 0
+     }
+    ]
+   },
+   "002": {
+    "hard hat": [],
+    "person": [
+     {
+      "box": [
+       330.0,
+       0.0,
+       398.0,
+       106.0
+      ],
+      "score": 0.914,
+      "track_id": 0
+     },
+     {
+      "box": [
+       1115.0,
+       439.0,
+       1247.0,
+       545.0
+      ],
+      "score": 0.77,
+      "track_id": 1
+     }
+    ]
+   },
+   "003": {
+    "hard hat": [],
+    "person": [
+     {
+      "box": [
+       342.0,
+       0.0,
+       463.0,
+       206.0
+      ],
+      "score": 0.914,
+      "track_id": 0
+     },
+     {
+      "box": [
+       983.0,
+       323.0,
+       1197.0,
+       561.0
+      ],
+      "score": 0.77,
+      "track_id": 1
+     }
+    ]
+   },
+   "004": {
+    "hard hat": [],
+    "person": [
+     {
+      "box": [
+       409.0,
+       9.0,
+       566.0,
+       275.0
+      ],
+      "score": 0.914,
+      "track_id": 0
+     },
+     {
+      "box": [
+       908.0,
+       248.0,
+       1072.0,
+       512.0
+      ],
+      "score": 0.77,
+      "track_id": 1
+     },
+     {
+      "box": [
+       312.0,
+       82.0,
+       434.0,
+       288.0
+      ],
+      "score": 0.871,
+      "track_id": 2
+     }
+    ]
+   },
+   "005": {
+    "hard hat": [],
+    "person": [
+     {
+      "box": [
+       480.0,
+       67.0,
+       608.0,
+       350.0
+      ],
+      "score": 0.914,
+      "track_id": 0
+     },
+     {
+      "box": [
+       790.0,
+       177.0,
+       956.0,
+       421.0
+      ],
+      "score": 0.77,
+      "track_id": 1
+     },
+     {
+      "box": [
+       378.0,
+       169.0,
+       506.0,
+       390.0
+      ],
+      "score": 0.871,
+      "track_id": 2
+     }
+    ]
+   },
+   "006": {
+    "hard hat": [],
+    "person": [
+     {
+      "box": [
+       557.0,
+       149.0,
+       686.0,
+       395.0
+      ],
+      "score": 0.914,
+      "track_id": 0
+     },
+     {
+      "box": [
+       722.0,
+       120.0,
+       843.0,
+       371.0
+      ],
+      "score": 0.77,
+      "track_id": 1
+     },
+     {
+      "box": [
+       454.0,
+       229.0,
+       589.0,
+       450.0
+      ],
+      "score": 0.871,
+      "track_id": 2
+     }
+    ]
+   },
+   "007": {
+    "hard hat": [],
+    "person": [
+     {
+      "box": [
+       638.0,
+       233.0,
+       765.0,
+       480.0
+      ],
+      "score": 0.914,
+      "track_id": 0
+     },
+     {
+      "box": [
+       644.0,
+       53.0,
+       738.0,
+       271.0
+      ],
+      "score": 0.77,
+      "track_id": 1
+     },
+     {
+      "box": [
+       531.0,
+       327.0,
+       650.0,
+       547.0
+      ],
+      "score": 0.871,
+      "track_id": 2
+     }
+    ]
+   },
+   "008": {
+    "hard hat": [],
+    "person": [
+     {
+      "box": [
+       727.0,
+       326.0,
+       873.0,
+       593.0
+      ],
+      "score": 0.914,
+      "track_id": 0
+     },
+     {
+      "box": [
+       541.0,
+       4.0,
+       643.0,
+       251.0
+      ],
+      "score": 0.77,
+      "track_id": 1
+     },
+     {
+      "box": [
+       609.0,
+       401.0,
+       736.0,
+       611.0
+      ],
+      "score": 0.871,
+      "track_id": 2
+     }
+    ]
+   },
+   "009": {
+    "hard hat": [],
+    "person": [
+     {
+      "box": [
+       812.0,
+       432.0,
+       955.0,
+       670.0
+      ],
+      "score": 0.914,
+      "track_id": 0
+     },
+     {
+      "box": [
+       468.0,
+       0.0,
+       551.0,
+       207.0
+      ],
+      "score": 0.77,
+      "track_id": 1
+     },
+     {
+      "box": [
+       687.0,
+       513.0,
+       832.0,
+       720.0
+      ],
+      "score": 0.871,
+      "track_id": 2
+     }
+    ]
+   },
+   "010": {
+    "hard hat": [],
+    "person": [
+     {
+      "box": [
+       903.0,
+       535.0,
+       1063.0,
+       720.0
+      ],
+      "score": 0.914,
+      "track_id": 0
+     },
+     {
+      "box": [
+       385.0,
+       0.0,
+       507.0,
+       153.0
+      ],
+      "score": 0.77,
+      "track_id": 1
+     },
+     {
+      "box": [
+       753.0,
+       618.0,
+       902.0,
+       720.0
+      ],
+      "score": 0.871,
+      "track_id": 2
+     }
+    ]
+   },
+   "011": {
+    "hard hat": [
+     {
+      "box": [
+       1076.0,
+       662.0,
+       1130.0,
+       715.0
+      ],
+      "score": 0.75,
+      "track_id": 0
+     }
+    ],
+    "person": [
+     {
+      "box": [
+       961.0,
+       649.0,
+       1144.0,
+       720.0
+      ],
+      "score": 0.914,
+      "track_id": 0
+     },
+     {
+      "box": [
+       315.0,
+       0.0,
+       422.0,
+       143.0
+      ],
+      "score": 0.77,
+      "track_id": 1
+     }
+    ]
+   },
+   "012": {
+    "hard hat": [],
+    "person": [
+     {
+      "box": [
+       308.0,
+       0.0,
+       378.0,
+       90.0
+      ],
+      "score": 0.77,
+      "track_id": 1
+     }
+    ]
+   }
+  }
+ },
+ "pexels-31751344-forklift-crosses-aisle": {
+  "rules": {
+   "r8": {
+    "title": "No forklifts on the pedestrian lane",
+    "min_duration_s": 2,
+    "truth": ".....TTT....",
+    "states": [
+     "idle",
+     "idle",
+     "idle",
+     "idle",
+     "idle",
+     "candidate",
+     "ALERT",
+     "ALERT",
+     "idle",
+     "idle",
+     "idle",
+     "idle"
+    ],
+    "events": [
+     {
+      "start_s": 6.0,
+      "end_s": 7.0,
+      "since_s": 5.0,
+      "subject": "forklift #0"
+     }
+    ],
+    "matched": [
+     [],
+     [],
+     [],
+     [],
+     [],
+     [
+      {
+       "name": "forklift",
+       "track_id": 0
+      }
+     ],
+     [
+      {
+       "name": "forklift",
+       "track_id": 0
+      }
+     ],
+     [
+      {
+       "name": "forklift",
+       "track_id": 0
+      }
+     ],
+     [],
+     [],
+     [],
+     []
+    ]
+   }
+  },
+  "detections": {
+   "001": {
+    "forklift": []
+   },
+   "002": {
+    "forklift": []
+   },
+   "003": {
+    "forklift": []
+   },
+   "004": {
+    "forklift": []
+   },
+   "005": {
+    "forklift": []
+   },
+   "006": {
+    "forklift": [
+     {
+      "box": [
+       0.0,
+       0.0,
+       889.0,
+       704.0
+      ],
+      "score": 0.871,
+      "track_id": 0
+     }
+    ]
+   },
+   "007": {
+    "forklift": [
+     {
+      "box": [
+       214.0,
+       0.0,
+       1277.0,
+       702.0
+      ],
+      "score": 0.871,
+      "track_id": 0
+     }
+    ]
+   },
+   "008": {
+    "forklift": [
+     {
+      "box": [
+       641.0,
+       0.0,
+       1280.0,
+       699.0
+      ],
+      "score": 0.871,
+      "track_id": 0
+     }
+    ]
+   },
+   "009": {
+    "forklift": [
+     {
+      "box": [
+       1032.0,
+       0.0,
+       1280.0,
+       666.0
+      ],
+      "score": 0.871,
+      "track_id": 0
+     }
+    ]
+   },
+   "010": {
+    "forklift": []
+   },
+   "011": {
+    "forklift": []
+   },
+   "012": {
+    "forklift": []
+   }
+  }
+ },
+ "pexels-32245123-site-worker-no-vest": {
+  "rules": {
+   "r2-vest": {
+    "title": "High-visibility vest on the warehouse floor",
+    "min_duration_s": 3,
+    "truth": "TTT.TT....T",
+    "states": [
+     "candidate",
+     "candidate",
+     "ALERT",
+     "ALERT",
+     "ALERT",
+     "ALERT",
+     "idle",
+     "idle",
+     "idle",
+     "idle",
+     "candidate"
+    ],
+    "events": [
+     {
+      "start_s": 2.0,
+      "end_s": 5.0,
+      "since_s": 0.0,
+      "subject": "person #1"
+     }
+    ],
+    "matched": [
+     [
+      {
+       "name": "person",
+       "track_id": 1
+      }
+     ],
+     [
+      {
+       "name": "person",
+       "track_id": 1
+      }
+     ],
+     [
+      {
+       "name": "person",
+       "track_id": 1
+      }
+     ],
+     [],
+     [
+      {
+       "name": "person",
+       "track_id": 1
+      }
+     ],
+     [
+      {
+       "name": "person",
+       "track_id": 1
+      }
+     ],
+     [],
+     [],
+     [],
+     [],
+     [
+      {
+       "name": "person",
+       "track_id": 0
+      }
+     ]
+    ]
+   }
+  },
+  "detections": {
+   "001": {
+    "person": [
+     {
+      "box": [
+       1170.0,
+       354.0,
+       1265.0,
+       656.0
+      ],
+      "score": 0.957,
+      "track_id": 0
+     },
+     {
+      "box": [
+       758.0,
+       346.0,
+       862.0,
+       624.0
+      ],
+      "score": 0.957,
+      "track_id": 1
+     }
+    ],
+    "safety vest": [
+     {
+      "box": [
+       1206.0,
+       405.0,
+       1264.0,
+       511.0
+      ],
+      "score": 0.918,
+      "track_id": 0
+     }
+    ]
+   },
+   "002": {
+    "person": [
+     {
+      "box": [
+       1159.0,
+       340.0,
+       1257.0,
+       640.0
+      ],
+      "score": 0.957,
+      "track_id": 0
+     },
+     {
+      "box": [
+       773.0,
+       332.0,
+       867.0,
+       543.0
+      ],
+      "score": 0.957,
+      "track_id": 1
+     }
+    ],
+    "safety vest": [
+     {
+      "box": [
+       1189.0,
+       390.0,
+       1247.0,
+       497.0
+      ],
+      "score": 0.918,
+      "track_id": 0
+     }
+    ]
+   },
+   "003": {
+    "person": [
+     {
+      "box": [
+       1081.0,
+       341.0,
+       1203.0,
+       626.0
+      ],
+      "score": 0.957,
+      "track_id": 0
+     },
+     {
+      "box": [
+       842.0,
+       317.0,
+       948.0,
+       603.0
+      ],
+      "score": 0.957,
+      "track_id": 1
+     }
+    ],
+    "safety vest": [
+     {
+      "box": [
+       1109.0,
+       387.0,
+       1168.0,
+       493.0
+      ],
+      "score": 0.918,
+      "track_id": 0
+     }
+    ]
+   },
+   "004": {
+    "person": [
+     {
+      "box": [
+       999.0,
+       341.0,
+       1108.0,
+       615.0
+      ],
+      "score": 0.957,
+      "track_id": 0
+     },
+     {
+      "box": [
+       923.0,
+       317.0,
+       1042.0,
+       612.0
+      ],
+      "score": 0.957,
+      "track_id": 1
+     }
+    ],
+    "safety vest": [
+     {
+      "box": [
+       1016.0,
+       385.0,
+       1061.0,
+       480.0
+      ],
+      "score": 0.918,
+      "track_id": 0
+     }
+    ]
+   },
+   "005": {
+    "person": [
+     {
+      "box": [
+       888.0,
+       335.0,
+       1005.0,
+       603.0
+      ],
+      "score": 0.957,
+      "track_id": 0
+     },
+     {
+      "box": [
+       984.0,
+       313.0,
+       1188.0,
+       621.0
+      ],
+      "score": 0.957,
+      "track_id": 1
+     }
+    ],
+    "safety vest": [
+     {
+      "box": [
+       904.0,
+       377.0,
+       962.0,
+       469.0
+      ],
+      "score": 0.918,
+      "track_id": 0
+     }
+    ]
+   },
+   "006": {
+    "person": [
+     {
+      "box": [
+       794.0,
+       324.0,
+       903.0,
+       563.0
+      ],
+      "score": 0.957,
+      "track_id": 0
+     },
+     {
+      "box": [
+       1152.0,
+       309.0,
+       1280.0,
+       636.0
+      ],
+      "score": 0.957,
+      "track_id": 1
+     }
+    ],
+    "safety vest": [
+     {
+      "box": [
+       818.0,
+       367.0,
+       872.0,
+       462.0
+      ],
+      "score": 0.918,
+      "track_id": 0
+     }
+    ]
+   },
+   "007": {
+    "person": [
+     {
+      "box": [
+       657.0,
+       315.0,
+       789.0,
+       583.0
+      ],
+      "score": 0.957,
+      "track_id": 0
+     }
+    ],
+    "safety vest": [
+     {
+      "box": [
+       693.0,
+       359.0,
+       747.0,
+       458.0
+      ],
+      "score": 0.918,
+      "track_id": 0
+     }
+    ]
+   },
+   "008": {
+    "person": [
+     {
+      "box": [
+       529.0,
+       308.0,
+       631.0,
+       569.0
+      ],
+      "score": 0.957,
+      "track_id": 0
+     }
+    ],
+    "safety vest": [
+     {
+      "box": [
+       563.0,
+       350.0,
+       617.0,
+       447.0
+      ],
+      "score": 0.918,
+      "track_id": 0
+     }
+    ]
+   },
+   "009": {
+    "person": [
+     {
+      "box": [
+       435.0,
+       307.0,
+       522.0,
+       553.0
+      ],
+      "score": 0.957,
+      "track_id": 0
+     }
+    ],
+    "safety vest": [
+     {
+      "box": [
+       470.0,
+       349.0,
+       522.0,
+       446.0
+      ],
+      "score": 0.918,
+      "track_id": 0
+     }
+    ]
+   },
+   "010": {
+    "person": [
+     {
+      "box": [
+       414.0,
+       311.0,
+       499.0,
+       552.0
+      ],
+      "score": 0.957,
+      "track_id": 0
+     }
+    ],
+    "safety vest": [
+     {
+      "box": [
+       423.0,
+       348.0,
+       470.0,
+       438.0
+      ],
+      "score": 0.918,
+      "track_id": 0
+     }
+    ]
+   },
+   "011": {
+    "person": [
+     {
+      "box": [
+       406.0,
+       507.0,
+       425.0,
+       545.0
+      ],
+      "score": 0.957,
+      "track_id": 0
+     }
+    ],
+    "safety vest": []
+   }
+  }
+ },
+ "pexels-32268407-forklift-roll-worker": {
+  "rules": {
+   "r1-forks": {
+    "title": "Nobody in front of the forks",
+    "min_duration_s": 2,
+    "truth": "TTTTTTTTTTTTTTTTTTTTTTTTTTTTTTT....TTTTTTT.",
+    "states": [
+     "candidate",
+     "ALERT",
+     "ALERT",
+     "ALERT",
+     "ALERT",
+     "ALERT",
+     "ALERT",
+     "ALERT",
+     "ALERT",
+     "ALERT",
+     "ALERT",
+     "ALERT",
+     "ALERT",
+     "ALERT",
+     "ALERT",
+     "ALERT",
+     "ALERT",
+     "ALERT",
+     "ALERT",
+     "ALERT",
+     "ALERT",
+     "ALERT",
+     "ALERT",
+     "ALERT",
+     "ALERT",
+     "ALERT",
+     "ALERT",
+     "ALERT",
+     "ALERT",
+     "ALERT",
+     "ALERT",
+     "idle",
+     "idle",
+     "idle",
+     "idle",
+     "candidate",
+     "ALERT",
+     "ALERT",
+     "ALERT",
+     "ALERT",
+     "ALERT",
+     "ALERT",
+     "idle"
+    ],
+    "events": [
+     {
+      "start_s": 1.0,
+      "end_s": 30.0,
+      "since_s": 0.0,
+      "subject": "person #0"
+     },
+     {
+      "start_s": 36.0,
+      "end_s": 41.0,
+      "since_s": 35.0,
+      "subject": "person #0"
+     }
+    ],
+    "matched": [
+     [
+      {
+       "name": "person",
+       "track_id": 0
+      }
+     ],
+     [
+      {
+       "name": "person",
+       "track_id": 0
+      }
+     ],
+     [
+      {
+       "name": "person",
+       "track_id": 0
+      }
+     ],
+     [
+      {
+       "name": "person",
+       "track_id": 0
+      }
+     ],
+     [
+      {
+       "name": "person",
+       "track_id": 0
+      }
+     ],
+     [
+      {
+       "name": "person",
+       "track_id": 0
+      }
+     ],
+     [
+      {
+       "name": "person",
+       "track_id": 0
+      }
+     ],
+     [
+      {
+       "name": "person",
+       "track_id": 0
+      }
+     ],
+     [
+      {
+       "name": "person",
+       "track_id": 0
+      }
+     ],
+     [
+      {
+       "name": "person",
+       "track_id": 0
+      }
+     ],
+     [
+      {
+       "name": "person",
+       "track_id": 0
+      }
+     ],
+     [
+      {
+       "name": "person",
+       "track_id": 0
+      }
+     ],
+     [
+      {
+       "name": "person",
+       "track_id": 0
+      }
+     ],
+     [
+      {
+       "name": "person",
+       "track_id": 0
+      }
+     ],
+     [
+      {
+       "name": "person",
+       "track_id": 0
+      }
+     ],
+     [
+      {
+       "name": "person",
+       "track_id": 0
+      }
+     ],
+     [
+      {
+       "name": "person",
+       "track_id": 0
+      }
+     ],
+     [
+      {
+       "name": "person",
+       "track_id": 0
+      }
+     ],
+     [
+      {
+       "name": "person",
+       "track_id": 0
+      }
+     ],
+     [
+      {
+       "name": "person",
+       "track_id": 0
+      }
+     ],
+     [
+      {
+       "name": "person",
+       "track_id": 0
+      }
+     ],
+     [
+      {
+       "name": "person",
+       "track_id": 0
+      }
+     ],
+     [
+      {
+       "name": "person",
+       "track_id": 0
+      }
+     ],
+     [
+      {
+       "name": "person",
+       "track_id": 0
+      }
+     ],
+     [
+      {
+       "name": "person",
+       "track_id": 0
+      }
+     ],
+     [
+      {
+       "name": "person",
+       "track_id": 0
+      }
+     ],
+     [
+      {
+       "name": "person",
+       "track_id": 0
+      }
+     ],
+     [
+      {
+       "name": "person",
+       "track_id": 0
+      }
+     ],
+     [
+      {
+       "name": "person",
+       "track_id": 0
+      }
+     ],
+     [
+      {
+       "name": "person",
+       "track_id": 0
+      }
+     ],
+     [
+      {
+       "name": "person",
+       "track_id": 0
+      }
+     ],
+     [],
+     [],
+     [],
+     [],
+     [
+      {
+       "name": "person",
+       "track_id": 0
+      }
+     ],
+     [
+      {
+       "name": "person",
+       "track_id": 0
+      }
+     ],
+     [
+      {
+       "name": "person",
+       "track_id": 0
+      }
+     ],
+     [
+      {
+       "name": "person",
+       "track_id": 0
+      }
+     ],
+     [
+      {
+       "name": "person",
+       "track_id": 0
+      }
+     ],
+     [
+      {
+       "name": "person",
+       "track_id": 0
+      }
+     ],
+     [
+      {
+       "name": "person",
+       "track_id": 0
+      }
+     ],
+     []
+    ]
+   }
+  },
+  "detections": {
+   "001": {
+    "person": [
+     {
+      "box": [
+       891.0,
+       273.0,
+       988.0,
+       426.0
+      ],
+      "score": 0.953,
+      "track_id": 0
+     },
+     {
+      "box": [
+       509.0,
+       278.0,
+       596.0,
+       408.0
+      ],
+      "score": 0.922,
+      "track_id": 1
+     },
+     {
+      "box": [
+       128.0,
+       92.0,
+       149.0,
+       141.0
+      ],
+      "score": 0.883,
+      "track_id": 2
+     }
+    ]
+   },
+   "002": {
+    "person": [
+     {
+      "box": [
+       891.0,
+       263.0,
+       955.0,
+       381.0
+      ],
+      "score": 0.953,
+      "track_id": 0
+     },
+     {
+      "box": [
+       502.0,
+       278.0,
+       596.0,
+       407.0
+      ],
+      "score": 0.922,
+      "track_id": 1
+     },
+     {
+      "box": [
+       127.0,
+       91.0,
+       149.0,
+       140.0
+      ],
+      "score": 0.883,
+      "track_id": 2
+     }
+    ]
+   },
+   "003": {
+    "person": [
+     {
+      "box": [
+       870.0,
+       259.0,
+       930.0,
+       353.0
+      ],
+      "score": 0.953,
+      "track_id": 0
+     },
+     {
+      "box": [
+       503.0,
+       278.0,
+       600.0,
+       410.0
+      ],
+      "score": 0.922,
+      "track_id": 1
+     },
+     {
+      "box": [
+       126.0,
+       88.0,
+       150.0,
+       139.0
+      ],
+      "score": 0.883,
+      "track_id": 2
+     }
+    ]
+   },
+   "004": {
+    "person": [
+     {
+      "box": [
+       881.0,
+       275.0,
+       939.0,
+       382.0
+      ],
+      "score": 0.953,
+      "track_id": 0
+     },
+     {
+      "box": [
+       504.0,
+       278.0,
+       600.0,
+       409.0
+      ],
+      "score": 0.922,
+      "track_id": 1
+     },
+     {
+      "box": [
+       132.0,
+       88.0,
+       152.0,
+       137.0
+      ],
+      "score": 0.883,
+      "track_id": 2
+     }
+    ]
+   },
+   "005": {
+    "person": [
+     {
+      "box": [
+       859.0,
+       297.0,
+       931.0,
+       382.0
+      ],
+      "score": 0.953,
+      "track_id": 0
+     },
+     {
+      "box": [
+       506.0,
+       278.0,
+       604.0,
+       410.0
+      ],
+      "score": 0.922,
+      "track_id": 1
+     },
+     {
+      "box": [
+       135.0,
+       86.0,
+       157.0,
+       135.0
+      ],
+      "score": 0.883,
+      "track_id": 2
+     }
+    ]
+   },
+   "006": {
+    "person": [
+     {
+      "box": [
+       861.0,
+       301.0,
+       934.0,
+       352.0
+      ],
+      "score": 0.953,
+      "track_id": 0
+     },
+     {
+      "box": [
+       507.0,
+       277.0,
+       606.0,
+       411.0
+      ],
+      "score": 0.922,
+      "track_id": 1
+     },
+     {
+      "box": [
+       134.0,
+       85.0,
+       155.0,
+       134.0
+      ],
+      "score": 0.883,
+      "track_id": 2
+     }
+    ]
+   },
+   "007": {
+    "person": [
+     {
+      "box": [
+       868.0,
+       286.0,
+       929.0,
+       349.0
+      ],
+      "score": 0.953,
+      "track_id": 0
+     },
+     {
+      "box": [
+       507.0,
+       276.0,
+       608.0,
+       410.0
+      ],
+      "score": 0.922,
+      "track_id": 1
+     },
+     {
+      "box": [
+       134.0,
+       84.0,
+       158.0,
+       132.0
+      ],
+      "score": 0.883,
+      "track_id": 2
+     }
+    ]
+   },
+   "008": {
+    "person": [
+     {
+      "box": [
+       875.0,
+       260.0,
+       924.0,
+       345.0
+      ],
+      "score": 0.953,
+      "track_id": 0
+     },
+     {
+      "box": [
+       507.0,
+       275.0,
+       608.0,
+       410.0
+      ],
+      "score": 0.922,
+      "track_id": 1
+     },
+     {
+      "box": [
+       134.0,
+       83.0,
+       157.0,
+       131.0
+      ],
+      "score": 0.883,
+      "track_id": 2
+     }
+    ]
+   },
+   "009": {
+    "person": [
+     {
+      "box": [
+       877.0,
+       260.0,
+       924.0,
+       334.0
+      ],
+      "score": 0.953,
+      "track_id": 0
+     },
+     {
+      "box": [
+       508.0,
+       275.0,
+       608.0,
+       409.0
+      ],
+      "score": 0.922,
+      "track_id": 1
+     },
+     {
+      "box": [
+       135.0,
+       82.0,
+       158.0,
+       130.0
+      ],
+      "score": 0.883,
+      "track_id": 2
+     }
+    ]
+   },
+   "010": {
+    "person": [
+     {
+      "box": [
+       866.0,
+       260.0,
+       931.0,
+       352.0
+      ],
+      "score": 0.953,
+      "track_id": 0
+     },
+     {
+      "box": [
+       508.0,
+       274.0,
+       608.0,
+       409.0
+      ],
+      "score": 0.922,
+      "track_id": 1
+     },
+     {
+      "box": [
+       131.0,
+       81.0,
+       150.0,
+       130.0
+      ],
+      "score": 0.883,
+      "track_id": 2
+     }
+    ]
+   },
+   "011": {
+    "person": [
+     {
+      "box": [
+       890.0,
+       259.0,
+       948.0,
+       346.0
+      ],
+      "score": 0.953,
+      "track_id": 0
+     },
+     {
+      "box": [
+       506.0,
+       273.0,
+       607.0,
+       409.0
+      ],
+      "score": 0.922,
+      "track_id": 1
+     },
+     {
+      "box": [
+       131.0,
+       79.0,
+       150.0,
+       130.0
+      ],
+      "score": 0.883,
+      "track_id": 2
+     }
+    ]
+   },
+   "012": {
+    "person": [
+     {
+      "box": [
+       889.0,
+       248.0,
+       943.0,
+       343.0
+      ],
+      "score": 0.953,
+      "track_id": 0
+     },
+     {
+      "box": [
+       506.0,
+       273.0,
+       607.0,
+       410.0
+      ],
+      "score": 0.922,
+      "track_id": 1
+     },
+     {
+      "box": [
+       131.0,
+       81.0,
+       151.0,
+       130.0
+      ],
+      "score": 0.883,
+      "track_id": 2
+     }
+    ]
+   },
+   "013": {
+    "person": [
+     {
+      "box": [
+       890.0,
+       246.0,
+       942.0,
+       336.0
+      ],
+      "score": 0.953,
+      "track_id": 0
+     },
+     {
+      "box": [
+       506.0,
+       273.0,
+       607.0,
+       410.0
+      ],
+      "score": 0.922,
+      "track_id": 1
+     },
+     {
+      "box": [
+       131.0,
+       81.0,
+       150.0,
+       129.0
+      ],
+      "score": 0.883,
+      "track_id": 2
+     }
+    ]
+   },
+   "014": {
+    "person": [
+     {
+      "box": [
+       890.0,
+       246.0,
+       941.0,
+       332.0
+      ],
+      "score": 0.953,
+      "track_id": 0
+     },
+     {
+      "box": [
+       506.0,
+       273.0,
+       606.0,
+       410.0
+      ],
+      "score": 0.922,
+      "track_id": 1
+     },
+     {
+      "box": [
+       132.0,
+       81.0,
+       150.0,
+       129.0
+      ],
+      "score": 0.883,
+      "track_id": 2
+     }
+    ]
+   },
+   "015": {
+    "person": [
+     {
+      "box": [
+       889.0,
+       245.0,
+       938.0,
+       329.0
+      ],
+      "score": 0.953,
+      "track_id": 0
+     },
+     {
+      "box": [
+       505.0,
+       271.0,
+       605.0,
+       410.0
+      ],
+      "score": 0.922,
+      "track_id": 1
+     },
+     {
+      "box": [
+       132.0,
+       81.0,
+       150.0,
+       129.0
+      ],
+      "score": 0.883,
+      "track_id": 2
+     }
+    ]
+   },
+   "016": {
+    "person": [
+     {
+      "box": [
+       887.0,
+       245.0,
+       936.0,
+       330.0
+      ],
+      "score": 0.953,
+      "track_id": 0
+     },
+     {
+      "box": [
+       503.0,
+       274.0,
+       604.0,
+       410.0
+      ],
+      "score": 0.922,
+      "track_id": 1
+     },
+     {
+      "box": [
+       131.0,
+       82.0,
+       150.0,
+       130.0
+      ],
+      "score": 0.883,
+      "track_id": 2
+     }
+    ]
+   },
+   "017": {
+    "person": [
+     {
+      "box": [
+       882.0,
+       245.0,
+       934.0,
+       330.0
+      ],
+      "score": 0.953,
+      "track_id": 0
+     },
+     {
+      "box": [
+       501.0,
+       274.0,
+       604.0,
+       410.0
+      ],
+      "score": 0.922,
+      "track_id": 1
+     },
+     {
+      "box": [
+       128.0,
+       82.0,
+       149.0,
+       130.0
+      ],
+      "score": 0.883,
+      "track_id": 2
+     },
+     {
+      "box": [
+       550.0,
+       47.0,
+       565.0,
+       79.0
+      ],
+      "score": 0.706,
+      "track_id": 4
+     }
+    ]
+   },
+   "018": {
+    "person": [
+     {
+      "box": [
+       882.0,
+       243.0,
+       928.0,
+       336.0
+      ],
+      "score": 0.953,
+      "track_id": 0
+     },
+     {
+      "box": [
+       498.0,
+       275.0,
+       599.0,
+       409.0
+      ],
+      "score": 0.922,
+      "track_id": 1
+     },
+     {
+      "box": [
+       132.0,
+       83.0,
+       151.0,
+       130.0
+      ],
+      "score": 0.883,
+      "track_id": 2
+     }
+    ]
+   },
+   "019": {
+    "person": [
+     {
+      "box": [
+       867.0,
+       250.0,
+       927.0,
+       341.0
+      ],
+      "score": 0.953,
+      "track_id": 0
+     },
+     {
+      "box": [
+       496.0,
+       275.0,
+       596.0,
+       408.0
+      ],
+      "score": 0.922,
+      "track_id": 1
+     },
+     {
+      "box": [
+       132.0,
+       83.0,
+       153.0,
+       131.0
+      ],
+      "score": 0.883,
+      "track_id": 2
+     }
+    ]
+   },
+   "020": {
+    "person": [
+     {
+      "box": [
+       840.0,
+       253.0,
+       900.0,
+       343.0
+      ],
+      "score": 0.953,
+      "track_id": 0
+     },
+     {
+      "box": [
+       496.0,
+       275.0,
+       595.0,
+       407.0
+      ],
+      "score": 0.922,
+      "track_id": 1
+     },
+     {
+      "box": [
+       133.0,
+       84.0,
+       153.0,
+       131.0
+      ],
+      "score": 0.883,
+      "track_id": 2
+     }
+    ]
+   },
+   "021": {
+    "person": [
+     {
+      "box": [
+       853.0,
+       257.0,
+       906.0,
+       344.0
+      ],
+      "score": 0.953,
+      "track_id": 0
+     },
+     {
+      "box": [
+       497.0,
+       275.0,
+       596.0,
+       407.0
+      ],
+      "score": 0.922,
+      "track_id": 1
+     },
+     {
+      "box": [
+       133.0,
+       85.0,
+       152.0,
+       132.0
+      ],
+      "score": 0.883,
+      "track_id": 2
+     }
+    ]
+   },
+   "022": {
+    "person": [
+     {
+      "box": [
+       855.0,
+       258.0,
+       907.0,
+       345.0
+      ],
+      "score": 0.953,
+      "track_id": 0
+     },
+     {
+      "box": [
+       499.0,
+       276.0,
+       598.0,
+       407.0
+      ],
+      "score": 0.922,
+      "track_id": 1
+     },
+     {
+      "box": [
+       122.0,
+       84.0,
+       142.0,
+       133.0
+      ],
+      "score": 0.883,
+      "track_id": 2
+     }
+    ]
+   },
+   "023": {
+    "person": [
+     {
+      "box": [
+       891.0,
+       261.0,
+       964.0,
+       388.0
+      ],
+      "score": 0.953,
+      "track_id": 0
+     },
+     {
+      "box": [
+       500.0,
+       276.0,
+       600.0,
+       409.0
+      ],
+      "score": 0.922,
+      "track_id": 1
+     },
+     {
+      "box": [
+       112.0,
+       84.0,
+       130.0,
+       119.0
+      ],
+      "score": 0.883,
+      "track_id": 2
+     }
+    ]
+   },
+   "024": {
+    "person": [
+     {
+      "box": [
+       913.0,
+       270.0,
+       983.0,
+       423.0
+      ],
+      "score": 0.953,
+      "track_id": 0
+     },
+     {
+      "box": [
+       501.0,
+       276.0,
+       603.0,
+       409.0
+      ],
+      "score": 0.922,
+      "track_id": 1
+     },
+     {
+      "box": [
+       107.0,
+       85.0,
+       124.0,
+       120.0
+      ],
+      "score": 0.883,
+      "track_id": 2
+     }
+    ]
+   },
+   "025": {
+    "person": [
+     {
+      "box": [
+       928.0,
+       268.0,
+       988.0,
+       424.0
+      ],
+      "score": 0.953,
+      "track_id": 0
+     },
+     {
+      "box": [
+       502.0,
+       277.0,
+       603.0,
+       410.0
+      ],
+      "score": 0.922,
+      "track_id": 1
+     },
+     {
+      "box": [
+       91.0,
+       85.0,
+       109.0,
+       115.0
+      ],
+      "score": 0.883,
+      "track_id": 2
+     }
+    ]
+   },
+   "026": {
+    "person": [
+     {
+      "box": [
+       927.0,
+       269.0,
+       987.0,
+       424.0
+      ],
+      "score": 0.953,
+      "track_id": 0
+     },
+     {
+      "box": [
+       502.0,
+       277.0,
+       602.0,
+       409.0
+      ],
+      "score": 0.922,
+      "track_id": 1
+     },
+     {
+      "box": [
+       65.0,
+       89.0,
+       86.0,
+       120.0
+      ],
+      "score": 0.883,
+      "track_id": 2
+     },
+     {
+      "box": [
+       531.0,
+       55.0,
+       549.0,
+       81.0
+      ],
+      "score": 0.754,
+      "track_id": 5
+     }
+    ]
+   },
+   "027": {
+    "person": [
+     {
+      "box": [
+       935.0,
+       270.0,
+       991.0,
+       402.0
+      ],
+      "score": 0.953,
+      "track_id": 0
+     },
+     {
+      "box": [
+       499.0,
+       277.0,
+       599.0,
+       409.0
+      ],
+      "score": 0.922,
+      "track_id": 1
+     },
+     {
+      "box": [
+       32.0,
+       91.0,
+       53.0,
+       129.0
+      ],
+      "score": 0.883,
+      "track_id": 2
+     },
+     {
+      "box": [
+       531.0,
+       55.0,
+       549.0,
+       82.0
+      ],
+      "score": 0.754,
+      "track_id": 5
+     }
+    ]
+   },
+   "028": {
+    "person": [
+     {
+      "box": [
+       960.0,
+       263.0,
+       1005.0,
+       405.0
+      ],
+      "score": 0.953,
+      "track_id": 0
+     },
+     {
+      "box": [
+       498.0,
+       277.0,
+       598.0,
+       407.0
+      ],
+      "score": 0.922,
+      "track_id": 1
+     },
+     {
+      "box": [
+       7.0,
+       96.0,
+       29.0,
+       143.0
+      ],
+      "score": 0.883,
+      "track_id": 2
+     },
+     {
+      "box": [
+       531.0,
+       55.0,
+       549.0,
+       81.0
+      ],
+      "score": 0.754,
+      "track_id": 5
+     }
+    ]
+   },
+   "029": {
+    "person": [
+     {
+      "box": [
+       965.0,
+       259.0,
+       1014.0,
+       422.0
+      ],
+      "score": 0.953,
+      "track_id": 0
+     },
+     {
+      "box": [
+       498.0,
+       278.0,
+       599.0,
+       409.0
+      ],
+      "score": 0.922,
+      "track_id": 1
+     },
+     {
+      "box": [
+       0.0,
+       90.0,
+       27.0,
+       142.0
+      ],
+      "score": 0.883,
+      "track_id": 2
+     },
+     {
+      "box": [
+       533.0,
+       55.0,
+       551.0,
+       83.0
+      ],
+      "score": 0.754,
+      "track_id": 5
+     }
+    ]
+   },
+   "030": {
+    "person": [
+     {
+      "box": [
+       940.0,
+       258.0,
+       1015.0,
+       429.0
+      ],
+      "score": 0.953,
+      "track_id": 0
+     },
+     {
+      "box": [
+       500.0,
+       278.0,
+       599.0,
+       409.0
+      ],
+      "score": 0.922,
+      "track_id": 1
+     },
+     {
+      "box": [
+       15.0,
+       87.0,
+       37.0,
+       141.0
+      ],
+      "score": 0.883,
+      "track_id": 2
+     },
+     {
+      "box": [
+       529.0,
+       55.0,
+       548.0,
+       82.0
+      ],
+      "score": 0.754,
+      "track_id": 5
+     }
+    ]
+   },
+   "031": {
+    "person": [
+     {
+      "box": [
+       949.0,
+       266.0,
+       1021.0,
+       434.0
+      ],
+      "score": 0.953,
+      "track_id": 0
+     },
+     {
+      "box": [
+       501.0,
+       278.0,
+       600.0,
+       409.0
+      ],
+      "score": 0.922,
+      "track_id": 1
+     },
+     {
+      "box": [
+       31.0,
+       86.0,
+       52.0,
+       119.0
+      ],
+      "score": 0.883,
+      "track_id": 2
+     },
+     {
+      "box": [
+       529.0,
+       54.0,
+       549.0,
+       82.0
+      ],
+      "score": 0.754,
+      "track_id": 5
+     }
+    ]
+   },
+   "032": {
+    "person": [
+     {
+      "box": [
+       962.0,
+       277.0,
+       1039.0,
+       438.0
+      ],
+      "score": 0.953,
+      "track_id": 0
+     },
+     {
+      "box": [
+       501.0,
+       278.0,
+       600.0,
+       409.0
+      ],
+      "score": 0.922,
+      "track_id": 1
+     },
+     {
+      "box": [
+       33.0,
+       86.0,
+       61.0,
+       120.0
+      ],
+      "score": 0.883,
+      "track_id": 2
+     },
+     {
+      "box": [
+       529.0,
+       54.0,
+       545.0,
+       81.0
+      ],
+      "score": 0.754,
+      "track_id": 5
+     }
+    ]
+   },
+   "033": {
+    "person": [
+     {
+      "box": [
+       974.0,
+       281.0,
+       1039.0,
+       444.0
+      ],
+      "score": 0.953,
+      "track_id": 0
+     },
+     {
+      "box": [
+       501.0,
+       278.0,
+       599.0,
+       409.0
+      ],
+      "score": 0.922,
+      "track_id": 1
+     },
+     {
+      "box": [
+       36.0,
+       87.0,
+       62.0,
+       119.0
+      ],
+      "score": 0.883,
+      "track_id": 2
+     },
+     {
+      "box": [
+       530.0,
+       54.0,
+       551.0,
+       82.0
+      ],
+      "score": 0.754,
+      "track_id": 5
+     }
+    ]
+   },
+   "034": {
+    "person": [
+     {
+      "box": [
+       971.0,
+       285.0,
+       1043.0,
+       445.0
+      ],
+      "score": 0.953,
+      "track_id": 0
+     },
+     {
+      "box": [
+       502.0,
+       278.0,
+       601.0,
+       409.0
+      ],
+      "score": 0.922,
+      "track_id": 1
+     },
+     {
+      "box": [
+       36.0,
+       86.0,
+       62.0,
+       119.0
+      ],
+      "score": 0.883,
+      "track_id": 2
+     },
+     {
+      "box": [
+       530.0,
+       53.0,
+       548.0,
+       81.0
+      ],
+      "score": 0.754,
+      "track_id": 5
+     }
+    ]
+   },
+   "035": {
+    "person": [
+     {
+      "box": [
+       958.0,
+       283.0,
+       1034.0,
+       446.0
+      ],
+      "score": 0.953,
+      "track_id": 0
+     },
+     {
+      "box": [
+       505.0,
+       277.0,
+       606.0,
+       410.0
+      ],
+      "score": 0.922,
+      "track_id": 1
+     },
+     {
+      "box": [
+       37.0,
+       85.0,
+       62.0,
+       119.0
+      ],
+      "score": 0.883,
+      "track_id": 2
+     },
+     {
+      "box": [
+       530.0,
+       54.0,
+       545.0,
+       81.0
+      ],
+      "score": 0.754,
+      "track_id": 5
+     }
+    ]
+   },
+   "036": {
+    "person": [
+     {
+      "box": [
+       906.0,
+       270.0,
+       984.0,
+       421.0
+      ],
+      "score": 0.953,
+      "track_id": 0
+     },
+     {
+      "box": [
+       509.0,
+       276.0,
+       609.0,
+       409.0
+      ],
+      "score": 0.922,
+      "track_id": 1
+     },
+     {
+      "box": [
+       39.0,
+       82.0,
+       62.0,
+       119.0
+      ],
+      "score": 0.883,
+      "track_id": 2
+     },
+     {
+      "box": [
+       531.0,
+       54.0,
+       542.0,
+       81.0
+      ],
+      "score": 0.754,
+      "track_id": 5
+     }
+    ]
+   },
+   "037": {
+    "person": [
+     {
+      "box": [
+       918.0,
+       267.0,
+       979.0,
+       418.0
+      ],
+      "score": 0.953,
+      "track_id": 0
+     },
+     {
+      "box": [
+       509.0,
+       276.0,
+       611.0,
+       409.0
+      ],
+      "score": 0.922,
+      "track_id": 1
+     },
+     {
+      "box": [
+       37.0,
+       81.0,
+       64.0,
+       118.0
+      ],
+      "score": 0.883,
+      "track_id": 2
+     },
+     {
+      "box": [
+       530.0,
+       54.0,
+       542.0,
+       81.0
+      ],
+      "score": 0.754,
+      "track_id": 5
+     }
+    ]
+   },
+   "038": {
+    "person": [
+     {
+      "box": [
+       935.0,
+       269.0,
+       986.0,
+       411.0
+      ],
+      "score": 0.953,
+      "track_id": 0
+     },
+     {
+      "box": [
+       514.0,
+       276.0,
+       613.0,
+       407.0
+      ],
+      "score": 0.922,
+      "track_id": 1
+     },
+     {
+      "box": [
+       35.0,
+       76.0,
+       71.0,
+       118.0
+      ],
+      "score": 0.883,
+      "track_id": 2
+     },
+     {
+      "box": [
+       530.0,
+       54.0,
+       542.0,
+       81.0
+      ],
+      "score": 0.754,
+      "track_id": 5
+     }
+    ]
+   },
+   "039": {
+    "person": [
+     {
+      "box": [
+       958.0,
+       272.0,
+       1014.0,
+       421.0
+      ],
+      "score": 0.953,
+      "track_id": 0
+     },
+     {
+      "box": [
+       515.0,
+       276.0,
+       613.0,
+       407.0
+      ],
+      "score": 0.922,
+      "track_id": 1
+     },
+     {
+      "box": [
+       59.0,
+       79.0,
+       75.0,
+       110.0
+      ],
+      "score": 0.883,
+      "track_id": 2
+     },
+     {
+      "box": [
+       532.0,
+       54.0,
+       544.0,
+       81.0
+      ],
+      "score": 0.754,
+      "track_id": 5
+     }
+    ]
+   },
+   "040": {
+    "person": [
+     {
+      "box": [
+       986.0,
+       266.0,
+       1031.0,
+       417.0
+      ],
+      "score": 0.953,
+      "track_id": 0
+     },
+     {
+      "box": [
+       515.0,
+       275.0,
+       614.0,
+       407.0
+      ],
+      "score": 0.922,
+      "track_id": 1
+     },
+     {
+      "box": [
+       60.0,
+       76.0,
+       75.0,
+       111.0
+      ],
+      "score": 0.883,
+      "track_id": 2
+     },
+     {
+      "box": [
+       532.0,
+       53.0,
+       544.0,
+       81.0
+      ],
+      "score": 0.754,
+      "track_id": 5
+     }
+    ]
+   },
+   "041": {
+    "person": [
+     {
+      "box": [
+       986.0,
+       270.0,
+       1058.0,
+       429.0
+      ],
+      "score": 0.953,
+      "track_id": 0
+     },
+     {
+      "box": [
+       517.0,
+       275.0,
+       616.0,
+       407.0
+      ],
+      "score": 0.922,
+      "track_id": 1
+     },
+     {
+      "box": [
+       60.0,
+       79.0,
+       75.0,
+       110.0
+      ],
+      "score": 0.883,
+      "track_id": 2
+     },
+     {
+      "box": [
+       531.0,
+       54.0,
+       544.0,
+       80.0
+      ],
+      "score": 0.754,
+      "track_id": 5
+     }
+    ]
+   },
+   "042": {
+    "person": [
+     {
+      "box": [
+       994.0,
+       285.0,
+       1074.0,
+       425.0
+      ],
+      "score": 0.953,
+      "track_id": 0
+     },
+     {
+      "box": [
+       517.0,
+       275.0,
+       617.0,
+       407.0
+      ],
+      "score": 0.922,
+      "track_id": 1
+     },
+     {
+      "box": [
+       68.0,
+       83.0,
+       78.0,
+       110.0
+      ],
+      "score": 0.883,
+      "track_id": 2
+     },
+     {
+      "box": [
+       525.0,
+       54.0,
+       536.0,
+       82.0
+      ],
+      "score": 0.754,
+      "track_id": 5
+     }
+    ]
+   },
+   "043": {
+    "person": [
+     {
+      "box": [
+       1016.0,
+       304.0,
+       1104.0,
+       493.0
+      ],
+      "score": 0.953,
+      "track_id": 0
+     },
+     {
+      "box": [
+       499.0,
+       276.0,
+       600.0,
+       409.0
+      ],
+      "score": 0.922,
+      "track_id": 1
+     },
+     {
+      "box": [
+       521.0,
+       53.0,
+       531.0,
+       80.0
+      ],
+      "score": 0.754,
+      "track_id": 5
+     }
+    ]
+   }
+  }
+ },
+ "pexels-13422071-scrubber-worker": {
+  "rules": {
+   "r2": {
+    "title": "PPE on the warehouse floor",
+    "min_duration_s": 3,
+    "truth": "..TT......TTTT",
+    "states": [
+     "idle",
+     "idle",
+     "candidate",
+     "candidate",
+     "idle",
+     "idle",
+     "idle",
+     "idle",
+     "idle",
+     "idle",
+     "candidate",
+     "candidate",
+     "ALERT",
+     "ALERT"
+    ],
+    "events": [
+     {
+      "start_s": 12.0,
+      "end_s": 13.0,
+      "since_s": 10.0,
+      "subject": "person #2"
+     }
+    ],
+    "matched": [
+     [],
+     [],
+     [
+      {
+       "name": "person",
+       "track_id": 0
+      },
+      {
+       "name": "person",
+       "track_id": 1
+      }
+     ],
+     [
+      {
+       "name": "person",
+       "track_id": 0
+      },
+      {
+       "name": "person",
+       "track_id": 1
+      }
+     ],
+     [],
+     [],
+     [],
+     [],
+     [],
+     [],
+     [
+      {
+       "name": "person",
+       "track_id": 2
+      }
+     ],
+     [
+      {
+       "name": "person",
+       "track_id": 2
+      }
+     ],
+     [
+      {
+       "name": "person",
+       "track_id": 2
+      }
+     ],
+     [
+      {
+       "name": "person",
+       "track_id": 2
+      }
+     ]
+    ]
+   }
+  },
+  "detections": {
+   "001": {
+    "hard hat": [],
+    "person": [],
+    "safety vest": []
+   },
+   "002": {
+    "hard hat": [],
+    "person": [
+     {
+      "box": [
+       969.0,
+       18.0,
+       1132.0,
+       421.0
+      ],
+      "score": 0.739,
+      "track_id": 0
+     }
+    ],
+    "safety vest": [
+     {
+      "box": [
+       1068.0,
+       18.0,
+       1131.0,
+       241.0
+      ],
+      "score": 0.926,
+      "track_id": 0
+     }
+    ]
+   },
+   "003": {
+    "hard hat": [],
+    "person": [
+     {
+      "box": [
+       539.0,
+       20.0,
+       705.0,
+       563.0
+      ],
+      "score": 0.739,
+      "track_id": 0
+     },
+     {
+      "box": [
+       231.0,
+       0.0,
+       770.0,
+       720.0
+      ],
+      "score": 0.714,
+      "track_id": 1
+     }
+    ],
+    "safety vest": [
+     {
+      "box": [
+       548.0,
+       65.0,
+       688.0,
+       255.0
+      ],
+      "score": 0.926,
+      "track_id": 0
+     },
+     {
+      "box": [
+       253.0,
+       0.0,
+       581.0,
+       120.0
+      ],
+      "score": 0.926,
+      "track_id": 1
+     }
+    ]
+   },
+   "004": {
+    "hard hat": [],
+    "person": [
+     {
+      "box": [
+       200.0,
+       0.0,
+       374.0,
+       550.0
+      ],
+      "score": 0.739,
+      "track_id": 0
+     },
+     {
+      "box": [
+       816.0,
+       0.0,
+       1146.0,
+       720.0
+      ],
+      "score": 0.714,
+      "track_id": 1
+     }
+    ],
+    "safety vest": [
+     {
+      "box": [
+       200.0,
+       0.0,
+       256.0,
+       270.0
+      ],
+      "score": 0.926,
+      "track_id": 0
+     },
+     {
+      "box": [
+       1025.0,
+       0.0,
+       1146.0,
+       132.0
+      ],
+      "score": 0.926,
+      "track_id": 1
+     }
+    ]
+   },
+   "005": {
+    "hard hat": [],
+    "person": [],
+    "safety vest": []
+   },
+   "006": {
+    "hard hat": [],
+    "person": [],
+    "safety vest": []
+   },
+   "007": {
+    "hard hat": [],
+    "person": [],
+    "safety vest": []
+   },
+   "008": {
+    "hard hat": [],
+    "person": [],
+    "safety vest": []
+   },
+   "009": {
+    "hard hat": [],
+    "person": [],
+    "safety vest": []
+   },
+   "010": {
+    "hard hat": [],
+    "person": [
+     {
+      "box": [
+       1047.0,
+       82.0,
+       1164.0,
+       168.0
+      ],
+      "score": 0.801,
+      "track_id": 2
+     }
+    ],
+    "safety vest": []
+   },
+   "011": {
+    "hard hat": [],
+    "person": [
+     {
+      "box": [
+       788.0,
+       0.0,
+       1156.0,
+       528.0
+      ],
+      "score": 0.801,
+      "track_id": 2
+     }
+    ],
+    "safety vest": [
+     {
+      "box": [
+       943.0,
+       0.0,
+       1120.0,
+       242.0
+      ],
+      "score": 0.805,
+      "track_id": 2
+     }
+    ]
+   },
+   "012": {
+    "hard hat": [],
+    "person": [
+     {
+      "box": [
+       540.0,
+       0.0,
+       975.0,
+       529.0
+      ],
+      "score": 0.801,
+      "track_id": 2
+     }
+    ],
+    "safety vest": [
+     {
+      "box": [
+       700.0,
+       0.0,
+       853.0,
+       248.0
+      ],
+      "score": 0.805,
+      "track_id": 2
+     }
+    ]
+   },
+   "013": {
+    "hard hat": [],
+    "person": [
+     {
+      "box": [
+       273.0,
+       0.0,
+       684.0,
+       528.0
+      ],
+      "score": 0.801,
+      "track_id": 2
+     }
+    ],
+    "safety vest": [
+     {
+      "box": [
+       436.0,
+       0.0,
+       603.0,
+       235.0
+      ],
+      "score": 0.805,
+      "track_id": 2
+     }
+    ]
+   },
+   "014": {
+    "hard hat": [],
+    "person": [
+     {
+      "box": [
+       238.0,
+       0.0,
+       336.0,
+       524.0
+      ],
+      "score": 0.801,
+      "track_id": 2
+     }
+    ],
+    "safety vest": [
+     {
+      "box": [
+       258.0,
+       0.0,
+       337.0,
+       202.0
+      ],
+      "score": 0.805,
+      "track_id": 2
+     }
+    ]
+   }
+  }
+ }
+}

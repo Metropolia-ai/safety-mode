@@ -1,0 +1,631 @@
+{
+  "title": "Safety Mode rule (output of the Muse Spark rule compiler)",
+  "description": "Meta Model API strict mode: the root is an object, additionalProperties:false everywhere, required = all properties, no allOf/oneOf, anyOf only below the root, no recursion (the condition tree is limited to 3 levels: cond_l1 -> cond_l2 -> cond_l3).",
+  "type": "object",
+  "properties": {
+    "rule_id": {
+      "type": "string",
+      "description": "rule identifier, for example r3"
+    },
+    "title": {
+      "type": "string",
+      "description": "short title in the rule's language (for the UI and the report)"
+    },
+    "objects": {
+      "type": "array",
+      "description": "objects for SAM 3.1: one text prompt per object",
+      "items": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string",
+            "description": "name used in the condition, Latin letters, snake_case"
+          },
+          "prompt": {
+            "type": "string",
+            "description": "a single English noun for SAM 3.1"
+          }
+        },
+        "required": [
+          "name",
+          "prompt"
+        ],
+        "additionalProperties": false
+      }
+    },
+    "zones": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "description": "names of the zones the condition refers to; empty = the whole frame"
+    },
+    "condition": {
+      "description": "condition tree; null if the rule cannot be expressed with the primitives (then unsupported is filled in)",
+      "anyOf": [
+        {
+          "$ref": "#/$defs/cond_l1"
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "min_duration_s": {
+      "type": "number",
+      "description": "how many seconds the condition must hold before an alert"
+    },
+    "severity": {
+      "type": "string",
+      "enum": [
+        "low",
+        "medium",
+        "high",
+        "critical"
+      ],
+      "description": "severity"
+    },
+    "explanation_template": {
+      "type": "string",
+      "description": "alert text template with placeholders in curly braces"
+    },
+    "unsupported": {
+      "description": "null if the rule is expressed; otherwise why it cannot be expressed with the primitives",
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "suggested_rewrite": {
+      "description": "null or a rewording of the rule that can be expressed with the primitives",
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ]
+    }
+  },
+  "required": [
+    "rule_id",
+    "title",
+    "objects",
+    "zones",
+    "condition",
+    "min_duration_s",
+    "severity",
+    "explanation_template",
+    "unsupported",
+    "suggested_rewrite"
+  ],
+  "additionalProperties": false,
+  "$defs": {
+    "in_zone_args": {
+      "description": "Object inside a zone (by its footpoint: the middle of the bottom edge of the box).",
+      "type": "object",
+      "properties": {
+        "object": {
+          "type": "string",
+          "description": "object name from objects[].name"
+        },
+        "zone": {
+          "type": "string",
+          "description": "zone name from zones[]"
+        }
+      },
+      "required": [
+        "object",
+        "zone"
+      ],
+      "additionalProperties": false
+    },
+    "count_in_zone_args": {
+      "description": "Number of objects in a zone, compared with n.",
+      "type": "object",
+      "properties": {
+        "object": {
+          "type": "string",
+          "description": "object name from objects[].name"
+        },
+        "zone": {
+          "type": "string",
+          "description": "zone name from zones[]"
+        },
+        "op": {
+          "type": "string",
+          "enum": [
+            ">",
+            ">=",
+            "<",
+            "<=",
+            "=="
+          ],
+          "description": "comparison of the number of objects in the zone with n"
+        },
+        "n": {
+          "type": "integer",
+          "description": "object count threshold"
+        }
+      },
+      "required": [
+        "object",
+        "zone",
+        "op",
+        "n"
+      ],
+      "additionalProperties": false
+    },
+    "distance_lt_args": {
+      "description": "Floor distance between the objects is less than m metres.",
+      "type": "object",
+      "properties": {
+        "a": {
+          "type": "string",
+          "description": "name of the first object"
+        },
+        "b": {
+          "type": "string",
+          "description": "name of the second object"
+        },
+        "m": {
+          "type": "number",
+          "description": "threshold in metres, from the floor calibration"
+        }
+      },
+      "required": [
+        "a",
+        "b",
+        "m"
+      ],
+      "additionalProperties": false
+    },
+    "wearing_args": {
+      "description": "The person wears all the listed PPE (the PPE mask overlaps the right third of the person mask).",
+      "type": "object",
+      "properties": {
+        "person": {
+          "type": "string",
+          "description": "name of the person object"
+        },
+        "ppe": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "description": "names of the PPE objects, all must be on the person"
+        }
+      },
+      "required": [
+        "person",
+        "ppe"
+      ],
+      "additionalProperties": false
+    },
+    "pose_args": {
+      "description": "Person pose.",
+      "type": "object",
+      "properties": {
+        "person": {
+          "type": "string",
+          "description": "name of the person object"
+        },
+        "pose": {
+          "type": "string",
+          "enum": [
+            "lying",
+            "standing"
+          ],
+          "description": "pose"
+        }
+      },
+      "required": [
+        "person",
+        "pose"
+      ],
+      "additionalProperties": false
+    },
+    "height_above_floor_args": {
+      "description": "The lowest point of the object is more than m metres above the floor.",
+      "type": "object",
+      "properties": {
+        "object": {
+          "type": "string",
+          "description": "object name"
+        },
+        "m": {
+          "type": "number",
+          "description": "threshold in metres"
+        }
+      },
+      "required": [
+        "object",
+        "m"
+      ],
+      "additionalProperties": false
+    },
+    "machine_state_args": {
+      "description": "Machine state (in v1 set by hand or by a separate prompt).",
+      "type": "object",
+      "properties": {
+        "machine": {
+          "type": "string",
+          "description": "name of the machine object"
+        },
+        "state": {
+          "type": "string",
+          "enum": [
+            "running",
+            "stopped"
+          ],
+          "description": "machine state"
+        }
+      },
+      "required": [
+        "machine",
+        "state"
+      ],
+      "additionalProperties": false
+    },
+    "cond_l3": {
+      "description": "Condition node, level 3: primitives only.",
+      "anyOf": [
+        {
+          "type": "object",
+          "properties": {
+            "in_zone": {
+              "$ref": "#/$defs/in_zone_args"
+            }
+          },
+          "required": [
+            "in_zone"
+          ],
+          "additionalProperties": false
+        },
+        {
+          "type": "object",
+          "properties": {
+            "count_in_zone": {
+              "$ref": "#/$defs/count_in_zone_args"
+            }
+          },
+          "required": [
+            "count_in_zone"
+          ],
+          "additionalProperties": false
+        },
+        {
+          "type": "object",
+          "properties": {
+            "distance_lt": {
+              "$ref": "#/$defs/distance_lt_args"
+            }
+          },
+          "required": [
+            "distance_lt"
+          ],
+          "additionalProperties": false
+        },
+        {
+          "type": "object",
+          "properties": {
+            "wearing": {
+              "$ref": "#/$defs/wearing_args"
+            }
+          },
+          "required": [
+            "wearing"
+          ],
+          "additionalProperties": false
+        },
+        {
+          "type": "object",
+          "properties": {
+            "pose": {
+              "$ref": "#/$defs/pose_args"
+            }
+          },
+          "required": [
+            "pose"
+          ],
+          "additionalProperties": false
+        },
+        {
+          "type": "object",
+          "properties": {
+            "height_above_floor": {
+              "$ref": "#/$defs/height_above_floor_args"
+            }
+          },
+          "required": [
+            "height_above_floor"
+          ],
+          "additionalProperties": false
+        },
+        {
+          "type": "object",
+          "properties": {
+            "machine_state": {
+              "$ref": "#/$defs/machine_state_args"
+            }
+          },
+          "required": [
+            "machine_state"
+          ],
+          "additionalProperties": false
+        }
+      ]
+    },
+    "cond_l2": {
+      "description": "Condition node, level 2: a primitive or all/any/not over level 3 nodes.",
+      "anyOf": [
+        {
+          "type": "object",
+          "properties": {
+            "in_zone": {
+              "$ref": "#/$defs/in_zone_args"
+            }
+          },
+          "required": [
+            "in_zone"
+          ],
+          "additionalProperties": false
+        },
+        {
+          "type": "object",
+          "properties": {
+            "count_in_zone": {
+              "$ref": "#/$defs/count_in_zone_args"
+            }
+          },
+          "required": [
+            "count_in_zone"
+          ],
+          "additionalProperties": false
+        },
+        {
+          "type": "object",
+          "properties": {
+            "distance_lt": {
+              "$ref": "#/$defs/distance_lt_args"
+            }
+          },
+          "required": [
+            "distance_lt"
+          ],
+          "additionalProperties": false
+        },
+        {
+          "type": "object",
+          "properties": {
+            "wearing": {
+              "$ref": "#/$defs/wearing_args"
+            }
+          },
+          "required": [
+            "wearing"
+          ],
+          "additionalProperties": false
+        },
+        {
+          "type": "object",
+          "properties": {
+            "pose": {
+              "$ref": "#/$defs/pose_args"
+            }
+          },
+          "required": [
+            "pose"
+          ],
+          "additionalProperties": false
+        },
+        {
+          "type": "object",
+          "properties": {
+            "height_above_floor": {
+              "$ref": "#/$defs/height_above_floor_args"
+            }
+          },
+          "required": [
+            "height_above_floor"
+          ],
+          "additionalProperties": false
+        },
+        {
+          "type": "object",
+          "properties": {
+            "machine_state": {
+              "$ref": "#/$defs/machine_state_args"
+            }
+          },
+          "required": [
+            "machine_state"
+          ],
+          "additionalProperties": false
+        },
+        {
+          "type": "object",
+          "properties": {
+            "all": {
+              "type": "array",
+              "items": {
+                "$ref": "#/$defs/cond_l3"
+              },
+              "description": "all conditions are true"
+            }
+          },
+          "required": [
+            "all"
+          ],
+          "additionalProperties": false
+        },
+        {
+          "type": "object",
+          "properties": {
+            "any": {
+              "type": "array",
+              "items": {
+                "$ref": "#/$defs/cond_l3"
+              },
+              "description": "at least one is true"
+            }
+          },
+          "required": [
+            "any"
+          ],
+          "additionalProperties": false
+        },
+        {
+          "type": "object",
+          "properties": {
+            "not": {
+              "$ref": "#/$defs/cond_l3"
+            }
+          },
+          "required": [
+            "not"
+          ],
+          "additionalProperties": false
+        }
+      ]
+    },
+    "cond_l1": {
+      "description": "Condition node, level 1: a primitive or all/any/not over level 2 nodes.",
+      "anyOf": [
+        {
+          "type": "object",
+          "properties": {
+            "in_zone": {
+              "$ref": "#/$defs/in_zone_args"
+            }
+          },
+          "required": [
+            "in_zone"
+          ],
+          "additionalProperties": false
+        },
+        {
+          "type": "object",
+          "properties": {
+            "count_in_zone": {
+              "$ref": "#/$defs/count_in_zone_args"
+            }
+          },
+          "required": [
+            "count_in_zone"
+          ],
+          "additionalProperties": false
+        },
+        {
+          "type": "object",
+          "properties": {
+            "distance_lt": {
+              "$ref": "#/$defs/distance_lt_args"
+            }
+          },
+          "required": [
+            "distance_lt"
+          ],
+          "additionalProperties": false
+        },
+        {
+          "type": "object",
+          "properties": {
+            "wearing": {
+              "$ref": "#/$defs/wearing_args"
+            }
+          },
+          "required": [
+            "wearing"
+          ],
+          "additionalProperties": false
+        },
+        {
+          "type": "object",
+          "properties": {
+            "pose": {
+              "$ref": "#/$defs/pose_args"
+            }
+          },
+          "required": [
+            "pose"
+          ],
+          "additionalProperties": false
+        },
+        {
+          "type": "object",
+          "properties": {
+            "height_above_floor": {
+              "$ref": "#/$defs/height_above_floor_args"
+            }
+          },
+          "required": [
+            "height_above_floor"
+          ],
+          "additionalProperties": false
+        },
+        {
+          "type": "object",
+          "properties": {
+            "machine_state": {
+              "$ref": "#/$defs/machine_state_args"
+            }
+          },
+          "required": [
+            "machine_state"
+          ],
+          "additionalProperties": false
+        },
+        {
+          "type": "object",
+          "properties": {
+            "all": {
+              "type": "array",
+              "items": {
+                "$ref": "#/$defs/cond_l2"
+              },
+              "description": "all conditions are true"
+            }
+          },
+          "required": [
+            "all"
+          ],
+          "additionalProperties": false
+        },
+        {
+          "type": "object",
+          "properties": {
+            "any": {
+              "type": "array",
+              "items": {
+                "$ref": "#/$defs/cond_l2"
+              },
+              "description": "at least one is true"
+            }
+          },
+          "required": [
+            "any"
+          ],
+          "additionalProperties": false
+        },
+        {
+          "type": "object",
+          "properties": {
+            "not": {
+              "$ref": "#/$defs/cond_l2"
+            }
+          },
+          "required": [
+            "not"
+          ],
+          "additionalProperties": false
+        }
+      ]
+    }
+  }
+}

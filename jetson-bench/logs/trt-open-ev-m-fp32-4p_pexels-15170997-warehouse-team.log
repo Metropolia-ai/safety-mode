@@ -1,0 +1,70 @@
+# 2026-10-21T06:50:01-04:00
+$ python /mnt/data/work/aivm-safety-mode/jetson-bench/bench/trt_sam.py --mode open --engine /mnt/data/work/export/efficientsam3-ev-m/trt/vision_decoder_final_fp32.plan --emb /mnt/data/work/export/efficientsam3-ev-m/text_embeddings.npz --frames 20 --clip /mnt/data/work/aivm-safety-mode/jetson-bench/footage/raw/pexels-15170997-warehouse-team.mp4 --tag efficientsam3-ev-m-trt-open4-fp32
+{
+ "mode": "open",
+ "engine_path": "/mnt/data/work/export/efficientsam3-ev-m/trt/vision_decoder_final_fp32.plan",
+ "engine_mb": 166.0,
+ "clip": "pexels-15170997-warehouse-team.mp4",
+ "size": [
+  720,
+  1280
+ ],
+ "load_s": 1.38,
+ "conf": 0.5,
+ "prompts": [
+  "person",
+  "forklift",
+  "high-visibility vest",
+  "hard hat"
+ ],
+ "frame": {
+  "mean_ms": 681.3,
+  "p95_ms": 682.8,
+  "min_ms": 680.0,
+  "max_ms": 682.8,
+  "fps": 1.47,
+  "n": 20
+ },
+ "preprocess": {
+  "mean_ms": 7.5,
+  "p95_ms": 7.6,
+  "min_ms": 7.4,
+  "max_ms": 7.6,
+  "fps": 132.99,
+  "n": 20
+ },
+ "engine": {
+  "mean_ms": 671.3,
+  "p95_ms": 672.5,
+  "min_ms": 670.2,
+  "max_ms": 672.5,
+  "fps": 1.49,
+  "n": 20
+ },
+ "postprocess": {
+  "mean_ms": 2.5,
+  "p95_ms": 2.7,
+  "min_ms": 2.3,
+  "max_ms": 2.8,
+  "fps": 403.38,
+  "n": 20
+ },
+ "found_mean": {
+  "person": 1.7,
+  "forklift": 0.05,
+  "high-visibility vest": 0.05,
+  "hard hat": 0
+ },
+ "frames_with_found": {
+  "person": 18,
+  "forklift": 1,
+  "high-visibility vest": 1,
+  "hard hat": 0
+ },
+ "cuda_max_allocated_mb": 71.8,
+ "ram_first_mb": 3273,
+ "ram_peak_mb": 5811,
+ "ram_peak_delta_mb": 2538,
+ "ram_total_mb": 62841,
+ "ram_samples": 44
+}

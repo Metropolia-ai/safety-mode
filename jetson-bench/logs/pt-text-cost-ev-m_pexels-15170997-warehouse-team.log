@@ -1,0 +1,64 @@
+# 2026-10-21T06:50:33-04:00
+$ python /mnt/data/work/aivm-safety-mode/jetson-bench/bench/pt_text_cost.py --ckpt /mnt/data/work/weights/efficientsam3/efficientsam3_efficientvit.pt --clip /mnt/data/work/aivm-safety-mode/jetson-bench/footage/raw/pexels-15170997-warehouse-team.mp4 --tag pt-text-cost-ev-m
+Resizing positional embeddings from 77 to 16
+{
+ "prompts": [
+  "person",
+  "forklift",
+  "high-visibility vest"
+ ],
+ "frames": 20,
+ "image_encoder": {
+  "mean_ms": 72.2,
+  "p95_ms": 72.5,
+  "min_ms": 71.9,
+  "max_ms": 72.6,
+  "fps": 13.85,
+  "n": 20
+ },
+ "set_text_prompt": {
+  "mean_ms": 220.8,
+  "p95_ms": 222.0,
+  "min_ms": 219.5,
+  "max_ms": 222.9,
+  "fps": 4.53,
+  "n": 60
+ },
+ "text_encoder_only": {
+  "mean_ms": 9.1,
+  "p95_ms": 9.2,
+  "min_ms": 8.9,
+  "max_ms": 9.4,
+  "fps": 110.04,
+  "n": 60
+ },
+ "grounding_with_precomputed_text": {
+  "mean_ms": 211.5,
+  "p95_ms": 213.1,
+  "min_ms": 210.3,
+  "max_ms": 213.4,
+  "fps": 4.73,
+  "n": 60
+ },
+ "per_prompt": {
+  "person": {
+   "set_text_prompt": 221.7,
+   "text": 9.1,
+   "grounding": 212.0
+  },
+  "forklift": {
+   "set_text_prompt": 220.3,
+   "text": 9.1,
+   "grounding": 211.3
+  },
+  "high-visibility vest": {
+   "set_text_prompt": 220.3,
+   "text": 9.1,
+   "grounding": 211.4
+  }
+ },
+ "frame_3prompt_ms": {
+  "set_image+N*set_text_prompt": 734.5,
+  "set_image+N*grounding(precomputed)": 706.9
+ }
+}

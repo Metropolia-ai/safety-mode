@@ -1,0 +1,48 @@
+{
+  "rule_id": "r5",
+  "title": "Fire exit must stay clear",
+  "objects": [
+    {
+      "name": "pallet",
+      "prompt": "pallet"
+    },
+    {
+      "name": "box",
+      "prompt": "box"
+    },
+    {
+      "name": "cart",
+      "prompt": "cart"
+    }
+  ],
+  "zones": [
+    "fire_exit_zone"
+  ],
+  "condition": {
+    "any": [
+      {
+        "in_zone": {
+          "object": "pallet",
+          "zone": "fire_exit_zone"
+        }
+      },
+      {
+        "in_zone": {
+          "object": "box",
+          "zone": "fire_exit_zone"
+        }
+      },
+      {
+        "in_zone": {
+          "object": "cart",
+          "zone": "fire_exit_zone"
+        }
+      }
+    ]
+  },
+  "min_duration_s": 60,
+  "severity": "medium",
+  "explanation_template": "Fire exit is blocked at {time} (duration {duration_s}s).",
+  "unsupported": null,
+  "suggested_rewrite": null
+}

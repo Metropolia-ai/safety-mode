@@ -1,0 +1,88 @@
+{
+  "model": "efficientsam3",
+  "tag": "combo4-efficientsam3-ev-m-fp32",
+  "clip": "pexels-15170997-warehouse-team.mp4",
+  "size": [
+    720,
+    1280
+  ],
+  "backbone": "efficientvit",
+  "variant": "b1",
+  "load_s": 14.8,
+  "weights_bytes": 468394477,
+  "score_thr": 0.5,
+  "prompts": {},
+  "weights_mb": 446.7,
+  "autocast": "none",
+  "combo": {
+    "prompts": [
+      "person",
+      "forklift",
+      "high-visibility vest",
+      "hard hat"
+    ],
+    "frame": {
+      "mean_ms": 944.9,
+      "p95_ms": 946.9,
+      "min_ms": 940.0,
+      "max_ms": 974.2,
+      "fps": 1.06,
+      "n": 20
+    },
+    "image_encoder": {
+      "mean_ms": 72.6,
+      "p95_ms": 73.1,
+      "min_ms": 72.0,
+      "max_ms": 73.6,
+      "fps": 13.78,
+      "n": 20
+    },
+    "text_decoder": {
+      "person": {
+        "mean_ms": 220.2,
+        "p95_ms": 220.1,
+        "min_ms": 217.6,
+        "max_ms": 247.7,
+        "fps": 4.54,
+        "n": 20
+      },
+      "forklift": {
+        "mean_ms": 217.5,
+        "p95_ms": 218.6,
+        "min_ms": 216.0,
+        "max_ms": 218.8,
+        "fps": 4.6,
+        "n": 20
+      },
+      "high-visibility vest": {
+        "mean_ms": 217.3,
+        "p95_ms": 218.8,
+        "min_ms": 216.2,
+        "max_ms": 219.2,
+        "fps": 4.6,
+        "n": 20
+      },
+      "hard hat": {
+        "mean_ms": 217.3,
+        "p95_ms": 218.5,
+        "min_ms": 215.9,
+        "max_ms": 218.8,
+        "fps": 4.6,
+        "n": 20
+      }
+    },
+    "found_mean": {
+      "person": 1.7,
+      "forklift": 0.05,
+      "high-visibility vest": 0.05,
+      "hard hat": 0
+    }
+  },
+  "cuda_max_allocated_mb": 1382.4,
+  "cuda_max_reserved_mb": 1570.0,
+  "ram_first_mb": 3022,
+  "ram_peak_mb": 5971,
+  "ram_peak_delta_mb": 2949,
+  "ram_total_mb": 62841,
+  "ram_samples": 80
+}

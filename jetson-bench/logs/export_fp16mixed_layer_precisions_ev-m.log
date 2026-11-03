@@ -1,0 +1,16 @@
+# engine layer info of the PR #49 mixed build (161 context_module layers pinned to FP32, --precisionConstraints=obey):
+# context_module MatMuls end up in Myelin gemm kernels with Half data types
+/trunk/model/backbone/model/stages_2/op_list_1/context_module/main/MatMul_myl40_3 | gemm | outputs: ['Half'] | tactic: sm80_xmma_gemm_f16f16_f16f16_f16_nn_n_tilesize32x32x64_stage
+/trunk/model/backbone/model/stages_2/op_list_1/context_module/main/MatMul_1_myl40_4 | gemm | outputs: ['Half'] | tactic: sm80_xmma_gemm_f16f16_f16f32_f32_nn_n_tilesize64x128x32_stag
+/trunk/model/backbone/model/stages_2/op_list_2/context_module/main/MatMul_myl61_3 | gemm | outputs: ['Half'] | tactic: sm80_xmma_gemm_f16f16_f16f16_f16_nn_n_tilesize32x32x64_stage
+/trunk/model/backbone/model/stages_2/op_list_2/context_module/main/MatMul_1_myl61_4 | gemm | outputs: ['Half'] | tactic: sm80_xmma_gemm_f16f16_f16f32_f32_nn_n_tilesize64x128x32_stag
+/trunk/model/backbone/model/stages_2/op_list_3/context_module/main/MatMul_myl82_3 | gemm | outputs: ['Half'] | tactic: sm80_xmma_gemm_f16f16_f16f16_f16_nn_n_tilesize32x32x64_stage
+/trunk/model/backbone/model/stages_2/op_list_3/context_module/main/MatMul_1_myl82_4 | gemm | outputs: ['Half'] | tactic: sm80_xmma_gemm_f16f16_f16f32_f32_nn_n_tilesize64x128x32_stag
+/trunk/model/backbone/model/stages_3/op_list_1/context_module/main/MatMul_myl107_3 | gemm | outputs: ['Half'] | tactic: sm80_xmma_gemm_f16f16_f16f16_f16_nn_n_tilesize32x32x64_stage
+/trunk/model/backbone/model/stages_3/op_list_1/context_module/main/MatMul_1_myl107_4 | gemm | outputs: ['Half'] | tactic: ampere_h16816gemm_128x64_ldg8_nn_v1
+/trunk/model/backbone/model/stages_3/op_list_2/context_module/main/MatMul_myl125_3 | gemm | outputs: ['Half'] | tactic: sm80_xmma_gemm_f16f16_f16f16_f16_nn_n_tilesize32x32x64_stage
+/trunk/model/backbone/model/stages_3/op_list_2/context_module/main/MatMul_1_myl125_4 | gemm | outputs: ['Half'] | tactic: ampere_h16816gemm_128x64_ldg8_nn_v1
+/trunk/model/backbone/model/stages_3/op_list_3/context_module/main/MatMul_myl143_3 | gemm | outputs: ['Half'] | tactic: sm80_xmma_gemm_f16f16_f16f16_f16_nn_n_tilesize32x32x64_stage
+/trunk/model/backbone/model/stages_3/op_list_3/context_module/main/MatMul_1_myl143_4 | gemm | outputs: ['Half'] | tactic: ampere_h16816gemm_128x64_ldg8_nn_v1
+/trunk/model/backbone/model/stages_3/op_list_4/context_module/main/MatMul_myl161_3 | gemm | outputs: ['Half'] | tactic: sm80_xmma_gemm_f16f16_f16f16_f16_nn_n_tilesize32x32x64_stage
+/trunk/model/backbone/model/stages_3/op_list_4/context_module/main/MatMul_1_myl161_4 | gemm | outputs: ['Half'] | tactic: ampere_h16816gemm_128x64_ldg8_nn_v1

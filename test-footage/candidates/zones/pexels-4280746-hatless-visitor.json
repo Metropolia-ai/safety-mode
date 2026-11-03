@@ -1,0 +1,35 @@
+{
+  "clip": "pexels-4280746-hatless-visitor",
+  "reference_frame": "candidates/frames/pexels-4280746-hatless-visitor/005.jpg",
+  "frame_size": [
+    1280,
+    720
+  ],
+  "zones": [
+    {
+      "name": "past_gate",
+      "title": "Warehouse floor",
+      "polygon": [
+        [
+          0.0,
+          0.0
+        ],
+        [
+          1.0,
+          0.0
+        ],
+        [
+          1.0,
+          1.0
+        ],
+        [
+          0.0,
+          1.0
+        ]
+      ],
+      "note": "Whole frame: overhead camera, only the aisle and the racks are in frame; the camera turns slowly (by s6 the scene shifts by ~10 % of the frame), so the zone has no borders."
+    }
+  ],
+  "floor_calibration": null,
+  "floor_calibration_note": "No floor calibration: the camera is overhead and turns, and the hard hat rule needs no distances."
+}

@@ -1,0 +1,30 @@
+{
+  "clip": "pexels-32243653-forklift-operator",
+  "model": "sam-3.1",
+  "mode": "video",
+  "fps": 1,
+  "frame_size": [1280, 720],
+  "video": {"file": "test-footage/cache/video/forklift-operator-1280.mp4", "width": 1280, "height": 720, "fps": 25.0, "frames": 254},
+  "source": "Meta Model API, video mode: one input_video request per clip and prompt (file upload, long side 1280 px, all frames), mask_encoding=one_bit, include_confidence=true; masks dropped",
+  "frame_index": "1 fps frame NNN (second s = NNN - 1) = video frame ceil((s + 0.5) * fps) - 1",
+  "box_units": "pixels of frames/<clip>/NNN.jpg, [x1, y1, x2, y2], x2/y2 exclusive",
+  "track_id": "SAM 3.1 object id, stable across the clip for one prompt (ids of different prompts are unrelated); a new id that starts within 1 s after an old one stopped, on an overlapping box (IoU >= 0.4) or within 0.3 m on the floor, takes the old id (detect/tracks.py); sam_track_id = the SAM id then",
+  "updated": "2026-10-29",
+  "prompts": ["forklift", "hard hat", "person", "safety vest"],
+  "requests": {"forklift": {"frames_in_response": 235, "elapsed_s": 19.593, "upload_s": 5.523, "file_id": "file-2577976426001435"}, "hard hat": {"frames_in_response": 246, "elapsed_s": 16.647, "upload_s": 4.987, "file_id": "file-3378076085725914"}, "person": {"frames_in_response": 254, "elapsed_s": 17.787, "upload_s": 5.35, "file_id": "file-1617758913158498"}, "safety vest": {"frames_in_response": 0, "elapsed_s": 15.099, "upload_s": 5.424, "file_id": "file-3906564672817347"}},
+  "frame_map": {"001": 12, "002": 37, "003": 62, "004": 87, "005": 112, "006": 137, "007": 162, "008": 187, "009": 212, "010": 237},
+  "bridges": [],
+  "tracks": {"forklift": {"0": {"first_s": 1, "last_s": 9, "seconds": 9}}, "hard hat": {"0": {"first_s": 0, "last_s": 9, "seconds": 10}}, "person": {"0": {"first_s": 0, "last_s": 9, "seconds": 10}, "1": {"first_s": 0, "last_s": 0, "seconds": 1}}, "safety vest": {}},
+  "frames": {
+    "001": {"forklift": [], "hard hat": [{"box": [562.0, 179.0, 783.0, 307.0], "score": 0.777, "track_id": 0}], "person": [{"box": [369.0, 179.0, 872.0, 720.0], "score": 0.957, "track_id": 0}, {"box": [0.0, 507.0, 70.0, 720.0], "score": 0.789, "track_id": 1}], "safety vest": []},
+    "002": {"forklift": [{"box": [0.0, 0.0, 1040.0, 720.0], "score": 0.754, "track_id": 0}], "hard hat": [{"box": [627.0, 235.0, 719.0, 332.0], "score": 0.777, "track_id": 0}], "person": [{"box": [356.0, 236.0, 781.0, 720.0], "score": 0.957, "track_id": 0}], "safety vest": []},
+    "003": {"forklift": [{"box": [0.0, 0.0, 971.0, 720.0], "score": 0.754, "track_id": 0}], "hard hat": [{"box": [592.0, 265.0, 691.0, 344.0], "score": 0.777, "track_id": 0}], "person": [{"box": [528.0, 266.0, 777.0, 680.0], "score": 0.957, "track_id": 0}], "safety vest": []},
+    "004": {"forklift": [{"box": [0.0, 0.0, 1080.0, 720.0], "score": 0.754, "track_id": 0}], "hard hat": [{"box": [729.0, 239.0, 820.0, 301.0], "score": 0.777, "track_id": 0}], "person": [{"box": [603.0, 239.0, 879.0, 576.0], "score": 0.957, "track_id": 0}], "safety vest": []},
+    "005": {"forklift": [{"box": [0.0, 0.0, 1052.0, 720.0], "score": 0.754, "track_id": 0}], "hard hat": [{"box": [775.0, 248.0, 845.0, 296.0], "score": 0.777, "track_id": 0}], "person": [{"box": [668.0, 250.0, 884.0, 505.0], "score": 0.957, "track_id": 0}], "safety vest": []},
+    "006": {"forklift": [{"box": [143.0, 0.0, 1007.0, 720.0], "score": 0.754, "track_id": 0}], "hard hat": [{"box": [781.0, 229.0, 810.0, 265.0], "score": 0.777, "track_id": 0}], "person": [{"box": [777.0, 229.0, 850.0, 449.0], "score": 0.957, "track_id": 0}], "safety vest": []},
+    "007": {"forklift": [{"box": [361.0, 0.0, 1026.0, 720.0], "score": 0.754, "track_id": 0}], "hard hat": [{"box": [846.0, 232.0, 867.0, 263.0], "score": 0.777, "track_id": 0}], "person": [{"box": [841.0, 232.0, 902.0, 418.0], "score": 0.957, "track_id": 0}], "safety vest": []},
+    "008": {"forklift": [{"box": [263.0, 0.0, 978.0, 593.0], "score": 0.754, "track_id": 0}], "hard hat": [{"box": [856.0, 210.0, 863.0, 231.0], "score": 0.777, "track_id": 0}], "person": [{"box": [777.0, 214.0, 893.0, 360.0], "score": 0.957, "track_id": 0}], "safety vest": []},
+    "009": {"forklift": [{"box": [349.0, 0.0, 912.0, 572.0], "score": 0.754, "track_id": 0}], "hard hat": [{"box": [772.0, 210.0, 786.0, 237.0], "score": 0.777, "track_id": 0}], "person": [{"box": [733.0, 210.0, 842.0, 341.0], "score": 0.957, "track_id": 0}], "safety vest": []},
+    "010": {"forklift": [{"box": [434.0, 0.0, 913.0, 526.0], "score": 0.754, "track_id": 0}], "hard hat": [{"box": [751.0, 222.0, 777.0, 243.0], "score": 0.777, "track_id": 0}], "person": [{"box": [716.0, 222.0, 777.0, 309.0], "score": 0.957, "track_id": 0}], "safety vest": []}
+  }
+}

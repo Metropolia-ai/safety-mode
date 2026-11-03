@@ -1,0 +1,78 @@
+{
+  "model": "sam3",
+  "tag": "combo-sam3.1-bf16",
+  "clip": "pexels-15170997-warehouse-team.mp4",
+  "size": [
+    720,
+    1280
+  ],
+  "backbone": "tinyvit",
+  "variant": "11m",
+  "load_s": 28.8,
+  "weights_bytes": 3502755717,
+  "score_thr": 0.5,
+  "prompts": {},
+  "weights_mb": 3340.5,
+  "autocast": "bf16",
+  "combo": {
+    "prompts": [
+      "person",
+      "forklift",
+      "high-visibility vest"
+    ],
+    "frame": {
+      "mean_ms": 853.3,
+      "p95_ms": 855.4,
+      "min_ms": 849.0,
+      "max_ms": 855.8,
+      "fps": 1.17,
+      "n": 20
+    },
+    "image_encoder": {
+      "mean_ms": 343.0,
+      "p95_ms": 344.8,
+      "min_ms": 340.5,
+      "max_ms": 345.4,
+      "fps": 2.92,
+      "n": 20
+    },
+    "text_decoder": {
+      "person": {
+        "mean_ms": 171.0,
+        "p95_ms": 171.9,
+        "min_ms": 170.2,
+        "max_ms": 172.1,
+        "fps": 5.85,
+        "n": 20
+      },
+      "forklift": {
+        "mean_ms": 169.8,
+        "p95_ms": 170.3,
+        "min_ms": 169.0,
+        "max_ms": 170.9,
+        "fps": 5.89,
+        "n": 20
+      },
+      "high-visibility vest": {
+        "mean_ms": 169.6,
+        "p95_ms": 170.7,
+        "min_ms": 168.8,
+        "max_ms": 171.4,
+        "fps": 5.9,
+        "n": 20
+      }
+    },
+    "found_mean": {
+      "person": 2.8,
+      "forklift": 1,
+      "high-visibility vest": 1.45
+    }
+  },
+  "cuda_max_allocated_mb": 4615.1,
+  "cuda_max_reserved_mb": 4874.0,
+  "ram_first_mb": 2911,
+  "ram_peak_mb": 10378,
+  "ram_peak_delta_mb": 7467,
+  "ram_total_mb": 62841,
+  "ram_samples": 103
+}

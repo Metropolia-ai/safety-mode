@@ -1,0 +1,380 @@
+{
+ "clip": "busy-warehouse",
+ "rule": "r03",
+ "events": [],
+ "timeline": ".........................",
+ "seconds": [
+  {
+   "s": 0,
+   "truth": ".",
+   "state": {
+    "phase": "idle",
+    "min_s": 1.0
+   },
+   "measured": [
+    "forklift #0 - person #0: 17.50 m (>= 2 m)",
+    "forklift #0 - person #2: 92.72 m (operator, skipped)",
+    "forklift #0 - person #1: 21338.28 m (operator, skipped)"
+   ],
+   "hits": []
+  },
+  {
+   "s": 1,
+   "truth": ".",
+   "state": {
+    "phase": "idle",
+    "min_s": 1.0
+   },
+   "measured": [
+    "forklift #0 - person #0: 18.39 m (>= 2 m)",
+    "forklift #0 - person #2: 112.19 m (operator, skipped)",
+    "forklift #0 - person #1: 1270.68 m (operator, skipped)"
+   ],
+   "hits": []
+  },
+  {
+   "s": 2,
+   "truth": ".",
+   "state": {
+    "phase": "idle",
+    "min_s": 1.0
+   },
+   "measured": [
+    "forklift #0 - person #0: 17.91 m (>= 2 m)",
+    "forklift #0 - person #2: 75.42 m (operator, skipped)",
+    "forklift #0 - person #1: 1434.49 m (operator, skipped)"
+   ],
+   "hits": []
+  },
+  {
+   "s": 3,
+   "truth": ".",
+   "state": {
+    "phase": "idle",
+    "min_s": 1.0
+   },
+   "measured": [
+    "forklift #0 - person #0: 17.93 m (>= 2 m)",
+    "forklift #0 - person #3: 9.47 m (operator, skipped)",
+    "forklift #0 - person #2: 66.97 m (operator, skipped)",
+    "forklift #0 - person #1: 456.58 m (operator, skipped)"
+   ],
+   "hits": []
+  },
+  {
+   "s": 4,
+   "truth": ".",
+   "state": {
+    "phase": "idle",
+    "min_s": 1.0
+   },
+   "measured": [
+    "forklift #0 - person #0: 18.84 m (>= 2 m)",
+    "forklift #0 - person #4: 38.70 m (>= 2 m)",
+    "forklift #0 - person #3: 9.34 m (operator, skipped)",
+    "forklift #0 - person #2: 63.87 m (operator, skipped)"
+   ],
+   "hits": []
+  },
+  {
+   "s": 5,
+   "truth": ".",
+   "state": {
+    "phase": "idle",
+    "min_s": 1.0
+   },
+   "measured": [
+    "forklift #0 - person #0: 19.24 m (>= 2 m)",
+    "forklift #0 - person #5: 19.82 m (>= 2 m)",
+    "forklift #0 - person #4: 39.19 m (>= 2 m)",
+    "forklift #0 - person #3: 7.92 m (operator, skipped)"
+   ],
+   "hits": []
+  },
+  {
+   "s": 6,
+   "truth": ".",
+   "state": {
+    "phase": "idle",
+    "min_s": 1.0
+   },
+   "measured": [
+    "forklift #0 - person #0: 20.13 m (>= 2 m)",
+    "forklift #0 - person #5: 20.21 m (>= 2 m)",
+    "forklift #0 - person #4: 41.01 m (>= 2 m)",
+    "forklift #0 - person #3: 7.38 m (operator, skipped)"
+   ],
+   "hits": []
+  },
+  {
+   "s": 7,
+   "truth": ".",
+   "state": {
+    "phase": "idle",
+    "min_s": 1.0
+   },
+   "measured": [
+    "forklift #0 - person #0: 20.37 m (>= 2 m)",
+    "forklift #0 - person #5: 20.46 m (>= 2 m)",
+    "forklift #0 - person #3: 7.27 m (operator, skipped)",
+    "forklift #0 - person #2: 13.25 m (operator, skipped)"
+   ],
+   "hits": []
+  },
+  {
+   "s": 8,
+   "truth": ".",
+   "state": {
+    "phase": "idle",
+    "min_s": 1.0
+   },
+   "measured": [
+    "forklift #0 - person #5: 20.88 m (>= 2 m)",
+    "forklift #0 - person #0: 21.94 m (>= 2 m)",
+    "forklift #0 - person #3: 7.58 m (operator, skipped)",
+    "forklift #0 - person #2: 14.91 m (operator, skipped)"
+   ],
+   "hits": []
+  },
+  {
+   "s": 9,
+   "truth": ".",
+   "state": {
+    "phase": "idle",
+    "min_s": 1.0
+   },
+   "measured": [
+    "forklift #0 - person #0: 23.23 m (>= 2 m)",
+    "forklift #0 - person #5: 23.34 m (>= 2 m)",
+    "forklift #0 - person #3: 9.79 m (operator, skipped)",
+    "forklift #0 - person #2: 16.09 m (operator, skipped)"
+   ],
+   "hits": []
+  },
+  {
+   "s": 10,
+   "truth": ".",
+   "state": {
+    "phase": "idle",
+    "min_s": 1.0
+   },
+   "measured": [
+    "forklift #0 - person #0: 24.04 m (>= 2 m)",
+    "forklift #0 - person #5: 24.98 m (>= 2 m)",
+    "forklift #0 - person #3: 9.24 m (operator, skipped)",
+    "forklift #0 - person #2: 15.98 m (operator, skipped)"
+   ],
+   "hits": []
+  },
+  {
+   "s": 11,
+   "truth": ".",
+   "state": {
+    "phase": "idle",
+    "min_s": 1.0
+   },
+   "measured": [
+    "forklift #0 - person #0: 24.10 m (>= 2 m)",
+    "forklift #0 - person #5: 25.57 m (>= 2 m)",
+    "forklift #0 - person #3: 8.82 m (operator, skipped)",
+    "forklift #0 - person #2: 17.95 m (operator, skipped)"
+   ],
+   "hits": []
+  },
+  {
+   "s": 12,
+   "truth": ".",
+   "state": {
+    "phase": "idle",
+    "min_s": 1.0
+   },
+   "measured": [
+    "forklift #0 - person #0: 22.84 m (>= 2 m)",
+    "forklift #0 - person #5: 25.59 m (>= 2 m)",
+    "forklift #0 - person #3: 8.99 m (operator, skipped)",
+    "forklift #0 - person #2: 17.17 m (operator, skipped)"
+   ],
+   "hits": []
+  },
+  {
+   "s": 13,
+   "truth": ".",
+   "state": {
+    "phase": "idle",
+    "min_s": 1.0
+   },
+   "measured": [
+    "forklift #0 - person #0: 22.86 m (>= 2 m)",
+    "forklift #0 - person #5: 26.30 m (>= 2 m)",
+    "forklift #0 - person #3: 8.84 m (operator, skipped)",
+    "forklift #0 - person #2: 18.37 m (operator, skipped)"
+   ],
+   "hits": []
+  },
+  {
+   "s": 14,
+   "truth": ".",
+   "state": {
+    "phase": "idle",
+    "min_s": 1.0
+   },
+   "measured": [
+    "forklift #0 - person #0: 22.84 m (>= 2 m)",
+    "forklift #0 - person #5: 25.60 m (>= 2 m)",
+    "forklift #0 - person #3: 8.81 m (operator, skipped)",
+    "forklift #0 - person #2: 18.39 m (operator, skipped)"
+   ],
+   "hits": []
+  },
+  {
+   "s": 15,
+   "truth": ".",
+   "state": {
+    "phase": "idle",
+    "min_s": 1.0
+   },
+   "measured": [
+    "forklift #0 - person #0: 21.13 m (>= 2 m)",
+    "forklift #0 - person #5: 25.64 m (>= 2 m)",
+    "forklift #0 - person #3: 9.12 m (operator, skipped)",
+    "forklift #0 - person #2: 18.73 m (operator, skipped)"
+   ],
+   "hits": []
+  },
+  {
+   "s": 16,
+   "truth": ".",
+   "state": {
+    "phase": "idle",
+    "min_s": 1.0
+   },
+   "measured": [
+    "forklift #0 - person #0: 18.22 m (>= 2 m)",
+    "forklift #0 - person #5: 24.95 m (>= 2 m)",
+    "forklift #0 - person #3: 9.07 m (operator, skipped)",
+    "forklift #0 - person #2: 18.67 m (operator, skipped)"
+   ],
+   "hits": []
+  },
+  {
+   "s": 17,
+   "truth": ".",
+   "state": {
+    "phase": "idle",
+    "min_s": 1.0
+   },
+   "measured": [
+    "forklift #0 - person #0: 17.41 m (>= 2 m)",
+    "forklift #0 - person #5: 25.65 m (>= 2 m)",
+    "forklift #0 - person #3: 9.23 m (operator, skipped)",
+    "forklift #0 - person #2: 19.70 m (operator, skipped)"
+   ],
+   "hits": []
+  },
+  {
+   "s": 18,
+   "truth": ".",
+   "state": {
+    "phase": "idle",
+    "min_s": 1.0
+   },
+   "measured": [
+    "forklift #0 - person #0: 16.29 m (>= 2 m)",
+    "forklift #0 - person #5: 24.33 m (>= 2 m)",
+    "forklift #0 - person #3: 9.23 m (operator, skipped)",
+    "forklift #0 - person #2: 19.22 m (operator, skipped)"
+   ],
+   "hits": []
+  },
+  {
+   "s": 19,
+   "truth": ".",
+   "state": {
+    "phase": "idle",
+    "min_s": 1.0
+   },
+   "measured": [
+    "forklift #0 - person #0: 15.58 m (>= 2 m)",
+    "forklift #0 - person #5: 24.97 m (>= 2 m)",
+    "forklift #0 - person #3: 8.89 m (operator, skipped)",
+    "forklift #0 - person #2: 17.77 m (operator, skipped)"
+   ],
+   "hits": []
+  },
+  {
+   "s": 20,
+   "truth": ".",
+   "state": {
+    "phase": "idle",
+    "min_s": 1.0
+   },
+   "measured": [
+    "forklift #0 - person #0: 14.31 m (>= 2 m)",
+    "forklift #0 - person #5: 25.68 m (>= 2 m)",
+    "forklift #0 - person #3: 9.02 m (operator, skipped)",
+    "forklift #0 - person #2: 16.32 m (operator, skipped)"
+   ],
+   "hits": []
+  },
+  {
+   "s": 21,
+   "truth": ".",
+   "state": {
+    "phase": "idle",
+    "min_s": 1.0
+   },
+   "measured": [
+    "forklift #0 - person #0: 14.93 m (>= 2 m)",
+    "forklift #0 - person #5: 25.05 m (>= 2 m)",
+    "forklift #0 - person #3: 9.01 m (operator, skipped)",
+    "forklift #0 - person #2: 14.08 m (operator, skipped)"
+   ],
+   "hits": []
+  },
+  {
+   "s": 22,
+   "truth": ".",
+   "state": {
+    "phase": "idle",
+    "min_s": 1.0
+   },
+   "measured": [
+    "forklift #0 - person #0: 15.26 m (>= 2 m)",
+    "forklift #0 - person #5: 25.07 m (>= 2 m)",
+    "forklift #0 - person #3: 9.17 m (operator, skipped)",
+    "forklift #0 - person #2: 10.47 m (operator, skipped)"
+   ],
+   "hits": []
+  },
+  {
+   "s": 23,
+   "truth": ".",
+   "state": {
+    "phase": "idle",
+    "min_s": 1.0
+   },
+   "measured": [
+    "forklift #0 - person #0: 15.04 m (>= 2 m)",
+    "forklift #0 - person #5: 24.47 m (>= 2 m)",
+    "forklift #0 - person #3: 6.70 m (operator, skipped)",
+    "forklift #0 - person #2: 9.84 m (operator, skipped)"
+   ],
+   "hits": []
+  },
+  {
+   "s": 24,
+   "truth": ".",
+   "state": {
+    "phase": "idle",
+    "min_s": 1.0
+   },
+   "measured": [
+    "forklift #0 - person #0: 18.70 m (>= 2 m)",
+    "forklift #0 - person #5: 28.53 m (>= 2 m)",
+    "forklift #0 - person #3: 3.24 m (operator, skipped)",
+    "forklift #0 - person #2: 9.44 m (operator, skipped)"
+   ],
+   "hits": []
+  }
+ ]
+}

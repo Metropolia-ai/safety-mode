@@ -1,0 +1,32 @@
+{
+  "clip": "pexels-4280746-hatless-visitor",
+  "model": "sam-3.1",
+  "mode": "video",
+  "fps": 1,
+  "frame_size": [1280, 720],
+  "video": {"file": "test-footage/candidates/cache/video/hatless-visitor-1280.mp4", "width": 1280, "height": 720, "fps": 10.0, "frames": 122},
+  "source": "Meta Model API, video mode: one input_video request per clip and prompt (file upload, long side 1280 px, all frames), mask_encoding=one_bit, include_confidence=true; masks dropped",
+  "frame_index": "1 fps frame NNN (second s = NNN - 1) = video frame ceil((s + 0.5) * fps) - 1",
+  "box_units": "pixels of frames/<clip>/NNN.jpg, [x1, y1, x2, y2], x2/y2 exclusive",
+  "track_id": "SAM 3.1 object id, stable across the clip for one prompt (ids of different prompts are unrelated); a new id that starts within 1 s after an old one stopped, on an overlapping box (IoU >= 0.4) or within 0.3 m on the floor, takes the old id (detect/tracks.py); sam_track_id = the SAM id then",
+  "updated": "2026-10-29",
+  "prompts": ["hard hat", "person"],
+  "requests": {"hard hat": {"frames_in_response": 10, "elapsed_s": 10.891, "upload_s": 5.371, "file_id": "file-1644605900459573"}, "person": {"frames_in_response": 118, "elapsed_s": 15.314, "upload_s": 5.421, "file_id": "file-4320483898251892"}},
+  "frame_map": {"001": 4, "002": 14, "003": 24, "004": 34, "005": 44, "006": 54, "007": 64, "008": 74, "009": 84, "010": 94, "011": 104, "012": 114},
+  "bridges": [],
+  "tracks": {"hard hat": {"0": {"first_s": 10, "last_s": 10, "seconds": 1}}, "person": {"0": {"first_s": 0, "last_s": 10, "seconds": 11}, "1": {"first_s": 1, "last_s": 11, "seconds": 11}, "2": {"first_s": 3, "last_s": 9, "seconds": 7}}},
+  "frames": {
+    "001": {"hard hat": [], "person": [{"box": [288.0, 0.0, 371.0, 57.0], "score": 0.914, "track_id": 0}]},
+    "002": {"hard hat": [], "person": [{"box": [330.0, 0.0, 398.0, 106.0], "score": 0.914, "track_id": 0}, {"box": [1115.0, 439.0, 1247.0, 545.0], "score": 0.77, "track_id": 1}]},
+    "003": {"hard hat": [], "person": [{"box": [342.0, 0.0, 463.0, 206.0], "score": 0.914, "track_id": 0}, {"box": [983.0, 323.0, 1197.0, 561.0], "score": 0.77, "track_id": 1}]},
+    "004": {"hard hat": [], "person": [{"box": [409.0, 9.0, 566.0, 275.0], "score": 0.914, "track_id": 0}, {"box": [908.0, 248.0, 1072.0, 512.0], "score": 0.77, "track_id": 1}, {"box": [312.0, 82.0, 434.0, 288.0], "score": 0.871, "track_id": 2}]},
+    "005": {"hard hat": [], "person": [{"box": [480.0, 67.0, 608.0, 350.0], "score": 0.914, "track_id": 0}, {"box": [790.0, 177.0, 956.0, 421.0], "score": 0.77, "track_id": 1}, {"box": [378.0, 169.0, 506.0, 390.0], "score": 0.871, "track_id": 2}]},
+    "006": {"hard hat": [], "person": [{"box": [557.0, 149.0, 686.0, 395.0], "score": 0.914, "track_id": 0}, {"box": [722.0, 120.0, 843.0, 371.0], "score": 0.77, "track_id": 1}, {"box": [454.0, 229.0, 589.0, 450.0], "score": 0.871, "track_id": 2}]},
+    "007": {"hard hat": [], "person": [{"box": [638.0, 233.0, 765.0, 480.0], "score": 0.914, "track_id": 0}, {"box": [644.0, 53.0, 738.0, 271.0], "score": 0.77, "track_id": 1}, {"box": [531.0, 327.0, 650.0, 547.0], "score": 0.871, "track_id": 2}]},
+    "008": {"hard hat": [], "person": [{"box": [727.0, 326.0, 873.0, 593.0], "score": 0.914, "track_id": 0}, {"box": [541.0, 4.0, 643.0, 251.0], "score": 0.77, "track_id": 1}, {"box": [609.0, 401.0, 736.0, 611.0], "score": 0.871, "track_id": 2}]},
+    "009": {"hard hat": [], "person": [{"box": [812.0, 432.0, 955.0, 670.0], "score": 0.914, "track_id": 0}, {"box": [468.0, 0.0, 551.0, 207.0], "score": 0.77, "track_id": 1}, {"box": [687.0, 513.0, 832.0, 720.0], "score": 0.871, "track_id": 2}]},
+    "010": {"hard hat": [], "person": [{"box": [903.0, 535.0, 1063.0, 720.0], "score": 0.914, "track_id": 0}, {"box": [385.0, 0.0, 507.0, 153.0], "score": 0.77, "track_id": 1}, {"box": [753.0, 618.0, 902.0, 720.0], "score": 0.871, "track_id": 2}]},
+    "011": {"hard hat": [{"box": [1076.0, 662.0, 1130.0, 715.0], "score": 0.75, "track_id": 0}], "person": [{"box": [961.0, 649.0, 1144.0, 720.0], "score": 0.914, "track_id": 0}, {"box": [315.0, 0.0, 422.0, 143.0], "score": 0.77, "track_id": 1}]},
+    "012": {"hard hat": [], "person": [{"box": [308.0, 0.0, 378.0, 90.0], "score": 0.77, "track_id": 1}]}
+  }
+}

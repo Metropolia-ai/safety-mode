@@ -1,0 +1,13 @@
+/mnt/data/work/venv-sam/lib/python3.10/site-packages/timm/models/layers/__init__.py:49: FutureWarning: Importing from timm.models.layers is deprecated, please import via timm.layers
+  warnings.warn(f"Importing from {__name__} is deprecated, please import via timm.layers", FutureWarning)
+/mnt/data/work/venv-sam/lib/python3.10/site-packages/torch/backends/__init__.py:46: UserWarning: Please use the new API settings to control TF32 behavior, such as torch.backends.cudnn.conv.fp32_precision = 'tf32' or torch.backends.cuda.matmul.fp32_precision = 'ieee'. Old settings, e.g, torch.backends.cuda.matmul.allow_tf32 = True, torch.backends.cudnn.allow_tf32 = True, allowTF32CuDNN() and allowTF32CuBLAS() will be deprecated after Pytorch 2.9. Please see https://pytorch.org/docs/main/notes/cuda.html#tensorfloat-32-tf32-on-ampere-and-later-devices (Triggered internally at /opt/pytorch/aten/src/ATen/Context.cpp:80.)
+  self.setter(val)
+Resizing positional embeddings from 77 to 16
+[efficientsam3-ev-m] pexels-32243653-forklift-operator frames=65 size=(1280, 720) load=8.6s
+person {'mean_ms': 289.0, 'p95_ms': 290.1, 'min_ms': 287.6, 'max_ms': 290.5, 'fps': 3.46, 'n': 60, 'found_mean': 0.5, 'found_min': 0, 'found_max': 2, 'frames_with_found': 24}
+forklift {'mean_ms': 289.0, 'p95_ms': 289.9, 'min_ms': 288.0, 'max_ms': 290.1, 'fps': 3.46, 'n': 60, 'found_mean': 0.1, 'found_min': 0, 'found_max': 1, 'frames_with_found': 6}
+high-visibility vest {'mean_ms': 289.5, 'p95_ms': 290.9, 'min_ms': 287.5, 'max_ms': 291.3, 'fps': 3.45, 'n': 60, 'found_mean': 0, 'found_min': 0, 'found_max': 0, 'frames_with_found': 0}
+hard hat {'mean_ms': 289.0, 'p95_ms': 289.8, 'min_ms': 287.6, 'max_ms': 290.6, 'fps': 3.46, 'n': 60, 'found_mean': 0, 'found_min': 0, 'found_max': 0, 'frames_with_found': 0}
+split {'prompt': 'person', 'image_encoder': (75.0, 76.5), 'text_decoder': (218.8, 219.5)}
+memory {'ram_first_mb': 5764, 'ram_peak_mb': 7128, 'ram_peak_delta_mb': 1364, 'cuda_max_allocated_mb': 1390.5, 'cuda_max_reserved_mb': 1570.0, 'weights_mb': 446.7}
+saved /mnt/data/work/aivm-safety-mode/jetson-bench/logs/efficientsam3-ev-m_pexels-32243653-forklift-operator.json

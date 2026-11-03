@@ -1,0 +1,24 @@
+{
+  "rule_id": "r1-forks",
+  "title": "Nobody in front of the forks",
+  "objects": [
+    {
+      "name": "person",
+      "prompt": "person"
+    }
+  ],
+  "zones": [
+    "fork_zone"
+  ],
+  "condition": {
+    "in_zone": {
+      "object": "person",
+      "zone": "fork_zone"
+    }
+  },
+  "min_duration_s": 2,
+  "severity": "high",
+  "explanation_template": "{person_count} person(s) in front of the forks for {duration_s} s, at {time}.",
+  "unsupported": null,
+  "suggested_rewrite": null
+}

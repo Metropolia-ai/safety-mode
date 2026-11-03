@@ -1,0 +1,267 @@
+{
+ "03088a6b9928f3624cc6": {
+  "explanation": "The camera detected a forklift inside Past the gate in the centre of the frame, near the camera. The forklift was there for 7 s starting at 00:02.",
+  "severity_check": "medium",
+  "source": "model"
+ },
+ "034d1cfd6859b0f92866": {
+  "explanation": "The camera detected a forklift within 1.61 m of a person in the centre of the frame, mid-distance from the camera. The distance was 1.61 m, the limit is 2 m. The event lasted 2 s and started at 00:05.",
+  "severity_check": "high",
+  "source": "model"
+ },
+ "05507ad5579feb16f8bd": {
+  "explanation": "The camera detected Person #0 in the centre of the frame, far from the camera, inside Past the gate, missing a safety vest. The condition lasted 10 s starting at 00:02.",
+  "severity_check": "medium",
+  "source": "model"
+ },
+ "05aff4f1d937fd4ebcb1": {
+  "explanation": "Person #0 was inside Warehouse floor in the centre of the frame, far from the camera without a safety vest. The camera detected the missing safety vest for 10 s starting at 00:02.",
+  "severity_check": "medium",
+  "source": "model"
+ },
+ "066e7081a23dcdcf375c": {
+  "explanation": "Person #1 was inside Past the gate in the centre of the frame, far from the camera, without a hard hat and safety vest. The camera detected the condition for 12 s starting at 00:03.",
+  "severity_check": "medium",
+  "source": "model"
+ },
+ "0b17ba0abeaa12529bc6": {
+  "explanation": "The camera detected Person #0 on the right side of the frame, near the camera, inside Shop floor without a hard hat and safety vest. The condition lasted 17 s starting at 00:07.",
+  "severity_check": "medium",
+  "source": "model"
+ },
+ "1cf575d188f66141ac79": {
+  "explanation": "The camera detected Person #0 on the left side of the frame, mid-distance from the camera, inside Shop floor without a hard hat and safety vest. The event started at 00:07 and lasted 17 s.",
+  "severity_check": "medium",
+  "source": "model"
+ },
+ "230e773144d757d80078": {
+  "explanation": "The camera detected Person #1 inside Site floor on the right side of the frame, near the camera without a safety vest. The condition lasted 6 s starting at 00:02.",
+  "severity_check": "medium",
+  "source": "model"
+ },
+ "24c6ebf843ee48dda390": {
+  "explanation": "The camera detected person #7 and person #12 inside Yellow zone (reach-truck parking spot) while a forklift was running. The event started at 00:22 and lasted 1 s.",
+  "severity_check": "high",
+  "source": "model"
+ },
+ "25cbb9dcb87664b2089c": {
+  "explanation": "The camera detected Person #1 in the centre of the frame, far from the camera, inside Warehouse floor without a safety vest. The condition lasted 12 s starting at 00:03.",
+  "severity_check": "medium",
+  "source": "model"
+ },
+ "2c53c7b1a25889bf9bae": {
+  "explanation": "The camera detected forklift #0 within 0.26 m of person #1 and person #2 in the centre and on the right side of the frame, mid-distance from the camera, the limit is 2 m. The condition lasted 6 s starting at 00:01.",
+  "severity_check": "critical",
+  "source": "model"
+ },
+ "2e67ca80a9d0c9404021": {
+  "explanation": "The camera detected Person #1 inside Site floor on the right side of the frame, near the camera, without a safety vest. The condition lasted 6 s starting at 00:02.",
+  "severity_check": "medium",
+  "source": "model"
+ },
+ "32d2c08913d3245af81d": {
+  "explanation": "The camera detected a forklift within 0.17 m of a person on the left side of the frame, far from the camera, where the limit is 2 m. The event started at 00:10 and lasted 1 s.",
+  "severity_check": "critical",
+  "source": "model"
+ },
+ "43bbb1583dfb2bf91cb6": {
+  "explanation": "The camera detected Person #5 inside Past the gate without a hard hat on the left side of the frame, far from the camera. The event started at 00:10 and lasted 9 s.",
+  "severity_check": "medium",
+  "source": "model"
+ },
+ "4d27820f428353969340": {
+  "explanation": "The camera detected forklift #0 within 1.54 m of person #1 and person #2 in the centre of the frame, mid-distance from the camera, the limit is 2 m. The event started at 00:01 and lasted 6 s.",
+  "severity_check": "high",
+  "source": "model"
+ },
+ "4fc54337fb5bf2e84cce": {
+  "explanation": "Person #1 was inside Site floor without a safety vest on the right side of the frame, near the camera. The camera detected the condition for 6 s starting at 00:02.",
+  "severity_check": "medium",
+  "source": "model"
+ },
+ "52c33228194e92653231": {
+  "explanation": "The camera detected forklift #0 within 0.6 m of person #2 and person #7 in the centre of the frame, mid-distance from the camera, the limit is 2 m. The event lasted 1 s and started at 00:15.",
+  "severity_check": "high",
+  "source": "model"
+ },
+ "58e8b82171f41aef5083": {
+  "explanation": "The camera detected Person #2 in the Yellow zone (reach-truck parking spot) in the centre of the frame, mid-distance from the camera while a forklift was running. The event started at 00:01 and lasted 4 s.",
+  "severity_check": "high",
+  "source": "model"
+ },
+ "5fc12d67d1c4b6ca261c": {
+  "explanation": "The camera detected a forklift in the centre of the frame, mid-distance from the camera, inside Door apron. The event started at 00:01 and lasted 4 s.",
+  "severity_check": "medium",
+  "source": "model"
+ },
+ "65906642f0d56756557e": {
+  "explanation": "The camera detected forklift #0 in the centre of the frame, mid-distance from the camera, inside Door apron. The event lasted 4 s starting at 00:01.",
+  "severity_check": "medium",
+  "source": "model"
+ },
+ "671a44fd5443a4b312a7": {
+  "explanation": "The camera detected forklift #0 within 1.54 m of person #2 in the centre of the frame, mid-distance from the camera, the limit is 2 m. The condition lasted 6 s and started at 00:01.",
+  "severity_check": "high",
+  "source": "model"
+ },
+ "6b4f83a5205d9720c02a": {
+  "explanation": "The camera detected Person #2 inside the Yellow zone in the centre of the frame, far from the camera, while a forklift was running. The event started at 00:01 and lasted 2 s.",
+  "severity_check": "high",
+  "source": "model"
+ },
+ "6d2d283f8baec6067967": {
+  "explanation": "Person #0 was inside Shop floor without a safety vest on the left side of the frame, mid-distance from the camera. The camera detected the condition for 17 s starting at 00:07.",
+  "severity_check": "medium",
+  "source": "model"
+ },
+ "6dbec1d5e51090098235": {
+  "explanation": "The camera detected forklift #0 within 1.9 m of person #2 on the left side of the frame, far from the camera, the limit is 2 m. The event started at 00:10 and lasted 3 s.",
+  "severity_check": "high",
+  "source": "model"
+ },
+ "721126e5e31907a9ffea": {
+  "explanation": "The camera detected forklift #0, person #1 and person #2 on the right side of the frame, mid-distance to far from the camera, where a forklift was within 0.26 m of a person, the limit is 2 m. The event lasted 6 s starting at 00:01.",
+  "severity_check": "critical",
+  "source": "model"
+ },
+ "7ee781353ab8ba2656c2": {
+  "explanation": "Person #0 was without a safety vest on the right side of the frame, far from the camera. The camera detected the missing safety vest for 4 s starting at 00:07.",
+  "severity_check": "medium",
+  "source": "model"
+ },
+ "88bb2d74cd159b475b3e": {
+  "explanation": "The camera detected a person inside Past the gate in the centre of the frame, far from the camera, missing a safety vest. The event lasted 10 s and started at 00:02.",
+  "severity_check": "medium",
+  "source": "model"
+ },
+ "8957cf032286e2a85dbf": {
+  "explanation": "The camera detected person #3 and person #5 inside Warehouse floor without a hard hat and a safety vest. The condition lasted 20 s starting at 00:07.",
+  "severity_check": "medium",
+  "source": "model"
+ },
+ "8a85d54c48be8c634fd0": {
+  "explanation": "Forklift #0 was inside the Walkway crossing in the centre of the frame, near the camera. The camera detected it for 3 s starting at 00:06.",
+  "severity_check": "medium",
+  "source": "model"
+ },
+ "91185b4dc7557b724c8b": {
+  "explanation": "The camera detected a person in the centre of the frame, far from the camera, inside the Yellow zone while a forklift was running. The condition lasted 1 s starting at 00:18.",
+  "severity_check": "high",
+  "source": "model"
+ },
+ "918a24481501fb52a43d": {
+  "explanation": "The camera detected a forklift standing inside Door apron in the centre of the frame, mid-distance from the camera. The event started at 00:01 and lasted 4 s.",
+  "severity_check": "medium",
+  "source": "model"
+ },
+ "92f109a21b20e49ce9f5": {
+  "explanation": "The camera detected Person #0 inside Shop floor on the right side of the frame, near the camera without a safety vest. The condition lasted 17 s starting at 00:07.",
+  "severity_check": "medium",
+  "source": "model"
+ },
+ "930691eb4e28e964455c": {
+  "explanation": "The camera detected forklift #0 within 0.88 m of person #2 and person #5 on the left side of the frame, far from the camera. The distance was 0.88 m, the limit is 2 m. The event started at 00:10 and lasted 3 s.",
+  "severity_check": "high",
+  "source": "model"
+ },
+ "9ba618eef72dbcdaad91": {
+  "explanation": "Person #1 was inside Site floor on the right side of the frame, near the camera without a safety vest. The camera detected the condition starting at 00:02 for 6 s.",
+  "severity_check": "medium",
+  "source": "model"
+ },
+ "9ef06b33b85e3fdc5b40": {
+  "explanation": "The camera detected Forklift #0 on the right side of the frame, near the camera, inside Walkway crossing. The event started at 00:06 and lasted 3 s.",
+  "severity_check": "medium",
+  "source": "model"
+ },
+ "b2a871920c91a5409ade": {
+  "explanation": "The camera detected a person inside the Yellow zone while a forklift was running in the centre of the frame, mid-distance from the camera. The event lasted 4 s and started at 00:01.",
+  "severity_check": "high",
+  "source": "model"
+ },
+ "b7afdf0a6088d5c00db3": {
+  "explanation": "Person #0 was on the left side of the frame, mid-distance from the camera, inside Shop floor without a hard hat and safety vest. The camera detected the missing protective equipment for 17 s starting at 00:07.",
+  "severity_check": "medium",
+  "source": "model"
+ },
+ "ba5dc02a919f9554dffc": {
+  "explanation": "The camera detected Person #11 inside the Yellow zone in the centre of the frame, mid-distance from the camera while a forklift was running. The event started at 00:18 and lasted 1 s.",
+  "severity_check": "high",
+  "source": "model"
+ },
+ "c3cc33fa2a00b038d520": {
+  "explanation": "Person #1 was on the right side of the frame, far from the camera, inside Warehouse floor without a hard hat and safety vest. The camera detected the condition for 22 s starting at 00:03.",
+  "severity_check": "medium",
+  "source": "model"
+ },
+ "c7de13915560327d0aa7": {
+  "explanation": "Person #11 was inside the Yellow zone in the centre of the frame, mid-distance from the camera while a forklift was running. The camera detected the condition for 1 s starting at 00:18.",
+  "severity_check": "high",
+  "source": "model"
+ },
+ "ca2e74d6067c1e608da1": {
+  "explanation": "The camera detected two persons inside Yellow zone while a forklift was running. The event started at 00:22 and lasted 1 s.",
+  "severity_check": "high",
+  "source": "model"
+ },
+ "d1e895e428c13e7df973": {
+  "explanation": "The camera detected person #7 and person #12 inside Yellow zone far from the camera while a forklift was running. The event started at 00:22 and lasted 1 s.",
+  "severity_check": "high",
+  "source": "model"
+ },
+ "d4b7d50630f9ed08cf4a": {
+  "explanation": "The camera detected Forklift #0 stopped inside Area in front of the loading door in the centre of the frame, mid-distance from the camera. The stop lasted 4 s starting at 00:01.",
+  "severity_check": "medium",
+  "source": "model"
+ },
+ "da5067eef9a1e65012aa": {
+  "explanation": "The camera detected forklift #0 within 1.9 m of person #2 and person #5 on the left side of the frame, far from the camera, the limit is 2 m. The condition lasted 3 s starting at 00:10.",
+  "severity_check": "high",
+  "source": "model"
+ },
+ "db0c9d0ece35f37ce48a": {
+  "explanation": "The camera detected Person #1 in the centre of the frame, far from the camera, inside Warehouse floor without a hard hat and safety vest. The condition lasted 22 s starting at 00:03.",
+  "severity_check": "medium",
+  "source": "model"
+ },
+ "e2de4c68c2a68ea2f79c": {
+  "explanation": "The camera detected Person #2 inside the Yellow zone while a forklift was running in the centre of the frame, mid-distance from the camera. The condition lasted 4 s starting at 00:01.",
+  "severity_check": "high",
+  "source": "model"
+ },
+ "edecd78a933ed7d4d8f3": {
+  "explanation": "The camera detected Person #1 inside Past the gate on the right side of the frame, far from the camera, missing a hard hat and safety vest. The condition lasted 22 s and started at 00:03.",
+  "severity_check": "medium",
+  "source": "model"
+ },
+ "ee85ca8e3f048a6c7076": {
+  "explanation": "Person #11 was in the centre of the frame, mid-distance from the camera, inside Yellow zone (reach-truck parking spot) while a forklift was running. The camera detected the condition for 1 s starting at 00:18.",
+  "severity_check": "high",
+  "source": "model"
+ },
+ "eebb88654413dc277f06": {
+  "explanation": "The camera detected a forklift within 0.54 m of a person in the centre of the frame, far from the camera, the limit is 2 m. The event started at 00:01 and lasted 2 s.",
+  "severity_check": "critical",
+  "source": "model"
+ },
+ "f1818f1e1a9a0fc9e2a4": {
+  "explanation": "The camera detected a person without a hard hat and a safety vest on the right side of the frame, far from the camera, inside Past the gate. The event lasted 22 s and started at 00:03.",
+  "severity_check": "medium",
+  "source": "model"
+ },
+ "f5fe9d8b265723727656": {
+  "explanation": "The camera detected forklift #0 within 0.88 m of person #2 and person #5 on the left side of the frame, far from the camera, the limit is 2 m. The condition lasted 3 s starting at 00:10.",
+  "severity_check": "high",
+  "source": "model"
+ },
+ "fac79d85d5aafb57ff5c": {
+  "explanation": "The camera detected Person #1 inside the Yellow zone in the centre of the frame, mid-distance from the camera while a forklift was running. The condition lasted 3 s starting at 00:02.",
+  "severity_check": "high",
+  "source": "model"
+ },
+ "ff72ef47c99dfc7269bb": {
+  "explanation": "The camera detected forklift #0 within 1.6 m of person #1 in the centre of the frame, mid-distance from the camera. The distance was 1.6 m, the limit is 2 m. The condition lasted 6 s starting at 00:01.",
+  "severity_check": "high",
+  "source": "model"
+ }
+}

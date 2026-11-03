@@ -1,0 +1,36 @@
+{
+  "clip": "pexels-38707991-man-crosses-floor",
+  "reference_frame": "frames/pexels-38707991-man-crosses-floor/010.jpg",
+  "frame_size": [
+    1280,
+    720
+  ],
+  "zones": [
+    {
+      "name": "past_gate",
+      "title": "Shop floor",
+      "polygon": [
+        [
+          0.0,
+          0.62
+        ],
+        [
+          1.0,
+          0.62
+        ],
+        [
+          1.0,
+          1.0
+        ],
+        [
+          0.0,
+          1.0
+        ]
+      ],
+      "note": "The floor area the camera sees: from the base of the racks to the bottom of the frame, full width.",
+      "dev_note": "All visible warehouse floor from the base of the racks (y≈0.62) to the bottom edge of the frame. in_zone uses the footpoint (the middle of the bottom edge of the box)."
+    }
+  ],
+  "floor_calibration": null,
+  "floor_calibration_dev_note": "No floor calibration: there is no object of known size on the floor, and rule r02 needs no distances."
+}

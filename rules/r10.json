@@ -1,0 +1,22 @@
+{
+  "rule_id": "r10",
+  "title": "Person lying on the floor",
+  "objects": [
+    {
+      "name": "person",
+      "prompt": "person"
+    }
+  ],
+  "zones": [],
+  "condition": {
+    "pose": {
+      "person": "person",
+      "pose": "lying"
+    }
+  },
+  "min_duration_s": 10,
+  "severity": "critical",
+  "explanation_template": "Person lying on the floor for {duration_s} s, since {time}.",
+  "unsupported": null,
+  "suggested_rewrite": null
+}

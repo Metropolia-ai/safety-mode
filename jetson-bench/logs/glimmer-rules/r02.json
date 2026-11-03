@@ -1,0 +1,47 @@
+{
+  "rule_id": "r2",
+  "title": "Hard hat and safety vest mandatory past gate",
+  "objects": [
+    {
+      "name": "person",
+      "prompt": "person"
+    },
+    {
+      "name": "hard_hat",
+      "prompt": "hard hat"
+    },
+    {
+      "name": "safety_vest",
+      "prompt": "safety vest"
+    }
+  ],
+  "zones": [
+    "past_gate"
+  ],
+  "condition": {
+    "all": [
+      {
+        "in_zone": {
+          "object": "person",
+          "zone": "past_gate"
+        }
+      },
+      {
+        "not": {
+          "wearing": {
+            "person": "person",
+            "ppe": [
+              "hard_hat",
+              "safety_vest"
+            ]
+          }
+        }
+      }
+    ]
+  },
+  "min_duration_s": 3,
+  "severity": "medium",
+  "explanation_template": "Person without hard hat and safety vest detected in past_gate at {time} for {duration_s}s.",
+  "unsupported": null,
+  "suggested_rewrite": null
+}

@@ -1,0 +1,47 @@
+{
+  "condition": {
+    "all": [
+      {
+        "in_zone": {
+          "object": "person",
+          "zone": "past_gate"
+        }
+      },
+      {
+        "not": {
+          "wearing": {
+            "person": "person",
+            "ppe": [
+              "hard_hat",
+              "safety_vest"
+            ]
+          }
+        }
+      }
+    ]
+  },
+  "explanation_template": "Person on shop floor missing {missing_ppe} for {duration_s} at {time}",
+  "min_duration_s": 3,
+  "objects": [
+    {
+      "name": "person",
+      "prompt": "person"
+    },
+    {
+      "name": "hard_hat",
+      "prompt": "hard hat"
+    },
+    {
+      "name": "safety_vest",
+      "prompt": "safety vest"
+    }
+  ],
+  "rule_id": "c1",
+  "severity": "medium",
+  "suggested_rewrite": null,
+  "title": "Hard hat and high-visibility vest required on shop floor",
+  "unsupported": null,
+  "zones": [
+    "past_gate"
+  ]
+}

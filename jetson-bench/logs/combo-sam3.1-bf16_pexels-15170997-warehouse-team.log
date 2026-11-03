@@ -1,0 +1,7 @@
+idle: RAM 2899/62841MB
+loaded /mnt/data/work/weights/sam3.1/sam3.1_multiplex.pt and found missing and/or unexpected keys:
+missing_keys=['backbone.vision_backbone.convs.3.conv_1x1.weight', 'backbone.vision_backbone.convs.3.conv_1x1.bias', 'backbone.vision_backbone.convs.3.conv_3x3.weight', 'backbone.vision_backbone.convs.3.conv_3x3.bias']
+[combo-sam3.1-bf16] pexels-15170997-warehouse-team frames=25 size=(720, 1280) load=28.8s
+combo frame {'mean_ms': 853.3, 'p95_ms': 855.4, 'min_ms': 849.0, 'max_ms': 855.8, 'fps': 1.17, 'n': 20} enc 343.0 {'person': 171.0, 'forklift': 169.8, 'high-visibility vest': 169.6}
+memory {'ram_first_mb': 2911, 'ram_peak_mb': 10378, 'ram_peak_delta_mb': 7467, 'cuda_max_allocated_mb': 4615.1, 'weights_mb': 3340.5}
+saved /mnt/data/work/aivm-safety-mode/jetson-bench/logs/combo-sam3.1-bf16_pexels-15170997-warehouse-team.json

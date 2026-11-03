@@ -1,0 +1,36 @@
+{
+  "clip": "pexels-31751344-forklift-crosses-aisle",
+  "reference_frame": "frames/pexels-31751344-forklift-crosses-aisle/001.jpg",
+  "frame_size": [
+    1280,
+    720
+  ],
+  "zones": [
+    {
+      "name": "pedestrian_lane",
+      "title": "Walkway crossing",
+      "polygon": [
+        [
+          0.22,
+          0.66
+        ],
+        [
+          0.74,
+          0.66
+        ],
+        [
+          0.92,
+          1.0
+        ],
+        [
+          0.06,
+          1.0
+        ]
+      ],
+      "note": "Where the walkway between the two rack rows continues across the foreground aisle, widening towards the camera. Not painted on the floor, drawn by hand.",
+      "dev_note": "Continuation of the aisle between the racks in the foreground, where the forklift drives across: the aisle width between the rack ends (x 0.22–0.74 at y 0.66), widening towards the bottom edge of the frame. Named pedestrian_lane so that r08 loads."
+    }
+  ],
+  "floor_calibration": null,
+  "floor_calibration_dev_note": "No floor calibration: r08 only checks whether an object is in the zone."
+}

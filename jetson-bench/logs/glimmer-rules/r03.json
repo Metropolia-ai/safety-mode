@@ -1,0 +1,27 @@
+{
+  "rule_id": "r3",
+  "title": "Loader must stay at least 2 m from pedestrian",
+  "objects": [
+    {
+      "name": "forklift",
+      "prompt": "forklift"
+    },
+    {
+      "name": "person",
+      "prompt": "person"
+    }
+  ],
+  "zones": [],
+  "condition": {
+    "distance_lt": {
+      "a": "forklift",
+      "b": "person",
+      "m": 2
+    }
+  },
+  "min_duration_s": 1,
+  "severity": "high",
+  "explanation_template": "A forklift is within {distance_m} m of a person at {time} (duration {duration_s}s).",
+  "unsupported": null,
+  "suggested_rewrite": null
+}

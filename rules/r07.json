@@ -1,0 +1,26 @@
+{
+  "rule_id": "r7",
+  "title": "At most one person in the battery charging zone",
+  "objects": [
+    {
+      "name": "person",
+      "prompt": "person"
+    }
+  ],
+  "zones": [
+    "charging_zone"
+  ],
+  "condition": {
+    "count_in_zone": {
+      "object": "person",
+      "zone": "charging_zone",
+      "op": ">",
+      "n": 1
+    }
+  },
+  "min_duration_s": 5,
+  "severity": "low",
+  "explanation_template": "{count} people in the battery charging zone for {duration_s} s, at {time}.",
+  "unsupported": null,
+  "suggested_rewrite": null
+}

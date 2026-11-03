@@ -1,0 +1,34 @@
+23:56:59 page load: DOM 1.67 s, first clip playable 4.57 s, network idle 6.44 s; navigation entry {"name":"https://safety-mode.vercel.app/","entryType":"navigation","startTime":0,"duration":1920.5,"navigationId":8820,"initiatorType":"navigation","deliveryType":"","nextHopProtocol":"h2","renderBloc
+23:56:59 OK   first clip selected on load
+23:56:59 OK   clip selector order: Worker crosses the floor | Site: vest check | Forklift crosses the walkway | Team at the racks | Webcam | Your clip
+23:57:00 screenshot 01-start.png
+23:57:01 OK   /api/health without a key shows the limits: {'sam_frames_per_hour_per_ip': 300, 'spark_calls_per_hour_per_ip': 30, 'scout_runs_per_hour_per_ip': 2, 'scout_steps_per_hour_per_ip': 40, 'sam_frames_per_day': 2500, 'spark_calls_per_day': 500, 'scout_runs_per_day': 30, 'scout_steps_per_day': 600}; remaining for this address {'sam_frames': 288, 'spark_calls': 30, 'scout_runs': 2, 'scout_steps': 40}; today {'sam_frames': 2488, 'spark_calls': 500, 'scout_runs': 30, 'scout_steps': 600}
+23:57:01 OK   no key field on the page: footer 'Built during the Meta Global AI Developer Hackathon, 26 Oct–4 Nov 2026\nDetection: SAM 3.1. Rules, explanations and the report: Muse Spark. Clips: Pexels.\nFrappua, Helsinki'
+23:57:02 OK   desk: 'Try at your desk' chips visible on the webcam tab: Try at your desk: Wear glasses Wear headphones No cup in the keyboard zone
+23:57:04 desk glasses: rule 'Everyone in view must wear glasses, alert after 2 seconds.' compiled in 0.7 s: 'SAM 3.1 looks for\n“person”“glasses”\nWhere\nWhole frame\nCondition\nAlert when the person is missing glasses.\nHolds for\n2 s before an alert\nSeverity\nMedium\nMuse Spark result, cached from an earlier identical request, checked against the rule schema.\nCompiled rule (JSON)'
+23:57:05 screenshot desk-glasses-ready.png
+23:57:09 screenshot desk-glasses-alert.png
+23:57:38 OK   desk glasses: webcam alert 1.7 s after Start
+23:57:38 desk glasses: 16 frames, strip 'A...AAAAAA.A...A'; note 'alert at 0 s, alert 8–18 s, alert at 22 s, alert at 30 s'; caption 'Alert at 00:00: person without glasses 0 s. Alert from 00:08 to 00:18: person without glasses 8 s, 10 s, 12 s, 14 s, 16 s, 18 s. Alert at 00:22: person without glasses 22 s. Alert at 00:30: person without glasses 30 s.'
+23:57:39 desk glasses frame 00: frame 1, 0 s: alert
+23:57:39 desk glasses frame 01: frame 2, 2 s: rule holds
+23:57:39 desk glasses frame 02: frame 3, 4 s: rule holds
+23:57:39 desk glasses frame 03: frame 4, 6 s: rule holds
+23:57:39 desk glasses frame 04: frame 5, 8 s: alert
+23:57:39 desk glasses frame 05: frame 6, 10 s: alert
+23:57:39 desk glasses frame 06: frame 7, 12 s: alert
+23:57:39 desk glasses frame 07: frame 8, 14 s: alert
+23:57:39 desk glasses frame 08: frame 9, 16 s: alert
+23:57:39 desk glasses frame 09: frame 10, 18 s: alert
+23:57:39 desk glasses frame 10: frame 11, 20 s: rule holds
+23:57:39 desk glasses frame 11: frame 12, 22 s: alert
+23:57:39 desk glasses frame 12: frame 13, 24 s: rule holds
+23:57:39 desk glasses frame 13: frame 14, 26 s: rule holds
+23:57:39 desk glasses frame 14: frame 15, 28 s: rule holds
+23:57:39 desk glasses frame 15: frame 16, 30 s: alert
+23:57:39 desk glasses: feed ['Glasses required for everyone in view | Webcam, 00:30, medium, condition held 2 s | Person without glasses detected at 00:30 for 2.', 'Glasses required for everyone in view | Webcam, 00:22, medium, condition held 2 s | The camera detected a person without glasses in the centre of the frame, near the camera. The condition lasted 2 s starting at 00:22.', 'Glasses required for everyone in view | Webcam, 00:08, medium, condition held 2 s | The camera detected a person without glasses in the centre of the frame, near the camera. The condition lasted 2 s starting at 00:08.', 'Glasses required for everyone in view | Webcam, 00:00, medium, condition held 2 s | The camera detected a person without glasses in the centre of the frame, near the camera. The event lasted 2 s and started at 00:00.']
+23:57:39 screenshot desk-glasses-end.png
+23:57:39 API times: compile n=1 0.21-0.21 s; detect n=17 0.87-1.92 s; explain n=4 0.17-7.40 s; health n=1 0.34-0.34 s; step n=16 0.17-0.35 s
+23:57:40 left for this address this hour: {'sam_frames': 278, 'spark_calls': 25, 'scout_runs': 2, 'scout_steps': 40}
+23:57:40 OK   console errors: none
+23:57:40 failures: none
